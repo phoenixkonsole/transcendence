@@ -4527,8 +4527,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Sie müssen einen privaten Masternode-Schlüssel in der Konfiguration festlegen. Bitte nutzen Sie die Dokumentation zwecks Hilfe.</translation>
     </message>
     <message>
-        <source>(22123 could be used only on mainnet)</source>
-        <translation>(22123 kann nur im Mainnet verwendet werden)</translation>
+        <source>(9333 could be used only on mainnet)</source>
+        <translation>(9333 kann nur im Mainnet verwendet werden)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4539,8 +4539,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 22123 for mainnet)</source>
-        <translation>(muss im Mainnet 22123 sein)</translation>
+        <source>(must be 9333 for mainnet)</source>
+        <translation>(muss im Mainnet 9333 sein)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>

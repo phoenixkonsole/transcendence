@@ -172,7 +172,7 @@
         <translation>Подтверждение шифрования кошелька</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
         <translation>Transcendence сейчас закроется, чтобы завершить процесс шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши Transcendence от кражи с использованием вредоносного ПО.</translation>
     </message>
     <message>
@@ -180,8 +180,8 @@
         <translation>Вы действительно хотите зашифровать свой кошелек?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Внимание: если вы зашифруете свой кошелёк и потеряете от него пароль, то вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ СВОИ TELOSIPCOIN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Внимание: если вы зашифруете свой кошелёк и потеряете от него пароль, то вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ СВОИ TELOS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1516,32 +1516,32 @@ Please check the address and try again.</source>
         <translation>Выберите уровень конфиденциальности.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Используйте 2 разные мастерноды для смешивания средств до 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Используйте 2 разные мастерноды для смешивания средств до 10000 TELOS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Используйте 8 разных мастернод для смешивания средств до 10000 TELOSIPCOIN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Используйте 8 разных мастернод для смешивания средств до 10000 TELOS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Используйте 16 разных мастернод</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 TELOSIPCOIN для анонимизации 10000 TELOSIPCOIN</translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 TELOS для анонимизации 10000 TELOS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Это средний по скорости вариант и он будет стоить около 0.05 TELOSIPCOIN для анонимизации 10000 TELOSIPCOIN</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>Это средний по скорости вариант и он будет стоить около 0.05 TELOS для анонимизации 10000 TELOS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Это самый медленный и безопасный вариант. Максимальная анонимность стоит</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 TELOSIPCOIN за 10000 TELOSIPCOIN которые вы собираетесь анонимизировать.</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>0.1 TELOS за 10000 TELOS которые вы собираетесь анонимизировать.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1684,8 +1684,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Карта порта, использующего &amp;UPnP</translation>
     </message>
     <message>
-        <source>Percentage of incoming TELOSIPCOIN which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>Процент приходящих TELOSIPCOIN, которые автоматически конвертируются в zTELOS благодаря Zerocoin протоколу (min: 10%)</translation>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Процент приходящих TELOS, которые автоматически конвертируются в zTELOS благодаря Zerocoin протоколу (min: 10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
@@ -1827,8 +1827,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Вид</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN Balances</source>
-        <translation>Баланс TELOSIPCOIN</translation>
+        <source>TELOS Balances</source>
+        <translation>Баланс TELOS</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1891,8 +1891,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Расходуемый:</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN:</source>
-        <translation>TELOSIPCOIN:</translation>
+        <source>TELOS:</source>
+        <translation>TELOS:</translation>
     </message>
     <message>
         <source>zTELOS:</source>
@@ -2020,8 +2020,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TELOSIPCOIN which were anonymized via Zerocin Protocol</source>
-        <translation>TELOSIPCOIN, который был анонимно использован через Zerocoin протокол</translation>
+        <source>TELOS which were anonymized via Zerocin Protocol</source>
+        <translation>TELOS, который был анонимно использован через Zerocoin протокол</translation>
     </message>
     <message>
         <source>Zerocoin Actions:</source>
@@ -2706,8 +2706,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Изменить:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>

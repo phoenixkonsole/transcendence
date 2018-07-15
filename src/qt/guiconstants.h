@@ -11,7 +11,7 @@
 static const int MODEL_UPDATE_DELAY = 250;
 
 /* AskPassphraseDialog -- Maximum passphrase length */
-static const int MAX_PASSTELOSIPCOINASE_SIZE = 1024;
+static const int MAX_PASSTELOSASE_SIZE = 1024;
 
 /* Transcendence GUI -- Size of icons in status bar */
 static const int STATUSBAR_ICONSIZE = 16;

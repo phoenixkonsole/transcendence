@@ -176,16 +176,16 @@
         <translation>Wallet-Verschlüsselung bestätigen</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Die Anwendungs wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte beachten Sie, dass auch Verschlüsselung nicht nicht vollständig vor Diebstahl ihrer TELOSIPCOINs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
+        <translation>Die Anwendungs wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte beachten Sie, dass auch Verschlüsselung nicht nicht vollständig vor Diebstahl ihrer TELOSs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Sind Sie sich sicher, dass Sie ihre Wallet verschlüsseln möchten?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie ihre Wallet verschlüsseln und Ihre Passphrase verlieren werden Sie &lt;b&gt;alle ihre TELOSIPCOINs verlieren&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Warnung: Wenn Sie ihre Wallet verschlüsseln und Ihre Passphrase verlieren werden Sie &lt;b&gt;alle ihre TELOSs verlieren&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1539,32 +1539,32 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Bitte den gewünschten Privatsphäre Level auswählen.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>2 separate Masternodes verwenden um bis zu 10000 TELOSIPCOIN zu mixen</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>2 separate Masternodes verwenden um bis zu 10000 TELOS zu mixen</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>8 separate Masternodes verwenden um bis zu 10000 TELOSIPCOIN zu mixen</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>8 separate Masternodes verwenden um bis zu 10000 TELOS zu mixen</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16 separate Masternodes verwenden</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Diese Option ist die schnellst und kostet ungefähr ~0.025 TELOSIPCOIN um 10000 TELOSIPCOIN zu anonymisieren </translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>Diese Option ist die schnellst und kostet ungefähr ~0.025 TELOS um 10000 TELOS zu anonymisieren </translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Diese Option ist angemessen schnell und kostet ungefähr  0.05 TELOSIPCOIN um 10000 TELOSIPCOIN zu anonymisieren</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>Diese Option ist angemessen schnell und kostet ungefähr  0.05 TELOS um 10000 TELOS zu anonymisieren</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Diese Option ist die langsamste und sicherste Option. Die Verwendung maximaler Anonymisierung kostet</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN die anonymisiert werden.</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>0.1 TELOS per 10000 TELOS die anonymisiert werden.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1707,16 +1707,16 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Port mit &amp;UPnP mappen</translation>
     </message>
     <message>
-        <source>Percentage of incoming TELOSIPCOIN which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>Anteil des eingehenden TELOSIPCOIN, welcher automatisch zu zTELOS via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Anteil des eingehenden TELOS, welcher automatisch zu zTELOS via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
         <translation>Prozentsatz der automatisierten zTELOS</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough TELOSIPCOIN for this denomination is available</source>
-        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend TELOSIPCOIN für diese Stückelung verfügbar ist</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough TELOS for this denomination is available</source>
+        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend TELOS für diese Stückelung verfügbar ist</translation>
     </message>
     <message>
         <source>Preferred Automint zTELOS Denomination</source>
@@ -1854,8 +1854,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Formular</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN Balances</source>
-        <translation>TELOSIPCOIN Bilanzen</translation>
+        <source>TELOS Balances</source>
+        <translation>TELOS Bilanzen</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1922,8 +1922,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Kombinierte Bilanz (einschließlich unreifer Coins)</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN:</source>
-        <translation>TELOSIPCOIN:</translation>
+        <source>TELOS:</source>
+        <translation>TELOS:</translation>
     </message>
     <message>
         <source>zTELOS:</source>
@@ -2055,12 +2055,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TELOSIPCOIN which were anonymized via Zerocin Protocol</source>
-        <translation>TELOSIPCOIN, die über das Zerocoin-Protokoll anonymisiert wurden</translation>
+        <source>TELOS which were anonymized via Zerocin Protocol</source>
+        <translation>TELOS, die über das Zerocoin-Protokoll anonymisiert wurden</translation>
     </message>
     <message>
-        <source>Zerocoin TELOSIPCOIN (zTELOS)</source>
-        <translation>Zerocoin TELOSIPCOIN (zTELOS)</translation>
+        <source>Zerocoin TELOS (zTELOS)</source>
+        <translation>Zerocoin TELOS (zTELOS)</translation>
     </message>
     <message>
         <source>Zerocoin Actions:</source>
@@ -2091,8 +2091,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Verfügbar für Prägung:</translation>
     </message>
     <message>
-        <source>0.000 000 00 TELOSIPCOIN</source>
-        <translation>0.000 000 00 TELOSIPCOIN</translation>
+        <source>0.000 000 00 TELOS</source>
+        <translation>0.000 000 00 TELOS</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -3051,7 +3051,7 @@ Bitte haben Sie Geduld...</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>TELOSIPCOINs überweisen</translation>
+        <translation>TELOSs überweisen</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -3122,8 +3122,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>UTXO Größe:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3174,12 +3174,12 @@ Bitte haben Sie Geduld...</translation>
         <translation>Coins automatisch ausgewählt</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSIPCOINs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSIPCOINs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uTELOSIPCOINs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uTELOSs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSIPCOINs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSIPCOINs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uTELOSIPCOINs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uTELOSs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3230,8 +3230,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Empfänge&amp;r hinzufügen</translation>
     </message>
     <message>
-        <source>Anonymized TELOSIPCOIN</source>
-        <translation>Anonymisierte TELOSIPCOIN</translation>
+        <source>Anonymized TELOS</source>
+        <translation>Anonymisierte TELOS</translation>
     </message>
     <message>
         <source>SwiftTX</source>
@@ -3805,7 +3805,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Erzeugte TELOSIPCOINs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine TELOSIPCOINs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
+        <translation>Erzeugte TELOSs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine TELOSs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -3951,7 +3951,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Converted Phr to zPhr</source>
-        <translation>Umgewandeltes TELOSIPCOIN zu zTELOS</translation>
+        <translation>Umgewandeltes TELOS zu zTELOS</translation>
     </message>
     <message>
         <source>Spent zPhr</source>
@@ -3959,7 +3959,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>Empfangene TELOSIPCOIN von zTELOS</translation>
+        <translation>Empfangene TELOS von zTELOS</translation>
     </message>
     <message>
         <source>Minted Change as zPhr from zPhr Spend</source>
@@ -3967,7 +3967,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Converted zPhr to Phr</source>
-        <translation>Umgewandeltes zTELOS zu TELOSIPCOIN</translation>
+        <translation>Umgewandeltes zTELOS zu TELOS</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -4086,7 +4086,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>Empfangene TELOSIPCOIN von zTELOS</translation>
+        <translation>Empfangene TELOS von zTELOS</translation>
     </message>
     <message>
         <source>Zerocoin Mint</source>
@@ -4219,11 +4219,11 @@ Bitte haben Sie Geduld...</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>TELOSIPCOINs überweisen</translation>
+        <translation>TELOSs überweisen</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTX unterstützt das Versenden von Beträgen dieser Höhe noch nicht. Transaktionen sind zur Zeit auf maximal %1 TELOSIPCOIN begrenzt.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>SwiftTX unterstützt das Versenden von Beträgen dieser Höhe noch nicht. Transaktionen sind zur Zeit auf maximal %1 TELOS begrenzt.</translation>
     </message>
 </context>
 <context>
@@ -4363,12 +4363,12 @@ Bitte haben Sie Geduld...</translation>
         <translation>Befehl ausführen, wenn sich der beste Block ändert (%s in cmd wird durch Blockhash ersetzt)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Gebühren (in TELOSIPCOIN/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebühren (in TELOS/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebühren (in TELOSIPCOIN/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebühren (in TELOS/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -4755,8 +4755,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Block konnte nicht gelesen werden</translation>
     </message>
     <message>
-        <source>Fee (in TELOSIPCOIN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Gebühr (in TELOSIPCOIN/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
+        <source>Fee (in TELOS/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebühr (in TELOS/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>

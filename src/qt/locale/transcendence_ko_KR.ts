@@ -176,16 +176,16 @@
         <translation>지갑 암호화 확인</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 TELOSIPCOINs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
+        <translation>Transcendence는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 TELOSs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>지갑을 암호화 하시겠습니까?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 TELOSIPCOIN를 잃게 됩니다&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 TELOS를 잃게 됩니다&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1548,32 +1548,32 @@ Please check the address and try again.</source>
         <translation>익명화 레벨을 선택해주세요.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 TELOSIPCOIN 를 섞을 수 있습니다.</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 TELOS 를 섞을 수 있습니다.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 TELOSIPCOIN 를 섞을 수 있습니다.</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 TELOS 를 섞을 수 있습니다.</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16개의 개별 마스터노드를 사용</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 TELOSIPCOIN 익명화에 약 ~0.025 TELOSIPCOIN의 비용이 들어갑니다.</translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>이 옵션은 가장 빠르게 전송되며 10000 TELOS 익명화에 약 ~0.025 TELOS의 비용이 들어갑니다.</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 TELOSIPCOIN 익명화에 약 0.05 TELOSIPCOIN의 비용이 들어갑니다.</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 TELOS 익명화에 약 0.05 TELOS의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>10000 TELOSIPCOIN 익명화에 0.1 TELOSIPCOIN 가 듭니다.</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>10000 TELOS 익명화에 0.1 TELOS 가 듭니다.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1716,16 +1716,16 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
     </message>
     <message>
-        <source>Percentage of incoming TELOSIPCOIN which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>TELOSIPCOIN수신시 자동변환 zTELOS 퍼센트 (최소값:10%)</translation>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>TELOS수신시 자동변환 zTELOS 퍼센트 (최소값:10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
         <translation>자동 변환되는 zTELOS 퍼센트</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough TELOSIPCOIN for this denomination is available</source>
-        <translation>이 디노미네이션의 TELOSIPCOIN가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough TELOS for this denomination is available</source>
+        <translation>이 디노미네이션의 TELOS가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
     </message>
     <message>
         <source>Preferred Automint zTELOS Denomination</source>
@@ -1863,8 +1863,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Form</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN Balances</source>
-        <translation>TELOSIPCOIN 잔액</translation>
+        <source>TELOS Balances</source>
+        <translation>TELOS 잔액</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1931,8 +1931,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>전체 잔액 (대기중 코인 포함)</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN:</source>
-        <translation>TELOSIPCOIN:</translation>
+        <source>TELOS:</source>
+        <translation>TELOS:</translation>
     </message>
     <message>
         <source>zTELOS:</source>
@@ -2064,12 +2064,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TELOSIPCOIN which were anonymized via Zerocin Protocol</source>
-        <translation>제로코인 프로토콜을 통해 익명화된 TELOSIPCOIN</translation>
+        <source>TELOS which were anonymized via Zerocin Protocol</source>
+        <translation>제로코인 프로토콜을 통해 익명화된 TELOS</translation>
     </message>
     <message>
-        <source>Zerocoin TELOSIPCOIN (zTELOS)</source>
-        <translation>제로코인 TELOSIPCOIN (zTELOS)</translation>
+        <source>Zerocoin TELOS (zTELOS)</source>
+        <translation>제로코인 TELOS (zTELOS)</translation>
     </message>
     <message>
         <source>Zerocoin Actions:</source>
@@ -2081,7 +2081,7 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     </message>
     <message>
         <source>Enter an amount of Phr to convert to zPhr</source>
-        <translation>zTELOS로 변환할 TELOSIPCOIN 수량을 입력하세요.</translation>
+        <translation>zTELOS로 변환할 TELOS 수량을 입력하세요.</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2100,8 +2100,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>생성 가능한 수량 :</translation>
     </message>
     <message>
-        <source>0.000 000 00 TELOSIPCOIN</source>
-        <translation>0.000 000 00 TELOSIPCOIN</translation>
+        <source>0.000 000 00 TELOS</source>
+        <translation>0.000 000 00 TELOS</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2181,7 +2181,7 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     </message>
     <message>
         <source>The Transcendence address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>TELOSIPCOIN를 전송할 Transcendence 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+        <translation>TELOS를 전송할 Transcendence 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3132,8 +3132,8 @@ Please be patient...</source>
         <translation>UTXO 크기:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3184,12 +3184,12 @@ Please be patient...</source>
         <translation>코인 자동으로 선택됨</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uTELOSIPCOINs로 설정되고,&lt;br /&gt;1000 uTELOSIPCOINs 안에는 최소 "킬로바이트당" 250 uTELOSIPCOINs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uTELOSs로 설정되고,&lt;br /&gt;1000 uTELOSs 안에는 최소 "킬로바이트당" 250 uTELOSs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uTELOSIPCOINs로 설정되고,&lt;br /&gt;1000 uTELOSIPCOINs 안에는 전체에서 최소 "킬로바이트당" 250 uTELOSIPCOINs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uTELOSs로 설정되고,&lt;br /&gt;1000 uTELOSs 안에는 전체에서 최소 "킬로바이트당" 250 uTELOSs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3240,8 +3240,8 @@ Please be patient...</source>
         <translation>&amp;받는 사람 추가</translation>
     </message>
     <message>
-        <source>Anonymized TELOSIPCOIN</source>
-        <translation>익명화 TELOSIPCOIN</translation>
+        <source>Anonymized TELOS</source>
+        <translation>익명화 TELOS</translation>
     </message>
     <message>
         <source>SwiftTX</source>
@@ -3962,7 +3962,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Converted Phr to zPhr</source>
-        <translation>zTELOS로 변환된 TELOSIPCOIN</translation>
+        <translation>zTELOS로 변환된 TELOS</translation>
     </message>
     <message>
         <source>Spent zPhr</source>
@@ -3970,7 +3970,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>zTELOS로 전송받은 TELOSIPCOIN</translation>
+        <translation>zTELOS로 전송받은 TELOS</translation>
     </message>
     <message>
         <source>Minted Change as zPhr from zPhr Spend</source>
@@ -4097,7 +4097,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>zTELOS로 전송받은 TELOSIPCOIN</translation>
+        <translation>zTELOS로 전송받은 TELOS</translation>
     </message>
     <message>
         <source>Zerocoin Mint</source>
@@ -4233,8 +4233,8 @@ Please be patient...</source>
         <translation>코인 전송 </translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 TELOSIPCOIN로 제한됩니다.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 TELOS로 제한됩니다.</translation>
     </message>
 </context>
 <context>
@@ -4394,12 +4394,12 @@ Please be patient...</source>
         <translation>최고 블록이 변경될 경우 명령을 실행하십시오 (명령 내 %s 는 블록 해시로 대체 되었습니다)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>이것보다 작은 수수료 (TELOSIPCOIN/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>이것보다 작은 수수료 (TELOS/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>이것보다 작은 수수료 (TELOSIPCOIN/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>이것보다 작은 수수료 (TELOS/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -4526,12 +4526,12 @@ rpcpassword=%s
         <translation>이 트랜잭션를 위해 난독화 표기된 충분한 금액을 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 TELOSIPCOIN과 일치하지 않음.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 TELOS과 일치하지 않음.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 TELOSIPCOIN와 같지 않음</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 TELOS와 같지 않음</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -4834,8 +4834,8 @@ rpcpassword=%s
         <translation>블록을 받아오는데 실패했습니다.</translation>
     </message>
     <message>
-        <source>Fee (in TELOSIPCOIN/kB) to add to transactions you send (default: %s)</source>
-        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (TELOSIPCOIN/kB) (기본값: %s)</translation>
+        <source>Fee (in TELOS/kB) to add to transactions you send (default: %s)</source>
+        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (TELOS/kB) (기본값: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>

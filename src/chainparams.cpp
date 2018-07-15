@@ -121,7 +121,7 @@ public:
         nMaxMoneyOut = 4000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 200;
+        nLastPOWBlock = 290;
         nModifierUpdateBlock = 1;
         nZerocoinStartHeight = 650;
         nAccumulatorStartHeight = 1;
@@ -165,6 +165,8 @@ public:
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
+        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
+        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38); // G
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 138); // x
@@ -261,6 +263,8 @@ public:
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
+        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
+        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet transcendence addresses start with 'x' or 'y'

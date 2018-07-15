@@ -176,7 +176,7 @@
         <translation>Bekræft, og tegnebogen krypteres.</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
         <translation>Transcendence vil lukke ned for at færdiggøre kryptograferingsprocesserne. Husk at kryptering alene ikke sikrer mod tyveri af mønterne fra malware eller virus på computeren.</translation>
     </message>
     <message>
@@ -184,8 +184,8 @@
         <translation>Er du sikker på, at du vil kryptere din tegnebog?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Advarsel! Hvis du krypterer din tegnebog og mister dit password vil du &lt;b&gt;MISTE ALLE DINE TELOSIPCOIN&lt;/b&gt;. Passworded kan ikke genskabes.</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Advarsel! Hvis du krypterer din tegnebog og mister dit password vil du &lt;b&gt;MISTE ALLE DINE TELOS&lt;/b&gt;. Passworded kan ikke genskabes.</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1504,32 +1504,32 @@ Kontroller adressen og prøv igen.</translation>
         <translation>Vælg tilsløringsniveau</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Brug 2 separate masternoder for at tilsløre beløb op til 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Brug 2 separate masternoder for at tilsløre beløb op til 10000 TELOS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Brug 8 separate masternoder for at tilsløre op til 10000 TELOSIPCOIN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Brug 8 separate masternoder for at tilsløre op til 10000 TELOS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Brug 16 separate masternoder</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Dette valg er det hurtigste og vil koste i omegnen af 0.025 TELOSIPCOIN for at anonymiser 10000 TELOSIPCOIN</translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>Dette valg er det hurtigste og vil koste i omegnen af 0.025 TELOS for at anonymiser 10000 TELOS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Dette valg er relativt hurtigt og vil koste i omegnen af 0.05 TELOSIPCOIN for at anonymiser 10000 TELOSIPCOIN</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>Dette valg er relativt hurtigt og vil koste i omegnen af 0.05 TELOS for at anonymiser 10000 TELOS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Denne mulighed er den langsomste og det mest sikre valg. Valg af maksimal tilsløring vil koste</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 pr 10000 TELOSIPCOIN for at tilsløre.</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>0.1 pr 10000 TELOS for at tilsløre.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -2697,8 +2697,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>UTXO størrelse:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -2741,12 +2741,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Bekræftelsestid</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uTELOSIPCOINs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uTELOSIPCOIN i gebyr, &lt;br /&gt; mens "mindst" udbetaler 1000 uTELOSIPCOINs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uTELOSs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uTELOS i gebyr, &lt;br /&gt; mens "mindst" udbetaler 1000 uTELOSs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uTELOSIPCOINs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uTELOSIPCOIN i gebyr, &lt;br /&gt; mens "Total-mindst" udbetaler 1000 uTELOSIPCOINs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Hvis den brugerfastsatte gebyrbetaling er sat til 1000 uTELOSs og transaktionen kun fylder 250 bytes, så vil "pr. kilobyte" kun udbetale 250 uTELOS i gebyr, &lt;br /&gt; mens "Total-mindst" udbetaler 1000 uTELOSs. For transaktioner større end en kilobyte betales i begge tilfælde i forhold til antallet af kilobytes </translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3717,8 +3717,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Send mønter</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTx understøtter ikke afsendelse af så store beløb endnu. Transaktioner er for tiden begrænsede til %1TELOSIPCOIN.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>SwiftTx understøtter ikke afsendelse af så store beløb endnu. Transaktioner er for tiden begrænsede til %1TELOS.</translation>
     </message>
 </context>
 <context>
@@ -3855,12 +3855,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Udfør en kommando når den bedste blok ændres (%s in cmd erstattes med blok hashen)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Gebyrer (in TELOSIPCOIN/kb) lavere end dette betragtes som et nul-gebyr for at videresende (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebyrer (in TELOS/kb) lavere end dette betragtes som et nul-gebyr for at videresende (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebyrer (in TELOSIPCOIN/kb) lavere end dette betragtes som et nul-gebyr for at oprette en transaktion (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebyrer (in TELOS/kb) lavere end dette betragtes som et nul-gebyr for at oprette en transaktion (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -3987,12 +3987,12 @@ For eksempel: alertnotify=Echo %% | mail - s "Transcendence ALARM!" e-mail@admin
         <translation>Det er ikke muligt at allokere tilstrækkeligt med tilsløret designeret indestående for at gennemføre denne transaktion.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>Det er ikke muligt at allokere tilstrækkeligt med tilsløret  ikke-designeret indestående for at gennemføre denne transaktion, der ikke ækvivalerer 10000 TELOSIPCOIN.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Det er ikke muligt at allokere tilstrækkeligt med tilsløret  ikke-designeret indestående for at gennemføre denne transaktion, der ikke ækvivalerer 10000 TELOS.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>Det var ikke muligt at allokere tilstrækkelige midler til denne transaktion som er forskellig fra 10000 TELOSIPCOIN.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Det var ikke muligt at allokere tilstrækkelige midler til denne transaktion som er forskellig fra 10000 TELOS.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -4279,8 +4279,8 @@ For eksempel: alertnotify=Echo %% | mail - s "Transcendence ALARM!" e-mail@admin
         <translation>Læsning af blokken mislykkedes</translation>
     </message>
     <message>
-        <source>Fee (in TELOSIPCOIN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Gebyr (i TELOSIPCOIN/kB) som skal tilføjes transaktionen der sendes (default: %s)</translation>
+        <source>Fee (in TELOS/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebyr (i TELOS/kB) som skal tilføjes transaktionen der sendes (default: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>

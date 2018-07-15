@@ -1938,13 +1938,13 @@ bool CWallet::SelectCoins(const CAmount& nTargetValue, set<pair<const CWalletTx*
         return (nValueRet >= nTargetValue);
     }
 
-    //if we're doing only denominated, we need to round up to the nearest .1 TELOSIPCOIN
+    //if we're doing only denominated, we need to round up to the nearest .1 TELOS
     if (coin_type == ONLY_DENOMINATED) {
         // Make outputs by looping through denominations, from large to small
         BOOST_FOREACH (CAmount v, obfuScationDenominations) {
             BOOST_FOREACH (const COutput& out, vCoins) {
                 if (out.tx->vout[out.i].nValue == v                                               //make sure it's the denom we're looking for
-                    && nValueRet + out.tx->vout[out.i].nValue < nTargetValue + (0.1 * COIN) + 100 //round the amount up to .1 TELOSIPCOIN over
+                    && nValueRet + out.tx->vout[out.i].nValue < nTargetValue + (0.1 * COIN) + 100 //round the amount up to .1 TELOS over
                     ) {
                     CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
                     int rounds = GetInputObfuscationRounds(vin);
@@ -2006,12 +2006,12 @@ bool CWallet::SelectCoinsByDenominations(int nDenom, CAmount nValueMin, CAmount 
 
             // Function returns as follows:
             //
-            // bit 0 - 10000 TELOSIPCOIN+1 ( bit on if present )
-            // bit 1 - 1000 TELOSIPCOIN+1
-            // bit 2 - 100 TELOSIPCOIN+1
-            // bit 3 - 10 TELOSIPCOIN+1
-            // bit 4 - 1 TELOSIPCOIN+1
-            // bit 5 - .1 TELOSIPCOIN+1
+            // bit 0 - 10000 TELOS+1 ( bit on if present )
+            // bit 1 - 1000 TELOS+1
+            // bit 2 - 100 TELOS+1
+            // bit 3 - 10 TELOS+1
+            // bit 4 - 1 TELOS+1
+            // bit 5 - .1 TELOS+1
 
             CTxIn vin = CTxIn(out.tx->GetHash(), out.i);
 
@@ -2370,9 +2370,9 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, CAmount> >& vecSend,
                     if (coin_type == ALL_COINS) {
                         strFailReason = _("Insufficient funds.");
                     } else if (coin_type == ONLY_NOT10000IFMN) {
-                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 TELOSIPCOIN.");
+                        strFailReason = _("Unable to locate enough funds for this transaction that are not equal 10000 TELOS.");
                     } else if (coin_type == ONLY_NONDENOMINATED_NOT10000IFMN) {
-                        strFailReason = _("Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOSIPCOIN.");
+                        strFailReason = _("Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOS.");
                     } else {
                         strFailReason = _("Unable to locate enough Obfuscation denominated funds for this transaction.");
                         strFailReason += " " + _("Obfuscation uses exact denominated amounts to send funds, you might simply need to anonymize some more coins.");
@@ -3549,7 +3549,7 @@ void CWallet::AutoZeromint()
     CAmount nMintAmount = 0;
     CAmount nToMintAmount = 0;
 
-    // zTELOS are integers > 0, so we can't mint 10% of 9 TELOSIPCOIN
+    // zTELOS are integers > 0, so we can't mint 10% of 9 TELOS
     if (nBalance < 10){
         LogPrint("zero", "CWallet::AutoZeromint(): available balance (%ld) too small for minting zTELOS\n", nBalance);
         return;
@@ -3574,7 +3574,7 @@ void CWallet::AutoZeromint()
     // Use the biggest denomination smaller than the needed zTELOS We'll only mint exact denomination to make minting faster.
     // Exception: for big amounts use 6666 (6666 = 1*5000 + 1*1000 + 1*500 + 1*100 + 1*50 + 1*10 + 1*5 + 1) to create all
     // possible denominations to avoid having 5000 denominations only.
-    // If a preferred denomination is used (means nPreferredDenom != 0) do nothing until we have enough TELOSIPCOIN to mint this denomination
+    // If a preferred denomination is used (means nPreferredDenom != 0) do nothing until we have enough TELOS to mint this denomination
 
     if (nPreferredDenom > 0){
         if (nToMintAmount >= nPreferredDenom)
@@ -4021,7 +4021,7 @@ bool CWallet::CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransa
     }
 
     //any change that is less than 0.0100000 will be ignored and given as an extra fee
-    //also assume that a zerocoinspend that is minting the change will not have any change that goes to TELOSIPCOIN
+    //also assume that a zerocoinspend that is minting the change will not have any change that goes to TELOS
     CAmount nChange = nValueIn - nTotalValue; // Fee already accounted for in nTotalValue
     if (nChange > 1 * CENT && !isZCSpendChange) {
         // Fill a vout to ourself
@@ -4062,14 +4062,14 @@ bool CWallet::CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransa
 bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt)
 {
     // Default error status if not changed below
-    receipt.SetStatus("Transaction Mint Started", ZTELOSIPCOIN_TXMINT_GENERAL);
+    receipt.SetStatus("Transaction Mint Started", ZTELOS_TXMINT_GENERAL);
 
     libzerocoin::CoinDenomination denomination = zerocoinSelected.GetDenomination();
     // 2. Get pubcoin from the private coin
     libzerocoin::PublicCoin pubCoinSelected(Params().Zerocoin_Params(), zerocoinSelected.GetValue(), denomination);
     LogPrintf("%s : pubCoinSelected:\n denom=%d\n value%s\n", __func__, denomination, pubCoinSelected.getValue().GetHex());
     if (!pubCoinSelected.validate()) {
-        receipt.SetStatus("the selected mint coin is an invalid coin", ZTELOSIPCOIN_INVALID_COIN);
+        receipt.SetStatus("the selected mint coin is an invalid coin", ZTELOS_INVALID_COIN);
         return false;
     }
 
@@ -4079,7 +4079,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
     string strFailReason = "";
     int nMintsAdded = 0;
     if (!GenerateAccumulatorWitness(pubCoinSelected, accumulator, witness, nSecurityLevel, nMintsAdded, strFailReason)) {
-        receipt.SetStatus("Try to spend with a higher security level to include more coins", ZTELOSIPCOIN_FAILED_ACCUMULATOR_INITIALIZATION);
+        receipt.SetStatus("Try to spend with a higher security level to include more coins", ZTELOS_FAILED_ACCUMULATOR_INITIALIZATION);
         LogPrintf("%s : %s \n", __func__, receipt.GetStatusMessage());
         return false;
     }
@@ -4095,7 +4095,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         libzerocoin::CoinSpend spend(Params().Zerocoin_Params(), privateCoin, accumulator, nChecksum, witness, hashTxOut);
 
         if (!spend.Verify(accumulator)) {
-            receipt.SetStatus("the new spend coin transaction did not verify", ZTELOSIPCOIN_INVALID_WITNESS);
+            receipt.SetStatus("the new spend coin transaction did not verify", ZTELOS_INVALID_WITNESS);
             return false;
         }
 
@@ -4119,13 +4119,13 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
             serializedCoinSpendChecking << spend;
         }
         catch (...) {
-            receipt.SetStatus("failed to deserialize", ZTELOSIPCOIN_BAD_SERIALIZATION);
+            receipt.SetStatus("failed to deserialize", ZTELOS_BAD_SERIALIZATION);
             return false;
         }
 
         libzerocoin::CoinSpend newSpendChecking(Params().Zerocoin_Params(), serializedCoinSpendChecking);
         if (!newSpendChecking.Verify(accumulator)) {
-            receipt.SetStatus("the transaction did not verify", ZTELOSIPCOIN_BAD_SERIALIZATION);
+            receipt.SetStatus("the transaction did not verify", ZTELOS_BAD_SERIALIZATION);
             return false;
         }
 
@@ -4138,7 +4138,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
                     LogPrintf("%s failed to write zerocoinmint\n", __func__);
 
                 pwalletMain->NotifyZerocoinChanged(pwalletMain, zerocoinSelected.GetValue().GetHex(), "Used", CT_UPDATED);
-                receipt.SetStatus("the coin spend has been used", ZTELOSIPCOIN_SPENT_USED_ZTELOSIPCOIN);
+                receipt.SetStatus("the coin spend has been used", ZTELOS_SPENT_USED_ZTELOS);
                 return false;
             }
         }
@@ -4149,11 +4149,11 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         receipt.AddSpend(zcSpend);
     }
     catch (const std::exception&) {
-        receipt.SetStatus("CoinSpend: Accumulator witness does not verify", ZTELOSIPCOIN_INVALID_WITNESS);
+        receipt.SetStatus("CoinSpend: Accumulator witness does not verify", ZTELOS_INVALID_WITNESS);
         return false;
     }
 
-    receipt.SetStatus("Spend Valid", ZTELOSIPCOIN_SPEND_OKAY); // Everything okay
+    receipt.SetStatus("Spend Valid", ZTELOS_SPEND_OKAY); // Everything okay
 
     return true;
 }
@@ -4161,7 +4161,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
 bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CZerocoinMint>& vNewMints, bool fMintChange,  bool fMinimizeChange, CBitcoinAddress* address)
 {
     // Check available funds
-    int nStatus = ZTELOSIPCOIN_TRX_FUNDS_PROBLEMS;
+    int nStatus = ZTELOS_TRX_FUNDS_PROBLEMS;
     if (nValue > GetZerocoinBalance(true)) {
         receipt.SetStatus("You don't have enough Zerocoins in your wallet", nStatus);
         return false;
@@ -4173,7 +4173,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
     }
 
     // Create transaction
-    nStatus = ZTELOSIPCOIN_TRX_CREATE;
+    nStatus = ZTELOS_TRX_CREATE;
 
     // If not already given pre-selected mints, then select mints from the wallet
     CWalletDB walletdb(pwalletMain->strWalletFile);
@@ -4257,7 +4257,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
     }
 
     // Create change if needed
-    nStatus = ZTELOSIPCOIN_TRX_CHANGE;
+    nStatus = ZTELOS_TRX_CHANGE;
 
     CMutableTransaction txNew;
     wtxNew.BindWallet(this);
@@ -4339,7 +4339,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
         }
     }
 
-    receipt.SetStatus("Transaction Created", ZTELOSIPCOIN_SPEND_OKAY); // Everything okay
+    receipt.SetStatus("Transaction Created", ZTELOS_SPEND_OKAY); // Everything okay
 
     return true;
 }
@@ -4537,10 +4537,10 @@ string CWallet::MintZerocoin(CAmount nValue, CWalletTx& wtxNew, vector<CZerocoin
 bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxNew, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vMintsSelected, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* addressTo)
 {
     // Default: assume something goes wrong. Depending on the problem this gets more specific below
-    int nStatus = ZTELOSIPCOIN_SPEND_ERROR;
+    int nStatus = ZTELOS_SPEND_ERROR;
 
     if (IsLocked()) {
-        receipt.SetStatus("Error: Wallet locked, unable to create transaction!", ZTELOSIPCOIN_WALLET_LOCKED);
+        receipt.SetStatus("Error: Wallet locked, unable to create transaction!", ZTELOS_WALLET_LOCKED);
         return false;
     }
 
@@ -4556,7 +4556,7 @@ bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxN
     CWalletDB walletdb(pwalletMain->strWalletFile);
     if (!CommitTransaction(wtxNew, reserveKey)) {
         LogPrintf("%s: failed to commit\n", __func__);
-        nStatus = ZTELOSIPCOIN_COMMIT_FAILED;
+        nStatus = ZTELOS_COMMIT_FAILED;
 
         //reset all mints
         for (CZerocoinMint mint : vMintsSelected) {
@@ -4568,7 +4568,7 @@ bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxN
         //erase spends
         for (CZerocoinSpend spend : receipt.GetSpends()) {
             if (!walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial())) {
-                receipt.SetStatus("Error: It cannot delete coin serial number in wallet", ZTELOSIPCOIN_ERASE_SPENDS_FAILED);
+                receipt.SetStatus("Error: It cannot delete coin serial number in wallet", ZTELOS_ERASE_SPENDS_FAILED);
             }
 
             //Remove from public zerocoinDB
@@ -4578,7 +4578,7 @@ bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxN
         // erase new mints
         for (auto& mint : vNewMints) {
             if (!walletdb.EraseZerocoinMint(mint)) {
-                receipt.SetStatus("Error: Unable to cannot delete zerocoin mint in wallet", ZTELOSIPCOIN_ERASE_NEW_MINTS_FAILED);
+                receipt.SetStatus("Error: Unable to cannot delete zerocoin mint in wallet", ZTELOS_ERASE_NEW_MINTS_FAILED);
             }
         }
 
@@ -4611,7 +4611,7 @@ bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxN
         walletdb.WriteZerocoinMint(mint);
     }
 
-    receipt.SetStatus("Spend Successful", ZTELOSIPCOIN_SPEND_OKAY);  // When we reach this point spending zTELOS was successful
+    receipt.SetStatus("Spend Successful", ZTELOS_SPEND_OKAY);  // When we reach this point spending zTELOS was successful
 
     return true;
 }

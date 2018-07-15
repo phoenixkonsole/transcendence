@@ -176,16 +176,16 @@
         <translation>Bevestig versleuteling van de portemonnee</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw TELOSIPCOINs stelen.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
+        <translation>Transcendence zal nu afsluiten om het versleutelingsproces te voltooien. Onthoud dat het versleutelen van uw portemonnee u niet volledig kan beschermen: Malware kan uw computer infecteren en uw TELOSs stelen.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Weet u zeker dat u uw portemonnee wilt versleutelen?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW TELOSIPCOIN VERLIEZEN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Waarschuwing: Als u uw portemonnee versleutelt en uw wachtwoord vergeet, zult u &lt;b&gt;AL UW TELOS VERLIEZEN&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1531,32 +1531,32 @@ Controleer het adres alsjeblieft en probeer het opnieuw.</translation>
         <translation>Selecteer de privacy level.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Gebruik 2 aparte masternodes om fondsen te mixen tot 10000 TELOS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 10000 TELOSIPCOIN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Gebruik 8 aparte masternodes om fondsen te mixen tot 10000 TELOS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Gebruik 16 aparte masternodes</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Deze optie is het snelst en kost ongeveer ~0,025 TELOSIPCOIN om 10000 TELOSIPCOIN te anonimiseren</translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>Deze optie is het snelst en kost ongeveer ~0,025 TELOS om 10000 TELOS te anonimiseren</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 TELOSIPCOIN om 10000 TELOSIPCOIN te anonimiseren</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>Deze optie is gematigd snel en kost ongeveer 0,05 TELOS om 10000 TELOS te anonimiseren</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Dit is de langzaamste en veiligste optie. Het gebruik van maximale anonimiteit kost</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>je anonimiseert 0,1 TELOSIPCOIN per 10000 TELOSIPCOIN.</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>je anonimiseert 0,1 TELOS per 10000 TELOS.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1699,16 +1699,16 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Map poort gebruikt &amp;UPnP</translation>
     </message>
     <message>
-        <source>Percentage of incoming TELOSIPCOIN which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>Percentage inkomende TELOSIPCOIN die automatisch wordt omgezet naar zTELOS via Zerocoin Protocol (min: 10%)</translation>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentage inkomende TELOS die automatisch wordt omgezet naar zTELOS via Zerocoin Protocol (min: 10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
         <translation>Percentage autominted zTELOS</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough TELOSIPCOIN for this denomination is available</source>
-        <translation>Wacht met automatische omzetting naar Zerocoin totdat er genoeg TELOSIPCOIN voor deze denominatie beschikbaar is</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough TELOS for this denomination is available</source>
+        <translation>Wacht met automatische omzetting naar Zerocoin totdat er genoeg TELOS voor deze denominatie beschikbaar is</translation>
     </message>
     <message>
         <source>Preferred Automint zTELOS Denomination</source>
@@ -1846,8 +1846,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Formulier</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN Balances</source>
-        <translation>TELOSIPCOIN Saldi</translation>
+        <source>TELOS Balances</source>
+        <translation>TELOS Saldi</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1914,8 +1914,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Gecombineerde Saldi (inclusief onvolwassen munten)</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN:</source>
-        <translation>TELOSIPCOIN:</translation>
+        <source>TELOS:</source>
+        <translation>TELOS:</translation>
     </message>
     <message>
         <source>zTELOS:</source>
@@ -2047,12 +2047,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TELOSIPCOIN which were anonymized via Zerocin Protocol</source>
-        <translation>TELOSIPCOIN die via het Zerocin Protocol geanonimiseerd werden</translation>
+        <source>TELOS which were anonymized via Zerocin Protocol</source>
+        <translation>TELOS die via het Zerocin Protocol geanonimiseerd werden</translation>
     </message>
     <message>
-        <source>Zerocoin TELOSIPCOIN (zTELOS)</source>
-        <translation>Zerocoin TELOSIPCOIN (zTELOS)</translation>
+        <source>Zerocoin TELOS (zTELOS)</source>
+        <translation>Zerocoin TELOS (zTELOS)</translation>
     </message>
     <message>
         <source>Zerocoin Actions:</source>
@@ -2083,8 +2083,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Beschikbaar voor minting:</translation>
     </message>
     <message>
-        <source>0.000 000 00 TELOSIPCOIN</source>
-        <translation>0.000 000 00 TELOSIPCOIN</translation>
+        <source>0.000 000 00 TELOS</source>
+        <translation>0.000 000 00 TELOS</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -3115,8 +3115,8 @@ Wees alsjeblieft geduldig...</translation>
         <translation>UTXO grootte:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3167,12 +3167,12 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Munten automatisch geselecteerd</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uTELOSIPCOINs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uTELOSIPCOIN's in vergoeding,&lt;br /&gt;terwijl "minstens" 1000 uTELOSIPCOIN's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uTELOSs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uTELOS's in vergoeding,&lt;br /&gt;terwijl "minstens" 1000 uTELOS's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uTELOSIPCOINs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uTELOSIPCOIN's in vergoeding,&lt;br /&gt;terwijl "totaal minstens" 1000 uTELOSIPCOIN's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Als de aangepaste vergoeding is ingesteld op 1000 uTELOSs en de transactie is slechts 250 bytes, dan betaalt per kilobyte alleen 250 uTELOS's in vergoeding,&lt;br /&gt;terwijl "totaal minstens" 1000 uTELOS's betaalt. Voor transacties die groter zijn dan een kilobyte, betalen beiden per kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3223,8 +3223,8 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Voeg &amp;ontvanger toe</translation>
     </message>
     <message>
-        <source>Anonymized TELOSIPCOIN</source>
-        <translation>Geanonimiseerde TELOSIPCOIN</translation>
+        <source>Anonymized TELOS</source>
+        <translation>Geanonimiseerde TELOS</translation>
     </message>
     <message>
         <source>SwiftTX</source>
@@ -4211,8 +4211,8 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Verzend Munten</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTX ondersteunt geen verzendwaarden die zo hoog zijn. Transacties zijn momenteel beperkt tot %1 TELOSIPCOIN.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>SwiftTX ondersteunt geen verzendwaarden die zo hoog zijn. Transacties zijn momenteel beperkt tot %1 TELOS.</translation>
     </message>
 </context>
 <context>
@@ -4372,12 +4372,12 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Uitvoeren commando wanneer het beste blok verandert (%s in cmd is vervangen door block hash)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Kosten (in TELOSIPCOIN/Kb) kleiner dan dit worden beschouwd als zero fee voor heruitzending (standaard: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Kosten (in TELOS/Kb) kleiner dan dit worden beschouwd als zero fee voor heruitzending (standaard: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Kosten (in TELOSIPCOIN/Kb) kleiner dan dit worden beschouwd als zero fee voor transactie verrichting (standaard: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Kosten (in TELOS/Kb) kleiner dan dit worden beschouwd als zero fee voor transactie verrichting (standaard: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -4508,12 +4508,12 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "Transcendence Alert" admin@foo.c
         <translation>Kan niet genoeg verduistering gedenomineerde fondsen voor deze transactie vinden.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 TELOSIPCOIN.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Kan niet genoeg verduistering niet gedenomineerde fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 TELOS.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 TELOSIPCOIN.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Kan niet genoeg fondsen voor deze transactie vinden die niet gelijk zijn aan 10000 TELOS.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -4816,8 +4816,8 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "Transcendence Alert" admin@foo.c
         <translation>Mislukt om block te lezen</translation>
     </message>
     <message>
-        <source>Fee (in TELOSIPCOIN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Fee (in TELOSIPCOIN/kB) om toe te voegen aan transacties die je verzendt (standaard: %s)</translation>
+        <source>Fee (in TELOS/kB) to add to transactions you send (default: %s)</source>
+        <translation>Fee (in TELOS/kB) om toe te voegen aan transacties die je verzendt (standaard: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>

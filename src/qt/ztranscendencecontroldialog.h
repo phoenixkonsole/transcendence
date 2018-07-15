@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZTELOSIPCOINCONTROLDIALOG_H
-#define ZTELOSIPCOINCONTROLDIALOG_H
+#ifndef ZTELOSCONTROLDIALOG_H
+#define ZTELOSCONTROLDIALOG_H
 
 #include <QDialog>
 #include <QTreeWidgetItem>
@@ -53,4 +53,4 @@ private slots:
     void ButtonAllClicked();
 };
 
-#endif // ZTELOSIPCOINCONTROLDIALOG_H
+#endif // ZTELOSCONTROLDIALOG_H

@@ -176,7 +176,7 @@
         <translation>Потвърдете шифрирането на портфейла</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSs from being stolen by malware infecting your computer.</source>
         <translation>Transcendence сега ще се затвори, за да довърши процеса по шифриране. Запомнете, че шифрирането на вашия портфейл не може напълно да защити вашия Transcendence от това, да бъде откраднат чрез злонамерен софутуер, инфектирал вашия компютър.</translation>
     </message>
     <message>
@@ -184,8 +184,8 @@
         <translation>Сигурни ли сте, че искате да шифрирате вашия портфейл?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>&lt;b&gt;Внимание: Ако шифрирате вашия портфейл и загубите вашата парола, вие ще ЗАГУБИТЕ ВСИЧКИТЕ ВИ TELOSIPCOIN&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>&lt;b&gt;Внимание: Ако шифрирате вашия портфейл и загубите вашата парола, вие ще ЗАГУБИТЕ ВСИЧКИТЕ ВИ TELOS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1548,32 +1548,32 @@ Please check the address and try again.</source>
         <translation>Изберете ниво на поверителност.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Използвай 2 различни мастърноуда за смесване на средства над 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Използвай 2 различни мастърноуда за смесване на средства над 10000 TELOS</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Използвай 8 различни мастърноуда за да смесите средства до 10000 TELOSIPCOIN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TELOS</source>
+        <translation>Използвай 8 различни мастърноуда за да смесите средства до 10000 TELOS</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Използвай 16 различни мастърноуда</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Това е най-бързия метод и ще струва около 0.025 TELOSIPCOIN за да скриете 10000 TELOSIPCOIN</translation>
+        <source>This option is the quickest and will cost about ~0.025 TELOS to anonymize 10000 TELOS</source>
+        <translation>Това е най-бързия метод и ще струва около 0.025 TELOS за да скриете 10000 TELOS</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Тази опция е сравнително бърза и ще струва около 0.05 TELOSIPCOIN за да скриете 10000 TELOSIPCOIN</translation>
+        <source>This option is moderately fast and will cost about 0.05 TELOS to anonymize 10000 TELOS</source>
+        <translation>Тази опция е сравнително бърза и ще струва около 0.05 TELOS за да скриете 10000 TELOS</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Това е най-бавния и най-сигурен вариант за скриване на TELOSIPCOIN. Използването й ще струва</translation>
+        <translation>Това е най-бавния и най-сигурен вариант за скриване на TELOS. Използването й ще струва</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 TELOSIPCOIN за 10000 скрити TELOSIPCOIN</translation>
+        <source>0.1 TELOS per 10000 TELOS you anonymize.</source>
+        <translation>0.1 TELOS за 10000 скрити TELOS</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1712,16 +1712,16 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 https://www.transifex.com/transcendence-project/transcendence-project-translations</translation>
     </message>
     <message>
-        <source>Percentage of incoming TELOSIPCOIN which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>Процент от входящите TELOSIPCOIN, който автоматично да се конвертира в zTELOS посредтвом Zerocoin Протокола (мин: 10%)</translation>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Процент от входящите TELOS, който автоматично да се конвертира в zTELOS посредтвом Zerocoin Протокола (мин: 10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
         <translation>Процент автоматично сечени zTELOS</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough TELOSIPCOIN for this denomination is available</source>
-        <translation>Не бързай с автоматичното конвертиране в zTELOS докато не се съберат достатъчно TELOSIPCOIN за тази деноминация</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough TELOS for this denomination is available</source>
+        <translation>Не бързай с автоматичното конвертиране в zTELOS докато не се съберат достатъчно TELOS за тази деноминация</translation>
     </message>
     <message>
         <source>Preferred Automint zTELOS Denomination</source>
@@ -1859,8 +1859,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>От</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN Balances</source>
-        <translation>TELOSIPCOIN Баланс</translation>
+        <source>TELOS Balances</source>
+        <translation>TELOS Баланс</translation>
     </message>
     <message>
         <source>Available:</source>
@@ -1927,8 +1927,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Комбиниран общ баланс (само озрелите монети)</translation>
     </message>
     <message>
-        <source>TELOSIPCOIN:</source>
-        <translation>TELOSIPCOIN:</translation>
+        <source>TELOS:</source>
+        <translation>TELOS:</translation>
     </message>
     <message>
         <source>zTELOS:</source>
@@ -2060,12 +2060,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TELOSIPCOIN which were anonymized via Zerocin Protocol</source>
-        <translation>TELOSIPCOIN скрити посредством Зерокойн протокола</translation>
+        <source>TELOS which were anonymized via Zerocin Protocol</source>
+        <translation>TELOS скрити посредством Зерокойн протокола</translation>
     </message>
     <message>
-        <source>Zerocoin TELOSIPCOIN (zTELOS)</source>
-        <translation>Zerocoin TELOSIPCOIN (zTELOS)</translation>
+        <source>Zerocoin TELOS (zTELOS)</source>
+        <translation>Zerocoin TELOS (zTELOS)</translation>
     </message>
     <message>
         <source>Zerocoin Actions:</source>
@@ -2077,7 +2077,7 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     </message>
     <message>
         <source>Enter an amount of Phr to convert to zPhr</source>
-        <translation>Въведете колко TELOSIPCOIN  да се конвертират в zTELOS</translation>
+        <translation>Въведете колко TELOS  да се конвертират в zTELOS</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2096,8 +2096,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Налични за сечене:</translation>
     </message>
     <message>
-        <source>0.000 000 00 TELOSIPCOIN</source>
-        <translation>0.000 000 00 TELOSIPCOIN</translation>
+        <source>0.000 000 00 TELOS</source>
+        <translation>0.000 000 00 TELOS</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -3127,8 +3127,8 @@ Please be patient...</source>
         <translation>Размер на UTXO:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3179,12 +3179,12 @@ Please be patient...</source>
         <translation>Автоматично избрани монети</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Ако собствената такса е настроена на 1000 uTELOSIPCOIN и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uTELOSIPCOIN входяща такса, &lt;br /&gt;докато "минимална сума" плаща 1000 uTELOSIPCOIN. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ако собствената такса е настроена на 1000 uTELOS и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uTELOS входяща такса, &lt;br /&gt;докато "минимална сума" плаща 1000 uTELOS. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Ако собствената такса е настроена на 1000 uTELOSIPCOIN и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uTELOSIPCOIN входяща такса,&lt;br /&gt; докато "минимална сума" плаща 1000 uTELOSIPCOIN. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Ако собствената такса е настроена на 1000 uTELOS и превода е само 250 байта, то тогава "за килобайт" само плаща 250 uTELOS входяща такса,&lt;br /&gt; докато "минимална сума" плаща 1000 uTELOS. За транзакции по-големи от килобайт, и двете плащат за килобайт.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3235,8 +3235,8 @@ Please be patient...</source>
         <translation>Добави Получател</translation>
     </message>
     <message>
-        <source>Anonymized TELOSIPCOIN</source>
-        <translation>Анонимизиран TELOSIPCOIN</translation>
+        <source>Anonymized TELOS</source>
+        <translation>Анонимизиран TELOS</translation>
     </message>
     <message>
         <source>SwiftTX</source>
@@ -3296,7 +3296,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Warning: Invalid Transcendence address</source>
-        <translation>Предупреждение: Невалиден TELOSIPCOIN адрес</translation>
+        <translation>Предупреждение: Невалиден TELOS адрес</translation>
     </message>
     <message>
         <source>any available funds (not recommended)</source>
@@ -3956,7 +3956,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Converted Phr to zPhr</source>
-        <translation>Конвертиран TELOSIPCOIN във zTELOS</translation>
+        <translation>Конвертиран TELOS във zTELOS</translation>
     </message>
     <message>
         <source>Spent zPhr</source>
@@ -3964,7 +3964,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>Получен TELOSIPCOIN от zTELOS</translation>
+        <translation>Получен TELOS от zTELOS</translation>
     </message>
     <message>
         <source>Minted Change as zPhr from zPhr Spend</source>
@@ -3972,7 +3972,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Converted zPhr to Phr</source>
-        <translation>Конвертирани zTELOS в TELOSIPCOIN</translation>
+        <translation>Конвертирани zTELOS в TELOS</translation>
     </message>
     <message>
         <source>watch-only</source>
@@ -4087,7 +4087,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Received Phr from zPhr</source>
-        <translation>Получен TELOSIPCOIN от zTELOS</translation>
+        <translation>Получен TELOS от zTELOS</translation>
     </message>
     <message>
         <source>Zerocoin Mint</source>
@@ -4215,8 +4215,8 @@ Please be patient...</source>
         <translation>Изпрати Монети</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTX не подържа изпращането на толкова големи суми. Превода е ограничен до %1 TELOSIPCOIN.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>SwiftTX не подържа изпращането на толкова големи суми. Превода е ограничен до %1 TELOS.</translation>
     </message>
 </context>
 <context>
@@ -4344,12 +4344,12 @@ Please be patient...</source>
         <translation>Командата влиза в сила, когато най-добрия блок се промени (%s в cmd се замества от хаш на блока)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Такси (в TELOSIPCOIN/Кб) по-малки от това се считат за нулеви при препращане (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Такси (в TELOS/Кб) по-малки от това се считат за нулеви при препращане (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Такси (в TELOSIPCOIN/Кб) по-малки от това се считат за нулеви при създаване на предовда (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Такси (в TELOS/Кб) по-малки от това се считат за нулеви при създаване на предовда (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>

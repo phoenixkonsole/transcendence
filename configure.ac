@@ -19,9 +19,9 @@ BITCOIN_TX_NAME=transcendence-tx
 
 AC_CANONICAL_HOST
 
-AH_TOP([#ifndef TELOSIPCOIN_CONFIG_H])
-AH_TOP([#define TELOSIPCOIN_CONFIG_H])
-AH_BOTTOM([#endif //TELOSIPCOIN_CONFIG_H])
+AH_TOP([#ifndef TELOS_CONFIG_H])
+AH_TOP([#define TELOS_CONFIG_H])
+AH_BOTTOM([#endif //TELOS_CONFIG_H])
 
 dnl faketime breaks configure and is only needed for make. Disable it here.
 unset FAKETIME

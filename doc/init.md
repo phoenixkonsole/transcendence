@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy transcendenced.init to /etc/init.d/transcendenced. Test by running "service transcendenced start".
 
 Using this script, you can adjust the path and flags to the transcendenced program by
-setting the TELOSIPCOIND and FLAGS environment variables in the file
+setting the TRANSCENDENCED and FLAGS environment variables in the file
 /etc/sysconfig/transcendenced. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

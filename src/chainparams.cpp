@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(1, uint256("0x0000089a9e6828426ad4a2ce28f8ff87c93e20d98b3c70a5a72322424aa844c6"));
+    boost::assign::map_list_of(0, uint256("0x0000089a9e6828426ad4a2ce28f8ff87c93e20d98b3c70a5a72322424aa844c6"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1530998657, // * UNIX timestamp of last checkpoint block
@@ -105,7 +105,7 @@ public:
         pchMessageStart[2] = 0x4d;
         pchMessageStart[3] = 0x39;
         vAlertPubKey = ParseHex("0317dc37cb1011c0a162fc113358cdad2a12b85a0f841c4c48346bd85f45ec5c1d");
-        nDefaultPort = 9333;
+        nDefaultPort = 22123;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Transcendence starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -121,9 +121,9 @@ public:
         nMaxMoneyOut = 4000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 200;
+        nLastPOWBlock = 291;
         nModifierUpdateBlock = 1;
-        nZerocoinStartHeight = 650;
+        nZerocoinStartHeight = 292;
         nAccumulatorStartHeight = 1;
         nZerocoinStartTime = 1531801217; // 14 - apr - 2018
         nBlockEnforceSerialRange = 1; //Enforce serial range starting this block
@@ -165,6 +165,10 @@ public:
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
+        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
+        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
+        vSeeds.push_back(CDNSSeedData("54.37.226.201", "54.37.226.201"));
+        vSeeds.push_back(CDNSSeedData("149.28.207.136", "149.28.207.136"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38); // G
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 138); // x
@@ -178,10 +182,10 @@ public:
 
 
 		fRequireRPCPassword = true;
-        fMiningRequiresPeers = true;
+        fMiningRequiresPeers = false;
         fAllowMinDifficultyBlocks = false;
         fDefaultConsistencyChecks = false;
-        fRequireStandard = true;
+        fRequireStandard = false;
         fMineBlocksOnDemand = false;
         fSkipProofOfWorkCheck = false;
         fTestnetToBeDeprecatedFieldRPC = false;
@@ -261,6 +265,8 @@ public:
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
+        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
+        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet transcendence addresses start with 'x' or 'y'

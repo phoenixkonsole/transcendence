@@ -2128,7 +2128,7 @@ int64_t GetBlockValue(int nHeight)
 
     if (nHeight == 1) {
            nSubsidy = 3000000 * COIN;
-    } else if (nHeight <= Params().LAST_POW_BLOCK() && nHeight > 1) {
+	} else if  (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 3) {
 	          nSubsidy = 3 * COIN;
     } else if (nHeight <= 1728 && nHeight > Params().LAST_POW_BLOCK()) {
         nSubsidy = 2 * COIN;
@@ -2147,14 +2147,6 @@ int64_t GetBlockValue(int nHeight)
   	} else {
           nSubsidy = 0.1 * COIN;
     }
-    
-    int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-
-    if (nMoneySupply + nSubsidy >= Params().MaxMoneyOut())
-        nSubsidy = Params().MaxMoneyOut() - nMoneySupply;
-
-    if (nMoneySupply >= Params().MaxMoneyOut())
-    	nSubsidy = 0 ;
 
 
   	return nSubsidy;
@@ -2603,7 +2595,7 @@ void ThreadScriptCheck()
     scriptcheckqueue.Thread();
 }
 
-void RecalculateZTELOSIPCOINMinted()
+void RecalculateZTRANSCENDENCEMinted()
 {
     CBlockIndex *pindex = chainActive[Params().Zerocoin_AccumulatorStartHeight()];
     int nHeightEnd = chainActive.Height();
@@ -2635,7 +2627,7 @@ void RecalculateZTELOSIPCOINMinted()
     pblocktree->Flush();
 }
 
-void RecalculateZTELOSIPCOINSpent()
+void RecalculateZTRANSCENDENCESpent()
 {
     CBlockIndex* pindex = chainActive[Params().Zerocoin_AccumulatorStartHeight()];
     while (true) {
@@ -2672,7 +2664,7 @@ void RecalculateZTELOSIPCOINSpent()
     pblocktree->Flush();
 }
 
-bool RecalculateTELOSIPCOINSupply(int nHeightStart)
+bool RecalculateTRANSCENDENCESupply(int nHeightStart)
 {
     if (nHeightStart > chainActive.Height())
         return false;
@@ -2909,9 +2901,9 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     std::list<libzerocoin::CoinDenomination> listSpends = ZerocoinSpendListFromBlock(block);
 
     if (!fVerifyingBlocks && pindex->nHeight == Params().Zerocoin_StartHeight() + 1) {
-        RecalculateZTELOSIPCOINMinted();
-        RecalculateZTELOSIPCOINSpent();
-        RecalculateTELOSIPCOINSupply(1);
+        RecalculateZTRANSCENDENCEMinted();
+        RecalculateZTRANSCENDENCESpent();
+        RecalculateTRANSCENDENCESupply(1);
     }
 
     // Initialize zerocoin supply to the supply from previous block
@@ -3112,7 +3104,7 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    // If turned on AutoZeromint will automatically convert TELOSIPCOIN to zTELOS
+    // If turned on AutoZeromint will automatically convert TRANSCENDENCE to zTELOS
     if (pwalletMain->isZeromintEnabled ())
         pwalletMain->AutoZeromint ();
 
@@ -3998,7 +3990,7 @@ bool CheckWork(const CBlock block, CBlockIndex* const pindexPrev)
 
     unsigned int nBitsRequired = GetNextWorkRequired(pindexPrev, &block);
 
-	if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
+    if (block.IsProofOfWork() && (pindexPrev->nHeight + 1 <= 68589)) {
         double n1 = ConvertBitsToDouble(block.nBits);
         double n2 = ConvertBitsToDouble(nBitsRequired);
 

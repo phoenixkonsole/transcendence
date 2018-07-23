@@ -19,7 +19,7 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(TELOSIPCOIN);
+    unitlist.append(TRANSCENDENCE);
     unitlist.append(mTELOS);
     unitlist.append(uTELOS);
     return unitlist;
@@ -28,7 +28,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case TELOSIPCOIN:
+    case TRANSCENDENCE:
     case mTELOS:
     case uTELOS:
         return true;
@@ -40,7 +40,7 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case TELOSIPCOIN:
+    case TRANSCENDENCE:
         return QString("telos");
     case mTELOS:
         return QString("mtelos");
@@ -55,7 +55,7 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case TELOSIPCOIN:
+        case TRANSCENDENCE:
             return QString("TELOS");
         case mTELOS:
             return QString("mTELOS");
@@ -66,7 +66,7 @@ QString BitcoinUnits::name(int unit)
         }
     } else {
         switch (unit) {
-        case TELOSIPCOIN:
+        case TRANSCENDENCE:
             return QString("tTELOS");
         case mTELOS:
             return QString("mtTELOS");
@@ -82,18 +82,18 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case TELOSIPCOIN:
-            return QString("TELOSIPCOIN");
+        case TRANSCENDENCE:
+            return QString("TRANSCENDENCE");
         case mTELOS:
-            return QString("Milli-TELOSIPCOIN (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-TRANSCENDENCE (1 / 1" THIN_SP_UTF8 "000)");
         case uTELOS:
-            return QString("Micro-TELOSIPCOIN (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-TRANSCENDENCE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case TELOSIPCOIN:
+        case TRANSCENDENCE:
             return QString("TestTELOSs");
         case mTELOS:
             return QString("Milli-TestTELOS (1 / 1" THIN_SP_UTF8 "000)");
@@ -108,7 +108,7 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case TELOSIPCOIN:
+    case TRANSCENDENCE:
         return 100000000;
     case mTELOS:
         return 100000;
@@ -122,7 +122,7 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case TELOSIPCOIN:
+    case TRANSCENDENCE:
         return 8;
     case mTELOS:
         return 5;

@@ -176,16 +176,16 @@
         <translation>Conferma cifratura portafoglio</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi TELOSIPCOIN dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
+        <translation>Transcendence verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi TRANSCENDENCE dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Confermi di voler crittografare il portafoglio?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI TELOSIPCOIN&lt;7b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
+        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI TRANSCENDENCE&lt;7b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>

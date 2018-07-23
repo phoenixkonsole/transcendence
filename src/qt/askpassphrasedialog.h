@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_ASKPASSTELOSIPCOINASEDIALOG_H
-#define BITCOIN_QT_ASKPASSTELOSIPCOINASEDIALOG_H
+#ifndef BITCOIN_QT_ASKPASSTRANSCENDENCEASEDIALOG_H
+#define BITCOIN_QT_ASKPASSTRANSCENDENCEASEDIALOG_H
 
 #include <QDialog>
 
@@ -48,4 +48,4 @@ protected:
     bool eventFilter(QObject* object, QEvent* event);
 };
 
-#endif // BITCOIN_QT_ASKPASSTELOSIPCOINASEDIALOG_H
+#endif // BITCOIN_QT_ASKPASSTRANSCENDENCEASEDIALOG_H

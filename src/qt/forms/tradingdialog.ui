@@ -181,7 +181,7 @@
       <string>Asks</string>
      </property>
     </widget>
-    <widget class="QLabel" name="TELOSIPCOINSupply">
+    <widget class="QLabel" name="TRANSCENDENCESupply">
      <property name="geometry">
       <rect>
        <x>540</x>
@@ -197,7 +197,7 @@
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QLabel" name="TELOSIPCOINDemand">
+    <widget class="QLabel" name="TRANSCENDENCEDemand">
      <property name="geometry">
       <rect>
        <x>160</x>
@@ -432,7 +432,7 @@
     <attribute name="title">
      <string>Buy</string>
     </attribute>
-    <widget class="QPushButton" name="BuyTELOSIPCOIN">
+    <widget class="QPushButton" name="BuyTRANSCENDENCE">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -442,7 +442,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Buy TELOSIPCOIN</string>
+      <string>Buy TRANSCENDENCE</string>
      </property>
      <property name="icon">
       <iconset resource="../transcendence.qrc">
@@ -512,7 +512,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>TELOSIPCOIN</string>
+      <string>TRANSCENDENCE</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1704,10 +1704,10 @@
       </rect>
      </property>
      <property name="text">
-      <string>TELOSIPCOIN</string>
+      <string>TRANSCENDENCE</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="UnitsInputTELOSIPCOIN">
+    <widget class="QLineEdit" name="UnitsInputTRANSCENDENCE">
      <property name="geometry">
       <rect>
        <x>310</x>
@@ -1741,7 +1741,7 @@
       </font>
      </property>
     </widget>
-    <widget class="QPushButton" name="SellTELOSIPCOINBTN">
+    <widget class="QPushButton" name="SellTRANSCENDENCEBTN">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -1751,7 +1751,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Sell TELOSIPCOIN</string>
+      <string>Sell TRANSCENDENCE</string>
      </property>
      <property name="icon">
       <iconset resource="../transcendence">
@@ -1777,12 +1777,12 @@
          </font>
         </property>
         <property name="text">
-         <string>TELOSIPCOIN Available:</string>
+         <string>TRANSCENDENCE Available:</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="TELOSIPCOINAvailableLabel">
+       <widget class="QLabel" name="TRANSCENDENCEAvailableLabel">
         <property name="palette">
          <palette>
           <active>
@@ -2213,7 +2213,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="labelTELOSIPCOIN">
+       <widget class="QLabel" name="labelTRANSCENDENCE">
         <property name="font">
          <font>
           <weight>75</weight>
@@ -2221,7 +2221,7 @@
          </font>
         </property>
         <property name="text">
-         <string>TELOSIPCOIN</string>
+         <string>TRANSCENDENCE</string>
         </property>
        </widget>
       </item>
@@ -2733,7 +2733,7 @@
       <string>TextLabel</string>
      </property>
     </widget>
-    <widget class="QLabel" name="TELOSIPCOINBalanceLabel">
+    <widget class="QLabel" name="TRANSCENDENCEBalanceLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2762,7 +2762,7 @@
       </font>
      </property>
      <property name="text">
-      <string>TELOSIPCOIN Balance:</string>
+      <string>TRANSCENDENCE Balance:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -2784,7 +2784,7 @@
       <string>BTC Balance:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="TELOSIPCOINAvailableLabel_2">
+    <widget class="QLabel" name="TRANSCENDENCEAvailableLabel_2">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2813,7 +2813,7 @@
       </font>
      </property>
      <property name="text">
-      <string>TELOSIPCOIN Available:</string>
+      <string>TRANSCENDENCE Available:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -2832,10 +2832,10 @@
       </font>
      </property>
      <property name="text">
-      <string>TELOSIPCOIN Pending:</string>
+      <string>TRANSCENDENCE Pending:</string>
      </property>
     </widget>
-    <widget class="QLabel" name="TELOSIPCOINPendingLabel">
+    <widget class="QLabel" name="TRANSCENDENCEPendingLabel">
      <property name="geometry">
       <rect>
        <x>150</x>
@@ -2928,7 +2928,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bittrex TELOSIPCOIN Deposit Address:</string>
+      <string>Bittrex TRANSCENDENCE Deposit Address:</string>
      </property>
     </widget>
     <widget class="QPushButton" name="GenDepositBTN">

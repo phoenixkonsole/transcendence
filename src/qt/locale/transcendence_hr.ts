@@ -535,8 +535,8 @@
         <translation>ne</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TRANSCENDENCE</source>
+        <translation>0 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>Confirmation time:</source>

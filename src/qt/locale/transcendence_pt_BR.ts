@@ -172,16 +172,16 @@
         <translation>Confirmar criptografia de carteira</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence vai fechar agora para finalizar o processo de criptografia. Lembre-se que encriptar sua carteira não pode proteger totalmente suas TELOSIPCOINs de serem roubadas por malwares infectando seu computador.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
+        <translation>Transcendence vai fechar agora para finalizar o processo de criptografia. Lembre-se que encriptar sua carteira não pode proteger totalmente suas TRANSCENDENCEs de serem roubadas por malwares infectando seu computador.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Você tem certeza que deseja criptografar sua carteira?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Aviso: se você criptografar sua carteira e perder sua senha você &lt;b&gt;PERDERÁ TODAS AS SUAS TELOSIPCOIN&lt;b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
+        <translation>Aviso: se você criptografar sua carteira e perder sua senha você &lt;b&gt;PERDERÁ TODAS AS SUAS TRANSCENDENCE&lt;b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1448,32 +1448,32 @@ Favor verificar o endereço e tente novamente.</translation>
         <translation>Favor selecionar o nível de privacidade.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Use 2 masternodes separados para embaralhar fundos até 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
+        <translation>Use 2 masternodes separados para embaralhar fundos até 10000 TRANSCENDENCE</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Use 8 masternodes separados para embaralhar fundos até 10000 TELOSIPCOIN</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
+        <translation>Use 8 masternodes separados para embaralhar fundos até 10000 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Use 16 masternodes separados</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Está opção é a mais rápida e vai custar em torno de ~0.025 TELOSIPCOIN para anonimizar 10000 TELOSIPCOIN</translation>
+        <source>This option is the quickest and will cost about ~0.025 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
+        <translation>Está opção é a mais rápida e vai custar em torno de ~0.025 TRANSCENDENCE para anonimizar 10000 TRANSCENDENCE</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Está opção moderamente rápida e vai custar em torno de ~0.05 TELOSIPCOIN para anonimizar 10000 TELOSIPCOIN</translation>
+        <source>This option is moderately fast and will cost about 0.05 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
+        <translation>Está opção moderamente rápida e vai custar em torno de ~0.05 TRANSCENDENCE para anonimizar 10000 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Esta é a opção mais lenta e mais segura. Usando a anonimização máxima vai custar</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 TELOSIPCOIN por 10000 TELOSIPCOIN que deixar anônima.</translation>
+        <source>0.1 TRANSCENDENCE per 10000 TRANSCENDENCE you anonymize.</source>
+        <translation>0.1 TRANSCENDENCE por 10000 TRANSCENDENCE que deixar anônima.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -2425,8 +2425,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Tamanho UTXO:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TRANSCENDENCE</source>
+        <translation>0 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -2465,8 +2465,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Tempo de confirmação:</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTELOSIPCOINs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSIPCOINs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSIPCOINs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Se a taxa padrão estiver definida para 1000 uTELOSIPCOINs e a transação for somente de 250 bytes, então "por kilobyte" pagará somente 250 uTELOSIPCOINs em taxa,&lt;br /&gt; pagará pelo menos 1000 uTELOSIPCOINs. Para transações maiores que um kilobyte ambas pagam por kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTRANSCENDENCEs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTRANSCENDENCEs in fee,&lt;br /&gt;while "at least" pays 1000 uTRANSCENDENCEs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Se a taxa padrão estiver definida para 1000 uTRANSCENDENCEs e a transação for somente de 250 bytes, então "por kilobyte" pagará somente 250 uTRANSCENDENCEs em taxa,&lt;br /&gt; pagará pelo menos 1000 uTRANSCENDENCEs. Para transações maiores que um kilobyte ambas pagam por kilobyte.</translation>
     </message>
     <message>
         <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
@@ -3357,8 +3357,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Enviar Moedas</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOSIPCOIN.</source>
-        <translation>SwiftTX ainda não suporta o envio de valores altos assim. As transações atualmente são limitadas a %1 TELOSIPCOIN.</translation>
+        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TRANSCENDENCE.</source>
+        <translation>SwiftTX ainda não suporta o envio de valores altos assim. As transações atualmente são limitadas a %1 TRANSCENDENCE.</translation>
     </message>
 </context>
 <context>
@@ -3430,12 +3430,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Executar o comando quando uma transação da carteira mudar (%s no cmd será substituído pela TxID)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Taxas (em TELOSIPCOIN/Kb) menores que isso serão consideradas taxa zero para propagação (padrão: %s)</translation>
+        <source>Fees (in TRANSCENDENCE/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Taxas (em TRANSCENDENCE/Kb) menores que isso serão consideradas taxa zero para propagação (padrão: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TELOSIPCOIN/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Taxas (em TELOSIPCOIN/Kb) menores que isso serão consideradas taxa zero para a criação da transação (padrão: %s)</translation>
+        <source>Fees (in TRANSCENDENCE/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Taxas (em TRANSCENDENCE/Kb) menores que isso serão consideradas taxa zero para a criação da transação (padrão: %s)</translation>
     </message>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
@@ -3458,8 +3458,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>SwiftTX requer inputs com pelo menos 6 confirmações, você precisar aguardar alguns minutos e tentar novamente.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOSIPCOIN.</source>
-        <translation>Incapaz de localizar fundos para esta transação que não são iguais a 10000 TELOSIPCOIN.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 TRANSCENDENCE.</source>
+        <translation>Incapaz de localizar fundos para esta transação que não são iguais a 10000 TRANSCENDENCE.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -3646,8 +3646,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Falhou em ler o bloco</translation>
     </message>
     <message>
-        <source>Fee (in TELOSIPCOIN/kB) to add to transactions you send (default: %s)</source>
-        <translation>Taxa (em TELOSIPCOIN/kB) a adicionar em transações que você enviar (padrão: %s)</translation>
+        <source>Fee (in TRANSCENDENCE/kB) to add to transactions you send (default: %s)</source>
+        <translation>Taxa (em TRANSCENDENCE/kB) a adicionar em transações que você enviar (padrão: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>

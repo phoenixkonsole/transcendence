@@ -52,13 +52,13 @@
           </font>
          </property>
          <property name="toolTip">
-          <string>TELOSIPCOIN which were anonymized via Zerocin Protocol</string>
+          <string>TRANSCENDENCE which were anonymized via Zerocin Protocol</string>
          </property>
          <property name="autoFillBackground">
           <bool>true</bool>
          </property>
          <property name="text">
-          <string>Zerocoin TELOSIPCOIN (zTELOS)</string>
+          <string>Zerocoin TRANSCENDENCE (zTELOS)</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -148,7 +148,7 @@
                   <string>Enter an amount of Transcendence to convert (mint) to zTELOS</string>
                  </property>
                  <property name="text">
-                  <string>Mint TELOSIPCOIN to zTELOS</string>
+                  <string>Mint TRANSCENDENCE to zTELOS</string>
                  </property>
                 </widget>
                </item>
@@ -194,7 +194,7 @@
                   <string>Enter an amount of Transcendence to convert to zTELOS</string>
                  </property>
                  <property name="text">
-                  <string>0.000 000 00 TELOSIPCOIN</string>
+                  <string>0.000 000 00 TRANSCENDENCE</string>
                  </property>
                  <property name="alignment">
                   <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -370,7 +370,7 @@
                     <enum>Qt::ActionsContextMenu</enum>
                    </property>
                    <property name="text">
-                    <string notr="true">0.00 TELOSIPCOIN</string>
+                    <string notr="true">0.00 TRANSCENDENCE</string>
                    </property>
                    <property name="textInteractionFlags">
                     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -1576,7 +1576,7 @@ Immature: confirmed, but less than 1 mints of the same denomination after it was
          <enum>Qt::ActionsContextMenu</enum>
         </property>
         <property name="text">
-         <string notr="true">0.000 000 00 TELOSIPCOIN</string>
+         <string notr="true">0.000 000 00 TRANSCENDENCE</string>
         </property>
         <property name="textInteractionFlags">
          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -1650,7 +1650,7 @@ Immature: confirmed, but less than 1 mints of the same denomination after it was
            <enum>Qt::ActionsContextMenu</enum>
           </property>
           <property name="text">
-           <string notr="true">0.00 TELOSIPCOIN</string>
+           <string notr="true">0.00 TRANSCENDENCE</string>
           </property>
           <property name="textInteractionFlags">
            <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
@@ -1847,7 +1847,7 @@ Immature: confirmed, but less than 1 mints of the same denomination after it was
          <enum>Qt::ActionsContextMenu</enum>
         </property>
         <property name="text">
-         <string notr="true">0.000 000 00 TELOSIPCOIN</string>
+         <string notr="true">0.000 000 00 TRANSCENDENCE</string>
         </property>
         <property name="textInteractionFlags">
          <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>

@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef TELOSIPCOIN_CSPORKDB_H
-#define TELOSIPCOIN_CSPORKDB_H
+#ifndef TRANSCENDENCE_CSPORKDB_H
+#define TRANSCENDENCE_CSPORKDB_H
 
 #include <boost/filesystem/path.hpp>
 #include "leveldbwrapper.h"
@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //TELOSIPCOIN_CSPORKDB_H
+#endif //TRANSCENDENCE_CSPORKDB_H

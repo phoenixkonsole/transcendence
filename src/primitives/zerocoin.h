@@ -1,8 +1,8 @@
 // Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef TELOSIPCOIN_ZEROCOIN_H
-#define TELOSIPCOIN_ZEROCOIN_H
+#ifndef TRANSCENDENCE_ZEROCOIN_H
+#define TRANSCENDENCE_ZEROCOIN_H
 
 #include <amount.h>
 #include <limits.h>
@@ -189,4 +189,4 @@ public:
     int GetNeededSpends();
 };
 
-#endif //TELOSIPCOIN_ZEROCOIN_H
+#endif //TRANSCENDENCE_ZEROCOIN_H

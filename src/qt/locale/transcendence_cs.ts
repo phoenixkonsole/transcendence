@@ -176,16 +176,16 @@
         <translation>Potvrdit zašifrování peněženky</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOSIPCOINs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše TELOSIPCOINy před krádží, pokud je Váš počítač infikován malwarem.</translation>
+        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
+        <translation>Transcendence se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše TRANSCENDENCEy před krádží, pokud je Váš počítač infikován malwarem.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Opravdu chcete zašifrovat Vaši peněženku?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOSIPCOIN&lt;/b&gt;!</source>
-        <translation>Varování: Pokud zašifrujete svou peněženku a ztratíte frázové heslo, tak &lt;b&gt;ZTRATÍTE VŠECHNY VAŠE TELOSIPCOINy&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
+        <translation>Varování: Pokud zašifrujete svou peněženku a ztratíte frázové heslo, tak &lt;b&gt;ZTRATÍTE VŠECHNY VAŠE TRANSCENDENCEy&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -1438,24 +1438,24 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Vyberte úrpvěň ochrany soukromí</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TELOSIPCOIN</source>
-        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 TELOSIPCOIN</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
+        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Použít 16 oddělených masternodů</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TELOSIPCOIN to anonymize 10000 TELOSIPCOIN</source>
-        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 TELOSIPCOIN pro anonymizaci 10000 TELOSIPCOIN</translation>
+        <source>This option is the quickest and will cost about ~0.025 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
+        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 TRANSCENDENCE pro anonymizaci 10000 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Toto je nejpomalejší a nejvíce bezpečná volba. Použití maximalní anonymity bude stát</translation>
     </message>
     <message>
-        <source>0.1 TELOSIPCOIN per 10000 TELOSIPCOIN you anonymize.</source>
-        <translation>0.1 TELOSIPCOIN za 10000 TELOSIPCOIN anonymizujete.</translation>
+        <source>0.1 TRANSCENDENCE per 10000 TRANSCENDENCE you anonymize.</source>
+        <translation>0.1 TRANSCENDENCE za 10000 TRANSCENDENCE anonymizujete.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -2057,8 +2057,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Změna:</translation>
     </message>
     <message>
-        <source>0 TELOSIPCOIN</source>
-        <translation>0 TELOSIPCOIN</translation>
+        <source>0 TRANSCENDENCE</source>
+        <translation>0 TRANSCENDENCE</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>

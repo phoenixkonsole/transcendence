@@ -368,9 +368,9 @@ bool RemoveSerialFromDB(const CBigNum& bnSerial);
 int GetZerocoinStartHeight();
 bool IsTransactionInChain(uint256 txId, int& nHeightTx);
 bool IsBlockHashInChain(const uint256& hashBlock);
-void RecalculateZTELOSIPCOINSpent();
-void RecalculateZTELOSIPCOINMinted();
-bool RecalculateTELOSIPCOINSupply(int nHeightStart);
+void RecalculateZTRANSCENDENCESpent();
+void RecalculateZTRANSCENDENCEMinted();
+bool RecalculateTRANSCENDENCESupply(int nHeightStart);
 
 
 /**

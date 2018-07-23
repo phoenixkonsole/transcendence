@@ -1,86 +1,26 @@
-#!/sbin/runscript
+# /etc/conf.d/transcendenced: config file for /etc/init.d/transcendenced
 
-# backward compatibility for existing gentoo layout
-#
-if [ -d "/var/lib/transcendence/.transcendence" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/transcendence/.transcendence"
-else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/transcendenced"
-fi
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/transcendence/transcendence.conf"
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/transcendence/transcendence.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/transcendenced}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/transcendenced.pid}
-BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-transcendence}
-BITCOIND_GROUP=${BITCOIND_GROUP:-transcendence}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/transcendenced}
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/transcendenced"
 
-name="Transcendence Core Daemon"
-description="Transcendence crypto-currency p2p network daemon"
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/transcendenced.pid"
 
-command="/usr/bin/transcendenced"
-command_args="-pid=\"${BITCOIND_PIDFILE}\" \
-		-conf=\"${BITCOIND_CONFIGFILE}\" \
-		-datadir=\"${BITCOIND_DATADIR}\" \
-		-daemon \
-		${BITCOIND_OPTS}"
+# Where to write transcendenced data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/transcendenced"
 
-required_files="${BITCOIND_CONFIGFILE}"
-start_stop_daemon_args="-u ${BITCOIND_USER} \
-			-N ${BITCOIND_NICE:-0} -w 2000"
-pidfile="${BITCOIND_PIDFILE}"
-retry=60
+# User and group to own transcendenced process
+#BITCOIND_USER="transcendence"
+#BITCOIND_GROUP="transcendence"
 
-depend() {
-	need localmount net
-}
+# Path to transcendenced executable
+#BITCOIND_BIN="/usr/bin/transcendenced"
 
-# verify
-# 1) that the datadir exists and is writable (or create it)
-# 2) that a directory for the pid exists and is writable
-# 3) ownership and permissions on the config file
-start_pre() {
-	checkpath \
-	-d \
-	--mode 0750 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_DATADIR}"
+# Nice value to run transcendenced under
+#BITCOIND_NICE=0
 
-	checkpath \
-	-d \
-	--mode 0755 \
-	--owner "${BITCOIND_USER}:${BITCOIND_GROUP}" \
-	"${BITCOIND_PIDDIR}"
-
-	checkpath -f \
-	-o ${BITCOIND_USER}:${BITCOIND_GROUP} \
-	-m 0660 \
-	${BITCOIND_CONFIGFILE}
-
-	checkconfig || return 1
-}
-
-checkconfig()
-{
-	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
-		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run transcendenced."
-		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
-		eerror ""
-		eerror "This password is security critical to securing wallets "
-		eerror "and must not be the same as the rpcuser setting."
-		eerror "You can generate a suitable random password using the following"
-		eerror "command from the shell:"
-		eerror ""
-		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
-		eerror ""
-		eerror "It is also recommended that you also set alertnotify so you are "
-		eerror "notified of problems:"
-		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Transcendence Alert\"" \
-			"admin@foo.com"
-		eerror ""
-		return 1
-	fi
-}
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

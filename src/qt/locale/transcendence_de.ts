@@ -5291,7 +5291,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Dieser Hilfetext</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Dies ist experimentelle Software.</translation>
     </message>
     <message>

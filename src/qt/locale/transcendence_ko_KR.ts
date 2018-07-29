@@ -5454,7 +5454,7 @@ rpcpassword=%s
         <translation>도움말 메시지입니다</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>이것은 실험용 소프트웨어입니다.</translation>
     </message>
     <message>

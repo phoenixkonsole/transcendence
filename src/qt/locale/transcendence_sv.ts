@@ -1517,7 +1517,7 @@ Ange en lösenfras i den mellersta boxen. Tryck kryptera för att beräkna den k
         <translation>Detta hjälpmedelande</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Detta är experimentiell mjukvara</translation>
     </message>
     <message>

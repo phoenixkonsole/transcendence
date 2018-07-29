@@ -5436,7 +5436,7 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "Transcendence Alert" admin@foo.c
         <translation>Dit help bericht</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Dit is experimentele software.</translation>
     </message>
     <message>

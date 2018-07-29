@@ -4787,7 +4787,7 @@ For eksempel: alertnotify=Echo %% | mail - s "Transcendence ALARM!" e-mail@admin
         <translation>Denne hjælpemeddelelse</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Denne software er eksperimentiel</translation>
     </message>
     <message>

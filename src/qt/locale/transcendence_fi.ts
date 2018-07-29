@@ -2707,7 +2707,7 @@ Please check the address and try again.</source>
         <translation>Synkronisointi valmis</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Tämä on kokeellista ohjelmistoa.</translation>
     </message>
     <message>

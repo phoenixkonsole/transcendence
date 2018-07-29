@@ -2414,7 +2414,7 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Synchronizace masternodů...</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Toto je experimentální software.</translation>
     </message>
     <message>

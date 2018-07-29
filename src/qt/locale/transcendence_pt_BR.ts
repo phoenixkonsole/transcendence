@@ -3998,7 +3998,7 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Esta mensagem de ajuda</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Este software é experimental.</translation>
     </message>
     <message>

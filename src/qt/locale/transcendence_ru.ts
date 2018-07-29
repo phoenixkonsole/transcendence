@@ -3515,7 +3515,7 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Это справочное сообщение</translation>
     </message>
     <message>
-        <source>This is experimental software.</source>
+        <source></source>
         <translation>Это экспериментальное программное обеспечение.</translation>
     </message>
     <message>

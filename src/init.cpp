@@ -538,7 +538,7 @@ std::string LicenseInfo()
            "\n" +
            FormatParagraph(strprintf(_("Copyright (C) 2015-%i The PIVX Core Developers"), COPYRIGHT_YEAR)) + "\n" +
            "\n" +
-           FormatParagraph(strprintf(_("Copyright (C) 2018-Hell Freezes The Transcendence Core Developers"))) + "\n" +
+           FormatParagraph(strprintf(_("Copyright (C) 2018-Hell Freezes The Transcendence Core Developers")) + "\n" +
            "\n" +
            FormatParagraph(_("")) + "\n" +
            "\n" +

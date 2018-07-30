@@ -35,7 +35,7 @@ then
   sudo echo "/var/swap.img none swap sw 0 0" >> /etc/fstab
   cd
 
-  wget https://github.com/phoenixkonsole/transcendence/releases/download/v1.0/Linux.zip
+  wget https://github.com/phoenixkonsole/transcendence/releases/download/v1.1.0.0/Linux.zip
   unzip Linux.zip
   chmod +x Linux/bin/*
   sudo mv  Linux/bin/* /usr/local/bin

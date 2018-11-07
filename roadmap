@@ -7,6 +7,7 @@ Teloscoin (TELOS) is a Proof of Stake coin built on the Bitcoin UTXO model. As w
 unlimited coin distribution 
 10x faster blocks than Bitcoin (1 per minute)
 Network Port: 22123
+Premined: 3000000 for development and evangelism
 
 Phase 2 - New Wallet (in progress)
 
@@ -27,11 +28,7 @@ While Proof of Stake is mandatory, both other conecepts will be optional for the
 
 *All 3 Networks are working independentely. Payment of fees will be done using TELOS.
 
-Phase 4 - Messaging
-
-Messaging will be provided with indieCHAT. 
-
-Phase 5 - Voting
+Phase 3 - Voting
 
 Voting will be accomplished by spending Masternode Rewards. For this an online portal will be set up called Brotherhood of Telos. 
 Participants can start voting by paying a starting fee of 18000 TELOS. This will prevent joke-votes. 
@@ -55,6 +52,10 @@ Votes will be the consensus as soon the dead line is over.
 Minimum duration of a Voting is 60 days. Maximum ist 90 days. 
 
 If someone is against the initiation of a Vote, it is possible to pay 2 x 180 to remove one of the initial payments for Voting activation.
+
+Phase 4 - Messaging
+
+Messaging will be provided with indieCHAT which again will be included in the Transcendence Wallet. 
 
 Appendix
 

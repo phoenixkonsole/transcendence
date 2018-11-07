@@ -1,0 +1,91 @@
+Transcendence Roadmap
+
+Phase 1 - Complete
+
+Teloscoin (TELOS) is a Proof of Stake coin built on the Bitcoin UTXO model. As with other Bitcoin derivatives, TELOS coins are distributed to persons augmenting the Transcendence network by running Masternodes.
+
+unlimited coin distribution 
+10x faster blocks than Bitcoin (1 per minute)
+Network Port: 22123
+
+Phase 2 - Assets (in progress)
+
+ASIC Resistance (No mining = 100 % No ASICS)
+
+Walletrewrite
+The current TELOS Wallet is a fork of Bitcoincore (Dash-Pivx-Gossipcoin-Teloscoin). A new Wallet called Transcendence Dashboard is currently under development.
+This new Wallet will exist side by side with the current one but inclues closed source code and 3rd party services as well as the cappablity to swap TELOS to other Coins like BTC, DASH and ZEC.
+The new Dashboard will also allow to access a Cloud service, Chat and Appstore. 
+
+As soon the initial realease of the Transcendence Dashboard is ready is planned to keep also the opensource Wallet up2date.
+Both shall get aditional ProofOfStorage and ProofOfComputing capabilities. 
+
+The whole concept will lead to a decentral storage solution, a decentral supercomputing networks an self-regulating marketplace.
+Revenues (FEES) for Storage and Computing usecases will be shared between thos providing them. 
+
+While Proof of Stake is mandatory, both other conecepts will be optional for the Networks* participants. 
+
+*All 3 Networks are working independentely. Payment of fees will be done using TELOS.
+
+Phase 4 - Messaging
+
+Messaging will be provided with indieCHAT. 
+
+Phase 5 - Voting
+
+Voting will be accomplished by spending Masternode Rewards. For this an online portal will be set up called Brotherhood of Telos. 
+Participants can start voting by paying a starting fee of 18000 TELOS. This will prevent joke-votes. 
+The 18000TELOS must be payed by 10 individial Members of the Network. So 10 x 180. 
+
+The voting creator can define multiple or a single answer. 
+
+Example for a single answer Voting:
+Member wants to collect TELOS in order to pay participation on an Blockchain summit to show the Transcendence Project to the public.
+The Single Vote would be equeal to a funding. 
+So the Memebr defines a target vote Number. Each Vote equals 180 TELOS. 
+
+If the Voting doesnt reaches the target volume until a given date, the Voting-Fees will be returned to sender. 
+
+Example for multiple answer Voting:
+Memebr wants to convince community to chnage coin fundamental like Rewards. 
+
+He could provide multiple combinations of REWARD and Collateral to choose from. Each Vote equals 180 TELOS. The option with the most
+Votes will be the consensus as soon the dead line is over.
+
+Minimum duration of a Voting is 60 days. Maximum ist 90 days. 
+
+If someone is against the initiation of a Vote, it is possible to pay 2 x 180 to remove one of the initial payments for Voting activation.
+
+Appendix
+
+Transcendence Blockchain is backed by multiple 3rd-parties Projects as like indieGO Console , indieGO Marketplace , PeerToro and more.
+Each of them will at least accept TELOS as payment. Some will be made opensource after a while so they can be integrated also in the bitcoin core based Wallet.
+
+Roadmaps for 3rd Party Blockchain related Services
+
+PeerToro.eu is goind to launch on November the 15th. 2018 .
+It offeres Masternode Hosting only for TELOS Masternodes and accepts only payments in TELOS. 
+Besides this it will also offer Mining contracts.
+
+Bitdorado
+
+Bitdorado is a an upcoming Exchange and will use TELOS for paying Fees.
+
+indieGO! Console / indieGO! Appstore 
+indieGO!-Marketplace
+Currently work in progress and close to completition in 2018 is a indiecoin to TELOS converter which allows payments inside the Appstore using TELOS. 
+
+Kryptobay.eu
+
+Kryptobay is an shop / auction platform for Cryptoenthusiasts. Buy / sell goods using TELOS. ETA: Early December 2018. 
+
+ProfitCycle
+ProfitCycle is a mobile app + masternode device for Bikes. Ride your bike and earn money. 
+This project will be announced in December 2018
+
+BlueBox
+blueboxing.net - The bluebox will provide Free internet and free Calls to everyone. Announcement and Pre-ordering will be made available in December 2018
+
+CryptoMages
+Cryptomages is a trading card game - it is planned to release also phycial NFC driven Decks which will potentially act as physical container for TELOS
+

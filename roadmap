@@ -18,40 +18,40 @@ The current TELOS Wallet is a fork of Bitcoincore (Dash-Pivx-Gossipcoin-Teloscoi
 This new Wallet will exist side by side with the current one but inclues closed source code and 3rd party services as well as the cappablity to swap TELOS to other Coins like BTC, DASH and ZEC.
 The new Dashboard will also allow to access a Cloud service, Chat and Appstore. 
 
-As soon the initial realease of the Transcendence Dashboard is ready is planned to keep also the opensource Wallet up2date.
+As soon as the initial realease of the Transcendence Dashboard is ready, it is planned to keep also the opensource Wallet up2date.
 Both shall get aditional ProofOfStorage and ProofOfComputing capabilities. 
 
-The whole concept will lead to a decentral storage solution, a decentral supercomputing networks an self-regulating marketplace.
-Revenues (FEES) for Storage and Computing usecases will be shared between thos providing them. 
+The whole concept will lead to a decentral storage solution, a decentral supercomputing networks and self-regulating marketplace.
+Revenues (FEES) for Storage and Computing usecases will be shared between those providing them. 
 
-While Proof of Stake is mandatory, both other conecepts will be optional for the Networks* participants. 
+While Proof of Stake is mandatory, both other concepts will be optional for the Networks* participants. 
 
 *All 3 Networks are working independentely. Payment of fees will be done using TELOS.
 
 Phase 3 - Voting
 
 Voting will be accomplished by spending Masternode Rewards. For this an online portal will be set up called Brotherhood of Telos. 
-Participants can start voting by paying a starting fee of 18000 TELOS. This will prevent joke-votes. 
-The 18000TELOS must be payed by 10 individial Members of the Network. So 10 x 180. 
+Participants can start voting by paying a starting fee of 1800 TELOS. This will prevent joke-votes. 
+The 1800 TELOS must be payed by 10 individual Members of the Network. So 10 x 180. 
 
 The voting creator can define multiple or a single answer. 
 
 Example for a single answer Voting:
 Member wants to collect TELOS in order to pay participation on an Blockchain summit to show the Transcendence Project to the public.
 The Single Vote would be equeal to a funding. 
-So the Memebr defines a target vote Number. Each Vote equals 180 TELOS. 
+So the Member defines a target vote Number. Each Vote equals 180 TELOS. 
 
-If the Voting doesnt reaches the target volume until a given date, the Voting-Fees will be returned to sender. 
+If the Voting does'nt reach the target volume until a given date, the Voting-Fees will be returned to senders. 
 
 Example for multiple answer Voting:
-Memebr wants to convince community to chnage coin fundamental like Rewards. 
+Member wants to convince community to change coin fundamental like Rewards. 
 
 He could provide multiple combinations of REWARD and Collateral to choose from. Each Vote equals 180 TELOS. The option with the most
-Votes will be the consensus as soon the dead line is over.
+Votes will be the consensus as soon as the deadline is over.
 
-Minimum duration of a Voting is 60 days. Maximum ist 90 days. 
+Minimum duration of a Voting is 60 days. Maximum is 90 days. 
 
-If someone is against the initiation of a Vote, it is possible to pay 2 x 180 to remove one of the initial payments for Voting activation.
+If someone is against the initiation of a Voting, it is possible to pay 2 x 180 to remove one of the initial payments for Voting activation.
 
 Phase 4 - Messaging
 
@@ -59,13 +59,13 @@ Messaging will be provided with indieCHAT which again will be included in the Tr
 
 Appendix
 
-Transcendence Blockchain is backed by multiple 3rd-parties Projects as like indieGO Console , indieGO Marketplace , PeerToro and more.
+Transcendence Blockchain is backed by multiple 3rd-parties Projects like indieGO Console , indieGO Marketplace , PeerToro and more.
 Each of them will at least accept TELOS as payment. Some will be made opensource after a while so they can be integrated also in the bitcoin core based Wallet.
 
 Roadmaps for 3rd Party Blockchain related Services
 
-PeerToro.eu is goind to launch on November the 15th. 2018 .
-It offeres Masternode Hosting only for TELOS Masternodes and accepts only payments in TELOS. 
+PeerToro.eu is goind to launch on November the 15th 2018.
+It offers Masternode Hosting only for TELOS Masternodes and accepts only payments in TELOS. 
 Besides this it will also offer Mining contracts.
 
 Bitdorado

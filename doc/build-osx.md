@@ -10,6 +10,8 @@ Notes
 * All of the commands should be executed in a Terminal application. The
 built-in one is located in `/Applications/Utilities`.
 
+* OS X Mojave specific compile see below
+
 Preparation
 -----------
 
@@ -38,26 +40,33 @@ Instructions: Homebrew
 
 #### Install dependencies using Homebrew
 
-        brew install autoconf automake berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 libzmq
+        brew install autoconf automake berkeley-db4 libtool boost@1.55 miniupnpc openssl@1.0 pkg-config protobuf qt5 libzmq 
 
 ### Building `transcendenced`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/phoenixkonsole/Transcendence.git
-        cd Transcendence
+        git clone https://github.com/phoenixkonsole/transcendence
+        cd transcendence
 
-2.  Build transcendenced:
+2.  Link Boost 1.55 to be used for compiling instead of higher / current version - same for SSL
+
+        brew link --overwrite boost@1.55 --force
+        export LDFLAGS="-L/usr/local/opt/openssl/lib"
+        export CPPFLAGS="-I/usr/local/opt/openssl/include"
+        
+
+3.  Build transcendenced:
 
         ./autogen.sh
-        ./configure --with-gui=qt5
+        ./configure LDFLAGS='-L/usr/local/opt/openssl/lib' CPPFLAGS='-I/usr/local/opt/openssl/include' PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig' --with-gui=qt5 --enable-test=no
         make
 
-3.  It is also a good idea to build and run the unit tests:
+4.  It is also a good idea to build and run the unit tests:
 
         make check
 
-4.  (Optional) You can also install transcendenced to your path:
+5.  (Optional) You can also install transcendenced to your path:
 
         make install
 

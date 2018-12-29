@@ -40,7 +40,7 @@ Instructions: Homebrew
 
 #### Install dependencies using Homebrew
 
-        brew install autoconf automake berkeley-db4 libtool boost@1.55 miniupnpc openssl@1.0 pkg-config protobuf qt5 zmq libevent 
+        brew install autoconf automake berkeley-db4 libtool boost@1.55 miniupnpc openssl@1.0 pkg-config protobuf qt5 zmq libevent librsvg 
         
 
 ### Building `transcendenced`

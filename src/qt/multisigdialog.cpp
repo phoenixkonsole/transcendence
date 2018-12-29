@@ -29,6 +29,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpinBox>
 #include <QClipboard>
+#include <QStyle>
 
 
 MultisigDialog::MultisigDialog(QWidget* parent) : QDialog(parent),

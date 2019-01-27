@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Transcendence developers
+// Copyright (c) 2018-2019 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -110,7 +110,14 @@ static const unsigned int MAX_REJECT_MESSAGE_LENGTH = 111;
 
 /** Enable bloom filter */
  static const bool DEFAULT_PEERBLOOMFILTERS = true;
-
+  
+/** Default for -blockspamfilter, use header spam filter */
+static const bool DEFAULT_BLOCK_SPAM_FILTER = true;
+/** Default for -blockspamfiltermaxsize, maximum size of the list of indexes in the block spam filter */
+static const unsigned int DEFAULT_BLOCK_SPAM_FILTER_MAX_SIZE = COINBASE_MATURITY;
+/** Default for -blockspamfiltermaxavg, maximum average size of an index occurrence in the block spam filter */
+static const unsigned int DEFAULT_BLOCK_SPAM_FILTER_MAX_AVG = 10;
+	
 /** "reject" message codes */
 static const unsigned char REJECT_MALFORMED = 0x01;
 static const unsigned char REJECT_INVALID = 0x10;

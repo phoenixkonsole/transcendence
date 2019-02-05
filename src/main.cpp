@@ -3047,7 +3047,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
 	                it++;
 	            }
 		}
-		    
+		 }   
     // add this block to the view's block chain
     view.SetBestBlock(pindex->GetBlockHash());
 

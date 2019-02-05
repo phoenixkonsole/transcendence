@@ -60,6 +60,7 @@ using namespace libzerocoin;
  */
 
 CCriticalSection cs_main;
+CCriticalSection cs_mapstake;
 
 BlockMap mapBlockIndex;
 map<uint256, uint256> mapProofOfStake;

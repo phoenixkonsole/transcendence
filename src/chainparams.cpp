@@ -160,8 +160,8 @@ public:
         assert(hashGenesisBlock == uint256("0x00000b8a2211abb5a3d72bd7ba7bb967b4dae7cb0d56714a90c1967f9051b5b1"));
         assert(genesis.hashMerkleRoot == uint256("0x5398d54c8b977f3c438250717688ecaf6381c9674aa34037fcdb71cf9d7ff5cd"));
 
-    	vSeeds.push_back(CDNSSeedData("145.14.158.17", "145.14.158.17"));
-        vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
+        vSeeds.push_back(CDNSSeedData("159.69.33.146", "85.214.205.217"));
+	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
@@ -169,8 +169,7 @@ public:
 	vSeeds.push_back(CDNSSeedData("94.130.206.190", "94.130.206.190"));
         vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
         vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
-        vSeeds.push_back(CDNSSeedData("54.37.226.201", "54.37.226.201"));
-        vSeeds.push_back(CDNSSeedData("149.28.207.136", "149.28.207.136"));
+	vSeeds.push_back(CDNSSeedData("[2a02:c207:3003:4813::2]", "[2a02:c207:3003:4813::2]"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38); // G
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 138); // x
@@ -261,15 +260,17 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        
-        vSeeds.push_back(CDNSSeedData("159.69.33.243", "159.69.33.243"));
+     
+	vSeeds.push_back(CDNSSeedData("159.69.33.146", "85.214.205.217"));
         vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
         vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
         vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
         vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
+	vSeeds.push_back(CDNSSeedData("149.28.207.67", "149.28.207.67"));
+	vSeeds.push_back(CDNSSeedData("94.130.206.190", "94.130.206.190"));
         vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
         vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
-
+	vSeeds.push_back(CDNSSeedData("[2a02:c207:3003:4813::2]", "[2a02:c207:3003:4813::2]"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet transcendence addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet transcendence script addresses start with '8' or '9'

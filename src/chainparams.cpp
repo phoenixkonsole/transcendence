@@ -160,6 +160,7 @@ public:
         assert(hashGenesisBlock == uint256("0x00000b8a2211abb5a3d72bd7ba7bb967b4dae7cb0d56714a90c1967f9051b5b1"));
         assert(genesis.hashMerkleRoot == uint256("0x5398d54c8b977f3c438250717688ecaf6381c9674aa34037fcdb71cf9d7ff5cd"));
 
+	vSeeds.push_back(CDNSSeedData("66.42.41.172.vultr.com", "66.42.41.172.vultr.com"));
 //       vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
 //	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
 //       vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));

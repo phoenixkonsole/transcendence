@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2019 Transcendence Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2384,16 +2385,16 @@ Value multisend(const Array& params, bool fHelp)
 //    if (pwalletMain->IsLocked())
 //        throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
 
-    CWalletDB walletdb(pwalletMain->strWalletFile);
-    list<CBigNum> listPubCoin = walletdb.ListSpentCoinsSerial();
-
-    Array jsonList;
-    for (const CBigNum& pubCoinItem : listPubCoin) {
-        jsonList.push_back(pubCoinItem.GetHex());
-    }
-
-    return jsonList;
-}
+ //   CWalletDB walletdb(pwalletMain->strWalletFile);
+ //   list<CBigNum> listPubCoin = walletdb.ListSpentCoinsSerial();
+//
+//    Array jsonList;
+//    for (const CBigNum& pubCoinItem : listPubCoin) {
+//        jsonList.push_back(pubCoinItem.GetHex());
+//    }
+//
+//    return jsonList;
+//}
 
 // Value mintzerocoin(const Array& params, bool fHelp)
 //{
@@ -2803,5 +2804,5 @@ Value multisend(const Array& params, bool fHelp)
  //       arrRet.emplace_back(objMint);
   //  }
 
-   return arrRet;
-}
+//   return arrRet;
+//}

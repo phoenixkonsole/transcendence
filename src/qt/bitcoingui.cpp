@@ -331,16 +331,16 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
 #endif
     tabGroup->addAction(historyAction);
 
-    privacyAction = new QAction(QIcon(":/icons/privacy"), tr("&Privacy"), this);
-    privacyAction->setStatusTip(tr("Privacy Actions for zTELOS"));
-    privacyAction->setToolTip(privacyAction->statusTip());
-    privacyAction->setCheckable(true);
-#ifdef Q_OS_MAC
-    privacyAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
-#else
-    privacyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
-#endif
-    tabGroup->addAction(privacyAction);
+    // privacyAction = new QAction(QIcon(":/icons/privacy"), tr("&Privacy"), this);
+    // privacyAction->setStatusTip(tr("Privacy Actions for zTELOS"));
+    // privacyAction->setToolTip(privacyAction->statusTip());
+    // privacyAction->setCheckable(true);
+// #ifdef Q_OS_MAC
+ //    privacyAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_5));
+// #else
+  //  privacyAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
+// #endif
+ //   tabGroup->addAction(privacyAction);
 
 #ifdef ENABLE_WALLET
 
@@ -368,8 +368,8 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     connect(sendCoinsAction, SIGNAL(triggered()), this, SLOT(gotoSendCoinsPage()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(receiveCoinsAction, SIGNAL(triggered()), this, SLOT(gotoReceiveCoinsPage()));
-    connect(privacyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(privacyAction, SIGNAL(triggered()), this, SLOT(gotoPrivacyPage()));
+    // connect(privacyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    // connect(privacyAction, SIGNAL(triggered()), this, SLOT(gotoPrivacyPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
 #endif // ENABLE_WALLET
@@ -793,11 +793,11 @@ void BitcoinGUI::gotoReceiveCoinsPage()
     if (walletFrame) walletFrame->gotoReceiveCoinsPage();
 }
 
-void BitcoinGUI::gotoPrivacyPage()
-{
-    privacyAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoPrivacyPage();
-}
+// void BitcoinGUI::gotoPrivacyPage()
+// {
+//    privacyAction->setChecked(true);
+//    if (walletFrame) walletFrame->gotoPrivacyPage();
+// }
 
 void BitcoinGUI::gotoSendCoinsPage(QString addr)
 {

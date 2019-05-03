@@ -160,9 +160,10 @@ public:
         assert(hashGenesisBlock == uint256("0x00000b8a2211abb5a3d72bd7ba7bb967b4dae7cb0d56714a90c1967f9051b5b1"));
         assert(genesis.hashMerkleRoot == uint256("0x5398d54c8b977f3c438250717688ecaf6381c9674aa34037fcdb71cf9d7ff5cd"));
 
-	vSeeds.push_back(CDNSSeedData("teloscoin.org", "dnsseed1.teloscoin.org"));
-	vSeeds.push_back(CDNSSeedData("teloscoin.org", "dnsseed2.teloscoin.org"));
-
+	vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed1.transcendence.cloud"));
+	vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
+	vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
+	vSeeds.push_back(CDNSSeedData("176.9.74.62", "176.9.74.62"));
        vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
 	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));

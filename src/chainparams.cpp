@@ -106,7 +106,7 @@ public:
         pchMessageStart[3] = 0x53;
 
         vAlertPubKey = ParseHex("0317dc37cb1011c0a162fc113358cdad2a12b85a0f841c4c48346bd85f45ec5c1d");
-        nDefaultPort = 22123;
+        nDefaultPort = 8051;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Transcendence starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;

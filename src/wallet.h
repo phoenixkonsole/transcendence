@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,6 +16,7 @@
 #include "key.h"
 #include "keystore.h"
 #include "main.h"
+#include "masternode-tiers.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
 #include "primitives/zerocoin.h"
@@ -352,9 +354,9 @@ public:
     bool SelectCoinsMinConf(const CAmount& nTargetValue, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*, unsigned int> >& setCoinsRet, CAmount& nValueRet) const;
 
     /// Get 1000DASH output and keys which can be used for the Masternode
-    bool GetMasternodeVinAndKeys(CTxIn& txinRet, CPubKey& pubKeyRet, CKey& keyRet, std::string strTxHash = "", std::string strOutputIndex = "");
+    bool GetMasternodeVinAndKeys(CTxIn& txinRet, unsigned int& tierRet, CPubKey& pubKeyRet, CKey& keyRet, std::string strTxHash = "", std::string strOutputIndex = "");
     /// Extract txin information and keys from output
-    bool GetVinAndKeysFromOutput(COutput out, CTxIn& txinRet, CPubKey& pubKeyRet, CKey& keyRet);
+    bool GetVinAndKeysFromOutput(COutput out, CTxIn& txinRet, unsigned int& tierRet, CPubKey& pubKeyRet, CKey& keyRet);
 
     bool IsSpent(const uint256& hash, unsigned int n) const;
 
@@ -1051,7 +1053,7 @@ public:
             const CTxIn vin = CTxIn(hashTx, i);
 
             if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-            if (fMasterNode && vout[i].nValue == 1000 * COIN) continue; // do not count MN-like outputs
+            if (fMasterNode && IsMasternodeOutput(vout[i].nValue, chainActive.Tip()->nHeight)) continue; // do not count MN-like outputs
 
             const int rounds = pwallet->GetInputObfuscationRounds(vin);
             if (rounds >= -2 && rounds < nZeromintPercentage) {
@@ -1115,7 +1117,7 @@ public:
             const CTxOut& txout = vout[i];
 
             if (pwallet->IsSpent(hashTx, i) || pwallet->IsLockedCoin(hashTx, i)) continue;
-            if (fMasterNode && vout[i].nValue == 1000 * COIN) continue; // do not count MN-like outputs
+            if (fMasterNode && IsMasternodeOutput(vout[i].nValue, chainActive.Tip()->nHeight)) continue; // do not count MN-like outputs
 
             nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
             if (!MoneyRange(nCredit))
@@ -1149,7 +1151,7 @@ public:
             }
 
             // Add masternode collaterals which are handled likc locked coins
-            if (fMasterNode && vout[i].nValue == 1000 * COIN) {
+            if (fMasterNode && IsMasternodeOutput(vout[i].nValue, chainActive.Tip()->nHeight)) {
                 nCredit += pwallet->GetCredit(txout, ISMINE_SPENDABLE);
             }
 

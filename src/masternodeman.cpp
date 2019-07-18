@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +8,7 @@
 #include "activemasternode.h"
 #include "addrman.h"
 #include "masternode.h"
+#include "masternode-tiers.h"
 #include "obfuscation.h"
 #include "spork.h"
 #include "util.h"
@@ -478,19 +480,21 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
 {
     LOCK(cs);
 
-    CMasternode* pBestMasternode = NULL;
-    std::vector<pair<int64_t, CTxIn> > vecMasternodeLastPaid;
+    CMasternode* pBestMasternode = nullptr;
+    std::vector<pair<int64_t, CTxIn>> vecMasternodeLastPaid;
+    std::vector<pair<int64_t, CTxIn>> vecMasternodeTiers[MasternodeTiers::TIER_NONE] = {};
 
     /*
-        Make a vector with all of the last paid times
+        Make a vector with all of the last paid times of masternodes for every tier
     */
 
     int nMnCount = CountEnabled();
+    nCount = 0;
     BOOST_FOREACH (CMasternode& mn, vMasternodes) {
         mn.Check();
         if (!mn.IsEnabled()) continue;
 
-        // //check protocol version
+        //check protocol version
         if (mn.protocolVersion < masternodePayments.GetMinMasternodePaymentsProto()) continue;
 
         //it's in the list (up to 8 entries ahead of current block to allow propagation) -- so let's skip it
@@ -502,29 +506,62 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
         //make sure it has as many confirmations as there are masternodes
         if (mn.GetMasternodeInputAge() < nMnCount) continue;
 
-        vecMasternodeLastPaid.push_back(make_pair(mn.SecondsSincePayment(), mn.vin));
+        if (nBlockHeight < TIER_BLOCK_HEIGHT) {
+            vecMasternodeLastPaid.push_back(make_pair(mn.SecondsSincePayment(), mn.vin));
+        }
+        else {
+            vecMasternodeTiers[mn.tier].push_back(make_pair(mn.SecondsSincePayment(), mn.vin));
+        }
+        nCount++;
     }
-
-    nCount = (int)vecMasternodeLastPaid.size();
 
     //when the network is in the process of upgrading, don't penalize nodes that recently restarted
     if (fFilterSigTime && nCount < nMnCount / 3) return GetNextMasternodeInQueueForPayment(nBlockHeight, false, nCount);
 
-    // Sort them high to low
-    sort(vecMasternodeLastPaid.rbegin(), vecMasternodeLastPaid.rend(), CompareLastPaid());
+    uint256 blockHash = 0;
+    const int BLOCK_INDENT = 100;
+    if (!GetBlockHash(blockHash, nBlockHeight - BLOCK_INDENT)) {
+        LogPrint("masternodeman", "GetNextMasternodeInQueueForPayment ERROR - nHeight %d\n", nBlockHeight - BLOCK_INDENT);
+    }
+    if (nBlockHeight < TIER_BLOCK_HEIGHT) {
+    //Single tier - 1K
+        pBestMasternode = GetWinningNode(vecMasternodeLastPaid, blockHash);
+    }
+    else {
+    //Apply tier distribution algorithm
+        std::vector<size_t> vecSizes;
+        for (auto i = 0; i < MasternodeTiers::TIER_NONE; i++) {
+            vecSizes.push_back(vecMasternodeTiers[i].size());
+        }
 
+        auto nTier = CalculateWinningTier(vecSizes, blockHash);
+        if (nTier != MasternodeTiers::TIER_NONE) {
+            pBestMasternode = GetWinningNode(vecMasternodeTiers[nTier], blockHash);
+        }
+    }
+    return pBestMasternode;
+}
+
+CMasternode* CMasternodeMan::GetWinningNode(std::vector<pair<int64_t, CTxIn>>& vecMasternodeLastPaid, uint256 blockHash)
+{
+    CMasternode* pBestMasternode = nullptr;
+
+    // Sort vector of last paid times high to low
+    if (vecMasternodeLastPaid.size() > 1) {
+        sort(vecMasternodeLastPaid.rbegin(), vecMasternodeLastPaid.rend(), CompareLastPaid());
+    }
     // Look at 1/10 of the oldest nodes (by last payment), calculate their scores and pay the best one
     //  -- This doesn't look at who is being paid in the +8-10 blocks, allowing for double payments very rarely
     //  -- 1/100 payments should be a double payment on mainnet - (1/(3000/10))*2
     //  -- (chance per block * chances before IsScheduled will fire)
-    int nTenthNetwork = CountEnabled() / 10;
+    int nTenthNetwork = vecMasternodeLastPaid.size() > 10 ? vecMasternodeLastPaid.size() / 10 : vecMasternodeLastPaid.size();
     int nCountTenth = 0;
     uint256 nHigh = 0;
     BOOST_FOREACH (PAIRTYPE(int64_t, CTxIn) & s, vecMasternodeLastPaid) {
         CMasternode* pmn = Find(s.second);
         if (!pmn) break;
 
-        uint256 n = pmn->CalculateScore(1, nBlockHeight - 100);
+        uint256 n = pmn->CalculateScore(blockHash);
         if (n > nHigh) {
             nHigh = n;
             pBestMasternode = pmn;
@@ -860,6 +897,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         if (IsSporkActive(SPORK_10_MASTERNODE_PAY_UPDATED_NODES)) return;
 
         CTxIn vin;
+        unsigned int nTier;
         CService addr;
         CPubKey pubkey;
         CPubKey pubkey2;
@@ -873,7 +911,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
         int donationPercentage;
         std::string strMessage;
 
-        vRecv >> vin >> addr >> vchSig >> sigTime >> pubkey >> pubkey2 >> count >> current >> lastUpdated >> protocolVersion >> donationAddress >> donationPercentage;
+        vRecv >> vin >> nTier >> addr >> vchSig >> sigTime >> pubkey >> pubkey2 >> count >> current >> lastUpdated >> protocolVersion >> donationAddress >> donationPercentage;
 
         // make sure signature isn't in the future (past is OK)
         if (sigTime > GetAdjustedTime() + 60 * 60) {
@@ -956,7 +994,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
                         if (!lockNodes) return;
                         BOOST_FOREACH (CNode* pnode, vNodes)
                             if (pnode->nVersion >= masternodePayments.GetMinMasternodePaymentsProto())
-                                pnode->PushMessage("dsee", vin, addr, vchSig, sigTime, pubkey, pubkey2, count, current, lastUpdated, protocolVersion, donationAddress, donationPercentage);
+                                pnode->PushMessage("dsee", vin, nTier, addr, vchSig, sigTime, pubkey, pubkey2, count, current, lastUpdated, protocolVersion, donationAddress, donationPercentage);
                     }
                 }
             }
@@ -986,7 +1024,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
 
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
-        CTxOut vout = CTxOut(999.99 * COIN, obfuScationPool.collateralPubKey);
+        CTxOut vout = CTxOut(GetObfuscationValueForTier(nTier) * COIN, obfuScationPool.collateralPubKey);
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
 
@@ -1027,6 +1065,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
             CMasternode mn = CMasternode();
             mn.addr = addr;
             mn.vin = vin;
+            mn.tier = nTier;
             mn.pubKeyCollateralAddress = pubkey;
             mn.sig = vchSig;
             mn.sigTime = sigTime;
@@ -1045,7 +1084,7 @@ void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CData
                 if (!lockNodes) return;
                 BOOST_FOREACH (CNode* pnode, vNodes)
                     if (pnode->nVersion >= masternodePayments.GetMinMasternodePaymentsProto())
-                        pnode->PushMessage("dsee", vin, addr, vchSig, sigTime, pubkey, pubkey2, count, current, lastUpdated, protocolVersion, donationAddress, donationPercentage);
+                        pnode->PushMessage("dsee", vin, nTier, addr, vchSig, sigTime, pubkey, pubkey2, count, current, lastUpdated, protocolVersion, donationAddress, donationPercentage);
             }
         } else {
             LogPrint("masternode","dsee - Rejected Masternode entry %s\n", vin.prevout.hash.ToString());

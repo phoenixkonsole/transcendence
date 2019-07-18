@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,6 +14,7 @@
 #include "obfuscation.h"
 #include "sync.h"
 #include "wallet.h"
+#include "masternode-tiers.h"
 
 #define ACTIVE_MASTERNODE_INITIAL 0 // initial state
 #define ACTIVE_MASTERNODE_SYNC_IN_PROCESS 1
@@ -31,11 +33,11 @@ private:
     bool SendMasternodePing(std::string& errorMessage);
 
     /// Register any Masternode
-    bool Register(CTxIn vin, CService service, CKey key, CPubKey pubKey, CKey keyMasternode, CPubKey pubKeyMasternode, std::string& errorMessage);
+    bool Register(CTxIn vin, unsigned int tier, CService service, CKey key, CPubKey pubKey, CKey keyMasternode, CPubKey pubKeyMasternode, std::string& errorMessage);
 
     /// Get 10000 TRANSCENDENCE input that can be used for the Masternode
-    bool GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secretKey, std::string strTxHash, std::string strOutputIndex);
-    bool GetVinFromOutput(COutput out, CTxIn& vin, CPubKey& pubkey, CKey& secretKey);
+    bool GetMasterNodeVin(CTxIn& vin, unsigned int& tier, CPubKey& pubkey, CKey& secretKey, std::string strTxHash, std::string strOutputIndex);
+    bool GetVinFromOutput(COutput out, CTxIn& vin, unsigned int& tier, CPubKey& pubkey, CKey& secretKey);
 
 public:
     // Initialized by init.cpp
@@ -45,6 +47,7 @@ public:
     // Initialized while registering Masternode
     CTxIn vin;
     CService service;
+    unsigned int tier;
 
     int status;
     std::string notCapableReason;
@@ -61,8 +64,8 @@ public:
     /// Register remote Masternode
     bool Register(std::string strService, std::string strKey, std::string strTxHash, std::string strOutputIndex, std::string& errorMessage);
 
-    /// Get 10000 TRANSCENDENCE input that can be used for the Masternode
-    bool GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secretKey);
+    /// Get MASTERNODE_TIER_COINS[] TRANSCENDENCE input that can be used for the Masternode
+    bool GetMasterNodeVin(CTxIn& vin, unsigned int& tier, CPubKey& pubkey, CKey& secretKey);
     vector<COutput> SelectCoinsMasternode();
 
     /// Enable cold wallet mode (run a Masternode with no funds)

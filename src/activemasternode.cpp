@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -93,7 +94,7 @@ void CActiveMasternode::ManageStatus()
         CPubKey pubKeyCollateralAddress;
         CKey keyCollateralAddress;
 
-        if (GetMasterNodeVin(vin, pubKeyCollateralAddress, keyCollateralAddress)) {
+        if (GetMasterNodeVin(vin, tier, pubKeyCollateralAddress, keyCollateralAddress)) {
             if (GetInputAge(vin) < MASTERNODE_MIN_CONFIRMATIONS) {
                 status = ACTIVE_MASTERNODE_INPUT_TOO_NEW;
                 notCapableReason = strprintf("%s - %d confirmations", GetStatus(), GetInputAge(vin));
@@ -114,7 +115,7 @@ void CActiveMasternode::ManageStatus()
                 return;
             }
 
-            if (!Register(vin, service, keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage)) {
+            if (!Register(vin, tier, service, keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage)) {
                 notCapableReason = "Error on Register: " + errorMessage;
                 LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
                 return;
@@ -241,6 +242,7 @@ bool CActiveMasternode::SendMasternodePing(std::string& errorMessage)
 bool CActiveMasternode::Register(std::string strService, std::string strKeyMasternode, std::string strTxHash, std::string strOutputIndex, std::string& errorMessage)
 {
     CTxIn vin;
+    unsigned int nTier;
     CPubKey pubKeyCollateralAddress;
     CKey keyCollateralAddress;
     CPubKey pubKeyMasternode;
@@ -259,7 +261,7 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
         return false;
     }
 
-    if (!GetMasterNodeVin(vin, pubKeyCollateralAddress, keyCollateralAddress, strTxHash, strOutputIndex)) {
+    if (!GetMasterNodeVin(vin, nTier, pubKeyCollateralAddress, keyCollateralAddress, strTxHash, strOutputIndex)) {
         errorMessage = strprintf("Could not allocate vin %s:%s for masternode %s", strTxHash, strOutputIndex, strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
@@ -280,12 +282,11 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
 
     addrman.Add(CAddress(service), CNetAddr("127.0.0.1"), 2 * 60 * 60);
 
-    return Register(vin, CService(strService), keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage);
+    return Register(vin, nTier, CService(strService), keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage);
 }
 
-bool CActiveMasternode::Register(CTxIn vin, CService service, CKey keyCollateralAddress, CPubKey pubKeyCollateralAddress, CKey keyMasternode, CPubKey pubKeyMasternode, std::string& errorMessage)
+bool CActiveMasternode::Register(CTxIn vin, unsigned int nTier, CService service, CKey keyCollateralAddress, CPubKey pubKeyCollateralAddress, CKey keyMasternode, CPubKey pubKeyMasternode, std::string& errorMessage)
 {
-    CMasternodeBroadcast mnb;
     CMasternodePing mnp(vin);
     if (!mnp.Sign(keyMasternode, pubKeyMasternode)) {
         errorMessage = strprintf("Failed to sign ping, vin: %s", vin.ToString());
@@ -295,7 +296,7 @@ bool CActiveMasternode::Register(CTxIn vin, CService service, CKey keyCollateral
     mnodeman.mapSeenMasternodePing.insert(make_pair(mnp.GetHash(), mnp));
 
     LogPrintf("CActiveMasternode::Register() - Adding to Masternode list\n    service: %s\n    vin: %s\n", service.ToString(), vin.ToString());
-    mnb = CMasternodeBroadcast(service, vin, pubKeyCollateralAddress, pubKeyMasternode, PROTOCOL_VERSION);
+    CMasternodeBroadcast mnb(service, vin, nTier, pubKeyCollateralAddress, pubKeyMasternode, PROTOCOL_VERSION);
     mnb.lastPing = mnp;
     if (!mnb.Sign(keyCollateralAddress)) {
         errorMessage = strprintf("Failed to sign broadcast, vin: %s", vin.ToString());
@@ -349,7 +350,7 @@ bool CActiveMasternode::Register(CTxIn vin, CService service, CKey keyCollateral
 
     LOCK(cs_vNodes);
     BOOST_FOREACH (CNode* pnode, vNodes)
-        pnode->PushMessage("dsee", vin, service, vchMasterNodeSignature, masterNodeSignatureTime, pubKeyCollateralAddress, pubKeyMasternode, -1, -1, masterNodeSignatureTime, PROTOCOL_VERSION, donationAddress, donationPercantage);
+        pnode->PushMessage("dsee", vin, nTier, service, vchMasterNodeSignature, masterNodeSignatureTime, pubKeyCollateralAddress, pubKeyMasternode, -1, -1, masterNodeSignatureTime, PROTOCOL_VERSION, donationAddress, donationPercantage);
 
     /*
      * END OF "REMOVE"
@@ -358,12 +359,12 @@ bool CActiveMasternode::Register(CTxIn vin, CService service, CKey keyCollateral
     return true;
 }
 
-bool CActiveMasternode::GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secretKey)
+bool CActiveMasternode::GetMasterNodeVin(CTxIn& vin, unsigned int& nTier, CPubKey& pubkey, CKey& secretKey)
 {
-    return GetMasterNodeVin(vin, pubkey, secretKey, "", "");
+    return GetMasterNodeVin(vin, nTier, pubkey, secretKey, "", "");
 }
 
-bool CActiveMasternode::GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secretKey, std::string strTxHash, std::string strOutputIndex)
+bool CActiveMasternode::GetMasterNodeVin(CTxIn& vin, unsigned int& nTier, CPubKey& pubkey, CKey& secretKey, std::string strTxHash, std::string strOutputIndex)
 {
     // Find possible candidates
     TRY_LOCK(pwalletMain->cs_wallet, fWallet);
@@ -407,16 +408,17 @@ bool CActiveMasternode::GetMasterNodeVin(CTxIn& vin, CPubKey& pubkey, CKey& secr
     }
 
     // At this point we have a selected output, retrieve the associated info
-    return GetVinFromOutput(*selectedOutput, vin, pubkey, secretKey);
+    return GetVinFromOutput(*selectedOutput, vin, nTier, pubkey, secretKey);
 }
 
 
 // Extract Masternode vin information from output
-bool CActiveMasternode::GetVinFromOutput(COutput out, CTxIn& vin, CPubKey& pubkey, CKey& secretKey)
+bool CActiveMasternode::GetVinFromOutput(COutput out, CTxIn& vin, unsigned int& nTier, CPubKey& pubkey, CKey& secretKey)
 {
     CScript pubScript;
 
     vin = CTxIn(out.tx->GetHash(), out.i);
+    nTier = GetMasternodeTierFromOutput(out.tx->vout[out.i].nValue, chainActive.Height());
     pubScript = out.tx->vout[out.i].scriptPubKey; // the inputs PubKey
 
     CTxDestination address1;
@@ -470,9 +472,10 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
             pwalletMain->LockCoin(outpoint);
     }
 
+    auto currentBlock = chainActive.Height();
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-        if (out.tx->vout[out.i].nValue == 1000 * COIN) { //exactly
+        if (IsMasternodeOutput(out.tx->vout[out.i].nValue, currentBlock)) {
             filteredCoins.push_back(out);
         }
     }

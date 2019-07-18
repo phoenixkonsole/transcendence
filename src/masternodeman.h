@@ -122,6 +122,7 @@ public:
 
     /// Find an entry in the masternode list that is next to be paid
     CMasternode* GetNextMasternodeInQueueForPayment(int nBlockHeight, bool fFilterSigTime, int& nCount);
+    CMasternode* GetWinningNode(std::vector<pair<int64_t, CTxIn>>& vecMasternodeLastPaid, uint256 blockHash);
 
     /// Find a random entry
     CMasternode* FindRandomNotInVec(std::vector<CTxIn>& vecToExclude, int protocolVersion = -1);

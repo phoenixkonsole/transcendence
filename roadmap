@@ -6,7 +6,7 @@ Teloscoin (TELOS) is a Proof of Stake coin built on the Bitcoin UTXO model. As w
 
 unlimited coin distribution 
 10x faster blocks than Bitcoin (1 per minute)
-Network Port: 22123
+Network Port: 8051
 Premined: 3000000 for development and evangelism
 
 Phase 2 - New Wallet (in progress)

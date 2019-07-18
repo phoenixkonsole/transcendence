@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Transcendence developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -100,10 +100,11 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x2f;
-        pchMessageStart[1] = 0x75;
-        pchMessageStart[2] = 0x4d;
-        pchMessageStart[3] = 0x39;
+        pchMessageStart[0] = 0x54;
+        pchMessageStart[1] = 0x45;
+        pchMessageStart[2] = 0x4C;
+        pchMessageStart[3] = 0x53;
+
         vAlertPubKey = ParseHex("0317dc37cb1011c0a162fc113358cdad2a12b85a0f841c4c48346bd85f45ec5c1d");
         nDefaultPort = 22123;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Transcendence starting difficulty is 1 / 2^12
@@ -230,10 +231,11 @@ public:
     {
         networkID = CBaseChainParams::TESTNET;
         strNetworkID = "test";
-        pchMessageStart[0] = 0x43;
-        pchMessageStart[1] = 0x76;
+        pchMessageStart[0] = 0x54;
+        pchMessageStart[1] = 0x45;
         pchMessageStart[2] = 0x65;
         pchMessageStart[3] = 0xba;
+
         vAlertPubKey = ParseHex("042292b1f401860eea99e1a8a103effbd7e1c013a59a1a3a0c91c9d1997a0bc6f338567278c11344802838c107055bf7c1641eaed61e879245c255a4f5be5746fc");
         nDefaultPort = 19333;
         nEnforceBlockUpgradeMajority = 51;
@@ -326,10 +328,11 @@ public:
         networkID = CBaseChainParams::REGTEST;
         strNetworkID = "regtest";
         strNetworkID = "regtest";
-        pchMessageStart[0] = 0x69;
-        pchMessageStart[1] = 0xcf;
+        pchMessageStart[0] = 0x54;
+        pchMessageStart[1] = 0x45;
         pchMessageStart[2] = 0x7e;
         pchMessageStart[3] = 0xac;
+
         nSubsidyHalvingInterval = 150;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -402,6 +405,8 @@ public:
     virtual void setSkipProofOfWorkCheck(bool afSkipProofOfWorkCheck) { fSkipProofOfWorkCheck = afSkipProofOfWorkCheck; }
 };
 
+static CUnitTestParams unitTestParams;
+
 static CChainParams* pCurrentParams = 0;
 
 const CChainParams& Params()
@@ -419,6 +424,8 @@ CChainParams& Params(CBaseChainParams::Network network)
         return testNetParams;
     case CBaseChainParams::REGTEST:
         return regTestParams;
+    case CBaseChainParams::UNITTEST:
+        return unitTestParams;
     default:
         assert(false && "Unimplemented network");
         return mainParams;

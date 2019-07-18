@@ -8,6 +8,7 @@
 #include "init.h"
 #include "main.h"
 #include "masternodeman.h"
+#include "masternode-tiers.h"
 #include "script/sign.h"
 #include "swifttx.h"
 #include "ui_interface.h"
@@ -2111,7 +2112,7 @@ bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
     uint256 hash;
     if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
         BOOST_FOREACH (CTxOut out, txVin.vout) {
-            if (out.nValue == 1000 * COIN) {
+            if (IsMasternodeOutput(out.nValue, chainActive.Tip()->nHeight)) {
                 if (out.scriptPubKey == payee2) return true;
             }
         }

@@ -1,0 +1,4 @@
+depedns/built
+
+*.o
+*.lib

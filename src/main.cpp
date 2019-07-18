@@ -18,6 +18,7 @@
 #include "kernel.h"
 #include "masternode-budget.h"
 #include "masternode-payments.h"
+#include "masternode-tiers.h"
 #include "masternodeman.h"
 #include "merkleblock.h"
 #include "net.h"
@@ -192,6 +193,7 @@ set<CBlockIndex*> setDirtyBlockIndex;
 
 /** Dirty block file entries. */
 set<int> setDirtyFileInfo;
+
 } // anon namespace
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2135,9 +2137,9 @@ int64_t GetBlockValue(int nHeight)
     }
 
     if (nHeight == 1) {
-           nSubsidy = 3000000 * COIN;
-	} else if  (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 3) {
-	          nSubsidy = 3 * COIN;
+        nSubsidy = 3000000 * COIN;
+    } else if  (nHeight <= Params().LAST_POW_BLOCK() && nHeight >= 3) {
+        nSubsidy = 3 * COIN;
     } else if (nHeight <= 1728 && nHeight > Params().LAST_POW_BLOCK()) {
         nSubsidy = 2 * COIN;
     } else if (nHeight <= 4608 && nHeight > 1728) {
@@ -2146,18 +2148,19 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 10 * COIN;
     } else if (nHeight <= 11808 && nHeight > 8928) {
         nSubsidy = 25 * COIN;
-  	} else if (nHeight <= 16128 && nHeight > 11808) {
-          nSubsidy = 70 * COIN;
-  	} else if (nHeight <= 19008 && nHeight > 16128) {
-          nSubsidy = 100 * COIN;
-  	} else if (nHeight > 19008) {
-          nSubsidy = 200 * COIN;
-  	} else {
-          nSubsidy = 0.1 * COIN;
+    } else if (nHeight <= 16128 && nHeight > 11808) {
+        nSubsidy = 70 * COIN;
+    } else if (nHeight <= 19008 && nHeight > 16128) {
+        nSubsidy = 100 * COIN;
+    } else if (nHeight <= TIER_BLOCK_HEIGHT && nHeight > 19008) {
+        nSubsidy = 200 * COIN;
+    } else if (nHeight > TIER_BLOCK_HEIGHT) {
+        nSubsidy = 100 * COIN;
+    } else {
+        nSubsidy = 0.1 * COIN;
     }
 
-
-  	return nSubsidy;
+    return nSubsidy;
 
 }
 

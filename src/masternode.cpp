@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
+// Copyright (c) 2017-2019 The Transcendence developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,6 +10,7 @@
 #include "obfuscation.h"
 #include "sync.h"
 #include "util.h"
+#include "masternode-tiers.h"
 #include <boost/lexical_cast.hpp>
 
 // keep track of the scanning errors I've seen
@@ -61,6 +63,7 @@ CMasternode::CMasternode()
 {
     LOCK(cs);
     vin = CTxIn();
+    tier = MasternodeTiers::TIER_NONE;
     addr = CService();
     pubKeyCollateralAddress = CPubKey();
     pubKeyMasternode = CPubKey();
@@ -86,6 +89,7 @@ CMasternode::CMasternode(const CMasternode& other)
 {
     LOCK(cs);
     vin = other.vin;
+    tier = other.tier;
     addr = other.addr;
     pubKeyCollateralAddress = other.pubKeyCollateralAddress;
     pubKeyMasternode = other.pubKeyMasternode;
@@ -111,6 +115,7 @@ CMasternode::CMasternode(const CMasternodeBroadcast& mnb)
 {
     LOCK(cs);
     vin = mnb.vin;
+    tier = mnb.tier;
     addr = mnb.addr;
     pubKeyCollateralAddress = mnb.pubKeyCollateralAddress;
     pubKeyMasternode = mnb.pubKeyMasternode;
@@ -165,19 +170,24 @@ uint256 CMasternode::CalculateScore(int mod, int64_t nBlockHeight)
     if (chainActive.Tip() == NULL) return 0;
 
     uint256 hash = 0;
-    uint256 aux = vin.prevout.hash + vin.prevout.n;
 
     if (!GetBlockHash(hash, nBlockHeight)) {
         LogPrint("masternode","CalculateScore ERROR - nHeight %d - Returned 0\n", nBlockHeight);
         return 0;
     }
+    return CalculateScore(hash);
+}
+
+uint256 CMasternode::CalculateScore(uint256 blockHash)
+{
+    uint256 aux = vin.prevout.hash + vin.prevout.n;
 
     CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
-    ss << hash;
+    ss << blockHash;
     uint256 hash2 = ss.GetHash();
 
     CHashWriter ss2(SER_GETHASH, PROTOCOL_VERSION);
-    ss2 << hash;
+    ss2 << blockHash;
     ss2 << aux;
     uint256 hash3 = ss2.GetHash();
 
@@ -211,7 +221,7 @@ void CMasternode::Check(bool forceCheck)
     if (!unitTest) {
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
-        CTxOut vout = CTxOut(999.99 * COIN, obfuScationPool.collateralPubKey);
+        CTxOut vout = CTxOut(GetObfuscationValueForTier(tier) * COIN, obfuScationPool.collateralPubKey);
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
 
@@ -328,6 +338,7 @@ bool CMasternode::IsValidNetAddr()
 CMasternodeBroadcast::CMasternodeBroadcast()
 {
     vin = CTxIn();
+    tier = MasternodeTiers::TIER_NONE;
     addr = CService();
     pubKeyCollateralAddress = CPubKey();
     pubKeyMasternode1 = CPubKey();
@@ -345,9 +356,10 @@ CMasternodeBroadcast::CMasternodeBroadcast()
     nLastScanningErrorBlockHeight = 0;
 }
 
-CMasternodeBroadcast::CMasternodeBroadcast(CService newAddr, CTxIn newVin, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyMasternodeNew, int protocolVersionIn)
+CMasternodeBroadcast::CMasternodeBroadcast(CService newAddr, CTxIn newVin, unsigned int newTier, CPubKey pubKeyCollateralAddressNew, CPubKey pubKeyMasternodeNew, int protocolVersionIn)
 {
     vin = newVin;
+    tier = newTier;
     addr = newAddr;
     pubKeyCollateralAddress = pubKeyCollateralAddressNew;
     pubKeyMasternode = pubKeyMasternodeNew;
@@ -368,6 +380,7 @@ CMasternodeBroadcast::CMasternodeBroadcast(CService newAddr, CTxIn newVin, CPubK
 CMasternodeBroadcast::CMasternodeBroadcast(const CMasternode& mn)
 {
     vin = mn.vin;
+    tier = mn.tier;
     addr = mn.addr;
     pubKeyCollateralAddress = mn.pubKeyCollateralAddress;
     pubKeyMasternode = mn.pubKeyMasternode;
@@ -388,6 +401,7 @@ CMasternodeBroadcast::CMasternodeBroadcast(const CMasternode& mn)
 bool CMasternodeBroadcast::Create(std::string strService, std::string strKeyMasternode, std::string strTxHash, std::string strOutputIndex, std::string& strErrorRet, CMasternodeBroadcast& mnbRet, bool fOffline)
 {
     CTxIn txin;
+    unsigned int nTier;
     CPubKey pubKeyCollateralAddressNew;
     CKey keyCollateralAddressNew;
     CPubKey pubKeyMasternodeNew;
@@ -406,7 +420,7 @@ bool CMasternodeBroadcast::Create(std::string strService, std::string strKeyMast
         return false;
     }
 
-    if (!pwalletMain->GetMasternodeVinAndKeys(txin, pubKeyCollateralAddressNew, keyCollateralAddressNew, strTxHash, strOutputIndex)) {
+    if (!pwalletMain->GetMasternodeVinAndKeys(txin, nTier, pubKeyCollateralAddressNew, keyCollateralAddressNew, strTxHash, strOutputIndex)) {
         strErrorRet = strprintf("Could not allocate txin %s:%s for masternode %s", strTxHash, strOutputIndex, strService);
         LogPrint("masternode","CMasternodeBroadcast::Create -- %s\n", strErrorRet);
         return false;
@@ -426,10 +440,10 @@ bool CMasternodeBroadcast::Create(std::string strService, std::string strKeyMast
         return false;
     }
 
-    return Create(txin, CService(strService), keyCollateralAddressNew, pubKeyCollateralAddressNew, keyMasternodeNew, pubKeyMasternodeNew, strErrorRet, mnbRet);
+    return Create(txin, nTier, CService(strService), keyCollateralAddressNew, pubKeyCollateralAddressNew, keyMasternodeNew, pubKeyMasternodeNew, strErrorRet, mnbRet);
 }
 
-bool CMasternodeBroadcast::Create(CTxIn txin, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyMasternodeNew, CPubKey pubKeyMasternodeNew, std::string& strErrorRet, CMasternodeBroadcast& mnbRet)
+bool CMasternodeBroadcast::Create(CTxIn txin, unsigned int nTier, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyMasternodeNew, CPubKey pubKeyMasternodeNew, std::string& strErrorRet, CMasternodeBroadcast& mnbRet)
 {
     // wait for reindex and/or import to finish
     if (fImporting || fReindex) return false;
@@ -446,7 +460,7 @@ bool CMasternodeBroadcast::Create(CTxIn txin, CService service, CKey keyCollater
         return false;
     }
 
-    mnbRet = CMasternodeBroadcast(service, txin, pubKeyCollateralAddressNew, pubKeyMasternodeNew, PROTOCOL_VERSION);
+    mnbRet = CMasternodeBroadcast(service, txin, nTier, pubKeyCollateralAddressNew, pubKeyMasternodeNew, PROTOCOL_VERSION);
 
     if (!mnbRet.IsValidNetAddr()) {
         strErrorRet = strprintf("Invalid IP address %s, masternode=%s", mnbRet.addr.ToStringIP (), txin.prevout.hash.ToString());
@@ -571,7 +585,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
 
     CValidationState state;
     CMutableTransaction tx = CMutableTransaction();
-    CTxOut vout = CTxOut(999.99 * COIN, obfuScationPool.collateralPubKey);
+    CTxOut vout = CTxOut(GetObfuscationValueForTier(tier) * COIN, obfuScationPool.collateralPubKey);
     tx.vin.push_back(vin);
     tx.vout.push_back(vout);
 

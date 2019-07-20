@@ -42,6 +42,8 @@ For Win32/Win64 cross compilation:
 
 For linux (including i386, ARM) cross compilation:
 
+Common linux dependencies:
+
     sudo apt-get install make automake cmake curl g++-multilib libtool binutils-gold bsdmainutils pkg-config python3 patch
 
 For linux ARM cross compilation:

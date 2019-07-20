@@ -226,10 +226,10 @@ QT_TRANSLATE_NOOP("transcendence-core", ""
 QT_TRANSLATE_NOOP("transcendence-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("transcendence-core", "(22123 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("transcendence-core", "(8051 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("transcendence-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("transcendence-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("transcendence-core", "(must be 22123 for mainnet)"),
+QT_TRANSLATE_NOOP("transcendence-core", "(must be 8051 for mainnet)"),
 QT_TRANSLATE_NOOP("transcendence-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("transcendence-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("transcendence-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),

@@ -15,9 +15,9 @@ Ubuntu Linux users can use the "Personal Package Archive" (PPA)
 maintained by Matt Corallo to automatically keep
 up-to-date.  Just type:
   sudo apt-add-repository ppa:bitcoin/bitcoin
-  sudo apt-get update
+  sudo apt update
 in your terminal, then install the bitcoin-qt package:
-  sudo apt-get install bitcoin-qt
+  sudo apt install bitcoin-qt
 
 KNOWN ISSUES
 ------------

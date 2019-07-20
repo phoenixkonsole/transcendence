@@ -236,14 +236,14 @@ echo ${COMMIT}
 # Setup build environment
 if [[ $setup = true ]]
 then
-    sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
+    sudo apt install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm qemu-utils
     git clone https://github.com/transcendenceproject/gitian.sigs.git
     git clone https://github.com/transcendenceproject/transcendence-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
     pushd ./gitian-builder
     if [[ -n "$USE_LXC" ]]
     then
-        sudo apt-get install lxc
+        sudo apt install lxc
         bin/make-base-vm --suite trusty --arch amd64 --lxc
     else
         bin/make-base-vm --suite trusty --arch amd64

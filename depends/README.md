@@ -33,7 +33,7 @@ Install the required dependencies: Ubuntu & Debian
 
 For macOS cross compilation:
 
-    sudo apt-get install curl librsvg2-bin libtiff-tools bsdmainutils cmake imagemagick libcap-dev libz-dev libbz2-dev python3-setuptools
+    sudo apt install curl librsvg2-bin libtiff-tools bsdmainutils cmake imagemagick libcap-dev libz-dev libbz2-dev python3-setuptools
 
 
 For Win32/Win64 cross compilation:
@@ -44,15 +44,15 @@ For linux (including i386, ARM) cross compilation:
 
 Common linux dependencies:
 
-    sudo apt-get install make automake cmake curl g++-multilib libtool binutils-gold bsdmainutils pkg-config python3 patch
+    sudo apt install make automake cmake curl g++-multilib libtool binutils-gold bsdmainutils pkg-config python3 patch
 
 For linux ARM cross compilation:
 
-    sudo apt-get install g++-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
+    sudo apt install g++-arm-linux-gnueabihf binutils-arm-linux-gnueabihf
 
 For linux AARCH64 cross compilation:
 
-    sudo apt-get install g++-aarch64-linux-gnu binutils-aarch64-linux-gnu
+    sudo apt install g++-aarch64-linux-gnu binutils-aarch64-linux-gnu
     
 Dependency Options:
 The following can be set when running make: make FOO=bar

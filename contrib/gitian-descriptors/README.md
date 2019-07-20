@@ -10,7 +10,7 @@ You probably need to enable hardware virtualization in your machine's BIOS.
 
 You need to be running a recent version of 64-bit-Ubuntu, and you need to install several prerequisites:
 
-	sudo apt-get install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm
+	sudo apt install ruby apache2 git apt-cacher-ng python-vm-builder qemu-kvm
 
 Sanity checks:
 
@@ -57,7 +57,7 @@ Here's a description of Gavin's setup on OSX 10.6:
 
 4. Inside the running Ubuntu desktop, install:
 
-	sudo apt-get install debootstrap lxc ruby apache2 git apt-cacher-ng python-vm-builder
+	sudo apt install debootstrap lxc ruby apache2 git apt-cacher-ng python-vm-builder
 
 5. Still inside Ubuntu, tell gitian-builder to use LXC, then follow the "Once you've got the right hardware and software" instructions above:
 

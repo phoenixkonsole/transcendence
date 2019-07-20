@@ -226,7 +226,7 @@ First we need to log in as `root` to set up dependencies and make sure that our
 user can use the sudo command. Type/paste the following in the terminal:
 
 ```bash
-apt-get install make git ruby sudo apt-cacher-ng qemu-utils debootstrap lxc python-cheetah parted kpartx bridge-utils
+apt install make git ruby sudo apt-cacher-ng qemu-utils debootstrap lxc python-cheetah parted kpartx bridge-utils
 adduser debian sudo
 ```
 
@@ -359,7 +359,7 @@ Output from `gbuild` will look something like
     Starting target
     Checking if target is up
     Preparing build environment
-    Updating apt-get repository (log in var/install.log)
+    Updating apt repository (log in var/install.log)
     Installing additional packages (log in var/install.log)
     Grabbing package manifest
     stdin: is not a tty

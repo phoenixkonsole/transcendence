@@ -106,7 +106,7 @@ public:
         pchMessageStart[3] = 0x53;
 
         vAlertPubKey = ParseHex("0317dc37cb1011c0a162fc113358cdad2a12b85a0f841c4c48346bd85f45ec5c1d");
-        nDefaultPort = 22123;
+        nDefaultPort = 8051;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Transcendence starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -161,11 +161,11 @@ public:
         assert(hashGenesisBlock == uint256("0x00000b8a2211abb5a3d72bd7ba7bb967b4dae7cb0d56714a90c1967f9051b5b1"));
         assert(genesis.hashMerkleRoot == uint256("0x5398d54c8b977f3c438250717688ecaf6381c9674aa34037fcdb71cf9d7ff5cd"));
 
-	vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed1.transcendence.cloud"));
-	vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
-	vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
+	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed1.transcendence.cloud"));
+	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
+	//vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
 	vSeeds.push_back(CDNSSeedData("176.9.74.62", "176.9.74.62"));
-       vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
+      // vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
 	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
        vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
@@ -174,7 +174,7 @@ public:
 	vSeeds.push_back(CDNSSeedData("94.130.206.190", "94.130.206.190"));
        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));
-	vSeeds.push_back(CDNSSeedData("[2a02:c207:3003:4813::2]", "[2a02:c207:3003:4813::2]"));
+	//vSeeds.push_back(CDNSSeedData("[2a02:c207:3003:4813::2]", "[2a02:c207:3003:4813::2]"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 38); // G
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 138); // x

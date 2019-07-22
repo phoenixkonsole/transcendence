@@ -57,28 +57,28 @@ Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
 Build requirements:
 
-	sudo apt-get install build-essential libtool autotools-dev autoconf pkg-config libssl-dev
+	sudo apt install build-essential libtool autotools-dev autoconf pkg-config libssl-dev
 
 For Ubuntu 12.04 and later or Debian 7 and later libboost-all-dev has to be installed:
 
-	sudo apt-get install libboost-all-dev
+	sudo apt install libboost-all-dev
 
  db4.8 packages are available [here](https://launchpad.net/~bitcoin/+archive/bitcoin).
  You can add the repository using the following command:
 
         sudo add-apt-repository ppa:bitcoin/bitcoin
-        sudo apt-get update
+        sudo apt update
 
  Ubuntu 12.04 and later have packages for libdb5.1-dev and libdb5.1++-dev,
  but using these will break binary wallet compatibility, and is not recommended.
 
 For other Debian & Ubuntu (with ppa):
 
-	sudo apt-get install libdb4.8-dev libdb4.8++-dev
+	sudo apt install libdb4.8-dev libdb4.8++-dev
 
 Optional:
 
-	sudo apt-get install libminiupnpc-dev (see --with-miniupnpc and --enable-upnp-default)
+	sudo apt install libminiupnpc-dev (see --with-miniupnpc and --enable-upnp-default)
 
 Dependencies for the GUI: Ubuntu & Debian
 -----------------------------------------
@@ -90,11 +90,11 @@ To build without GUI pass `--without-gui`.
 
 For Qt 5 you need the following:
 
-    sudo apt-get install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+    sudo apt install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
 
 libqrencode (optional) can be installed with:
 
-    sudo apt-get install libqrencode-dev
+    sudo apt install libqrencode-dev
 
 Once these are installed, they will be found by configure and a transcendence-qt executable will be
 built by default.

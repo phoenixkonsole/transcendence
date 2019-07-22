@@ -16,4 +16,4 @@ The seeds compiled into the release are created from fuzzbawls' DNS seed data, l
 
 Ubuntu:
 
-    sudo apt-get install python3-dnspython
+    sudo apt install python3-dnspython

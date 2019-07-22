@@ -19,11 +19,11 @@ read DOSETUP
 
 if [ $DOSETUP = "y" ]  
 then
-  sudo apt-get update
-  sudo apt-get -y upgrade
-  sudo apt-get -y dist-upgrade
-  sudo apt-get update
-  sudo apt-get install -y zip unzip
+  sudo apt update
+  sudo apt -y upgrade
+  sudo apt -y dist-upgrade
+  sudo apt update
+  sudo apt install -y zip unzip
 
   cd /var
   sudo touch swap.img
@@ -41,7 +41,7 @@ then
   sudo mv  Linux/bin/* /usr/local/bin
   rm -rf Linux.zip Windows Linux Mac
 
-  sudo apt-get install -y ufw
+  sudo apt install -y ufw
   sudo ufw allow ssh/tcp
   sudo ufw limit ssh/tcp
   sudo ufw logging on

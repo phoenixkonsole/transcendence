@@ -161,6 +161,9 @@ public:
         assert(hashGenesisBlock == uint256("0x00000b8a2211abb5a3d72bd7ba7bb967b4dae7cb0d56714a90c1967f9051b5b1"));
         assert(genesis.hashMerkleRoot == uint256("0x5398d54c8b977f3c438250717688ecaf6381c9674aa34037fcdb71cf9d7ff5cd"));
 
+        //AWS instance DNS-seeder
+        vSeeds.push_back(CDNSSeedData("5.189.139.203", "5.189.139.203"));
+
 	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed1.transcendence.cloud"));
 	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
 	//vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));

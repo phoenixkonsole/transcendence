@@ -385,7 +385,7 @@ am__libbitcoin_util_a_SOURCES_DIST = allocators.cpp compat/strnlen.cpp \
 	primitives/block.h primitives/transaction.h \
 	primitives/zerocoin.h core_io.h crypter.h \
 	denomination_functions.h obfuscation.h obfuscation-relay.h \
-	db.h eccryptoverify.h ecwrapper.h hash.h init.h kernel.h \
+	wallet/db.h eccryptoverify.h ecwrapper.h hash.h init.h kernel.h \
 	swifttx.h key.h keystore.h leveldbwrapper.h limitedmap.h \
 	main.h masternode.h masternode-payments.h masternode-budget.h \
 	masternode-sync.h masternode-tiers.h masternodeman.h masternodeconfig.h \
@@ -1969,7 +1969,7 @@ BITCOIN_CORE_H = \
   denomination_functions.h \
   obfuscation.h \
   obfuscation-relay.h \
-  db.h \
+  wallet/db.h \
   eccryptoverify.h \
   ecwrapper.h \
   hash.h \
@@ -2028,9 +2028,9 @@ BITCOIN_CORE_H = \
   utiltime.h \
   validationinterface.h \
   version.h \
-  wallet.h \
-  wallet_ismine.h \
-  walletdb.h \
+  wallet/wallet.h \
+  wallet/wallet_ismine.h \
+  wallet/walletdb.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -2115,7 +2115,7 @@ libbitcoin_wallet_a_SOURCES = \
   masternodeman.cpp \
   rpcdump.cpp \
   primitives/zerocoin.cpp \
-  rpcwallet.cpp \
+  wallet/rpcwallet.cpp \
   kernel.cpp \
   wallet.cpp \
   wallet_ismine.cpp \

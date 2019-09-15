@@ -79,7 +79,7 @@ HEADERS += src/activemasternode.h \
            src/obfuscation-relay.h \
            src/obfuscation.h \
            src/transcendence-config.h \
-           src/db.h \
+           src/wallet/db.h \
            src/eccryptoverify.h \
            src/ecwrapper.h \
            src/hash.h \
@@ -128,9 +128,9 @@ HEADERS += src/activemasternode.h \
            src/utilstrencodings.h \
            src/utiltime.h \
            src/version.h \
-           src/wallet.h \
-           src/wallet_ismine.h \
-           src/walletdb.h \
+           src/wallet/wallet.h \
+           src/wallet/wallet_ismine.h \
+           src/wallet/walletdb.h \
            src/compat/sanity.h \
            src/config/transcendence-config.h \
            src/crypto/common.h \
@@ -418,7 +418,7 @@ SOURCES += src/activemasternode.cpp \
            src/rpcprotocol.cpp \
            src/rpcrawtransaction.cpp \
            src/rpcserver.cpp \
-           src/rpcwallet.cpp \
+           src/wallet/rpcwallet.cpp \
            src/spork.cpp \
            src/sync.cpp \
            src/timedata.cpp \

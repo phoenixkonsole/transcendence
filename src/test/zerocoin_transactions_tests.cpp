@@ -7,7 +7,7 @@
 #include "chainparams.h"
 #include "coincontrol.h"
 #include "main.h"
-#include "wallet.h"
+#include "wallet/wallet.h"
 #include "walletdb.h"
 #include "txdb.h"
 #include <boost/test/unit_test.hpp>

@@ -2113,13 +2113,13 @@ libbitcoin_wallet_a_SOURCES = \
   masternode-tiers.cpp \
   masternodeconfig.cpp \
   masternodeman.cpp \
-  rpcdump.cpp \
+  wallet/rpcdump.cpp \
   primitives/zerocoin.cpp \
   wallet/rpcwallet.cpp \
   kernel.cpp \
-  wallet.cpp \
-  wallet_ismine.cpp \
-  walletdb.cpp \
+  wallet/wallet.cpp \
+  wallet/wallet_ismine.cpp \
+  wallet/walletdb.cpp \
   $(BITCOIN_CORE_H)
 
 

@@ -262,9 +262,9 @@ libbitcoin_wallet_a_SOURCES = \
   primitives/zerocoin.cpp \
   wallet/rpcwallet.cpp \
   kernel.cpp \
-  wallet.cpp \
-  wallet_ismine.cpp \
-  walletdb.cpp \
+  wallet/wallet.cpp \
+  wallet/wallet_ismine.cpp \
+  wallet/walletdb.cpp \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library

@@ -258,7 +258,7 @@ libbitcoin_wallet_a_SOURCES = \
   masternode-tiers.cpp \
   masternodeconfig.cpp \
   masternodeman.cpp \
-  rpcdump.cpp \
+  wallet/rpcdump.cpp \
   primitives/zerocoin.cpp \
   wallet/rpcwallet.cpp \
   kernel.cpp \

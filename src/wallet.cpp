@@ -107,6 +107,22 @@ CPubKey CWallet::GenerateNewKey()
         throw std::runtime_error("CWallet::GenerateNewKey() : AddKey failed");
     return pubkey;
 }
+int64_t CWallet::GetKeyCreationTime(CPubKey pubkey)
+{
+    return mapKeyMetadata[pubkey.GetID()].nCreateTime;
+}
+
+int64_t CWallet::GetKeyCreationTime(const CBitcoinAddress& address)
+{
+    CKeyID keyID;
+    if (address.GetKeyID(keyID)) {
+        CPubKey keyRet;
+        if (GetPubKey(keyID, keyRet)) {
+            return GetKeyCreationTime(keyRet);
+        }
+    }
+    return 0;
+}
 
 bool CWallet::AddKeyPubKey(const CKey& secret, const CPubKey& pubkey)
 {

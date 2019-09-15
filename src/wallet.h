@@ -370,7 +370,8 @@ public:
     //  keystore implementation
     // Generate a new key
     CPubKey GenerateNewKey();
-
+    int64_t GetKeyCreationTime(CPubKey pubkey);
+    int64_t GetKeyCreationTime(const CBitcoinAddress& address);
     //! Adds a key to the store, and saves it to disk.
     bool AddKeyPubKey(const CKey& key, const CPubKey& pubkey);
     //! Adds a key to the store, without saving it to disk (used by LoadWallet)

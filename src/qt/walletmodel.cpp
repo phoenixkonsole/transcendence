@@ -19,7 +19,7 @@
 #include "sync.h"
 #include "ui_interface.h"
 #include "wallet/wallet.h"
-#include "walletdb.h" // for BackupWallet
+#include "wallet/walletdb.h" // for BackupWallet
 #include <stdint.h>
 
 #include <QDebug>

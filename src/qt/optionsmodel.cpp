@@ -22,7 +22,7 @@
 #ifdef ENABLE_WALLET
 #include "masternodeconfig.h"
 #include "wallet/wallet.h"
-#include "walletdb.h"
+#include "wallet/walletdb.h"
 #endif
 
 #include <QNetworkProxy>

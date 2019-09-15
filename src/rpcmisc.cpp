@@ -19,7 +19,7 @@
 #include "util.h"
 #ifdef ENABLE_WALLET
 #include "wallet/wallet.h"
-#include "walletdb.h"
+#include "wallet/walletdb.h"
 #endif
 
 #include <stdint.h>

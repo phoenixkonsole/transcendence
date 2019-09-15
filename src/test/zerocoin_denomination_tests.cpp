@@ -9,7 +9,7 @@
 #include "main.h"
 #include "txdb.h"
 #include "wallet/wallet.h"
-#include "walletdb.h"
+#include "wallet/walletdb.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 

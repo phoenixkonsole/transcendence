@@ -39,7 +39,7 @@
 #ifdef ENABLE_WALLET
 #include "wallet/db.h"
 #include "wallet/wallet.h"
-#include "walletdb.h"
+#include "wallet/walletdb.h"
 #include "accumulators.h"
 
 #endif

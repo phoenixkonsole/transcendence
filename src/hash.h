@@ -294,7 +294,6 @@ void BIP32Hash(const unsigned char chainCode[32], unsigned int nChild, unsigned 
 template<typename T1>
 inline uint256 XEVAN(const T1 pbegin, const T1 pend)
 {
-    //LogPrintf("X11 Hash \n");
 	sph_blake512_context      ctx_blake;
     sph_bmw512_context        ctx_bmw;
     sph_groestl512_context    ctx_groestl;
@@ -312,12 +311,8 @@ inline uint256 XEVAN(const T1 pbegin, const T1 pend)
     sph_whirlpool_context     ctx_whirlpool;
     sph_sha512_context        ctx_sha2;
     sph_haval256_5_context    ctx_haval;
-static unsigned char pblank[1];
+    static unsigned char pblank[1];
 
-#ifndef QT_NO_DEBUG
-    //std::string strhash;
-    //strhash = "";
-#endif
     int worknumber =128;
     uint512 hash[34];
 
@@ -457,7 +452,6 @@ static unsigned char pblank[1];
     sph_haval256_5_init(&ctx_haval);
     sph_haval256_5 (&ctx_haval, static_cast<const void*>(&hash[32]), worknumber);
     sph_haval256_5_close(&ctx_haval, static_cast<void*>(&hash[33]));
-
 
     return hash[33].trim256();
 }

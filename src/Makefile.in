@@ -396,7 +396,7 @@ am__libbitcoin_util_a_SOURCES_DIST = allocators.cpp compat/strnlen.cpp \
 	script/sign.h script/standard.h script/script_error.h \
 	serialize.h spork.h sporkdb.h streams.h sync.h threadsafety.h \
 	timedata.h tinyformat.h torcontrol.h txdb.h txmempool.h \
-	ui_interface.h uint256.h undo.h util.h utilstrencodings.h \
+	guiinterface.h uint256.h undo.h util.h utilstrencodings.h \
 	utilmoneystr.h utiltime.h validationinterface.h version.h \
 	wallet.h wallet_ismine.h walletdb.h zmq/zmqabstractnotifier.h \
 	zmq/zmqconfig.h zmq/zmqnotificationinterface.h \
@@ -2021,7 +2021,7 @@ BITCOIN_CORE_H = \
   torcontrol.h \
   txdb.h \
   txmempool.h \
-  ui_interface.h \
+  guiinterface.h \
   uint256.h \
   undo.h \
   util.h \

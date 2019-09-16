@@ -17,7 +17,7 @@
 #include "miner.h"
 #include "obfuscation.h"
 #include "primitives/transaction.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "wallet/wallet.h"
 
 #ifdef WIN32

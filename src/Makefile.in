@@ -385,22 +385,23 @@ am__libbitcoin_util_a_SOURCES_DIST = allocators.cpp compat/strnlen.cpp \
 	primitives/block.h primitives/transaction.h \
 	primitives/zerocoin.h core_io.h crypter.h \
 	denomination_functions.h obfuscation.h obfuscation-relay.h \
-	wallet/db.h eccryptoverify.h ecwrapper.h hash.h init.h kernel.h \
+	db.h eccryptoverify.h ecwrapper.h hash.h init.h kernel.h \
 	swifttx.h key.h keystore.h leveldbwrapper.h limitedmap.h \
 	main.h masternode.h masternode-payments.h masternode-budget.h \
-	masternode-sync.h masternode-tiers.h masternodeman.h masternodeconfig.h \
-	merkleblock.h miner.h mruset.h netbase.h net.h noui.h pow.h \
-	protocol.h pubkey.h random.h reverse_iterate.h rpcclient.h \
-	rpcprotocol.h rpcserver.h script/interpreter.h script/script.h \
-	script/sigcache.h script/sign.h script/standard.h \
-	script/script_error.h serialize.h spork.h sporkdb.h streams.h \
-	sync.h threadsafety.h timedata.h tinyformat.h torcontrol.h \
-	txdb.h txmempool.h ui_interface.h uint256.h undo.h util.h \
-	utilstrencodings.h utilmoneystr.h utiltime.h \
-	validationinterface.h version.h wallet.h wallet_ismine.h \
-	walletdb.h zmq/zmqabstractnotifier.h zmq/zmqconfig.h \
-	zmq/zmqnotificationinterface.h zmq/zmqpublishnotifier.h \
-	compat/glibc_compat.cpp compat/glibcxx_compat.cpp
+	masternode-sync.h masternode-tiers.h masternodeman.h \
+	masternodeconfig.h merkleblock.h miner.h mruset.h netbase.h \
+	net.h noui.h pow.h protocol.h pubkey.h random.h \
+	reverse_iterate.h rpcclient.h rpcprotocol.h rpcserver.h \
+	script/interpreter.h script/script.h script/sigcache.h \
+	script/sign.h script/standard.h script/script_error.h \
+	serialize.h spork.h sporkdb.h streams.h sync.h threadsafety.h \
+	timedata.h tinyformat.h torcontrol.h txdb.h txmempool.h \
+	ui_interface.h uint256.h undo.h util.h utilstrencodings.h \
+	utilmoneystr.h utiltime.h validationinterface.h version.h \
+	wallet.h wallet_ismine.h walletdb.h zmq/zmqabstractnotifier.h \
+	zmq/zmqconfig.h zmq/zmqnotificationinterface.h \
+	zmq/zmqpublishnotifier.h compat/glibc_compat.cpp \
+	compat/glibcxx_compat.cpp
 @GLIBC_BACK_COMPAT_TRUE@am__objects_2 = compat/libbitcoin_util_a-glibc_compat.$(OBJEXT) \
 @GLIBC_BACK_COMPAT_TRUE@	compat/libbitcoin_util_a-glibcxx_compat.$(OBJEXT)
 am_libbitcoin_util_a_OBJECTS = libbitcoin_util_a-allocators.$(OBJEXT) \
@@ -429,7 +430,7 @@ am_libbitcoin_wallet_a_OBJECTS =  \
 	libbitcoin_wallet_a-denomination_functions.$(OBJEXT) \
 	libbitcoin_wallet_a-obfuscation.$(OBJEXT) \
 	libbitcoin_wallet_a-obfuscation-relay.$(OBJEXT) \
-	libbitcoin_wallet_a-db.$(OBJEXT) \
+	wallet/libbitcoin_wallet_a-db.$(OBJEXT) \
 	libbitcoin_wallet_a-crypter.$(OBJEXT) \
 	libbitcoin_wallet_a-swifttx.$(OBJEXT) \
 	libbitcoin_wallet_a-masternode.$(OBJEXT) \
@@ -439,13 +440,13 @@ am_libbitcoin_wallet_a_OBJECTS =  \
 	libbitcoin_wallet_a-masternode-tiers.$(OBJEXT) \
 	libbitcoin_wallet_a-masternodeconfig.$(OBJEXT) \
 	libbitcoin_wallet_a-masternodeman.$(OBJEXT) \
-	libbitcoin_wallet_a-rpcdump.$(OBJEXT) \
+	wallet/libbitcoin_wallet_a-rpcdump.$(OBJEXT) \
 	primitives/libbitcoin_wallet_a-zerocoin.$(OBJEXT) \
-	libbitcoin_wallet_a-rpcwallet.$(OBJEXT) \
+	wallet/libbitcoin_wallet_a-rpcwallet.$(OBJEXT) \
 	libbitcoin_wallet_a-kernel.$(OBJEXT) \
-	libbitcoin_wallet_a-wallet.$(OBJEXT) \
-	libbitcoin_wallet_a-wallet_ismine.$(OBJEXT) \
-	libbitcoin_wallet_a-walletdb.$(OBJEXT) $(am__objects_1)
+	wallet/libbitcoin_wallet_a-wallet.$(OBJEXT) \
+	wallet/libbitcoin_wallet_a-wallet_ismine.$(OBJEXT) \
+	wallet/libbitcoin_wallet_a-walletdb.$(OBJEXT) $(am__objects_1)
 libbitcoin_wallet_a_OBJECTS = $(am_libbitcoin_wallet_a_OBJECTS)
 libbitcoin_zmq_a_AR = $(AR) $(ARFLAGS)
 libbitcoin_zmq_a_LIBADD =
@@ -866,13 +867,14 @@ am__test_test_transcendence_SOURCES_DIST =  \
 	test/script_tests.cpp test/scriptnum_tests.cpp \
 	test/serialize_tests.cpp test/sighash_tests.cpp \
 	test/sigopcount_tests.cpp test/skiplist_tests.cpp \
-	test/test_transcendence.cpp test/tier_tests.cpp test/timedata_tests.cpp \
-	test/torcontrol_tests.cpp test/transaction_tests.cpp \
-	test/uint256_tests.cpp test/univalue_tests.cpp \
-	test/util_tests.cpp test/accounting_tests.cpp \
-	test/wallet_tests.cpp test/rpc_wallet_tests.cpp \
-	test/data/script_valid.json test/data/base58_keys_valid.json \
-	test/data/sig_canonical.json test/data/sig_noncanonical.json \
+	test/test_transcendence.cpp test/tier_tests.cpp \
+	test/timedata_tests.cpp test/torcontrol_tests.cpp \
+	test/transaction_tests.cpp test/uint256_tests.cpp \
+	test/univalue_tests.cpp test/util_tests.cpp \
+	test/accounting_tests.cpp test/wallet_tests.cpp \
+	test/rpc_wallet_tests.cpp test/data/script_valid.json \
+	test/data/base58_keys_valid.json test/data/sig_canonical.json \
+	test/data/sig_noncanonical.json \
 	test/data/base58_encode_decode.json \
 	test/data/base58_keys_invalid.json \
 	test/data/script_invalid.json test/data/tx_invalid.json \
@@ -1076,7 +1078,6 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-activemasternode.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-bip38.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-crypter.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-db.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-denomination_functions.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-kernel.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-masternode-budget.Po \
@@ -1088,12 +1089,7 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-masternodeman.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-obfuscation-relay.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-obfuscation.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po \
 	./$(DEPDIR)/libbitcoin_wallet_a-swifttx.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-wallet.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po \
-	./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po \
 	./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo \
 	./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo \
 	./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo \
@@ -1333,6 +1329,12 @@ am__depfiles_remade = ./$(DEPDIR)/libbitcoin_cli_a-rpcclient.Po \
 	univalue/$(DEPDIR)/univalue.Po \
 	univalue/$(DEPDIR)/univalue_read.Po \
 	univalue/$(DEPDIR)/univalue_write.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po \
+	wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po \
 	zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqabstractnotifier.Po \
 	zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqnotificationinterface.Po \
 	zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqpublishnotifier.Po
@@ -1969,7 +1971,7 @@ BITCOIN_CORE_H = \
   denomination_functions.h \
   obfuscation.h \
   obfuscation-relay.h \
-  wallet/db.h \
+  db.h \
   eccryptoverify.h \
   ecwrapper.h \
   hash.h \
@@ -2028,9 +2030,9 @@ BITCOIN_CORE_H = \
   utiltime.h \
   validationinterface.h \
   version.h \
-  wallet/wallet.h \
-  wallet/wallet_ismine.h \
-  wallet/walletdb.h \
+  wallet.h \
+  wallet_ismine.h \
+  walletdb.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -2103,7 +2105,7 @@ libbitcoin_wallet_a_SOURCES = \
   denomination_functions.cpp \
   obfuscation.cpp \
   obfuscation-relay.cpp \
-  db.cpp \
+  wallet/db.cpp \
   crypter.cpp \
   swifttx.cpp \
   masternode.cpp \
@@ -2384,8 +2386,7 @@ EXTRA_DIST = leveldb $(am__append_18)
 @ENABLE_TESTS_TRUE@	test/sigopcount_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/skiplist_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/test_transcendence.cpp \
-@ENABLE_TESTS_TRUE@	test/tier_tests.cpp \
-@ENABLE_TESTS_TRUE@	test/timedata_tests.cpp \
+@ENABLE_TESTS_TRUE@	test/tier_tests.cpp test/timedata_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/torcontrol_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/transaction_tests.cpp \
 @ENABLE_TESTS_TRUE@	test/uint256_tests.cpp \
@@ -3010,9 +3011,27 @@ libbitcoin_util.a: $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_DEPENDENCIES
 	$(AM_V_at)-rm -f libbitcoin_util.a
 	$(AM_V_AR)$(libbitcoin_util_a_AR) libbitcoin_util.a $(libbitcoin_util_a_OBJECTS) $(libbitcoin_util_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libbitcoin_util.a
+wallet/$(am__dirstamp):
+	@$(MKDIR_P) wallet
+	@: > wallet/$(am__dirstamp)
+wallet/$(DEPDIR)/$(am__dirstamp):
+	@$(MKDIR_P) wallet/$(DEPDIR)
+	@: > wallet/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-db.$(OBJEXT): wallet/$(am__dirstamp) \
+	wallet/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-rpcdump.$(OBJEXT): wallet/$(am__dirstamp) \
+	wallet/$(DEPDIR)/$(am__dirstamp)
 primitives/libbitcoin_wallet_a-zerocoin.$(OBJEXT):  \
 	primitives/$(am__dirstamp) \
 	primitives/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-rpcwallet.$(OBJEXT):  \
+	wallet/$(am__dirstamp) wallet/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-wallet.$(OBJEXT): wallet/$(am__dirstamp) \
+	wallet/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-wallet_ismine.$(OBJEXT):  \
+	wallet/$(am__dirstamp) wallet/$(DEPDIR)/$(am__dirstamp)
+wallet/libbitcoin_wallet_a-walletdb.$(OBJEXT): wallet/$(am__dirstamp) \
+	wallet/$(DEPDIR)/$(am__dirstamp)
 
 libbitcoin_wallet.a: $(libbitcoin_wallet_a_OBJECTS) $(libbitcoin_wallet_a_DEPENDENCIES) $(EXTRA_libbitcoin_wallet_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libbitcoin_wallet.a
@@ -3454,8 +3473,8 @@ test/test_transcendence-skiplist_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_transcendence-test_transcendence.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
-test/test_transcendence-tier_tests.$(OBJEXT):  \
-	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
+test/test_transcendence-tier_tests.$(OBJEXT): test/$(am__dirstamp) \
+	test/$(DEPDIR)/$(am__dirstamp)
 test/test_transcendence-timedata_tests.$(OBJEXT):  \
 	test/$(am__dirstamp) test/$(DEPDIR)/$(am__dirstamp)
 test/test_transcendence-torcontrol_tests.$(OBJEXT):  \
@@ -3507,6 +3526,7 @@ mostlyclean-compile:
 	-rm -f script/*.lo
 	-rm -f test/*.$(OBJEXT)
 	-rm -f univalue/*.$(OBJEXT)
+	-rm -f wallet/*.$(OBJEXT)
 	-rm -f zmq/*.$(OBJEXT)
 
 distclean-compile:
@@ -3576,7 +3596,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-activemasternode.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-bip38.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-crypter.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-db.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-denomination_functions.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-kernel.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-masternode-budget.Po@am__quote@ # am--include-marker
@@ -3588,12 +3607,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-masternodeman.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-obfuscation-relay.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-obfuscation.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-swifttx.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-wallet.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po@am__quote@ # am--include-marker
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo@am__quote@ # am--include-marker
@@ -3833,6 +3847,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@univalue/$(DEPDIR)/univalue.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@univalue/$(DEPDIR)/univalue_read.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@univalue/$(DEPDIR)/univalue_write.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqabstractnotifier.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqnotificationinterface.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqpublishnotifier.Po@am__quote@ # am--include-marker
@@ -5403,19 +5423,19 @@ libbitcoin_wallet_a-obfuscation-relay.obj: obfuscation-relay.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-obfuscation-relay.obj `if test -f 'obfuscation-relay.cpp'; then $(CYGPATH_W) 'obfuscation-relay.cpp'; else $(CYGPATH_W) '$(srcdir)/obfuscation-relay.cpp'; fi`
 
-libbitcoin_wallet_a-db.o: db.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-db.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-db.Tpo -c -o libbitcoin_wallet_a-db.o `test -f 'db.cpp' || echo '$(srcdir)/'`db.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-db.Tpo $(DEPDIR)/libbitcoin_wallet_a-db.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='db.cpp' object='libbitcoin_wallet_a-db.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-db.o: wallet/db.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-db.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Tpo -c -o wallet/libbitcoin_wallet_a-db.o `test -f 'wallet/db.cpp' || echo '$(srcdir)/'`wallet/db.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/db.cpp' object='wallet/libbitcoin_wallet_a-db.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-db.o `test -f 'db.cpp' || echo '$(srcdir)/'`db.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-db.o `test -f 'wallet/db.cpp' || echo '$(srcdir)/'`wallet/db.cpp
 
-libbitcoin_wallet_a-db.obj: db.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-db.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-db.Tpo -c -o libbitcoin_wallet_a-db.obj `if test -f 'db.cpp'; then $(CYGPATH_W) 'db.cpp'; else $(CYGPATH_W) '$(srcdir)/db.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-db.Tpo $(DEPDIR)/libbitcoin_wallet_a-db.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='db.cpp' object='libbitcoin_wallet_a-db.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-db.obj: wallet/db.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-db.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Tpo -c -o wallet/libbitcoin_wallet_a-db.obj `if test -f 'wallet/db.cpp'; then $(CYGPATH_W) 'wallet/db.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/db.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/db.cpp' object='wallet/libbitcoin_wallet_a-db.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-db.obj `if test -f 'db.cpp'; then $(CYGPATH_W) 'db.cpp'; else $(CYGPATH_W) '$(srcdir)/db.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-db.obj `if test -f 'wallet/db.cpp'; then $(CYGPATH_W) 'wallet/db.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/db.cpp'; fi`
 
 libbitcoin_wallet_a-crypter.o: crypter.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-crypter.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-crypter.Tpo -c -o libbitcoin_wallet_a-crypter.o `test -f 'crypter.cpp' || echo '$(srcdir)/'`crypter.cpp
@@ -5543,19 +5563,19 @@ libbitcoin_wallet_a-masternodeman.obj: masternodeman.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-masternodeman.obj `if test -f 'masternodeman.cpp'; then $(CYGPATH_W) 'masternodeman.cpp'; else $(CYGPATH_W) '$(srcdir)/masternodeman.cpp'; fi`
 
-libbitcoin_wallet_a-rpcdump.o: rpcdump.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-rpcdump.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo -c -o libbitcoin_wallet_a-rpcdump.o `test -f 'rpcdump.cpp' || echo '$(srcdir)/'`rpcdump.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcdump.cpp' object='libbitcoin_wallet_a-rpcdump.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-rpcdump.o: wallet/rpcdump.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-rpcdump.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo -c -o wallet/libbitcoin_wallet_a-rpcdump.o `test -f 'wallet/rpcdump.cpp' || echo '$(srcdir)/'`wallet/rpcdump.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/rpcdump.cpp' object='wallet/libbitcoin_wallet_a-rpcdump.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-rpcdump.o `test -f 'rpcdump.cpp' || echo '$(srcdir)/'`rpcdump.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-rpcdump.o `test -f 'wallet/rpcdump.cpp' || echo '$(srcdir)/'`wallet/rpcdump.cpp
 
-libbitcoin_wallet_a-rpcdump.obj: rpcdump.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-rpcdump.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo -c -o libbitcoin_wallet_a-rpcdump.obj `if test -f 'rpcdump.cpp'; then $(CYGPATH_W) 'rpcdump.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcdump.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo $(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcdump.cpp' object='libbitcoin_wallet_a-rpcdump.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-rpcdump.obj: wallet/rpcdump.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-rpcdump.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo -c -o wallet/libbitcoin_wallet_a-rpcdump.obj `if test -f 'wallet/rpcdump.cpp'; then $(CYGPATH_W) 'wallet/rpcdump.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/rpcdump.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/rpcdump.cpp' object='wallet/libbitcoin_wallet_a-rpcdump.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-rpcdump.obj `if test -f 'rpcdump.cpp'; then $(CYGPATH_W) 'rpcdump.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcdump.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-rpcdump.obj `if test -f 'wallet/rpcdump.cpp'; then $(CYGPATH_W) 'wallet/rpcdump.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/rpcdump.cpp'; fi`
 
 primitives/libbitcoin_wallet_a-zerocoin.o: primitives/zerocoin.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT primitives/libbitcoin_wallet_a-zerocoin.o -MD -MP -MF primitives/$(DEPDIR)/libbitcoin_wallet_a-zerocoin.Tpo -c -o primitives/libbitcoin_wallet_a-zerocoin.o `test -f 'primitives/zerocoin.cpp' || echo '$(srcdir)/'`primitives/zerocoin.cpp
@@ -5571,19 +5591,19 @@ primitives/libbitcoin_wallet_a-zerocoin.obj: primitives/zerocoin.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o primitives/libbitcoin_wallet_a-zerocoin.obj `if test -f 'primitives/zerocoin.cpp'; then $(CYGPATH_W) 'primitives/zerocoin.cpp'; else $(CYGPATH_W) '$(srcdir)/primitives/zerocoin.cpp'; fi`
 
-libbitcoin_wallet_a-rpcwallet.o: rpcwallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-rpcwallet.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo -c -o libbitcoin_wallet_a-rpcwallet.o `test -f 'rpcwallet.cpp' || echo '$(srcdir)/'`rpcwallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcwallet.cpp' object='libbitcoin_wallet_a-rpcwallet.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-rpcwallet.o: wallet/rpcwallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-rpcwallet.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo -c -o wallet/libbitcoin_wallet_a-rpcwallet.o `test -f 'wallet/rpcwallet.cpp' || echo '$(srcdir)/'`wallet/rpcwallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/rpcwallet.cpp' object='wallet/libbitcoin_wallet_a-rpcwallet.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-rpcwallet.o `test -f 'rpcwallet.cpp' || echo '$(srcdir)/'`rpcwallet.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-rpcwallet.o `test -f 'wallet/rpcwallet.cpp' || echo '$(srcdir)/'`wallet/rpcwallet.cpp
 
-libbitcoin_wallet_a-rpcwallet.obj: rpcwallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-rpcwallet.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo -c -o libbitcoin_wallet_a-rpcwallet.obj `if test -f 'rpcwallet.cpp'; then $(CYGPATH_W) 'rpcwallet.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcwallet.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo $(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='rpcwallet.cpp' object='libbitcoin_wallet_a-rpcwallet.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-rpcwallet.obj: wallet/rpcwallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-rpcwallet.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo -c -o wallet/libbitcoin_wallet_a-rpcwallet.obj `if test -f 'wallet/rpcwallet.cpp'; then $(CYGPATH_W) 'wallet/rpcwallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/rpcwallet.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/rpcwallet.cpp' object='wallet/libbitcoin_wallet_a-rpcwallet.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-rpcwallet.obj `if test -f 'rpcwallet.cpp'; then $(CYGPATH_W) 'rpcwallet.cpp'; else $(CYGPATH_W) '$(srcdir)/rpcwallet.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-rpcwallet.obj `if test -f 'wallet/rpcwallet.cpp'; then $(CYGPATH_W) 'wallet/rpcwallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/rpcwallet.cpp'; fi`
 
 libbitcoin_wallet_a-kernel.o: kernel.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-kernel.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-kernel.Tpo -c -o libbitcoin_wallet_a-kernel.o `test -f 'kernel.cpp' || echo '$(srcdir)/'`kernel.cpp
@@ -5599,47 +5619,47 @@ libbitcoin_wallet_a-kernel.obj: kernel.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-kernel.obj `if test -f 'kernel.cpp'; then $(CYGPATH_W) 'kernel.cpp'; else $(CYGPATH_W) '$(srcdir)/kernel.cpp'; fi`
 
-libbitcoin_wallet_a-wallet.o: wallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-wallet.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo -c -o libbitcoin_wallet_a-wallet.o `test -f 'wallet.cpp' || echo '$(srcdir)/'`wallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo $(DEPDIR)/libbitcoin_wallet_a-wallet.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet.cpp' object='libbitcoin_wallet_a-wallet.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-wallet.o: wallet/wallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-wallet.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo -c -o wallet/libbitcoin_wallet_a-wallet.o `test -f 'wallet/wallet.cpp' || echo '$(srcdir)/'`wallet/wallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/wallet.cpp' object='wallet/libbitcoin_wallet_a-wallet.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-wallet.o `test -f 'wallet.cpp' || echo '$(srcdir)/'`wallet.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-wallet.o `test -f 'wallet/wallet.cpp' || echo '$(srcdir)/'`wallet/wallet.cpp
 
-libbitcoin_wallet_a-wallet.obj: wallet.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-wallet.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo -c -o libbitcoin_wallet_a-wallet.obj `if test -f 'wallet.cpp'; then $(CYGPATH_W) 'wallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo $(DEPDIR)/libbitcoin_wallet_a-wallet.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet.cpp' object='libbitcoin_wallet_a-wallet.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-wallet.obj: wallet/wallet.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-wallet.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo -c -o wallet/libbitcoin_wallet_a-wallet.obj `if test -f 'wallet/wallet.cpp'; then $(CYGPATH_W) 'wallet/wallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/wallet.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/wallet.cpp' object='wallet/libbitcoin_wallet_a-wallet.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-wallet.obj `if test -f 'wallet.cpp'; then $(CYGPATH_W) 'wallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-wallet.obj `if test -f 'wallet/wallet.cpp'; then $(CYGPATH_W) 'wallet/wallet.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/wallet.cpp'; fi`
 
-libbitcoin_wallet_a-wallet_ismine.o: wallet_ismine.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-wallet_ismine.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo -c -o libbitcoin_wallet_a-wallet_ismine.o `test -f 'wallet_ismine.cpp' || echo '$(srcdir)/'`wallet_ismine.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet_ismine.cpp' object='libbitcoin_wallet_a-wallet_ismine.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-wallet_ismine.o: wallet/wallet_ismine.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-wallet_ismine.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo -c -o wallet/libbitcoin_wallet_a-wallet_ismine.o `test -f 'wallet/wallet_ismine.cpp' || echo '$(srcdir)/'`wallet/wallet_ismine.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/wallet_ismine.cpp' object='wallet/libbitcoin_wallet_a-wallet_ismine.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-wallet_ismine.o `test -f 'wallet_ismine.cpp' || echo '$(srcdir)/'`wallet_ismine.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-wallet_ismine.o `test -f 'wallet/wallet_ismine.cpp' || echo '$(srcdir)/'`wallet/wallet_ismine.cpp
 
-libbitcoin_wallet_a-wallet_ismine.obj: wallet_ismine.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-wallet_ismine.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo -c -o libbitcoin_wallet_a-wallet_ismine.obj `if test -f 'wallet_ismine.cpp'; then $(CYGPATH_W) 'wallet_ismine.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet_ismine.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo $(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet_ismine.cpp' object='libbitcoin_wallet_a-wallet_ismine.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-wallet_ismine.obj: wallet/wallet_ismine.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-wallet_ismine.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo -c -o wallet/libbitcoin_wallet_a-wallet_ismine.obj `if test -f 'wallet/wallet_ismine.cpp'; then $(CYGPATH_W) 'wallet/wallet_ismine.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/wallet_ismine.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/wallet_ismine.cpp' object='wallet/libbitcoin_wallet_a-wallet_ismine.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-wallet_ismine.obj `if test -f 'wallet_ismine.cpp'; then $(CYGPATH_W) 'wallet_ismine.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet_ismine.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-wallet_ismine.obj `if test -f 'wallet/wallet_ismine.cpp'; then $(CYGPATH_W) 'wallet/wallet_ismine.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/wallet_ismine.cpp'; fi`
 
-libbitcoin_wallet_a-walletdb.o: walletdb.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-walletdb.o -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo -c -o libbitcoin_wallet_a-walletdb.o `test -f 'walletdb.cpp' || echo '$(srcdir)/'`walletdb.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo $(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='walletdb.cpp' object='libbitcoin_wallet_a-walletdb.o' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-walletdb.o: wallet/walletdb.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-walletdb.o -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo -c -o wallet/libbitcoin_wallet_a-walletdb.o `test -f 'wallet/walletdb.cpp' || echo '$(srcdir)/'`wallet/walletdb.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/walletdb.cpp' object='wallet/libbitcoin_wallet_a-walletdb.o' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-walletdb.o `test -f 'walletdb.cpp' || echo '$(srcdir)/'`walletdb.cpp
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-walletdb.o `test -f 'wallet/walletdb.cpp' || echo '$(srcdir)/'`wallet/walletdb.cpp
 
-libbitcoin_wallet_a-walletdb.obj: walletdb.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT libbitcoin_wallet_a-walletdb.obj -MD -MP -MF $(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo -c -o libbitcoin_wallet_a-walletdb.obj `if test -f 'walletdb.cpp'; then $(CYGPATH_W) 'walletdb.cpp'; else $(CYGPATH_W) '$(srcdir)/walletdb.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo $(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='walletdb.cpp' object='libbitcoin_wallet_a-walletdb.obj' libtool=no @AMDEPBACKSLASH@
+wallet/libbitcoin_wallet_a-walletdb.obj: wallet/walletdb.cpp
+@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT wallet/libbitcoin_wallet_a-walletdb.obj -MD -MP -MF wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo -c -o wallet/libbitcoin_wallet_a-walletdb.obj `if test -f 'wallet/walletdb.cpp'; then $(CYGPATH_W) 'wallet/walletdb.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/walletdb.cpp'; fi`
+@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Tpo wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
+@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='wallet/walletdb.cpp' object='wallet/libbitcoin_wallet_a-walletdb.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o libbitcoin_wallet_a-walletdb.obj `if test -f 'walletdb.cpp'; then $(CYGPATH_W) 'walletdb.cpp'; else $(CYGPATH_W) '$(srcdir)/walletdb.cpp'; fi`
+@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_wallet_a_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o wallet/libbitcoin_wallet_a-walletdb.obj `if test -f 'wallet/walletdb.cpp'; then $(CYGPATH_W) 'wallet/walletdb.cpp'; else $(CYGPATH_W) '$(srcdir)/wallet/walletdb.cpp'; fi`
 
 zmq/libbitcoin_zmq_a-zmqabstractnotifier.o: zmq/zmqabstractnotifier.cpp
 @am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libbitcoin_zmq_a_CPPFLAGS) $(CPPFLAGS) $(libbitcoin_zmq_a_CXXFLAGS) $(CXXFLAGS) -MT zmq/libbitcoin_zmq_a-zmqabstractnotifier.o -MD -MP -MF zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqabstractnotifier.Tpo -c -o zmq/libbitcoin_zmq_a-zmqabstractnotifier.o `test -f 'zmq/zmqabstractnotifier.cpp' || echo '$(srcdir)/'`zmq/zmqabstractnotifier.cpp
@@ -8596,6 +8616,8 @@ distclean-generic:
 	-rm -f test/$(am__dirstamp)
 	-rm -f univalue/$(DEPDIR)/$(am__dirstamp)
 	-rm -f univalue/$(am__dirstamp)
+	-rm -f wallet/$(DEPDIR)/$(am__dirstamp)
+	-rm -f wallet/$(am__dirstamp)
 	-rm -f zmq/$(DEPDIR)/$(am__dirstamp)
 	-rm -f zmq/$(am__dirstamp)
 	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
@@ -8673,24 +8695,18 @@ distclean: distclean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-activemasternode.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-bip38.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-crypter.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-db.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-denomination_functions.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-kernel.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-budget.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-payments.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-sync.Po
-    -rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-tiers.Po
+	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-tiers.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternodeconfig.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternodeman.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-obfuscation-relay.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-obfuscation.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-swifttx.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo
@@ -8930,6 +8946,12 @@ distclean: distclean-recursive
 	-rm -f univalue/$(DEPDIR)/univalue.Po
 	-rm -f univalue/$(DEPDIR)/univalue_read.Po
 	-rm -f univalue/$(DEPDIR)/univalue_write.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqabstractnotifier.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqnotificationinterface.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqpublishnotifier.Po
@@ -9042,7 +9064,6 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-activemasternode.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-bip38.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-crypter.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-db.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-denomination_functions.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-kernel.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternode-budget.Po
@@ -9054,12 +9075,7 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-masternodeman.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-obfuscation-relay.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-obfuscation.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
 	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-swifttx.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
-	-rm -f ./$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-allocators.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-eccryptoverify.Plo
 	-rm -f ./$(DEPDIR)/libbitcoinconsensus_la-ecwrapper.Plo
@@ -9299,6 +9315,12 @@ maintainer-clean: maintainer-clean-recursive
 	-rm -f univalue/$(DEPDIR)/univalue.Po
 	-rm -f univalue/$(DEPDIR)/univalue_read.Po
 	-rm -f univalue/$(DEPDIR)/univalue_write.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-db.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcdump.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-rpcwallet.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-wallet_ismine.Po
+	-rm -f wallet/$(DEPDIR)/libbitcoin_wallet_a-walletdb.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqabstractnotifier.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqnotificationinterface.Po
 	-rm -f zmq/$(DEPDIR)/libbitcoin_zmq_a-zmqpublishnotifier.Po

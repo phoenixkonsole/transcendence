@@ -378,7 +378,7 @@ SOURCES += src/activemasternode.cpp \
            src/transcendence-cli.cpp \
            src/transcendence-tx.cpp \
            src/transcendence.cpp \
-           src/db.cpp \
+           src/wallet/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
            src/editaddressdialog.cpp \

@@ -8,7 +8,7 @@
 
 #include "wallet.h"
 
-#include "accumulators.h"
+#include "ztelos/accumulators.h"
 #include "base58.h"
 #include "checkpoints.h"
 #include "coincontrol.h"
@@ -1605,7 +1605,52 @@ CAmount CWallet::GetImmatureWatchOnlyBalance() const
     }
     return nTotal;
 }
+CAmount CWalletTx::GetLockedWatchOnlyCredit() const
+{
+    if (pwallet == 0)
+        return 0;
 
+    // Must wait until coinbase is safely deep enough in the chain before valuing it
+    if (IsCoinBase() && GetBlocksToMaturity() > 0)
+        return 0;
+
+    CAmount nCredit = 0;
+    uint256 hashTx = GetHash();
+    for (unsigned int i = 0; i < vout.size(); i++) {
+        const CTxOut& txout = vout[i];
+
+        // Skip spent coins
+        if (pwallet->IsSpent(hashTx, i)) continue;
+
+        // Add locked coins
+        if (pwallet->IsLockedCoin(hashTx, i)) {
+            nCredit += pwallet->GetCredit(txout, ISMINE_WATCH_ONLY);
+        }
+
+        // Add masternode collaterals which are handled likc locked coins
+        else if (fMasterNode && IsMasternodeOutput(vout[i].nValue, 604795)) {
+            nCredit += pwallet->GetCredit(txout, ISMINE_WATCH_ONLY);
+        }
+
+        if (!MoneyRange(nCredit))
+            throw std::runtime_error("CWalletTx::GetLockedCredit() : value out of range");
+    }
+
+    return nCredit;
+}
+CAmount CWallet::GetLockedWatchOnlyBalance() const
+{
+    CAmount nTotal = 0;
+    {
+        LOCK2(cs_main, cs_wallet);
+        for (map<uint256, CWalletTx>::const_iterator it = mapWallet.begin(); it != mapWallet.end(); ++it) {
+            const CWalletTx* pcoin = &(*it).second;
+            if (pcoin->IsTrusted() && pcoin->GetDepthInMainChain() > 0)
+                nTotal += pcoin->GetLockedWatchOnlyCredit();
+        }
+    }
+    return nTotal;
+}
 /**
  * populate vCoins with vector of available COutputs.
  */
@@ -4012,7 +4057,7 @@ bool CWallet::CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransa
         txNew.vout.push_back(outMint);
 
         //store as CZerocoinMint for later use
-        CZerocoinMint mint(denomination, pubCoin.getValue(), newCoin.getRandomness(), newCoin.getSerialNumber(), false);
+        CZerocoinMint mint(denomination, pubCoin.getValue(), newCoin.getRandomness(), newCoin.getSerialNumber(), false,1);
         vMints.push_back(mint);
     }
 

@@ -1,7 +1,4 @@
-// Copyright (c) 2011-2014 The Bitcoin developers
-// Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Transcendence developers
+// Copyright (c) 2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,16 +7,34 @@
 
 #include "guiutil.h"
 #include "walletmodel.h"
+#include "qt/transcendence/qtutils.h"
 
 #include <QUrl>
 
-OpenURIDialog::OpenURIDialog(QWidget* parent) : QDialog(parent),
+OpenURIDialog::OpenURIDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
                                                 ui(new Ui::OpenURIDialog)
 {
     ui->setupUi(this);
-#if QT_VERSION >= 0x040700
-    ui->uriEdit->setPlaceholderText("transcendence:");
-#endif
+    this->setStyleSheet(parent->styleSheet());
+    ui->uriEdit->setPlaceholderText("pivx:");
+
+    ui->labelSubtitle->setText("URI");
+    setCssProperty(ui->labelSubtitle, "text-title2-dialog");
+    setCssProperty(ui->frame, "container-dialog");
+    setCssProperty(ui->labelTitle, "text-title-dialog");
+
+    setCssBtnPrimary(ui->pushButtonOK);
+    setCssBtnPrimary(ui->selectFileButton);
+    setCssProperty(ui->pushButtonCancel, "btn-dialog-cancel");
+
+    initCssEditLine(ui->uriEdit, true);
+    connect(ui->pushButtonOK, SIGNAL(clicked()), this, SLOT(accept()));
+    connect(ui->pushButtonCancel, SIGNAL(clicked()), this, SLOT(close()));
+}
+
+void OpenURIDialog::showEvent(QShowEvent *event)
+{
+    ui->uriEdit->setFocus();
 }
 
 OpenURIDialog::~OpenURIDialog()
@@ -39,7 +54,7 @@ void OpenURIDialog::accept()
         /* Only accept value URIs */
         QDialog::accept();
     } else {
-        ui->uriEdit->setValid(false);
+        setCssEditLineDialog(ui->uriEdit, false, true);
     }
 }
 
@@ -49,5 +64,5 @@ void OpenURIDialog::on_selectFileButton_clicked()
     if (filename.isEmpty())
         return;
     QUrl fileUri = QUrl::fromLocalFile(filename);
-    ui->uriEdit->setText("transcendence:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
+    ui->uriEdit->setText("pivx:?r=" + QUrl::toPercentEncoding(fileUri.toString()));
 }

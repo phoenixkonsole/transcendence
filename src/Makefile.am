@@ -77,7 +77,7 @@ endif
 # transcendence core #
 BITCOIN_CORE_H = \
   activemasternode.h \
-  accumulators.h \
+  ztelos/accumulators.h \
   accumulatormap.h \
   addrman.h \
   alert.h \
@@ -100,7 +100,7 @@ BITCOIN_CORE_H = \
   compressor.h \
   primitives/block.h \
   primitives/transaction.h \
-  primitives/zerocoin.h \
+  ztelos/zerocoin.h \
   core_io.h \
   crypter.h \
   denomination_functions.h \
@@ -135,6 +135,7 @@ BITCOIN_CORE_H = \
   protocol.h \
   pubkey.h \
   random.h \
+  reverselock.h \
   reverse_iterate.h \
   rpcclient.h \
   rpcprotocol.h \
@@ -259,7 +260,8 @@ libbitcoin_wallet_a_SOURCES = \
   masternodeconfig.cpp \
   masternodeman.cpp \
   wallet/rpcdump.cpp \
-  primitives/zerocoin.cpp \
+  ztelos/zerocoin.cpp \
+  ztelos/deterministicmint.cpp \
   wallet/rpcwallet.cpp \
   kernel.cpp \
   wallet/wallet.cpp \
@@ -361,7 +363,7 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
 # common: shared between transcendenced, and transcendence-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
-  accumulators.cpp \
+  ztelos/accumulators.cpp \
   accumulatormap.cpp \
   allocators.cpp \
   amount.cpp \
@@ -372,7 +374,7 @@ libbitcoin_common_a_SOURCES = \
   compressor.cpp \
   primitives/block.cpp \
   primitives/transaction.cpp \
-  primitives/zerocoin.cpp \
+  ztelos/zerocoin.cpp \
   core_read.cpp \
   core_write.cpp \
   eccryptoverify.cpp \
@@ -383,6 +385,7 @@ libbitcoin_common_a_SOURCES = \
   netbase.cpp \
   protocol.cpp \
   pubkey.cpp \
+  scheduler.cpp \
   script/interpreter.cpp \
   script/script.cpp \
   script/sign.cpp \
@@ -509,6 +512,7 @@ libbitcoinconsensus_la_SOURCES = \
   ecwrapper.cpp \
   hash.cpp \
   pubkey.cpp \
+  scheduler.cpp \
   script/script.cpp \
   script/interpreter.cpp \
   script/bitcoinconsensus.cpp \

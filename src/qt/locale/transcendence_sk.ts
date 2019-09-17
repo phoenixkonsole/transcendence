@@ -62,12 +62,12 @@
         <translation>Prijímacia adresa</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto sú vaše Transcendence adresy na odosielanie platieb. Pred odoslaním vždy skontrolujte výšku a adresu prijemcu.</translation>
+        <source>These are your TELOS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Toto sú vaše TELOS adresy na odosielanie platieb. Pred odoslaním vždy skontrolujte výšku a adresu prijemcu.</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto sú vaše Transcendence adresy na prijímanie platieb. Pre každú transakciu sa odporúča použiť novú prijímaciu adresu.</translation>
+        <source>These are your TELOS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Toto sú vaše TELOS adresy na prijímanie platieb. Pre každú transakciu sa odporúča použiť novú prijímaciu adresu.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,10 +136,6 @@
         <translation>Slúži na zakázanie obyčajného odoslania peňazí, v prípade, že bol OS účet kompromitovaný. Neposkytuje žiadnu skutočnú bezpečnosť.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Len pre anonymizáciu a staking</translation>
-    </message>
-    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Zadajte novú prístupovú frázu do peňaženky. &lt;br/&gt; Použite prístupovú frázu &lt;b&gt;, ktorá má desať alebo viac náhodných znakov &lt;/ b&gt; alebo &lt;b&gt; osem alebo viac slov &lt;/ b&gt;.</translation>
     </message>
@@ -176,16 +172,16 @@
         <translation>Potvrďte šifrovanie peňaženky</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše TRANSCENDENCE pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <translation>TELOS sa teraz ukončí, aby dokončil proces šifrovania. Nezabudnite, že šifrovanie peňaženky nemôže úplne ochrániť vaše TELOS pred odcudzením škodlivým softvérom, ktorý infikuje váš počítač.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Naozaj chcete zašifrovať svoju peňaženku?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
-        <translation>Upozornenie: Ak zašifrujete svoju peňaženku a stratíte svoju prístupovú frázu, &lt;b&gt; PRÍDETE O VŠETKY TRANSCENDENCE &lt;/ b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Upozornenie: Ak zašifrujete svoju peňaženku a stratíte svoju prístupovú frázu, &lt;b&gt; PRÍDETE O VŠETKY TELOS &lt;/ b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -229,6 +225,9 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    </context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
@@ -239,16 +238,8 @@
         <translation>BIP 38 Šifrovanie</translation>
     </message>
     <message>
-        <source>Enter a Transcendence Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Zadajte adresu Transcendence, ktorú chcete zašifrovať pomocou BIP 38. Zadajte prístupovú frázu do stredného poľa. Stlačte šifrovanie na výpočet šifrovaného privátneho kľúča.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Adresa:</translation>
-    </message>
-    <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Adresa Transcendence, ktorou chcete správu podpísať</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -279,16 +270,8 @@
         <translation>Skopírujte aktuálny podpis do schránky</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto Transcendence adresy</translation>
-    </message>
-    <message>
         <source>Encrypt &amp;Key</source>
         <translation>Zašifrovať kľúč</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Zmazať všetky polia správy</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -303,20 +286,8 @@
         <translation>Zadajte súkromný kľúč zašifrovaný BIP 38. Zadajte prístupovú frázu do stredného poľa. Kliknite na Dešifrovať kľúč, ak chcete vypočítať privátny kľúč. Po dešifrovaní kľúča pridáte do peňaženky tento súkromný kľúč kliknutím na položku 'Importovať adresu'.</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Transcendence adresa, ktorou bola správa podpísaná</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou Transcendence adresou</translation>
-    </message>
-    <message>
         <source>Decrypt &amp;Key</source>
         <translation>Dešifrovať kľúč</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Zmazať všetky polia verifikácie správy</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -598,16 +569,16 @@
         <translation>Panel nástrojov Záložky</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
-        <source>Send coins to a Transcendence address</source>
-        <translation>Odoslať mince na adresu Transcendence</translation>
+        <source>Send coins to a TELOS address</source>
+        <translation>Odoslať mince na adresu TELOS</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and transcendence: URIs)</source>
-        <translation>Vyžiadať platby (generuje QR kódy a transcendence: identifikátory URI)</translation>
+        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <translation>Vyžiadať platby (generuje QR kódy a pivx: identifikátory URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -618,24 +589,24 @@
         <translation>Prezrieť masternody</translation>
     </message>
     <message>
-        <source>&amp;About Transcendence Core</source>
-        <translation>O Transcendence Core</translation>
+        <source>&amp;About TELOS Core</source>
+        <translation>O TELOS Core</translation>
     </message>
     <message>
-        <source>Show information about Transcendence Core</source>
-        <translation>Zobraziť informácie o Transcendence Core</translation>
+        <source>Show information about TELOS Core</source>
+        <translation>Zobraziť informácie o TELOS Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for Transcendence</source>
-        <translation>Zmeňte možnosti konfigurácie pre Transcendence</translation>
+        <source>Modify configuration options for TELOS</source>
+        <translation>Zmeňte možnosti konfigurácie pre TELOS</translation>
     </message>
     <message>
-        <source>Sign messages with your Transcendence addresses to prove you own them</source>
-        <translation>Podpíšte správy pomocou adresy Transcendence, aby ste preukázali, že ich vlastníte</translation>
+        <source>Sign messages with your TELOS addresses to prove you own them</source>
+        <translation>Podpíšte správy pomocou adresy TELOS, aby ste preukázali, že ich vlastníte</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Transcendence addresses</source>
-        <translation>Overte správy, aby sa zabezpečilo, že boli podpísané zadanými Transcendence adresami</translation>
+        <source>Verify messages to ensure they were signed with specified TELOS addresses</source>
+        <translation>Overte správy, aby sa zabezpečilo, že boli podpísané zadanými TELOS adresami</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -666,8 +637,8 @@
         <translation>Otvoriť konfiguračný súbor masternodu</translation>
     </message>
     <message>
-        <source>Open a Transcendence: URI or payment request</source>
-        <translation>Otvorte Transcendence: URI alebo žiadosť o platbu</translation>
+        <source>Open a TELOS: URI or payment request</source>
+        <translation>Otvorte TELOS: URI alebo žiadosť o platbu</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -678,12 +649,12 @@
         <translation>Okno blockchain prehliadača</translation>
     </message>
     <message>
-        <source>Show the Transcendence Core help message to get a list with possible Transcendence command-line options</source>
-        <translation>Zobraziť pomocnú správu programu Transcendence Core a získajte zoznam možností príkazového riadka Transcendence</translation>
+        <source>Show the TELOS Core help message to get a list with possible TELOS command-line options</source>
+        <translation>Zobraziť pomocnú správu programu TELOS Core a získajte zoznam možností príkazového riadka TELOS</translation>
     </message>
     <message>
-        <source>Transcendence Core client</source>
-        <translation>Transcendence Core klient</translation>
+        <source>TELOS Core client</source>
+        <translation>TELOS Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -708,10 +679,6 @@
     <message>
         <source>%1 and %2</source>
         <translation>%1 a %2</translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 pozadu</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -786,14 +753,10 @@ MultiSend: %1</translation>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;odomknutá&lt;/ b&gt;</translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
-        <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne &lt;b&gt;odomknutá&lt;/ b&gt; iba na anonymizáciu a staking</translation>
-    </message>
-    <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Peňaženka je &lt;b&gt;zašifrovaná&lt;/ b&gt; a momentálne je &lt;b&gt;zamknutá&lt;/ b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -813,8 +776,8 @@ MultiSend: %1</translation>
         <translation>TextLabel</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (transcendence.conf).</source>
-        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (transcendence.conf) nastaviť txindex = 1.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pivx.conf).</source>
+        <translation>Nie všetky transakcie sa zobrazia. Ak chcete zobraziť všetky transakcie, musíte v konfiguračnom súbore (pivx.conf) nastaviť txindex = 1.</translation>
     </message>
 </context>
 <context>
@@ -902,17 +865,20 @@ MultiSend: %1</translation>
     <name>FreespaceChecker</name>
     </context>
 <context>
+    <name>GovernancePage</name>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -940,9 +906,17 @@ MultiSend: %1</translation>
         <source>Address:</source>
         <translation>Adresa:</translation>
     </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(žiaden štítok)</translation>
+    </message>
     </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -961,14 +935,6 @@ MultiSend: %1</translation>
     </context>
 <context>
     <name>PrivacyDialog</name>
-    <message>
-        <source>Quantity:</source>
-        <translation>Množstvo:</translation>
-    </message>
-    <message>
-        <source>Amount:</source>
-        <translation>Suma:</translation>
-    </message>
     <message>
         <source>Choose previously used address</source>
         <translation>Vyberte predtým použitú adresu</translation>
@@ -990,6 +956,10 @@ MultiSend: %1</translation>
         <translation>Priorita:</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TextLabel</translation>
+    </message>
+    <message>
         <source>Fee:</source>
         <translation>Poplatok:</translation>
     </message>
@@ -1001,16 +971,19 @@ MultiSend: %1</translation>
         <source>Change:</source>
         <translation>Zmena:</translation>
     </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Skopírovať sumu</translation>
-    </message>
+    </context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Suma</translation>
+    </message>
+    <message>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     </context>
 <context>
@@ -1032,6 +1005,10 @@ MultiSend: %1</translation>
     <message>
         <source>Copy amount</source>
         <translation>Skopírovať sumu</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Skopírovať adresu</translation>
     </message>
 </context>
 <context>
@@ -1058,6 +1035,10 @@ MultiSend: %1</translation>
     <message>
         <source>Label</source>
         <translation>Štítok</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresa</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -1136,8 +1117,8 @@ MultiSend: %1</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Adresa Transcendence, ktorou chcete správu podpísať</translation>
+        <source>The TELOS address to sign the message with</source>
+        <translation>Adresa TELOS, ktorou chcete správu podpísať</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1160,16 +1141,16 @@ MultiSend: %1</translation>
         <translation>Skopírujte aktuálny podpis do schránky</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto Transcendence adresy</translation>
+        <source>Sign the message to prove you own this TELOS address</source>
+        <translation>Podpíšte správu, aby ste preukázali, že ste vlastníkom tejto TELOS adresy</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Transcendence adresa, ktorou bola správa podpísaná</translation>
+        <source>The TELOS address the message was signed with</source>
+        <translation>TELOS adresa, ktorou bola správa podpísaná</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou Transcendence adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified TELOS address</source>
+        <translation>Skontrolujte správu, aby ste sa uistili, že bola podpísaná zadanou TELOS adresou</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1207,8 +1188,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     </context>
 <context>
@@ -1303,10 +1284,10 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
     </context>
 <context>
-    <name>transcendence-core</name>
+    <name>pivx-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

@@ -23,7 +23,7 @@
 #include "wallet/wallet.h"
 #endif
 #include "masternode-payments.h"
-#include "accumulators.h"
+#include "ztelos/accumulators.h"
 #include "spork.h"
 
 #include <boost/thread.hpp>

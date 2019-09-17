@@ -1,4 +1,4 @@
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,16 +23,20 @@
 #include "qvalidatedlineedit.h"
 #include "bitcoinamountfield.h"
 
-#include <QtCore/QVariant>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpinBox>
+#include <QVariant>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QToolButton>
+#include <QSpinBox>
 #include <QClipboard>
-#include <QStyle>
+#include <QDebug>
+#include <QArgument>
+#include <QtGlobal>
+#include <QString>
 
 
-MultisigDialog::MultisigDialog(QWidget* parent) : QDialog(parent),
+MultisigDialog::MultisigDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
                                                   ui(new Ui::MultisigDialog),
                                                   model(0)
 {
@@ -98,22 +102,66 @@ void MultisigDialog::pasteText()
 //slot for deleting QFrames with the delete buttons
 void MultisigDialog::deleteFrame()
 {
-   QWidget *buttonWidget = qobject_cast<QWidget*>(sender());
-   if(!buttonWidget)return;
+    QWidget *buttonWidget = qobject_cast<QWidget*>(sender());
+    if(!buttonWidget)return;
 
-   //if deleting last raw input/priv key, hide scroll area
-   if(buttonWidget->objectName() == "inputDeleteButton" && ui->inputsList->count() == 1){
-       isFirstRawTx = true;
-       ui->txInputsScrollArea->hide();
-   }else if(buttonWidget->objectName() == "keyDeleteButton" && ui->keyList->count() == 1){
-       isFirstPrivKey = true;
-       ui->keyScrollArea->hide();
-   }
+    //if deleting last raw input/priv key, hide scroll area
+    if(buttonWidget->objectName() == "inputDeleteButton" && ui->inputsList->count() == 1){
+        isFirstRawTx = true;
+        ui->txInputsScrollArea->hide();
+    }else if(buttonWidget->objectName() == "keyDeleteButton" && ui->keyList->count() == 1){
+        isFirstPrivKey = true;
+        ui->keyScrollArea->hide();
+    }
 
-   QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
-   if(!frame)return;
+    QFrame* frame = qobject_cast<QFrame*>(buttonWidget->parentWidget());
+    if(!frame)return;
 
-   delete frame;
+    //figure out which frame was updated so we can update the correct list
+    bool destinationFrame = false, addressFrame = false, keyFrame = false, txInputFrame = false;
+
+    if (frame->objectName() == QString::fromStdString("destinationFrame"))
+        destinationFrame = true;
+    else if (frame->objectName() == QString::fromStdString("addressFrame"))
+        addressFrame = true;
+    else if (frame->objectName() == QString::fromStdString("keyFrame"))
+        keyFrame = true;
+    else if (frame->objectName() == QString::fromStdString("txInputFrame"))
+        txInputFrame = true;
+
+    delete frame;
+
+    //update the correct list inputs
+    //using else-if instead of else to stop accidental Seg faults
+    //if method is called on a frame that isn't a destinationFrame, addressFrame, keyFrame, txInputFrame
+    if (addressFrame) {
+        for (int i = 0; i < ui->addressList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->addressList->itemAt(i)->widget());
+            QLabel *addressLabel = input->findChild<QLabel *>("addressLabel");
+            addressLabel->setText(QApplication::translate("MultisigDialog", strprintf("Address / Key %i:", i + 1).c_str(), 0));
+        }
+    }
+    else if (destinationFrame) {
+        for (int i = 0; i < ui->destinationsList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->destinationsList->itemAt(i)->widget());
+            QLabel *destinationAddressLabel = input->findChild<QLabel *>("destinationAddressLabel");
+            destinationAddressLabel->setText(QApplication::translate("MultisigDialog", strprintf("%i. Address: ", i + 1).c_str(), 0));
+        }
+    }
+    else if (keyFrame) {
+        for (int i = 0; i < ui->keyList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->keyList->itemAt(i)->widget());
+            QLabel *keyListLabel = input->findChild<QLabel *>("keyLabel");
+            keyListLabel->setText(QApplication::translate("MultisigDialog", strprintf("Key %i: ", i + 1).c_str(), 0));
+        }
+    }
+    else if (txInputFrame) {
+        for (int i = 0; i < ui->inputsList->count(); i++) {
+            QWidget *input = qobject_cast<QWidget *>(ui->inputsList->itemAt(i)->widget());
+            QLabel *txInputIdLabel = input->findChild<QLabel *>("txInputIdLabel");
+            txInputIdLabel->setText(QApplication::translate("MultisigDialog", strprintf("%i. Tx Hash: ", i + 1).c_str(), 0));
+        }
+    }
 }
 
 //slot to open address book dialog
@@ -132,7 +180,7 @@ void MultisigDialog::addressBookButtonReceiving()
         AddressBookPage dlg(AddressBookPage::ForSelection, AddressBookPage::ReceivingTab, this);
         dlg.setModel(model->getAddressTableModel());
         if (dlg.exec()) {
-             vle->setText(dlg.getReturnValue());
+            vle->setText(dlg.getReturnValue());
         }
     }
 }
@@ -145,7 +193,7 @@ void MultisigDialog::on_addMultisigButton_clicked()
 
     int m = ui->enterMSpinbox->value();
 
-    vector<string> keys;
+    std::vector<std::string> keys;
 
     for (int i = 0; i < ui->addressList->count(); i++) {
         QWidget* address = qobject_cast<QWidget*>(ui->addressList->itemAt(i)->widget());
@@ -163,7 +211,7 @@ void MultisigDialog::on_importAddressButton_clicked(){
     if(!model)
         return;
 
-    string sRedeem = ui->importRedeem->text().toStdString();
+    std::string sRedeem = ui->importRedeem->text().toStdString();
 
     if(sRedeem.empty()){
         ui->addMultisigStatus->setStyleSheet("QLabel { color: red; }");
@@ -171,7 +219,7 @@ void MultisigDialog::on_importAddressButton_clicked(){
         return;
     }
 
-    vector<string> vRedeem;
+    std::vector<std::string> vRedeem;
     size_t pos = 0;
 
     //search redeem input delimited by space
@@ -180,7 +228,7 @@ void MultisigDialog::on_importAddressButton_clicked(){
         sRedeem.erase(0, pos + 1);
     }
 
-    vector<string> keys(vRedeem.begin()+1, vRedeem.end()-1);
+    std::vector<std::string> keys(vRedeem.begin()+1, vRedeem.end()-1);
 
     addMultisig(stoi(vRedeem[0]), keys);
 
@@ -189,28 +237,28 @@ void MultisigDialog::on_importAddressButton_clicked(){
     pwalletMain->ReacceptWalletTransactions();
 }
 
-bool MultisigDialog::addMultisig(int m, vector<string> keys){
+bool MultisigDialog::addMultisig(int m, std::vector<std::string> keys){
     try{
-        string error;
+        std::string error;
         CScript redeem;
 
         if(!createRedeemScript(m, keys, redeem, error)){
-            throw runtime_error(error.data());
+            throw std::runtime_error(error.data());
         }
 
         if (::IsMine(*pwalletMain, redeem) == ISMINE_SPENDABLE){
-            throw runtime_error("The wallet already contains this script");
+            throw std::runtime_error("The wallet already contains this script");
         }
 
         if(!pwalletMain->AddCScript(redeem)){
-            throw runtime_error("Failure: address invalid or already exists");
+            throw std::runtime_error("Failure: address invalid or already exists");
         }
 
         CScriptID innerID(redeem);
-        string label = ui->multisigAddressLabel->text().toStdString();
+        std::string label = ui->multisigAddressLabel->text().toStdString();
         pwalletMain->SetAddressBook(innerID, label, "receive");
         if (!pwalletMain->AddMultiSig(redeem)){
-            throw runtime_error("Failure: unable to add address as watch only");
+            throw std::runtime_error("Failure: unable to add address as watch only");
         }
 
         ui->addMultisigStatus->setStyleSheet("QLabel { color: black; }");
@@ -218,7 +266,7 @@ bool MultisigDialog::addMultisig(int m, vector<string> keys){
                                        QString::fromStdString(CBitcoinAddress(innerID).ToString()) +
                                        " has been added to the wallet.\nSend the redeem below for other owners to import:\n" +
                                        QString::fromStdString(redeem.ToString()));
-    }catch(const runtime_error& e) {
+    }catch(const std::runtime_error& e) {
         ui->addMultisigStatus->setStyleSheet("QLabel { color: red; }");
         ui->addMultisigStatus->setText(tr(e.what()));
         return false;
@@ -233,12 +281,12 @@ void MultisigDialog::on_createButton_clicked()
     if(!model)
         return;
 
-    vector<CTxIn> vUserIn;
-    vector<CTxOut> vUserOut;
+    std::vector<CTxIn> vUserIn;
+    std::vector<CTxOut> vUserOut;
     try{
         //Add inputs from Coin Control if any are selected
         if (CoinControlDialog::coinControl->HasSelected()) {
-            vector<COutPoint> vSelected;
+            std::vector<COutPoint> vSelected;
             CoinControlDialog::coinControl->ListSelected(vSelected);
             for (auto outpoint : vSelected)
                 vUserIn.emplace_back(CTxIn(outpoint));
@@ -304,30 +352,30 @@ void MultisigDialog::on_createButton_clicked()
             //clear member variable
             multisigTx = CMutableTransaction();
 
-            string error;
-            string fee;
+            std::string error;
+            std::string fee;
             if(!createMultisigTransaction(vUserIn, vUserOut, fee, error)){
-                throw runtime_error(error);
-            }   
+                throw std::runtime_error(error);
+            }
 
             //display status string
             ui->createButtonStatus->setStyleSheet("QTextEdit{ color: black }");
 
             QString status(strprintf("Transaction has successfully created with a fee of %s.\n"
-                                     "The transaction has been automatically imported to the sign tab.\n"
-                                     "Please continue on to sign the tx from this wallet, to access the hex to send to other owners.", fee).c_str());
+                                             "The transaction has been automatically imported to the sign tab.\n"
+                                             "Please continue on to sign the tx from this wallet, to access the hex to send to other owners.", fee).c_str());
 
             ui->createButtonStatus->setText(status);
             ui->transactionHex->setText(QString::fromStdString(EncodeHexTx(multisigTx)));
 
         }
-    }catch(const runtime_error& e){
+    }catch(const std::runtime_error& e){
         ui->createButtonStatus->setStyleSheet("QTextEdit{ color: red }");
         ui->createButtonStatus->setText(tr(e.what()));
     }
 }
 
-bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTxOut> vUserOut, string& feeStringRet, string& errorRet)
+bool MultisigDialog::createMultisigTransaction(std::vector<CTxIn> vUserIn, std::vector<CTxOut> vUserOut, std::string& feeStringRet, std::string& errorRet)
 {
     try{
         //attempt to access the given inputs
@@ -335,7 +383,7 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
 
         //retrieve total input val and change dest
         CAmount totalIn = 0;
-        vector<CAmount> vInputVals;
+        std::vector<CAmount> vInputVals;
         CScript changePubKey;
         bool fFirst = true;
 
@@ -352,7 +400,7 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
 
             if(!fFirst){
                 if(privKey != changePubKey){
-                    throw runtime_error("Address mismatch! Inputs must originate from the same multisignature address.");
+                    throw std::runtime_error("Address mismatch! Inputs must originate from the same multisignature address.");
                 }
             }else{
                 fFirst = false;
@@ -368,7 +416,7 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
         }
 
         if(totalIn < totalOut){
-            throw runtime_error("Not enough TRANSCENDENCE provided as input to complete transaction (including fee).");
+            throw std::runtime_error("Not enough TELOS provided as input to complete transaction (including fee).");
         }
 
         //calculate change amount
@@ -393,7 +441,7 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
         const CCoins* coins = view.AccessCoins(tx.vin[0].prevout.hash);
 
         if(coins == NULL || !coins->IsAvailable(tx.vin[0].prevout.n)){
-            throw runtime_error("Coins unavailable (unconfirmed/spent)");
+            throw std::runtime_error("Coins unavailable (unconfirmed/spent)");
         }
 
         CScript prevPubKey = coins->vout[tx.vin[0].prevout.n].scriptPubKey;
@@ -401,20 +449,20 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
         //get payment destination
         CTxDestination address;
         if(!ExtractDestination(prevPubKey, address)){
-            throw runtime_error("Could not find address for destination.");
+            throw std::runtime_error("Could not find address for destination.");
         }
 
         CScriptID hash = boost::get<CScriptID>(address);
         CScript redeemScript;
 
         if (!pwalletMain->GetCScript(hash, redeemScript)){
-            throw runtime_error("could not redeem");
+            throw std::runtime_error("could not redeem");
         }
         txnouttype type;
-        vector<CTxDestination> addresses;
+        std::vector<CTxDestination> addresses;
         int nReq;
         if(!ExtractDestinations(redeemScript, type, addresses, nReq)){
-            throw runtime_error("Could not extract destinations from redeem script.");
+            throw std::runtime_error("Could not extract destinations from redeem script.");
         }
 
         for(CTxIn& in : tx.vin){
@@ -430,10 +478,10 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
         CAmount fee = ::minRelayTxFee.GetFee(nBytes);
 
         if(tx.vout.at(changeIndex).nValue > fee){
-           tx.vout.at(changeIndex).nValue -= fee;
-           feeStringRet = strprintf("%d",((double)fee)/COIN).c_str();
+            tx.vout.at(changeIndex).nValue -= fee;
+            feeStringRet = strprintf("%d",((double)fee)/COIN).c_str();
         }else{
-            throw runtime_error("Not enough TRANSCENDENCE provided to cover fee");
+            throw std::runtime_error("Not enough TELOS provided to cover fee");
         }
 
         //clear junk from script sigs
@@ -441,7 +489,7 @@ bool MultisigDialog::createMultisigTransaction(vector<CTxIn> vUserIn, vector<CTx
             in.scriptSig.clear();
         }
         multisigTx = tx;
-    }catch(const runtime_error& e){
+    }catch(const std::runtime_error& e){
         errorRet = e.what();
         return false;
     }
@@ -453,11 +501,11 @@ void MultisigDialog::on_signButton_clicked()
 {
     if(!model)
         return;
-   try{
+    try{
         //parse tx hex
         CTransaction txRead;
         if(!DecodeHexTx(txRead, ui->transactionHex->text().toStdString())){
-            throw runtime_error("Failed to decode transaction hex!");
+            throw std::runtime_error("Failed to decode transaction hex!");
         }
 
         CMutableTransaction tx(txRead);
@@ -470,11 +518,11 @@ void MultisigDialog::on_signButton_clicked()
             return;
         }
 
-        string errorOut = string();
+        std::string errorOut = std::string();
         bool fComplete = signMultisigTx(tx, errorOut, ui->keyList);
 
         if(!errorOut.empty()){
-            throw runtime_error(errorOut.data());
+            throw std::runtime_error(errorOut.data());
         }else{
             this->multisigTx = tx;
         }
@@ -482,7 +530,7 @@ void MultisigDialog::on_signButton_clicked()
         ui->signButtonStatus->setStyleSheet("QTextEdit{ color: black }");
         ui->signButtonStatus->setText(buildMultisigTxStatusString(fComplete, tx));
 
-    }catch(const runtime_error& e){
+    }catch(const std::runtime_error& e){
         ui->signButtonStatus->setStyleSheet("QTextEdit{ color: red }");
         ui->signButtonStatus->setText(tr(e.what()));
     }
@@ -493,29 +541,29 @@ void MultisigDialog::on_signButton_clicked()
  */
 QString MultisigDialog::buildMultisigTxStatusString(bool fComplete, const CMutableTransaction& tx)
 {
-    string sTxHex = EncodeHexTx(tx);
+    std::string sTxHex = EncodeHexTx(tx);
 
     if(fComplete){
         ui->commitButton->setEnabled(true);
-        string sTxId = tx.GetHash().GetHex();
-        string sTxComplete   =  "Complete: true!\n"
-                                "The commit button has now been enabled for you to finalize the transaction.\n"
-                                "Once the commit button is clicked, the transaction will be published and coins transferred "
-                                "to their destinations.\nWARNING: THE ACTIONS OF THE COMMIT BUTTON ARE FINAL AND CANNOT BE REVERSED.";
+        std::string sTxId = tx.GetHash().GetHex();
+        std::string sTxComplete   =  "Complete: true!\n"
+                "The commit button has now been enabled for you to finalize the transaction.\n"
+                "Once the commit button is clicked, the transaction will be published and coins transferred "
+                "to their destinations.\nWARNING: THE ACTIONS OF THE COMMIT BUTTON ARE FINAL AND CANNOT BE REVERSED.";
 
         return QString(strprintf("%s\nTx Id:\n%s\nTx Hex:\n%s",sTxComplete, sTxId, sTxHex).c_str());
     } else {
-        string sTxIncomplete = "Complete: false.\n"
-                                "You may now send the hex below to another owner to sign.\n"
-                                "Keep in mind the transaction must be passed from one owner to the next for signing.\n"
-                                "Ensure all owners have imported the redeem before trying to sign. (besides creator)";
+        std::string sTxIncomplete = "Complete: false.\n"
+                "You may now send the hex below to another owner to sign.\n"
+                "Keep in mind the transaction must be passed from one owner to the next for signing.\n"
+                "Ensure all owners have imported the redeem before trying to sign. (besides creator)";
 
         return QString(strprintf("%s\nTx Hex: %s", sTxIncomplete, sTxHex).c_str());
     }
 }
 
 
-CCoinsViewCache MultisigDialog::getInputsCoinsViewCache(const vector<CTxIn>& vin)
+CCoinsViewCache MultisigDialog::getInputsCoinsViewCache(const std::vector<CTxIn>& vin)
 {
     CCoinsView viewDummy;
     CCoinsViewCache view(&viewDummy);
@@ -537,7 +585,7 @@ CCoinsViewCache MultisigDialog::getInputsCoinsViewCache(const vector<CTxIn>& vin
 }
 
 
-bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, QVBoxLayout* keyList)
+bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, std::string& errorOut, QVBoxLayout* keyList)
 {
     //will be set false if all inputs are not fully signed(valid)
     bool fComplete = true;
@@ -548,7 +596,7 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
     try{
 
         //copy of vin for reference before vin is mutated
-        vector<CTxIn> oldVin(tx.vin);
+        std::vector<CTxIn> oldVin(tx.vin);
         CBasicKeyStore privKeystore;
 
         //if keys were given, attempt to collect redeem and scriptpubkey
@@ -558,10 +606,10 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
                 QLineEdit* key = keyFrame->findChild<QLineEdit*>("key");
                 CBitcoinSecret vchSecret;
                 if (!vchSecret.SetString(key->text().toStdString()))
-                    throw runtime_error("Invalid private key");
+                    throw std::runtime_error("Invalid private key");
                 CKey cKey = vchSecret.GetKey();
                 if (!cKey.IsValid())
-                    throw runtime_error("Private key outside allowed range");
+                    throw std::runtime_error("Private key outside allowed range");
                 privKeystore.AddKey(cKey);
             }
 
@@ -570,10 +618,10 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
                 CTransaction txVin;
                 uint256 hashBlock;
                 if (!GetTransaction(txin.prevout.hash, txVin, hashBlock, true))
-                    throw runtime_error("txin could not be found");
+                    throw std::runtime_error("txin could not be found");
 
                 if (hashBlock == 0)
-                    throw runtime_error("txin is unconfirmed");
+                    throw std::runtime_error("txin is unconfirmed");
 
                 //get pubkey from input
                 CScript prevPubKey = txVin.vout[txin.prevout.n].scriptPubKey;
@@ -581,7 +629,7 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
                 //get payment destination
                 CTxDestination address;
                 if(!ExtractDestination(prevPubKey, address)){
-                    throw runtime_error("Could not find address for destination.");
+                    throw std::runtime_error("Could not find address for destination.");
                 }
 
                 //get redeem script related to destination
@@ -595,9 +643,9 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
             }
         }else{
             if (model->getEncryptionStatus() == model->Locked) {
-                if (!model->requestUnlock(true).isValid()) {
+                if (!model->requestUnlock(AskPassphraseDialog::Context::Multi_Sig, true).isValid()) {
                     // Unlock wallet was cancelled
-                    throw runtime_error("Error: Your wallet is locked. Please enter the wallet passphrase first.");
+                    throw std::runtime_error("Error: Your wallet is locked. Please enter the wallet passphrase first.");
                 }
             }
         }
@@ -612,10 +660,10 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
             CTransaction txVin;
             uint256 hashBlock;
             if (!GetTransaction(txin.prevout.hash, txVin, hashBlock, true))
-                throw runtime_error("txin could not be found");
+                throw std::runtime_error("txin could not be found");
 
             if (hashBlock == 0)
-                throw runtime_error("txin is unconfirmed");
+                throw std::runtime_error("txin is unconfirmed");
 
             txin.scriptSig.clear();
             CScript prevPubKey = txVin.vout[txin.prevout.n].scriptPubKey;
@@ -634,8 +682,8 @@ bool MultisigDialog::signMultisigTx(CMutableTransaction& tx, string& errorOut, Q
 
         ui->signButtonStatus->setText(buildMultisigTxStatusString(fComplete, tx));
 
-    }catch(const runtime_error& e){
-        errorOut = string(e.what());
+    }catch(const std::runtime_error& e){
+        errorOut = std::string(e.what());
         fComplete = false;
     }
     return fComplete;
@@ -649,10 +697,10 @@ bool MultisigDialog::isFullyVerified(CMutableTransaction& tx){
             CTransaction txVin;
             uint256 hashBlock;
             if (!GetTransaction(txin.prevout.hash, txVin, hashBlock, true)){
-                throw runtime_error("txin could not be found");
+                throw std::runtime_error("txin could not be found");
             }
             if (hashBlock == 0){
-                throw runtime_error("txin is unconfirmed");
+                throw std::runtime_error("txin is unconfirmed");
             }
 
             //get pubkey from this input as output in last tx
@@ -664,7 +712,7 @@ bool MultisigDialog::isFullyVerified(CMutableTransaction& tx){
 
             nIn++;
         }
-    }catch(const runtime_error& e){
+    }catch(const std::runtime_error& e){
         return false;
     }
 
@@ -679,7 +727,7 @@ void MultisigDialog::commitMultisigTx()
         CWalletTx wtx(pwalletMain, tx);
         CReserveKey keyChange(pwalletMain);
         if (!pwalletMain->CommitTransaction(wtx, keyChange))
-            throw runtime_error(string("Transaction rejected - Failed to commit"));
+            throw std::runtime_error(std::string("Transaction rejected - Failed to commit"));
 #else
         uint256 hashTx = tx.GetHash();
         CCoinsViewCache& view = *pcoinsTip;
@@ -693,75 +741,75 @@ void MultisigDialog::commitMultisigTx()
             CValidationState state;
             if (!AcceptToMemoryPool(mempool, state, tx, false, NULL, !fOverrideFees)) {
                 if (state.IsInvalid())
-                    throw runtime_error(strprintf("Transaction rejected - %i: %s", state.GetRejectCode(), state.GetRejectReason()));
+                    throw std::runtime_error(strprintf("Transaction rejected - %i: %s", state.GetRejectCode(), state.GetRejectReason()));
                 else
-                    throw runtime_error(string("Transaction rejected - ") + state.GetRejectReason());
+                    throw std::runtime_error(std::string("Transaction rejected - ") + state.GetRejectReason());
             }
         } else if (fHaveChain) {
-            throw runtime_error("transaction already in block chain");
+            throw std::runtime_error("transaction already in block chain");
         }
         RelayTransaction(tx);
 #endif
         //disable commit if successfully committed
         ui->commitButton->setEnabled(false);
         ui->signButtonStatus->setText(strprintf("Transaction has been successfully published with transaction ID:\n %s", tx.GetHash().GetHex()).c_str());
-    }catch(const runtime_error& e){
+    }catch(const std::runtime_error& e){
         ui->signButtonStatus->setText(e.what());
     }
 }
 
-bool MultisigDialog::createRedeemScript(int m, vector<string> vKeys, CScript& redeemRet, string& errorRet)
+bool MultisigDialog::createRedeemScript(int m, std::vector<std::string> vKeys, CScript& redeemRet, std::string& errorRet)
 {
     try{
         int n = vKeys.size();
         //gather pub keys
         if (n < 1)
-            throw runtime_error("a Multisignature address must require at least one key to redeem");
+            throw std::runtime_error("a Multisignature address must require at least one key to redeem");
         if (n < m)
-            throw runtime_error(
-                strprintf("not enough keys supplied "
-                          "(got %d keys, but need at least %d to redeem)",
-                    m, n));
+            throw std::runtime_error(
+                    strprintf("not enough keys supplied "
+                                      "(got %d keys, but need at least %d to redeem)",
+                              m, n));
         if (n > 15)
-            throw runtime_error("Number of addresses involved in the Multisignature address creation > 15\nReduce the number");
+            throw std::runtime_error("Number of addresses involved in the Multisignature address creation > 15\nReduce the number");
 
-        vector<CPubKey> pubkeys;
+        std::vector<CPubKey> pubkeys;
         pubkeys.resize(n);
 
         int i = 0;
-        for(vector<string>::iterator it = vKeys.begin(); it != vKeys.end(); ++it) {
-            string keyString = *it;
-    #ifdef ENABLE_WALLET
-            // Case 1: Transcendence address and we have full public key:
+        for(std::vector<std::string>::iterator it = vKeys.begin(); it != vKeys.end(); ++it) {
+            std::string keyString = *it;
+#ifdef ENABLE_WALLET
+            // Case 1: PIVX address and we have full public key:
             CBitcoinAddress address(keyString);
             if (pwalletMain && address.IsValid()) {
                 CKeyID keyID;
                 if (!address.GetKeyID(keyID)) {
-                    throw runtime_error(
+                    throw std::runtime_error(
                         strprintf("%s does not refer to a key", keyString));
                 }
                 CPubKey vchPubKey;
                 if (!pwalletMain->GetPubKey(keyID, vchPubKey))
-                    throw runtime_error(
+                    throw std::runtime_error(
                         strprintf("no full public key for address %s", keyString));
                 if (!vchPubKey.IsFullyValid()){
-                    string sKey = keyString.empty()?"(empty)":keyString;
-                    throw runtime_error(" Invalid public key: " + sKey );
+                    std::string sKey = keyString.empty()?"(empty)":keyString;
+                    throw std::runtime_error(" Invalid public key: " + sKey );
                 }
                 pubkeys[i++] = vchPubKey;
             }
 
             //case 2: hex pub key
             else
-    #endif
+#endif
             if (IsHex(keyString)) {
                 CPubKey vchPubKey(ParseHex(keyString));
                 if (!vchPubKey.IsFullyValid()){
-                    throw runtime_error(" Invalid public key: " + keyString);
+                    throw std::runtime_error(" Invalid public key: " + keyString);
                 }
                 pubkeys[i++] = vchPubKey;
             } else {
-                throw runtime_error(" Invalid public key: " + keyString);
+                throw std::runtime_error(" Invalid public key: " + keyString);
             }
         }
         //populate redeem script
@@ -769,15 +817,15 @@ bool MultisigDialog::createRedeemScript(int m, vector<string> vKeys, CScript& re
         redeemRet << redeemRet.EncodeOP_N(m);
         //public keys
         for(CPubKey& key : pubkeys){
-            vector<unsigned char> vKey= ToByteVector(key);
+            std::vector<unsigned char> vKey= ToByteVector(key);
             redeemRet << vKey;
         }
         //OP_N for total pubkeys
         redeemRet << redeemRet.EncodeOP_N(pubkeys.size());
         redeemRet << OP_CHECKMULTISIG;
         return true;
-    }catch(const runtime_error& e){
-        errorRet = string(e.what());
+    }catch(const std::runtime_error& e){
+        errorRet = std::string(e.what());
         return false;
     }
 }
@@ -789,9 +837,9 @@ bool MultisigDialog::createRedeemScript(int m, vector<string> vKeys, CScript& re
 void MultisigDialog::on_addAddressButton_clicked()
 {
     //max addresses 15
-    if(ui->addressList->count() > 14){
+    if(ui->addressList->count() >= 15){
         ui->addMultisigStatus->setStyleSheet("QLabel { color: red; }");
-        ui->addMultisigStatus->setText(tr("Maximum possible addresses reached. (16)"));
+        ui->addMultisigStatus->setText(tr("Maximum possible addresses reached. (15)"));
         return;
     }
 
@@ -811,7 +859,7 @@ void MultisigDialog::on_addAddressButton_clicked()
     frameLayout->setContentsMargins(6, 6, 6, 6);
 
     QHBoxLayout* addressLayout = new QHBoxLayout();
-    addressLayout->setSpacing(0);
+    addressLayout->setSpacing(2);
     addressLayout->setObjectName(QStringLiteral("addressLayout"));
 
     QLabel* addressLabel = new QLabel(addressFrame);
@@ -823,32 +871,29 @@ void MultisigDialog::on_addAddressButton_clicked()
     address->setObjectName(QStringLiteral("address"));
     addressLayout->addWidget(address);
 
-    QPushButton* addressBookButton = new QPushButton(addressFrame);
+    QToolButton* addressBookButton = new QToolButton(addressFrame);
     addressBookButton->setObjectName(QStringLiteral("addressBookButton"));
     QIcon icon3;
     icon3.addFile(QStringLiteral(":/icons/address-book"), QSize(), QIcon::Normal, QIcon::Off);
     addressBookButton->setIcon(icon3);
-    addressBookButton->setAutoDefault(false);
     connect(addressBookButton, SIGNAL(clicked()), this, SLOT(addressBookButtonReceiving()));
 
     addressLayout->addWidget(addressBookButton);
 
-    QPushButton* addressPasteButton = new QPushButton(addressFrame);
+    QToolButton* addressPasteButton = new QToolButton(addressFrame);
     addressPasteButton->setObjectName(QStringLiteral("addressPasteButton"));
     QIcon icon4;
     icon4.addFile(QStringLiteral(":/icons/editpaste"), QSize(), QIcon::Normal, QIcon::Off);
     addressPasteButton->setIcon(icon4);
-    addressPasteButton->setAutoDefault(false);
     connect(addressPasteButton, SIGNAL(clicked()), this, SLOT(pasteText()));
 
     addressLayout->addWidget(addressPasteButton);
 
-    QPushButton* addressDeleteButton = new QPushButton(addressFrame);
+    QToolButton* addressDeleteButton = new QToolButton(addressFrame);
     addressDeleteButton->setObjectName(QStringLiteral("addressDeleteButton"));
     QIcon icon5;
     icon5.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
     addressDeleteButton->setIcon(icon5);
-    addressDeleteButton->setAutoDefault(false);
     connect(addressDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
 
     addressLayout->addWidget(addressDeleteButton);
@@ -886,6 +931,7 @@ void MultisigDialog::on_addInputButton_clicked()
     frameLayout->setContentsMargins(6, 6, 6, 6);
 
     QHBoxLayout* txInputLayout = new QHBoxLayout();
+    txInputLayout->setSpacing(2);
     txInputLayout->setObjectName(QStringLiteral("txInputLayout"));
 
     QLabel* txInputIdLabel = new QLabel(txInputFrame);
@@ -913,12 +959,11 @@ void MultisigDialog::on_addInputButton_clicked()
     txInputVout->setSizePolicy(sizePolicy);
     txInputLayout->addWidget(txInputVout);
 
-    QPushButton* inputDeleteButton = new QPushButton(txInputFrame);
+    QToolButton* inputDeleteButton = new QToolButton(txInputFrame);
     inputDeleteButton->setObjectName(QStringLiteral("inputDeleteButton"));
     QIcon icon;
     icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
     inputDeleteButton->setIcon(icon);
-    inputDeleteButton->setAutoDefault(false);
     connect(inputDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     txInputLayout->addWidget(inputDeleteButton);
 
@@ -965,12 +1010,11 @@ void MultisigDialog::on_addDestinationButton_clicked()
 
     destinationLayout->addWidget(destinationAmount);
 
-    QPushButton* destinationDeleteButton = new QPushButton(destinationFrame);
+    QToolButton* destinationDeleteButton = new QToolButton(destinationFrame);
     destinationDeleteButton->setObjectName(QStringLiteral("destinationDeleteButton"));
     QIcon icon;
     icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
     destinationDeleteButton->setIcon(icon);
-    destinationDeleteButton->setAutoDefault(false);
     connect(destinationDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     destinationLayout->addWidget(destinationDeleteButton);
 
@@ -986,7 +1030,7 @@ void MultisigDialog::on_addPrivKeyButton_clicked()
         ui->keyScrollArea->show();
     }
 
-    if(ui->keyList->count() > 14){
+    if(ui->keyList->count() >= 15){
         ui->signButtonStatus->setStyleSheet("QTextEdit{ color: red }");
         ui->signButtonStatus->setText(tr("Maximum (15)"));
         return;
@@ -1011,12 +1055,11 @@ void MultisigDialog::on_addPrivKeyButton_clicked()
     key->setEchoMode(QLineEdit::Password);
     keyLayout->addWidget(key);
 
-    QPushButton* keyDeleteButton = new QPushButton(keyFrame);
+    QToolButton* keyDeleteButton = new QToolButton(keyFrame);
     keyDeleteButton->setObjectName(QStringLiteral("keyDeleteButton"));
     QIcon icon;
     icon.addFile(QStringLiteral(":/icons/remove"), QSize(), QIcon::Normal, QIcon::Off);
     keyDeleteButton->setIcon(icon);
-    keyDeleteButton->setAutoDefault(false);
     connect(keyDeleteButton, SIGNAL(clicked()), this, SLOT(deleteFrame()));
     keyLayout->addWidget(keyDeleteButton);
 

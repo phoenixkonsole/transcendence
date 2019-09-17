@@ -3,7 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Clique com o botão direito do mouse para editar o endereço ou a descrição</translation>
+        <translation>Clique com o botão direito do rato para editar o endereço ou a descrição</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>&amp;New</source>
-        <translation>Novo</translation>
+        <translation>&amp;Novo</translation>
     </message>
     <message>
         <source>Copy the currently selected address to the system clipboard</source>
@@ -23,11 +23,11 @@
     </message>
     <message>
         <source>Delete the currently selected address from the list</source>
-        <translation>Deletar da lista o endereço selecionado</translation>
+        <translation>Apagar o endereço selecionado da lista</translation>
     </message>
     <message>
         <source>&amp;Delete</source>
-        <translation>&amp;Excluir</translation>
+        <translation>&amp;Apagar</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
@@ -39,19 +39,19 @@
     </message>
     <message>
         <source>C&amp;lose</source>
-        <translation>&amp;Fechar</translation>
+        <translation>F&amp;echar</translation>
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Escolha o endereço para enviar moedas</translation>
+        <translation>Escolha o endereço para onde enviar moedas</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Escolha o endereço para receber moedas</translation>
+        <translation>Escolha o endereço onde receber moedas</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
-        <translation>Escol&amp;her</translation>
+        <translation>E&amp;scolher</translation>
     </message>
     <message>
         <source>Sending addresses</source>
@@ -62,20 +62,20 @@
         <translation>Endereços de recebimento</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Esses são seus endereços Transcendence para enviar pagamentos. Sempre confira a quantidade e os endereços de destino antes de enviar moedas.</translation>
+        <source>These are your TELOS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Esses são seus endereços TELOS para onde enviar pagamentos. Confira sempre o montante e os endereços de destino antes de enviar moedas.</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Esses são seus endereços Transcendence para receber pagamentos. É recomendado usar um novo endereço para cada transação.</translation>
+        <source>These are your TELOS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Esses são seus endereços TELOS onde receber pagamentos. Recomenda-se o uso de um novo endereço para cada transacção.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
-        <translation>C&amp;opiar endereço</translation>
+        <translation>&amp;Copiar Endereço</translation>
     </message>
     <message>
         <source>Copy &amp;Label</source>
-        <translation>Cop&amp;iar Descrição</translation>
+        <translation>Copiar &amp;Descrição</translation>
     </message>
     <message>
         <source>&amp;Edit</source>
@@ -117,11 +117,11 @@
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation>Caixa de diálogo de Senha</translation>
+        <translation>Caixa de diálogo de senha</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
-        <translation>Digite sua senha</translation>
+        <translation>Digite a sua senha</translation>
     </message>
     <message>
         <source>New passphrase</source>
@@ -129,15 +129,11 @@
     </message>
     <message>
         <source>Repeat new passphrase</source>
-        <translation>Repetir senha</translation>
+        <translation>Repetir nova senha</translation>
     </message>
     <message>
         <source>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</source>
         <translation>Serve para desabilitar envio trivial de dinheiro quando a conta do SO for comprometida, mas não provê segurança real.</translation>
-    </message>
-    <message>
-        <source>For anonymization and staking only</source>
-        <translation>Apenas para anonimização e staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -176,16 +172,16 @@
         <translation>Confirmar encriptação da carteira</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence encerrará para terminar o processo de encriptação. Lembre-se que encriptar sua carteira não protege completamente suas TRANSCENDENCEs contra roubo por malware infectando seu computador.</translation>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <translation>TELOS encerrará para terminar o processo de encriptação. Lembre-se que encriptar sua carteira não protege completamente suas PIVs contra roubo por malware infectando seu computador.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Tem certeza que deseja encriptar sua carteira?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
-        <translation>Atenção: Se você encriptar sua carteira e perder a senha, você &lt;B&gt;PERDERÁ TODA SUA TRANSCENDENCE&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Atenção: Se você encriptar sua carteira e perder a senha, você &lt;B&gt;PERDERÁ TODA SUA TELOS&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -229,6 +225,9 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    </context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
@@ -239,16 +238,8 @@
         <translation>Encriptar com &amp;BIP 38</translation>
     </message>
     <message>
-        <source>Enter a Transcendence Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Digite um endereço Transcendence que você gostaria de criptografar usando BIP 38. Digite uma frase secreta na caixa do meio. Pressione criptografar para calcular a chave privada criptografada.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Endereço:</translation>
-    </message>
-    <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Um endereço Transcendence para assinar a mensagem</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -279,16 +270,8 @@
         <translation>Copiar a assinatura para a area de trabalho</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Assinar a Mensagem para provar que você e dono desse endereço Transcendence.</translation>
-    </message>
-    <message>
         <source>Encrypt &amp;Key</source>
         <translation>Criptografar Chave</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Reiniciar todas os campos das mensagens assinadas</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -297,10 +280,6 @@
     <message>
         <source>&amp;BIP 38 Decrypt</source>
         <translation>Criptografia BIP 38</translation>
-    </message>
-    <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>O endereço Transcendence que foi assinado com</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -405,9 +384,20 @@
         <source>Edit Address</source>
         <translation>Alterar endereço</translation>
     </message>
+    <message>
+        <source>&amp;Label</source>
+        <translation>&amp;Descrição</translation>
+    </message>
+    <message>
+        <source>&amp;Address</source>
+        <translation>&amp;Endereço</translation>
+    </message>
     </context>
 <context>
     <name>FreespaceChecker</name>
+    </context>
+<context>
+    <name>GovernancePage</name>
     </context>
 <context>
     <name>HelpMessageDialog</name>
@@ -432,9 +422,17 @@
         <source>Address:</source>
         <translation>Endereço:</translation>
     </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(Sem descrição)</translation>
+    </message>
     </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Amount:</source>
+        <translation>Quantidade:</translation>
+    </message>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -453,10 +451,6 @@
     </context>
 <context>
     <name>PrivacyDialog</name>
-    <message>
-        <source>Amount:</source>
-        <translation>Quantidade:</translation>
-    </message>
     <message>
         <source>Choose previously used address</source>
         <translation>Escolha o endereço usado anteriormente.</translation>
@@ -485,6 +479,9 @@
         <source>no</source>
         <translation>não</translation>
     </message>
+    </context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
@@ -546,6 +543,10 @@
     <message>
         <source>Label</source>
         <translation>Descrição</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Endereço</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -668,8 +669,8 @@
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Um endereço Transcendence para assinar a mensagem</translation>
+        <source>The TELOS address to sign the message with</source>
+        <translation>Um endereço TELOS para assinar a mensagem</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -700,12 +701,12 @@
         <translation>Copiar a assinatura para a area de trabalho</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Assinar a Mensagem para provar que você e dono desse endereço Transcendence.</translation>
+        <source>Sign the message to prove you own this TELOS address</source>
+        <translation>Assinar a Mensagem para provar que você e dono desse endereço TELOS.</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>O endereço Transcendence que foi assinado com</translation>
+        <source>The TELOS address the message was signed with</source>
+        <translation>O endereço TELOS que foi assinado com</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -903,17 +904,13 @@
     </message>
     </context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
     </context>
 <context>
-    <name>transcendence-core</name>
+    <name>pivx-core</name>
     <message>
         <source>Delete all wallet transactions and only recover those parts of the blockchain through -rescan on startup</source>
         <translation>Deletar todas as transações da carteira e somente recuperar aquelas partes do blockchain através de -rescan na inicialização</translation>
-    </message>
-    <message>
-        <source>Disable all Transcendence specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Desabilitar todas as funcionacilidades específicas da Transcendence (Masternodes, Ofuscação, SwiftTX, Budgeting) (0-1, default %u)</translation>
     </message>
     <message>
         <source>Connect through SOCKS5 proxy</source>
@@ -932,10 +929,6 @@
         <translation>Erro: Espaço em disco baixo!</translation>
     </message>
     <message>
-        <source>Finalizing transaction.</source>
-        <translation>Finalizando transação.</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>Importando...</translation>
     </message>
@@ -952,28 +945,8 @@
         <translation>Chave privada inválida.</translation>
     </message>
     <message>
-        <source>Invalid script detected.</source>
-        <translation>Script inválido detectado.</translation>
-    </message>
-    <message>
         <source>Loading wallet...</source>
         <translation>Carregando carteira...</translation>
-    </message>
-    <message>
-        <source>No Masternodes detected.</source>
-        <translation>Nenhum Masternode detectado.</translation>
-    </message>
-    <message>
-        <source>No compatible Masternode found.</source>
-        <translation>Nenhum Masternode compatível encontrado.</translation>
-    </message>
-    <message>
-        <source>Obfuscation request complete:</source>
-        <translation>Requisição de ofuscação completa:</translation>
-    </message>
-    <message>
-        <source>Obfuscation request incomplete:</source>
-        <translation>Requisição de ofuscação incompleta:</translation>
     </message>
     <message>
         <source>Options:</source>
@@ -1010,18 +983,6 @@
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation>Enviar transações como transações de taxa zero, se possível (padrão:%u)</translation>
-    </message>
-    <message>
-        <source>Server certificate file (default: %s)</source>
-        <translation>Arquivo de certificado do servidor (padrão:%s)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: %s)</source>
-        <translation>Chave privada do servidor (padrão:%s)</translation>
-    </message>
-    <message>
-        <source>Session not complete!</source>
-        <translation>Sessão não concluída!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
@@ -1116,22 +1077,6 @@
         <translation>Parar de executar após importar blocos do disco (padrão:%u)</translation>
     </message>
     <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>Enviado as seguintes entradas para masternode:%u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>Enviado para masternode, aguardando mais entradas (%u / %d) %s</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting in queue %s</source>
-        <translation>Enviado para masternode, esperando na fila %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>Opções SwiftTX:</translation>
-    </message>
-    <message>
         <source>Synchronization failed</source>
         <translation>Sincronização falhou</translation>
     </message>
@@ -1164,16 +1109,12 @@
         <translation>Esta mensagem de ajuda</translation>
     </message>
     <message>
-        <source></source>
+        <source>This is experimental software.</source>
         <translation>Este é um software experimental.</translation>
     </message>
     <message>
         <source>This is intended for regression testing tools and app development.</source>
         <translation>Isso é destinado a ferramentas de teste de regressão e desenvolvimento de aplicativos.</translation>
-    </message>
-    <message>
-        <source>This is not a Masternode.</source>
-        <translation>Isto não e um Masternode</translation>
     </message>
     <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
@@ -1188,28 +1129,12 @@
         <translation>Os valores das transações devem ser positivos</translation>
     </message>
     <message>
-        <source>Transaction created successfully.</source>
-        <translation>Transação criada com sucesso.</translation>
-    </message>
-    <message>
-        <source>Transaction fees are too high.</source>
-        <translation>As taxas de transação são muito altas.</translation>
-    </message>
-    <message>
-        <source>Transaction not valid.</source>
-        <translation>A transação não é válida.</translation>
-    </message>
-    <message>
         <source>Transaction too large for fee policy</source>
         <translation>Transação muito grande para a política de tarifas</translation>
     </message>
     <message>
         <source>Transaction too large</source>
         <translation>Transmissão muito grande</translation>
-    </message>
-    <message>
-        <source>Transmitting final transaction.</source>
-        <translation>Transmissão da transação final.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
@@ -1224,16 +1149,8 @@
         <translation>Rede desconhecida especificada em -onlynet: '%s'</translation>
     </message>
     <message>
-        <source>Unknown state: id = %u</source>
-        <translation>Estado desconhecido: id =%u</translation>
-    </message>
-    <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Atualizar a carteira para a ultimo formato</translation>
-    </message>
-    <message>
-        <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>Use o OpenSSL(https) para conexões JSON-RPC</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: %u)</source>
@@ -1252,10 +1169,6 @@
         <translation>Nome de usuário para conexões JSON-RPC</translation>
     </message>
     <message>
-        <source>Value more than Obfuscation pool maximum allows.</source>
-        <translation>Valor maior do que o máximo permitido pela pool.</translation>
-    </message>
-    <message>
         <source>Verifying blocks...</source>
         <translation>verificando blocos...</translation>
     </message>
@@ -1268,12 +1181,8 @@
         <translation>carteira %s reside fora do diretório %s</translation>
     </message>
     <message>
-        <source>Wallet is locked.</source>
-        <translation>Carteira esta bloqueada.</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart Transcendence Core to complete</source>
-        <translation>Carteira precisa ser reescrita: reinicie o Transcendence Core para completar.</translation>
+        <source>Wallet needed to be rewritten: restart TELOS Core to complete</source>
+        <translation>Carteira precisa ser reescrita: reinicie o TELOS Core para completar.</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -1302,10 +1211,6 @@
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>
         <translation>Você precisa reconstruir a database usando -reindex para mudar -txindex</translation>
-    </message>
-    <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>Sua transação foi aceita na pool!</translation>
     </message>
     </context>
 </TS>

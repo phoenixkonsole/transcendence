@@ -2751,7 +2751,17 @@ Value importzerocoins(const Array& params, bool fHelp)
             throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, h must be positive");
 
         bool fUsed = ParseBool(o, "u");
-        CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed);
+             //Set the privkey if applicable
+            CPrivKey privkey;
+            std::string strPrivkey = find_value(o, "k").get_str();
+            CBitcoinSecret vchSecret;
+            bool fGood = vchSecret.SetString(strPrivkey);
+            CKey key = vchSecret.GetKey();
+            if (!key.IsValid() && fGood)
+                return JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "privkey is not valid");
+            privkey = key.GetPrivKey();
+        
+        CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed, 1, &privkey);
         mint.SetTxHash(txid);
         mint.SetHeight(nHeight);
         walletdb.WriteZerocoinMint(mint);

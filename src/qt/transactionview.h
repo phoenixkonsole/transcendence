@@ -1,5 +1,6 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
-// Distributed under the MIT/X11 software license, see the accompanying
+// Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2017-2018 The PIVX developers
+// Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef BITCOIN_QT_TRANSACTIONVIEW_H
@@ -9,6 +10,7 @@
 
 #include <QKeyEvent>
 #include <QWidget>
+#include <QAction>
 
 class TransactionFilterProxy;
 class WalletModel;
@@ -66,6 +68,7 @@ private:
     QComboBox* watchOnlyWidget;
     QLineEdit* addressWidget;
     QLineEdit* amountWidget;
+    QAction* hideOrphansAction;
 
     QMenu* contextMenu;
     QSignalMapper* mapperThirdPartyTxUrls;
@@ -106,6 +109,8 @@ signals:
 public slots:
     void chooseDate(int idx);
     void chooseType(int idx);
+    void hideOrphans(bool fHide);
+    void updateHideOrphans(bool fHide);
     void chooseWatchonly(int idx);
     void changedPrefix(const QString& prefix);
     void changedAmount(const QString& amount);

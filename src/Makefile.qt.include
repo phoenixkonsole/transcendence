@@ -54,8 +54,56 @@ QT_FORMS_UI = \
   qt/forms/sendcoinsentry.ui \
   qt/forms/signverifymessagedialog.ui \
   qt/forms/transactiondescdialog.ui \
-  qt/forms/ztranscendencecontroldialog.ui
-
+  qt/transcendence/forms/loadingdialog.ui \
+  qt/forms/zteloscontroldialog.ui \
+  qt/transcendence/forms/snackbar.ui \
+  qt/transcendence/forms/navmenuwidget.ui \
+  qt/transcendence/forms/lockunlock.ui \
+  qt/transcendence/forms/expandablebutton.ui \
+  qt/transcendence/forms/receivedialog.ui \
+  qt/transcendence/forms/walletpassworddialog.ui \
+  qt/transcendence/forms/topbar.ui \
+  qt/transcendence/forms/txrow.ui \
+  qt/transcendence/forms/dashboardwidget.ui \
+  qt/transcendence/forms/coincontrolpivwidget.ui \
+  qt/transcendence/forms/addresslabelrow.ui \
+  qt/transcendence/forms/contactdropdownrow.ui \
+  qt/transcendence/forms/mninfodialog.ui \
+  qt/transcendence/forms/optionbutton.ui \
+  qt/transcendence/forms/masternodewizarddialog.ui \
+  qt/transcendence/forms/mnrow.ui \
+  qt/transcendence/forms/masternodeswidget.ui \
+  qt/transcendence/forms/myaddressrow.ui \
+  qt/transcendence/forms/sendchangeaddressdialog.ui \
+  qt/transcendence/forms/sendconfirmdialog.ui \
+  qt/transcendence/forms/sendcustomfeedialog.ui \
+  qt/transcendence/forms/sendchangeaddressdialog.ui \
+  qt/transcendence/forms/sendmultirow.ui \
+  qt/transcendence/forms/send.ui \
+  qt/transcendence/forms/addnewaddressdialog.ui \
+  qt/transcendence/forms/addnewcontactdialog.ui \
+  qt/transcendence/forms/requestdialog.ui \
+  qt/transcendence/forms/receivewidget.ui \
+  qt/transcendence/forms/tooltipmenu.ui \
+  qt/transcendence/forms/addresseswidget.ui \
+  qt/transcendence/forms/defaultdialog.ui \
+  qt/transcendence/forms/denomgenerationdialog.ui \
+  qt/transcendence/forms/privacywidget.ui \
+  qt/transcendence/settings/forms/settingsbackupwallet.ui \
+  qt/transcendence/settings/forms/settingsbittoolwidget.ui \
+  qt/transcendence/settings/forms/settingsconsolewidget.ui \
+  qt/transcendence/settings/forms/settingsdisplayoptionswidget.ui \
+  qt/transcendence/settings/forms/settingsfaqwidget.ui \
+  qt/transcendence/settings/forms/settingsinformationwidget.ui \
+  qt/transcendence/settings/forms/settingsmainoptionswidget.ui \
+  qt/transcendence/settings/forms/settingsmultisenddialog.ui \
+  qt/transcendence/settings/forms/settingsmultisendwidget.ui \
+  qt/transcendence/settings/forms/settingssignmessagewidgets.ui \
+  qt/transcendence/settings/forms/settingswalletoptionswidget.ui \
+  qt/transcendence/settings/forms/settingswalletrepairwidget.ui \
+  qt/transcendence/settings/forms/settingswidget.ui \
+  qt/transcendence/forms/welcomecontentwidget.ui \
+  qt/transcendence/forms/splash.ui
 QT_MOC_CPP = \
   qt/moc_addressbookpage.cpp \
   qt/moc_addresstablemodel.cpp \

@@ -349,26 +349,6 @@ void PrivacyWidget::updateDenomsSupply(){
         mapImmature.insert(std::make_pair(denom, 0));
     }
 
-    std::set<CMintMeta> vMints;
-    walletModel->listZerocoinMints(vMints, true, false, true, true);
-
-    std::map<libzerocoin::CoinDenomination, int> mapMaturityHeights = GetMintMaturityHeight();
-    for (auto& meta : vMints){
-        // All denominations
-        mapDenomBalances.at(meta.denom)++;
-
-        if (!meta.nHeight || chainActive.Height() - meta.nHeight <= Params().Zerocoin_MintRequiredConfirmations()) {
-            // All unconfirmed denominations
-            mapUnconfirmed.at(meta.denom)++;
-        } else {
-            if (meta.denom == libzerocoin::CoinDenomination::ZQ_ERROR) {
-                mapImmature.at(meta.denom)++;
-            } else if (meta.nHeight >= mapMaturityHeights.at(meta.denom)) {
-                mapImmature.at(meta.denom)++;
-            }
-        }
-    }
-
     int64_t nCoins = 0;
     int64_t nSumPerCoin = 0;
     int64_t nUnconfirmed = 0;

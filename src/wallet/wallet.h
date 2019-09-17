@@ -104,7 +104,10 @@ enum ZerocoinSpendStatus {
     ZTRANSCENDENCE_FAILED_ACCUMULATOR_INITIALIZATION = 11,    // Failed to initialize witness
     ZTRANSCENDENCE_INVALID_WITNESS = 12,                      // Spend coin transaction did not verify
     ZTRANSCENDENCE_BAD_SERIALIZATION = 13,                    // Transaction verification failed
-    ZTRANSCENDENCE_SPENT_USED_ZTRANSCENDENCE = 14                       // Coin has already been spend
+    ZTRANSCENDENCE_SPENT_USED_ZTRANSCENDENCE = 14,            // Coin has already been spend
+    ZTRANSCENDENCE_TX_TOO_LARGE = 15,                         // The transaction is larger than the max tx size
+    ZTRANSCENDENCE_SPEND_V1_SEC_LEVEL                         // Spend is V1 and security level is not set to 100
+
 };
 
 struct CompactTallyItem {
@@ -519,6 +522,7 @@ public:
     bool IsDenominated(const CTransaction& tx) const;
 
     bool IsDenominatedAmount(CAmount nInputAmount) const;
+    bool IsUsed(const CBitcoinAddress address) const;
 
     isminetype IsMine(const CTxIn& txin) const;
     CAmount GetDebit(const CTxIn& txin, const isminefilter& filter) const;

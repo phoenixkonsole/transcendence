@@ -840,7 +840,14 @@ isminetype CWallet::IsMine(const CTxIn& txin) const
     }
     return ISMINE_NO;
 }
-
+bool CWallet::IsUsed(const CBitcoinAddress address) const
+{
+    LOCK(cs_wallet);
+    CScript scriptPubKey = GetScriptForDestination(address.Get());
+    if (!::IsMine(*this, scriptPubKey)) {
+        return false;
+    }
+}
 bool CWallet::IsMyZerocoinSpend(const CBigNum& bnSerial) const
 {
     return CWalletDB(strWalletFile).ReadZerocoinSpendSerialEntry(bnSerial);

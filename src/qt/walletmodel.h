@@ -179,7 +179,7 @@ public:
     // Mint zTELOS
     bool mintCoins(CAmount value, CCoinControl* coinControl, std::string &strError);
 
-    bool createZpivSpend(
+    bool createZTelosSpend(
             CWalletTx &wtxNew,
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,
@@ -189,7 +189,7 @@ public:
             std::string changeAddress = ""
     );
 
-    bool sendZpiv(
+    bool sendZTelos(
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,
             bool fMinimizeChange,
@@ -198,7 +198,7 @@ public:
             std::string changeAddress = ""
     );
 
-    bool convertBackZpiv(
+    bool convertBackZTelos(
             CAmount value,
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,
@@ -259,7 +259,7 @@ public:
     void unlockCoin(COutPoint& output);
     void listLockedCoins(std::vector<COutPoint>& vOutpts);
 
-    void listZerocoinMints(std::set<CMintMeta>& setMints, bool fUnusedOnly = false, bool fMaturedOnly = false, bool fUpdateStatus = false, bool fWrongSeed = false);
+    void listZerocoinMints(std::list<CZerocoinMint>& listMints, bool fUnusedOnly = false, bool fMaturedOnly = false, bool fUpdateStatus = false, bool fWrongSeed = false);
 
     std::string GetUniqueWalletBackupName();
     void loadReceiveRequests(std::vector<std::string>& vReceiveRequests);

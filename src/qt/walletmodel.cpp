@@ -475,7 +475,7 @@ bool WalletModel::mintCoins(CAmount value, CCoinControl* coinControl ,std::strin
 }
 
 
-bool WalletModel::createZpivSpend(
+bool WalletModel::createZTelosSpend(
         CWalletTx &wtxNew,
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
@@ -518,7 +518,7 @@ bool WalletModel::createZpivSpend(
     return CheckTransaction(wtxNew, true, true, state, true);
 }
 
-bool WalletModel::sendZpiv(
+bool WalletModel::sendZTelos(
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
         bool fMinimizeChange,
@@ -547,7 +547,7 @@ bool WalletModel::sendZpiv(
 
 }
 
-bool WalletModel::convertBackZpiv(
+bool WalletModel::convertBackZTelos(
         CAmount value,
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
@@ -942,7 +942,7 @@ void WalletModel::listLockedCoins(std::vector<COutPoint>& vOutpts)
 }
 
 
-void WalletModel::listZerocoinMints(std::set<CMintMeta>& setMints, bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus, bool fWrongSeed)
+void WalletModel::listZerocoinMints(std::list<CZerocoinMint>& listMints, bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus, bool fWrongSeed)
 {
     listMints.clear();
     CWalletDB walletdb(wallet->strWalletFile);

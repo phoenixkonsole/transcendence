@@ -113,8 +113,8 @@ CAmount parseValue(const QString& text, int displayUnit, bool* valid_out)
     return valid ? val : 0;
 }
 
-QString formatBalance(CAmount amount, int nDisplayUnit, bool isZpiv){
-    return (amount == 0) ? ("0.00 " + BitcoinUnits::name(nDisplayUnit, isZpiv)) : BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, amount, false, BitcoinUnits::separatorAlways, true, isZpiv);
+QString formatBalance(CAmount amount, int nDisplayUnit, bool isZTelos){
+    return (amount == 0) ? ("0.00 " + BitcoinUnits::name(nDisplayUnit, isZTelos)) : BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, amount, false, BitcoinUnits::separatorAlways, true, isZTelos);
 }
 
 bool requestUnlock(WalletModel* walletModel, AskPassphraseDialog::Context context, bool relock){

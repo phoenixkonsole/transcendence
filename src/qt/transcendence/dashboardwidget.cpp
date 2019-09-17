@@ -60,7 +60,7 @@ DashboardWidget::DashboardWidget(TELOSGUI* parent) :
     setCssProperty(ui->labelSquarePiv, "square-chart-piv");
     setCssProperty(ui->labelSquarezTelos, "square-chart-ztelos");
     setCssProperty(ui->labelPiv, "text-chart-piv");
-    setCssProperty(ui->labelZpiv, "text-chart-ztelos");
+    setCssProperty(ui->labelZTelos, "text-chart-ztelos");
 
     // Staking Amount
     QFont fontBold;
@@ -68,10 +68,10 @@ DashboardWidget::DashboardWidget(TELOSGUI* parent) :
 
     setCssProperty(ui->labelChart, "legend-chart");
 
-    ui->labelAmountZpiv->setText("0 zTELOS");
+    ui->labelAmountZTelos->setText("0 zTELOS");
     ui->labelAmountPiv->setText("0 TELOS");
     setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
-    setCssProperty(ui->labelAmountZpiv, "text-stake-ztelos-disable");
+    setCssProperty(ui->labelAmountZTelos, "text-stake-ztelos-disable");
 
     setCssProperty({ui->pushButtonAll,  ui->pushButtonMonth, ui->pushButtonYear}, "btn-check-time");
     setCssProperty({ui->comboBoxMonths,  ui->comboBoxYears}, "btn-combo-chart-selected");
@@ -499,7 +499,7 @@ QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy() {
                 amountBy[time] = std::make_pair(amount, 0);
             } else {
                 amountBy[time] = std::make_pair(0, amount);
-                hasZpivStakes = true;
+                hasZTelosStakes = true;
             }
         }
     }
@@ -529,7 +529,7 @@ void DashboardWidget::loadChartData(bool withMonthNames) {
             piv = (pair.first != 0) ? pair.first / 100000000 : 0;
             ztelos = (pair.second != 0) ? pair.second / 100000000 : 0;
             chartData->totalPiv += pair.first;
-            chartData->totalZpiv += pair.second;
+            chartData->totalZTelos += pair.second;
         }
 
         chartData->xLabels << ((withMonthNames) ? monthsNames[num - 1] : QString::number(num));
@@ -603,19 +603,19 @@ void DashboardWidget::onChartRefreshed() {
 
     // Total
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
-    if (chartData->totalPiv > 0 || chartData->totalZpiv > 0) {
+    if (chartData->totalPiv > 0 || chartData->totalZTelos > 0) {
         setCssProperty(ui->labelAmountPiv, "text-stake-piv");
-        setCssProperty(ui->labelAmountZpiv, "text-stake-ztelos");
+        setCssProperty(ui->labelAmountZTelos, "text-stake-ztelos");
     } else {
         setCssProperty(ui->labelAmountPiv, "text-stake-piv-disable");
-        setCssProperty(ui->labelAmountZpiv, "text-stake-ztelos-disable");
+        setCssProperty(ui->labelAmountZTelos, "text-stake-ztelos-disable");
     }
-    forceUpdateStyle({ui->labelAmountPiv, ui->labelAmountZpiv});
+    forceUpdateStyle({ui->labelAmountPiv, ui->labelAmountZTelos});
     ui->labelAmountPiv->setText(GUIUtil::formatBalance(chartData->totalPiv, nDisplayUnit));
-    ui->labelAmountZpiv->setText(GUIUtil::formatBalance(chartData->totalZpiv, nDisplayUnit, true));
+    ui->labelAmountZTelos->setText(GUIUtil::formatBalance(chartData->totalZTelos, nDisplayUnit, true));
 
     series->append(set0);
-    if(hasZpivStakes)
+    if(hasZTelosStakes)
         series->append(set1);
 
     // bar width

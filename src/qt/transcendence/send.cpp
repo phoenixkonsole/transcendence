@@ -166,10 +166,10 @@ void SendWidget::refreshAmounts() {
             total += amount;
     }
 
-    bool isZpiv = ui->pushRight->isChecked();
+    bool isZTelos = ui->pushRight->isChecked();
     nDisplayUnit = walletModel->getOptionsModel()->getDisplayUnit();
 
-    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, isZpiv));
+    ui->labelAmountSend->setText(GUIUtil::formatBalance(total, nDisplayUnit, isZTelos));
 
     CAmount totalAmount = 0;
     if (CoinControlDialog::coinControl->HasSelected()){
@@ -178,14 +178,14 @@ void SendWidget::refreshAmounts() {
         ui->labelTitleTotalRemaining->setText(tr("Total remaining from the selected UTXO"));
     } else {
         // Wallet's balance
-        totalAmount = (isZpiv ? walletModel->getZerocoinBalance() : walletModel->getBalance()) - total;
+        totalAmount = (isZTelos ? walletModel->getZerocoinBalance() : walletModel->getBalance()) - total;
         ui->labelTitleTotalRemaining->setText(tr("Total remaining"));
     }
     ui->labelAmountRemaining->setText(
             GUIUtil::formatBalance(
                     totalAmount,
                     nDisplayUnit,
-                    isZpiv
+                    isZTelos
                     )
     );
 }
@@ -327,7 +327,7 @@ void SendWidget::onSendClicked(){
         return;
     }
 
-    if((sendPiv) ? send(recipients) : sendZpiv(recipients)) {
+    if((sendPiv) ? send(recipients) : sendZTelos(recipients)) {
         updateEntryLabels(recipients);
     }
 }
@@ -376,7 +376,7 @@ bool SendWidget::send(QList<SendCoinsRecipient> recipients){
     return false;
 }
 
-bool SendWidget::sendZpiv(QList<SendCoinsRecipient> recipients){
+bool SendWidget::sendZTelos(QList<SendCoinsRecipient> recipients){
     if (!walletModel || !walletModel->getOptionsModel())
         return false;
 
@@ -431,7 +431,7 @@ bool SendWidget::sendZpiv(QList<SendCoinsRecipient> recipients){
         changeAddress = walletModel->getAddressTableModel()->getLastUnusedAddress().toStdString();
     }
 
-    if (walletModel->sendZpiv(
+    if (walletModel->sendZTelos(
             vMintsSelected,
             true,
             true,

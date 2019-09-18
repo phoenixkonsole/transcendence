@@ -22,6 +22,7 @@
  * see www.keylength.com
  * script supports up to 75 for single byte push
  */
+const unsigned int BIP32_EXTKEY_SIZE = 74;
 
 /** A reference to a CKey: the Hash160 of its serialized public key */
 class CKeyID : public uint160

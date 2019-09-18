@@ -2685,7 +2685,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             {
                 //convert to pay to public key type
                 CKey key;
-                CKeyID keyID = CKeyID(uint160(vSolutions[0]));
+                if (!keystore.GetKey(uint160(vSolutions[0]))) {
                     if (fDebug && GetBoolArg("-printcoinstake", false))
                         LogPrintf("CreateCoinStake : failed to get key for kernel type=%d\n", whichType);
                     break; // unable to find corresponding public key
@@ -2757,16 +2757,16 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
     // Sign
     int nIn = 0;
-        for (CTxIn txIn : txNew.vin) {
-            const CWalletTx *wtx = GetWalletTx(txIn.prevout.hash);
-            if (!SignSignature(*this, *wtx, txNew, nIn++))
-                return error("CreateCoinStake : failed to sign coinstake");
-        }
+    BOOST_FOREACH (const CWalletTx* pcoin, vwtxPrev) {
+        if (!SignSignature(*this, *pcoin, txNew, nIn++))
+            return error("CreateCoinStake : failed to sign coinstake");
+    }
 
     // Successfully generated coinstake
-    int nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
+    nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
     return true;
 }
+
 
 /**
  * Call after CreateTransaction unless you want to abort

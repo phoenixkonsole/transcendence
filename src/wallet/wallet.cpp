@@ -2763,7 +2763,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
     }
 
     // Successfully generated coinstake
-    nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
+    int nLastStakeSetUpdate = 0; //this will trigger stake set to repopulate next round
     return true;
 }
 

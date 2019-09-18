@@ -435,7 +435,7 @@ void TopBar::loadWalletModel(){
     connect(walletModel->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     connect(walletModel, &WalletModel::encryptionStatusChanged, this, &TopBar::refreshStatus);
 
-    // update the display unit, to not use the default ("PIVX")
+    // update the display unit, to not use the default ("Transcendence")
     updateDisplayUnit();
 
     refreshStatus();

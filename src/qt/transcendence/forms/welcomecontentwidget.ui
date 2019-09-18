@@ -913,7 +913,7 @@
                      </property>
                      <property name="text">
                       <string>Welcome to
-PIVX Core Wallet</string>
+Transcendence Core Wallet</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignCenter</set>
@@ -939,7 +939,7 @@ PIVX Core Wallet</string>
                    <item alignment="Qt::AlignHCenter">
                     <widget class="QLabel" name="labelMessage2">
                      <property name="text">
-                      <string>PIVX is the world’s most advanced privacy-enabled Proof of Stake blockchain technology, all developed by a team of highly experienced developers and cryptographers.</string>
+                      <string>Transcendence is the world’s most advanced privacy-enabled Proof of Stake blockchain technology, all developed by a team of highly experienced developers and cryptographers.</string>
                      </property>
                      <property name="alignment">
                       <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1012,7 +1012,7 @@ PIVX Core Wallet</string>
                    </size>
                   </property>
                   <property name="text">
-                   <string>How PIVX respects your privacy?</string>
+                   <string>How Transcendence respects your privacy?</string>
                   </property>
                  </widget>
                 </item>
@@ -1032,7 +1032,7 @@ PIVX Core Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage3">
                   <property name="text">
-                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom the share their data whenever and with whomever they want - PIVX believes in self sovereignty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;As our manifesto says: Privacy is a non-negotiable basic human right; it grants users the freedom the share their data whenever and with whomever they want - Transcendence believes in self sovereignty&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignHCenter|Qt::AlignTop</set>
@@ -1115,7 +1115,7 @@ PIVX Core Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage4">
                   <property name="text">
-                   <string>The masternode network is PIVX's second layer network on top of the blockchain that enables our DAO to provide decentralized governance, treasury, and SwiftX transactions.</string>
+                   <string>The masternode network is Transcendence's second layer network on top of the blockchain that enables our DAO to provide decentralized governance, treasury, and SwiftX transactions.</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>

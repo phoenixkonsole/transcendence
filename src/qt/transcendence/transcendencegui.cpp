@@ -39,7 +39,7 @@ TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
     this->setMinimumSize(1200, 740);
     GUIUtil::restoreWindowGeometry("nWindow", QSize(1200, 740), this);
 
-    QString windowTitle = tr("PIVX Core") + " - ";
+    QString windowTitle = tr("Transcendence Core") + " - ";
 #ifdef ENABLE_WALLET
     /* if compiled with wallet support, -disablewallet can still disable the wallet */
     enableWallet = !GetBoolArg("-disablewallet", false);
@@ -196,7 +196,7 @@ void TELOSGUI::connectActions() {
 void TELOSGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
-    QString toolTip = tr("PIVX Core client") + " " + networkStyle->getTitleAddText();
+    QString toolTip = tr("Transcendence Core client") + " " + networkStyle->getTitleAddText();
     trayIcon->setToolTip(toolTip);
     trayIcon->setIcon(networkStyle->getAppIcon());
     trayIcon->hide();
@@ -338,7 +338,7 @@ void TELOSGUI::messageInfo(const QString& text){
 
 
 void TELOSGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
-    QString strTitle =  tr("PIVX Core"); // default title
+    QString strTitle =  tr("Transcendence Core"); // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
 
@@ -388,7 +388,7 @@ void TELOSGUI::message(const QString& title, const QString& message, unsigned in
     } else if(style & CClientUIInterface::MSG_INFORMATION_SNACK){
         messageInfo(message);
     }else {
-        // Append title to "PIVX - "
+        // Append title to "Transcendence - "
         if (!msgType.isEmpty())
             strTitle += " - " + msgType;
         notificator->notify((Notificator::Class) nNotifyIcon, strTitle, message);
@@ -406,7 +406,7 @@ bool TELOSGUI::openStandardDialog(QString title, QString body, QString okBtn, QS
     } else {
         dialog = new DefaultDialog();
         dialog->setText(title, body, okBtn);
-        dialog->setWindowTitle(tr("PIVX Core"));
+        dialog->setWindowTitle(tr("Transcendence Core"));
         dialog->adjustSize();
         dialog->raise();
         dialog->exec();

@@ -27,7 +27,7 @@ Splash::Splash(QWidget *parent) :
     ui(new Ui::Splash)
 {
     ui->setupUi(this);
-    setWindowTitle("PIVX Wallet");
+    setWindowTitle("Transcendence Wallet");
 
     this->setStyleSheet(GUIUtil::loadStyleSheet());
     this->setAttribute( Qt::WA_TranslucentBackground, true );

@@ -786,7 +786,7 @@
                          </size>
                         </property>
                         <property name="text">
-                         <string>About PIVX</string>
+                         <string>About Transcendence</string>
                         </property>
                         <property name="checkable">
                          <bool>false</bool>

@@ -349,7 +349,7 @@ libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
   ztelos/accumulators.cpp \
-  ztelos/accumulatormap.cpp \
+  accumulatormap.cpp \
   allocators.cpp \
   amount.cpp \
   base58.cpp \

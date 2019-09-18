@@ -494,6 +494,7 @@ public:
         // For testing purposes - 5 minutes
         return (nTime < GetTime() - (60 * 5));
     }
+    bool IsPassing(const CBlockIndex* pindexPrev, int nBlockStartBudget, int nBlockEndBudget, int mnCount);
 
     std::string GetName() { return strProposalName; }
     std::string GetURL() { return strURL; }

@@ -615,7 +615,28 @@ bool CBudgetManager::IsBudgetPaymentBlock(int nBlockHeight)
 
     return false;
 }
+bool CBudgetManager::IsPassing(const CBlockIndex* pindexPrev, int nBlockStartBudget, int nBlockEndBudget, int mnCount)
+{
+    if (!fValid)
+        return false;
 
+    if (!pindexPrev)
+        return false;
+
+    if (this->nBlockStart > nBlockStartBudget)
+        return false;
+
+    if (this->nBlockEnd < nBlockEndBudget)
+        return false;
+
+    if (GetYeas() - GetNays() <= mnCount / 10)
+        return false;
+
+    if (!IsEstablished())
+        return false;
+
+    return true;
+}
 bool CBudgetManager::IsTransactionValid(const CTransaction& txNew, int nBlockHeight)
 {
     LOCK(cs);

@@ -95,7 +95,7 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
         ztranscendenceObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
     ztranscendenceObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-    result.push_back(Pair("zTELOSsupply", zpivObj));
+    result.push_back(Pair("zTELOSsupply", ztranscendenceObj));
 
     return result;
 }

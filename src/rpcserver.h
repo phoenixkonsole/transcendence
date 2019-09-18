@@ -72,7 +72,15 @@ void RPCTypeCheck(const UniValue& params,
  */
 void RPCTypeCheckObj(const UniValue& o,
                   const std::map<std::string, UniValue::VType>& typesExpected, bool fAllowNull=false);
-
+/** Opaque base class for timers returned by NewTimerFunc.
+ * This provides no methods at the moment, but makes sure that delete
+ * cleans up the whole state.
+ */
+class RPCTimerBase
+{
+public:
+    virtual ~RPCTimerBase() {}
+};
 /**
 * RPC timer "driver".
  */

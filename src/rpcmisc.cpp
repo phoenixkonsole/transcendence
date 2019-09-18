@@ -112,8 +112,8 @@ UniValue getinfo(const UniValue& params, bool fHelp)
     for (auto denom : libzerocoin::zerocoinDenomList) {
         ztranscendenceObj.push_back(Pair(to_string(denom), ValueFromAmount(chainActive.Tip()->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
-    ztranscendenceObj.emplace_back(Pair("total", ValueFromAmount(chainActive.Tip()->GetZerocoinSupply())));
-    obj.emplace_back(Pair("zTELOSsupply", ztranscendenceObj));
+    ztranscendenceObj.push_back(Pair("total", ValueFromAmount(chainActive.Tip()->GetZerocoinSupply())));
+    obj.push_back(Pair("zTELOSsupply", ztranscendenceObj));
     
 #ifdef ENABLE_WALLET
     if (pwalletMain) {

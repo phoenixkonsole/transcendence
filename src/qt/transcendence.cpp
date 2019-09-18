@@ -250,13 +250,19 @@ void BitcoinCore::handleRunawayException(std::exception* e)
     emit runawayException(QString::fromStdString(strMiscWarning));
 }
 
-void BitcoinCore::initialize()
+	void BitcoinCore::initialize()
 {
     execute_restart = true;
 
     try {
         qDebug() << __func__ << ": Running AppInit2 in thread";
         int rv = AppInit2(threadGroup);
+        if (rv) {
+            /* Start a dummy RPC thread if no RPC thread is active yet
+             * to handle timeouts.
+             */
+            StartDummyRPCThread();
+        }
         emit initializeResult(rv);
     } catch (std::exception& e) {
         handleRunawayException(&e);
@@ -264,6 +270,7 @@ void BitcoinCore::initialize()
         handleRunawayException(NULL);
     }
 }
+
 
 void BitcoinCore::restart(QStringList args)
 {

@@ -107,12 +107,7 @@ BITCOIN_CORE_H = \
   obfuscation-relay.h \
   wallet/db.h \
   hash.h \
-  httprpc.h \
-  httpserver.h \
   init.h \
-  invalid.h \
-  invalid_outpoints.json.h \
-  invalid_serials.json.h \
   kernel.h \
   swifttx.h \
   key.h \
@@ -197,8 +192,6 @@ libbitcoin_server_a_SOURCES = \
   bloom.cpp \
   chain.cpp \
   checkpoints.cpp \
-  httprpc.cpp \
-  httpserver.cpp \
   init.cpp \
   leveldbwrapper.cpp \
   main.cpp \
@@ -374,7 +367,6 @@ libbitcoin_common_a_SOURCES = \
   eccryptoverify.cpp \
   ecwrapper.cpp \
   hash.cpp \
-  invalid.cpp \
   key.cpp \
   keystore.cpp \
   netbase.cpp \

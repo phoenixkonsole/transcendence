@@ -1059,9 +1059,13 @@ bool CWalletDB::WriteZerocoinMint(const CZerocoinMint& zerocoinMint)
     return Write(make_pair(string("zerocoin"), hash), zerocoinMint, true);
 }
 
-bool CWalletDB::ReadZerocoinMint(const uint256& hashPubcoin, CZerocoinMint& mint)
+bool CWalletDB::ReadZerocoinMint(const CBigNum &bnPubCoinValue, CZerocoinMint& zerocoinMint)
 {
-    return Read(make_pair(string("zerocoin"), hashPubcoin), mint);
+    CDataStream ss(SER_GETHASH, 0);
+    ss << bnPubCoinValue;
+    uint256 hash = Hash(ss.begin(), ss.end());
+
+    return Read(make_pair(string("zerocoin"), hash), zerocoinMint);
 }
 
 bool CWalletDB::EraseZerocoinMint(const CZerocoinMint& zerocoinMint)
@@ -1095,63 +1099,6 @@ bool CWalletDB::ArchiveMintOrphan(const CZerocoinMint& zerocoinMint)
 bool CWalletDB::WriteMintPoolPair(const uint256& hashMasterSeed, const uint256& hashPubcoin, const uint32_t& nCount)
 {
     return Write(make_pair(string("mintpool"), hashPubcoin), make_pair(hashMasterSeed, nCount));
-}
-
-//! map with hashMasterSeed as the key, paired with vector of hashPubcoins and their count
-std::map<uint256, std::vector<pair<uint256, uint32_t> > > CWalletDB::MapMintPool()
-{
-    std::map<uint256, std::vector<pair<uint256, uint32_t> > > mapPool;
-    Dbc* pcursor = GetCursor();
-    if (!pcursor)
-        throw runtime_error(std::string(__func__)+" : cannot create DB cursor");
-    unsigned int fFlags = DB_SET_RANGE;
-    for (;;)
-    {
-        // Read next record
-        CDataStream ssKey(SER_DISK, CLIENT_VERSION);
-        if (fFlags == DB_SET_RANGE)
-            ssKey << make_pair(string("mintpool"), uint256(0));
-        CDataStream ssValue(SER_DISK, CLIENT_VERSION);
-        int ret = ReadAtCursor(pcursor, ssKey, ssValue, fFlags);
-        fFlags = DB_NEXT;
-        if (ret == DB_NOTFOUND)
-            break;
-        else if (ret != 0)
-        {
-            pcursor->close();
-            throw runtime_error(std::string(__func__)+" : error scanning DB");
-        }
-
-        // Unserialize
-        string strType;
-        ssKey >> strType;
-        if (strType != "mintpool")
-            break;
-
-        uint256 hashPubcoin;
-        ssKey >> hashPubcoin;
-
-        uint256 hashMasterSeed;
-        ssValue >> hashMasterSeed;
-
-        uint32_t nCount;
-        ssValue >> nCount;
-
-        pair<uint256, uint32_t> pMint;
-        pMint.first = hashPubcoin;
-        pMint.second = nCount;
-        if (mapPool.count(hashMasterSeed)) {
-            mapPool.at(hashMasterSeed).emplace_back(pMint);
-        } else {
-            vector<pair<uint256, uint32_t> > vPairs;
-            vPairs.emplace_back(pMint);
-            mapPool.insert(make_pair(hashMasterSeed, vPairs));
-        }
-    }
-
-    pcursor->close();
-
-    return mapPool;
 }
 
 std::list<CZerocoinMint> CWalletDB::ListMintedCoins()

@@ -151,7 +151,7 @@ public:
 
     bool WriteZerocoinMint(const CZerocoinMint& zerocoinMint);
     bool EraseZerocoinMint(const CZerocoinMint& zerocoinMint);
-    bool ReadZerocoinMint(const CBigNum &bnSerial, CZerocoinMint& zerocoinMint);
+    bool ReadZerocoinMint(const CBigNum &bnPubCoinValue, CZerocoinMint& zerocoinMint)
     bool ArchiveMintOrphan(const CZerocoinMint& zerocoinMint);
     bool UnarchiveZerocoin(const CZerocoinMint& mint);
     std::list<CZerocoinMint> ListMintedCoins(bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus);

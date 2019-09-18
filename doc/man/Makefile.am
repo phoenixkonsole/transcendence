@@ -9,5 +9,5 @@ if ENABLE_QT
 endif
 
 if BUILD_BITCOIN_UTILS
-  dist_man1_MANS+=transcendence-cli.1t ranscendence-tx.1
+  dist_man1_MANS+=transcendence-cli.1 transcendence-tx.1
 endif

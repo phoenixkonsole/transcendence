@@ -56,9 +56,9 @@ WINDOWS_PACKAGING = $(top_srcdir)/share/pixmaps/transcendence.ico \
   $(top_srcdir)/share/pixmaps/nsis-wizard.bmp \
   $(top_srcdir)/doc/README_windows.txt
 
-LINUX_PACKAGING = $(top_srcdir)/share/pixmaps/transcendence16.xpm \
-  $(top_srcdir)/share/pixmaps/transcendence32.xpm \
-  $(top_srcdir)/share/pixmaps/transcendence128.png
+LINUX_PACKAGING = $(top_srcdir)/share/pixmaps/bitcoin16.xpm \
+  $(top_srcdir)/share/pixmaps/bitcoin32.xpm \
+  $(top_srcdir)/share/pixmaps/bitcoin128.png
 
 OSX_PACKAGING = $(OSX_DEPLOY_SCRIPT) $(OSX_FANCY_PLIST) $(OSX_INSTALLER_ICONS) \
   $(top_srcdir)/contrib/macdeploy/$(OSX_BACKGROUND_SVG) \

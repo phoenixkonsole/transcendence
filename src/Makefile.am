@@ -80,6 +80,7 @@ BITCOIN_CORE_H = \
   addrman.h \
   alert.h \
   allocators.h \
+  accumulatormap.h \
   amount.h \
   base58.h \
   bip38.h \
@@ -94,8 +95,6 @@ BITCOIN_CORE_H = \
   coincontrol.h \
   coins.h \
   compat.h \
-  compat/byteswap.h \
-  compat/endian.h \
   compat/sanity.h \
   compressor.h \
   primitives/block.h \
@@ -147,7 +146,6 @@ BITCOIN_CORE_H = \
   serialize.h \
   spork.h \
   sporkdb.h \
-  stakeinput.h \
   streams.h \
   sync.h \
   threadsafety.h \
@@ -265,6 +263,7 @@ crypto_libbitcoin_crypto_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIC_FLAGS)
 crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sha1.cpp \
   crypto/sha256.cpp \
+  crypto/md_helper.c \
   crypto/sha512.cpp \
   crypto/hmac_sha256.cpp \
   crypto/rfc6979_hmac_sha256.cpp \

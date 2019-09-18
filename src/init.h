@@ -21,7 +21,7 @@ void StartShutdown();
 bool ShutdownRequested();
 void Shutdown();
 void PrepareShutdown();
-bool AppInit2();
+bool AppInit2(boost::thread_group& threadGroup);
 //! -enableautoconvertaddress default
 static const bool DEFAULT_AUTOCONVERTADDRESS = true;
 /** The help message mode determines what help message to show */

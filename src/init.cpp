@@ -655,7 +655,7 @@ bool InitSanityCheck(void)
 /** Initialize transcendence.
  *  @pre Parameters should be parsed and config file should be read.
  */
-bool AppInit2()
+bool AppInit2(boost::thread_group& threadGroup)
 {
 // ********************************************************* Step 1: setup
 #ifdef _MSC_VER
@@ -679,12 +679,16 @@ bool AppInit2()
     typedef BOOL(WINAPI * PSETPROCDEPPOL)(DWORD);
     PSETPROCDEPPOL setProcDEPPol = (PSETPROCDEPPOL)GetProcAddress(GetModuleHandleA("Kernel32.dll"), "SetProcessDEPPolicy");
     if (setProcDEPPol != NULL) setProcDEPPol(PROCESS_DEP_ENABLE);
+
+    // Initialize Windows Sockets
+    WSADATA wsadata;
+    int ret = WSAStartup(MAKEWORD(2, 2), &wsadata);
+    if (ret != NO_ERROR || LOBYTE(wsadata.wVersion) != 2 || HIBYTE(wsadata.wVersion) != 2) {
+        return InitError(strprintf("Error: Winsock library failed to start (WSAStartup returned error %d)", ret));
+    }
 #endif
-
-    if (!SetupNetworking())
-        return InitError("Error: Initializing networking failed");
-
 #ifndef WIN32
+
     if (GetBoolArg("-sysperms", false)) {
 #ifdef ENABLE_WALLET
         if (!GetBoolArg("-disablewallet", false))
@@ -710,8 +714,10 @@ bool AppInit2()
     sa_hup.sa_flags = 0;
     sigaction(SIGHUP, &sa_hup, NULL);
 
-    // Ignore SIGPIPE, otherwise it will bring the daemon down if the client closes unexpectedly
+#if defined(__SVR4) && defined(__sun)
+    // ignore SIGPIPE on Solaris
     signal(SIGPIPE, SIG_IGN);
+#endif
 #endif
 
     // ********************************************************* Step 2: parameter interactions
@@ -719,6 +725,7 @@ bool AppInit2()
     fPrintToConsole = GetBoolArg("-printtoconsole", false);
     fLogTimestamps = GetBoolArg("-logtimestamps", true);
     fLogIPs = GetBoolArg("-logips", false);
+
     if (mapArgs.count("-bind") || mapArgs.count("-whitebind")) {
         // when specifying an explicit binding address, you want to listen on it
         // even when -connect or -proxy is specified
@@ -776,7 +783,7 @@ bool AppInit2()
     }
 
     if (!GetBoolArg("-enableswifttx", fEnableSwiftTX)) {
-        if (SoftSetArg("-swifttxdepth", "0"))
+        if (SoftSetArg("-swifttxdepth", 0))
             LogPrintf("AppInit2 : parameter interaction: -enableswifttx=false -> setting -nSwiftTXDepth=0\n");
     }
 
@@ -801,8 +808,8 @@ bool AppInit2()
 
     fDebug = !mapMultiArgs["-debug"].empty();
     // Special-case: if -debug=0/-nodebug is set, turn off debugging messages
-    const std::vector<std::string>& categories = mapMultiArgs["-debug"];
-    if (GetBoolArg("-nodebug", false) || find(categories.begin(), categories.end(), std::string("0")) != categories.end())
+    const vector<string>& categories = mapMultiArgs["-debug"];
+    if (GetBoolArg("-nodebug", false) || find(categories.begin(), categories.end(), string("0")) != categories.end())
         fDebug = false;
 
     // Check for -debugnet
@@ -913,9 +920,10 @@ bool AppInit2()
 
     fAlerts = GetBoolArg("-alerts", DEFAULT_ALERTS);
 
-        if (GetBoolArg("-peerbloomfilters", DEFAULT_PEERBLOOMFILTERS))
-            nLocalServices |= NODE_BLOOM;
-    
+
+    if (GetBoolArg("-peerbloomfilters", DEFAULT_PEERBLOOMFILTERS))
+        nLocalServices |= NODE_BLOOM;
+
     // ********************************************************* Step 4: application initialization: dir lock, daemonize, pidfile, debug log
 
     // Initialize elliptic curve code
@@ -973,10 +981,6 @@ bool AppInit2()
             return InitError(_("Unable to sign spork message, wrong key?"));
     }
 
-    // Start the lightweight task scheduler thread
-    CScheduler::Function serviceLoop = boost::bind(&CScheduler::serviceQueue, &scheduler);
-    threadGroup.create_thread(boost::bind(&TraceThread<CScheduler::Function>, "scheduler", serviceLoop));
-
     /* Start the RPC server already.  It will be started in "warmup" mode
      * and not really process calls already (but it will signify connections
      * that the server is there and will be ready later).  Warmup mode will
@@ -992,15 +996,15 @@ bool AppInit2()
 // ********************************************************* Step 5: Backup wallet and verify wallet database integrity
 #ifdef ENABLE_WALLET
     if (!fDisableWallet) {
-        boost::filesystem::path backupDir = GetDataDir() / "backups";
-        if (!boost::filesystem::exists(backupDir)) {
+        filesystem::path backupDir = GetDataDir() / "backups";
+        if (!filesystem::exists(backupDir)) {
             // Always create backup folder to not confuse the operating system's file browser
-            boost::filesystem::create_directories(backupDir);
+            filesystem::create_directories(backupDir);
         }
         nWalletBackups = GetArg("-createwalletbackups", 10);
         nWalletBackups = std::max(0, std::min(10, nWalletBackups));
         if (nWalletBackups > 0) {
-            if (boost::filesystem::exists(backupDir)) {
+            if (filesystem::exists(backupDir)) {
                 // Create backup of the wallet
                 std::string dateTimeStr = DateTimeStrFormat(".%Y-%m-%d-%H-%M", GetTime());
                 std::string backupPathStr = backupDir.string();
@@ -1012,7 +1016,7 @@ bool AppInit2()
                 sourceFile.make_preferred();
                 backupFile.make_preferred();
                 if (boost::filesystem::exists(sourceFile)) {
-#if BOOST_VERSION >= 105800
+#if BOOST_VERSION >= 158000
                     try {
                         boost::filesystem::copy_file(sourceFile, backupFile);
                         LogPrintf("Creating backup of %s -> %s\n", sourceFile, backupFile);
@@ -1063,30 +1067,30 @@ bool AppInit2()
         if (GetBoolArg("-resync", false)) {
             uiInterface.InitMessage(_("Preparing for resync..."));
             // Delete the local blockchain folders to force a resync from scratch to get a consitent blockchain-state
-            boost::filesystem::path blocksDir = GetDataDir() / "blocks";
-            boost::filesystem::path chainstateDir = GetDataDir() / "chainstate";
-            boost::filesystem::path sporksDir = GetDataDir() / "sporks";
-            boost::filesystem::path zerocoinDir = GetDataDir() / "zerocoin";
+            filesystem::path blocksDir = GetDataDir() / "blocks";
+            filesystem::path chainstateDir = GetDataDir() / "chainstate";
+            filesystem::path sporksDir = GetDataDir() / "sporks";
+            filesystem::path zerocoinDir = GetDataDir() / "zerocoin";
 
             LogPrintf("Deleting blockchain folders blocks, chainstate, sporks and zerocoin\n");
             // We delete in 4 individual steps in case one of the folder is missing already
             try {
-                if (boost::filesystem::exists(blocksDir)){
+                if (filesystem::exists(blocksDir)){
                     boost::filesystem::remove_all(blocksDir);
                     LogPrintf("-resync: folder deleted: %s\n", blocksDir.string().c_str());
                 }
 
-                if (boost::filesystem::exists(chainstateDir)){
+                if (filesystem::exists(chainstateDir)){
                     boost::filesystem::remove_all(chainstateDir);
                     LogPrintf("-resync: folder deleted: %s\n", chainstateDir.string().c_str());
                 }
 
-                if (boost::filesystem::exists(sporksDir)){
+                if (filesystem::exists(sporksDir)){
                     boost::filesystem::remove_all(sporksDir);
                     LogPrintf("-resync: folder deleted: %s\n", sporksDir.string().c_str());
                 }
 
-                if (boost::filesystem::exists(zerocoinDir)){
+                if (filesystem::exists(zerocoinDir)){
                     boost::filesystem::remove_all(zerocoinDir);
                     LogPrintf("-resync: folder deleted: %s\n", zerocoinDir.string().c_str());
                 }
@@ -1112,7 +1116,7 @@ bool AppInit2()
             // try again
             if (!bitdb.Open(GetDataDir())) {
                 // if it still fails, it probably means we can't even create the database env
-                std::string msg = strprintf(_("Error initializing wallet database environment %s!"), strDataDir);
+                string msg = strprintf(_("Error initializing wallet database environment %s!"), strDataDir);
                 return InitError(msg);
             }
         }
@@ -1123,10 +1127,10 @@ bool AppInit2()
                 return false;
         }
 
-        if (boost::filesystem::exists(GetDataDir() / strWalletFile)) {
+        if (filesystem::exists(GetDataDir() / strWalletFile)) {
             CDBEnv::VerifyResult r = bitdb.Verify(strWalletFile, CWalletDB::Recover);
             if (r == CDBEnv::RECOVER_OK) {
-                std::string msg = strprintf(_("Warning: wallet.dat corrupt, data salvaged!"
+                string msg = strprintf(_("Warning: wallet.dat corrupt, data salvaged!"
                                          " Original wallet.dat saved as wallet.{timestamp}.bak in %s; if"
                                          " your balance or transactions are incorrect you should"
                                          " restore from a backup."),
@@ -1139,29 +1143,13 @@ bool AppInit2()
 
     }  // (!fDisableWallet)
 #endif // ENABLE_WALLET
-
     // ********************************************************* Step 6: network initialization
 
     RegisterNodeSignals(GetNodeSignals());
 
-    // sanitize comments per BIP-0014, format user agent and check total size
-    std::vector<std::string> uacomments;
-    for (const std::string& cmt : mapMultiArgs["-uacomment"]) {
-        if (cmt != SanitizeString(cmt, SAFE_CHARS_UA_COMMENT))
-            return InitError(strprintf(_("User Agent comment (%s) contains unsafe characters."), cmt));
-        uacomments.push_back(cmt);
-    }
-
-    // format user agent, check total size
-    strSubVersion = FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, uacomments);
-    if (strSubVersion.size() > MAX_SUBVERSION_LENGTH) {
-        return InitError(strprintf(_("Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments."),
-            strSubVersion.size(), MAX_SUBVERSION_LENGTH));
-    }
-
     if (mapArgs.count("-onlynet")) {
         std::set<enum Network> nets;
-        for (std::string snet : mapMultiArgs["-onlynet"]) {
+        BOOST_FOREACH (std::string snet, mapMultiArgs["-onlynet"]) {
             enum Network net = ParseNetwork(snet);
             if (net == NET_UNROUTABLE)
                 return InitError(strprintf(_("Unknown network specified in -onlynet: '%s'"), snet));
@@ -1175,7 +1163,7 @@ bool AppInit2()
     }
 
     if (mapArgs.count("-whitelist")) {
-        for (const std::string& net : mapMultiArgs["-whitelist"]) {
+        BOOST_FOREACH (const std::string& net, mapMultiArgs["-whitelist"]) {
             CSubNet subnet(net);
             if (!subnet.IsValid())
                 return InitError(strprintf(_("Invalid netmask specified in -whitelist: '%s'"), net));
@@ -1190,16 +1178,15 @@ bool AppInit2()
     // -proxy sets a proxy for all outgoing network traffic
     // -noproxy (or -proxy=0) as well as the empty string can be used to not set a proxy, this is the default
     std::string proxyArg = GetArg("-proxy", "");
-    SetLimited(NET_TOR);
     if (proxyArg != "" && proxyArg != "0") {
         CService proxyAddr;
         if (!Lookup(proxyArg.c_str(), proxyAddr, 9050, fNameLookup)) {
-            return InitError(strprintf(_("Lookup(): Invalid -proxy address or hostname: '%s'"), proxyArg));
+            return InitError(strprintf(_("Invalid -proxy address or hostname: '%s'"), proxyArg));
         }
 
         proxyType addrProxy = proxyType(proxyAddr, proxyRandomize);
         if (!addrProxy.IsValid())
-            return InitError(strprintf(_("isValid(): Invalid -proxy address or hostname: '%s'"), proxyArg));
+            return InitError(strprintf(_("Invalid -proxy address or hostname: '%s'"), proxyArg));
 
         SetProxy(NET_IPV4, addrProxy);
         SetProxy(NET_IPV6, addrProxy);
@@ -1224,7 +1211,7 @@ bool AppInit2()
             if (!addrOnion.IsValid())
                 return InitError(strprintf(_("Invalid -onion address or hostname: '%s'"), onionArg));
             SetProxy(NET_TOR, addrOnion);
-            SetLimited(NET_TOR, false);
+            SetLimited(NET_TOR);
         }
     }
 
@@ -1235,13 +1222,13 @@ bool AppInit2()
     bool fBound = false;
     if (fListen) {
         if (mapArgs.count("-bind") || mapArgs.count("-whitebind")) {
-            for (std::string strBind : mapMultiArgs["-bind"]) {
+            BOOST_FOREACH (std::string strBind, mapMultiArgs["-bind"]) {
                 CService addrBind;
                 if (!Lookup(strBind.c_str(), addrBind, GetListenPort(), false))
                     return InitError(strprintf(_("Cannot resolve -bind address: '%s'"), strBind));
                 fBound |= Bind(addrBind, (BF_EXPLICIT | BF_REPORT_ERROR));
             }
-            for (std::string strBind : mapMultiArgs["-whitebind"]) {
+            BOOST_FOREACH (std::string strBind, mapMultiArgs["-whitebind"]) {
                 CService addrBind;
                 if (!Lookup(strBind.c_str(), addrBind, 0, false))
                     return InitError(strprintf(_("Cannot resolve -whitebind address: '%s'"), strBind));
@@ -1252,7 +1239,7 @@ bool AppInit2()
         } else {
             struct in_addr inaddr_any;
             inaddr_any.s_addr = INADDR_ANY;
-            fBound |= Bind(CService((in6_addr)IN6ADDR_ANY_INIT, GetListenPort()), BF_NONE);
+            fBound |= Bind(CService(in6addr_any, GetListenPort()), BF_NONE);
             fBound |= Bind(CService(inaddr_any, GetListenPort()), !fBound ? BF_REPORT_ERROR : BF_NONE);
         }
         if (!fBound)
@@ -1260,7 +1247,7 @@ bool AppInit2()
     }
 
     if (mapArgs.count("-externalip")) {
-        for (std::string strAddr : mapMultiArgs["-externalip"]) {
+        BOOST_FOREACH (string strAddr, mapMultiArgs["-externalip"]) {
             CService addrLocal(strAddr, GetListenPort(), fNameLookup);
             if (!addrLocal.IsValid())
                 return InitError(strprintf(_("Cannot resolve -externalip address: '%s'"), strAddr));
@@ -1268,7 +1255,7 @@ bool AppInit2()
         }
     }
 
-    for (std::string strDest : mapMultiArgs["-seednode"])
+    BOOST_FOREACH (string strDest, mapMultiArgs["-seednode"])
         AddOneShot(strDest);
 
 #if ENABLE_ZMQ
@@ -1281,13 +1268,32 @@ bool AppInit2()
 
     // ********************************************************* Step 7: load block chain
 
-    //Transcendence: Load Accumulator Checkpoints according to network (main/test/regtest)
-    assert(AccumulatorCheckpoints::LoadCheckpoints(Params().NetworkIDString()));
-
     fReindex = GetBoolArg("-reindex", false);
 
-    // Create blocks directory if it doesn't already exist
-    boost::filesystem::create_directories(GetDataDir() / "blocks");
+    // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
+    filesystem::path blocksDir = GetDataDir() / "blocks";
+    if (!filesystem::exists(blocksDir)) {
+        filesystem::create_directories(blocksDir);
+        bool linked = false;
+        for (unsigned int i = 1; i < 10000; i++) {
+            filesystem::path source = GetDataDir() / strprintf("blk%04u.dat", i);
+            if (!filesystem::exists(source)) break;
+            filesystem::path dest = blocksDir / strprintf("blk%05u.dat", i - 1);
+            try {
+                filesystem::create_hard_link(source, dest);
+                LogPrintf("Hardlinked %s -> %s\n", source.string(), dest.string());
+                linked = true;
+            } catch (filesystem::filesystem_error& e) {
+                // Note: hardlink creation failing is not a disaster, it just means
+                // blocks will get re-downloaded from peers.
+                LogPrintf("Error hardlinking blk%04u.dat : %s\n", i, e.what());
+                break;
+            }
+        }
+        if (linked) {
+            fReindex = true;
+        }
+    }
 
     // cache size calculations
     size_t nTotalCache = (GetArg("-dbcache", nDefaultDbCache) << 20);
@@ -1321,10 +1327,8 @@ bool AppInit2()
                 delete zerocoinDB;
                 delete pSporkDB;
 
-                //Transcendence specific: zerocoin and spork DB's
-                zerocoinDB = new CZerocoinDB(0, false, fReindex);
+                zerocoinDB = new CZerocoinDB(0, false, false);
                 pSporkDB = new CSporkDB(0, false, false);
-
                 pblocktree = new CBlockTreeDB(nBlockTreeDBCache, false, fReindex);
                 pcoinsdbview = new CCoinsViewDB(nCoinDBCache, false, fReindex);
                 pcoinscatcher = new CCoinsViewErrorCatcher(pcoinsdbview);
@@ -1338,10 +1342,8 @@ bool AppInit2()
                 LoadSporksFromDB();
 
                 uiInterface.InitMessage(_("Loading block index..."));
-                std::string strBlockIndexError = "";
-                if (!LoadBlockIndex(strBlockIndexError)) {
+                if (!LoadBlockIndex()) {
                     strLoadError = _("Error loading block database");
-                    strLoadError = strprintf("%s : %s", strLoadError, strBlockIndexError);
                     break;
                 }
 
@@ -1362,65 +1364,91 @@ bool AppInit2()
                     break;
                 }
 
-                // Populate list of invalid/fraudulent outpoints that are banned from the chain
-                invalid_out::LoadOutpoints();
-                invalid_out::LoadSerials();
-
-                // Drop all information from the zerocoinDB and repopulate
-                if (GetBoolArg("-reindexzerocoin", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
-                        uiInterface.InitMessage(_("Reindexing zerocoin database..."));
-                        std::string strError = ReindexZerocoinDB();
-                        if (strError != "") {
-                            strLoadError = strError;
-                            break;
-                        }
-                    }
-                }
-
-                // Wrapped serials inflation check
-                bool reindexDueWrappedSerials = false;
-                bool reindexZerocoin = false;
-                int chainHeight = chainActive.Height();
-
-                // Reindex only for wrapped serials inflation.
-                if (reindexDueWrappedSerials)
-                    AddWrappedSerialsInflation();
-
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
-                if (GetBoolArg("-reindexmoneysupply", false) || reindexZerocoin) {
-                    if (chainHeight > Params().Zerocoin_StartHeight()) {
+                if (GetBoolArg("-reindexmoneysupply", false)) {
+                    if (chainActive.Height() >= Params().Zerocoin_AccumulatorStartHeight()) {
                         RecalculateZTRANSCENDENCEMinted();
                         RecalculateZTRANSCENDENCESpent();
                     }
-                    // Recalculate from the zerocoin activation or from scratch.
-                    RecalculateTRANSCENDENCESupply(reindexZerocoin ? Params().Zerocoin_StartHeight() : 1);
+                    RecalculateTRANSCENDENCESupply(1);
                 }
 
-                if (!fReindex) {
-                    uiInterface.InitMessage(_("Verifying blocks..."));
+                // Force recalculation of accumulators.
+                if (GetBoolArg("-reindexaccumulators", false)) {
+                    CBlockIndex* pindex = chainActive[Params().Zerocoin_AccumulatorStartHeight()];
+                    while (pindex->nHeight < chainActive.Height()) {
+                        if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint))
+                            listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                        pindex = chainActive.Next(pindex);
+                    }
+                }
 
-                    // Flag sent to validation code to let it know it can skip certain checks
-                    fVerifyingBlocks = true;
+                // Transcendence: recalculate Accumulator Checkpoints that failed to database properly
+                if (!listAccCheckpointsNoDB.empty() && chainActive.Tip()->GetBlockHeader().nVersion >= Params().Zerocoin_HeaderVersion()) {
+                    uiInterface.InitMessage(_("Calculating missing accumulators..."));
+                    LogPrintf("%s : finding missing checkpoints\n", __func__);
 
-                    {
-                        LOCK(cs_main);
-                        CBlockIndex *tip = chainActive[chainActive.Height()];
-                        RPCNotifyBlockChange(tip->GetBlockHash());
-                        if (tip && tip->nTime > GetAdjustedTime() + 2 * 60 * 60) {
-                            strLoadError = _("The block database contains a block which appears to be from the future. "
-                                             "This may be due to your computer's date and time being set incorrectly. "
-                                             "Only rebuild the block database if you are sure that your computer's date and time are correct");
+                    //search the chain to see when zerocoin started
+                    int nZerocoinStart = 0;
+                    CBlockIndex* pindex = chainActive.Tip();
+                    while (pindex->pprev) {
+                        if (pindex->GetBlockHeader().nVersion >= Params().Zerocoin_HeaderVersion())
+                            nZerocoinStart = pindex->nHeight;
+                        else if (nZerocoinStart)
                             break;
-                        }
+
+                        pindex = pindex->pprev;
                     }
 
-                    // Zerocoin must check at level 4
-                    if (!CVerifyDB().VerifyDB(pcoinsdbview, 4, GetArg("-checkblocks", 100))) {
-                        strLoadError = _("Corrupted block database detected");
-                        fVerifyingBlocks = false;
-                        break;
+                    // find each checkpoint that is missing
+                    pindex = chainActive[nZerocoinStart];
+                    while (!listAccCheckpointsNoDB.empty()) {
+                        if (ShutdownRequested())
+                            break;
+
+                        // find checkpoints by iterating through the blockchain beginning with the first zerocoin block
+                        if (pindex->nAccumulatorCheckpoint != pindex->pprev->nAccumulatorCheckpoint) {
+
+                            double dPercent = (pindex->nHeight - nZerocoinStart) / (double)(chainActive.Height() - nZerocoinStart);
+                            uiInterface.ShowProgress(_("Calculating missing accumulators..."), (int)(dPercent * 100));
+                            if(find(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint) != listAccCheckpointsNoDB.end()) {
+                                uint256 nCheckpointCalculated = 0;
+                                if (!CalculateAccumulatorCheckpoint(pindex->nHeight, nCheckpointCalculated)) {
+                                    // GetCheckpoint could have terminated due to a shutdown request. Check this here.
+                                    if (ShutdownRequested())
+                                        break;
+                                    return InitError(_("Failed to calculate accumulator checkpoint"));
+                                }
+
+                                //check that the calculated checkpoint is what is in the index.
+                                if(nCheckpointCalculated != pindex->nAccumulatorCheckpoint) {
+                                    LogPrintf("%s : height=%d calculated_checkpoint=%s actual=%s\n", __func__, pindex->nHeight, nCheckpointCalculated.GetHex(), pindex->nAccumulatorCheckpoint.GetHex());
+                                    return InitError(_("Calculated accumulator checkpoint is not what is recorded by block index"));
+                                }
+
+                                auto it = find(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(), pindex->nAccumulatorCheckpoint);
+                                listAccCheckpointsNoDB.erase(it);
+                            }
+                        }
+
+                        // if we have iterated to the end of the blockchain, then checkpoints should be in sync
+                        if (pindex->nHeight + 1 <= chainActive.Height())
+                            pindex = chainActive[pindex->nHeight + 1];
+                        else
+                            break;
                     }
+                }
+
+                uiInterface.InitMessage(_("Verifying blocks..."));
+
+                // Flag sent to validation code to let it know it can skip certain checks
+                fVerifyingBlocks = true;
+
+                // Zerocoin must check at level 4
+                if (!CVerifyDB().VerifyDB(pcoinsdbview, 4, GetArg("-checkblocks", 100))) {
+                    strLoadError = _("Corrupted block database detected");
+                    fVerifyingBlocks = false;
+                    break;
                 }
             } catch (std::exception& e) {
                 if (fDebug) LogPrintf("%s\n", e.what());
@@ -1502,7 +1530,7 @@ bool AppInit2()
             if (nLoadWalletRet == DB_CORRUPT)
                 strErrors << _("Error loading wallet.dat: Wallet corrupted") << "\n";
             else if (nLoadWalletRet == DB_NONCRITICAL_ERROR) {
-                std::string msg(_("Warning: error reading wallet.dat! All keys read correctly, but transaction data"
+                string msg(_("Warning: error reading wallet.dat! All keys read correctly, but transaction data"
                              " or address book entries might be missing or incorrect."));
                 InitWarning(msg);
             } else if (nLoadWalletRet == DB_TOO_NEW)
@@ -1570,7 +1598,7 @@ bool AppInit2()
 
             // Restore wallet transaction metadata after -zapwallettxes=1
             if (GetBoolArg("-zapwallettxes", false) && GetArg("-zapwallettxes", "1") != "2") {
-                for (const CWalletTx& wtxOld : vWtx) {
+                BOOST_FOREACH (const CWalletTx& wtxOld, vWtx) {
                     uint256 hash = wtxOld.GetHash();
                     std::map<uint256, CWalletTx>::iterator mi = pwalletMain->mapWallet.find(hash);
                     if (mi != pwalletMain->mapWallet.end()) {
@@ -1590,14 +1618,8 @@ bool AppInit2()
         }
         fVerifyingBlocks = false;
 
-        //Inititalize zTELOSWallet
-        uiInterface.InitMessage(_("Syncing zTELOS wallet..."));
-
-        pwalletMain->InitAutoConvertAddresses();
-
-        bool fEnableZPivBackups = GetBoolArg("-backupztelos", true);
-        pwalletMain->setZTranscendenceAutoBackups(fEnableZPivBackups);
-
+        bool fEnableZTranscendenceBackups = GetBoolArg("-backupztranscendence", true);
+        pwalletMain->setZTranscendenceAutoBackups(fEnableZTranscendenceBackups);
     }  // (!fDisableWallet)
 #else  // ENABLE_WALLET
     LogPrintf("No wallet compiled in!\n");
@@ -1614,7 +1636,7 @@ bool AppInit2()
 
     std::vector<boost::filesystem::path> vImportFiles;
     if (mapArgs.count("-loadblock")) {
-        for (std::string strFile : mapMultiArgs["-loadblock"])
+        BOOST_FOREACH (string strFile, mapMultiArgs["-loadblock"])
             vImportFiles.push_back(strFile);
     }
     threadGroup.create_thread(boost::bind(&ThreadImport, vImportFiles));
@@ -1625,8 +1647,9 @@ bool AppInit2()
     }
 
     // ********************************************************* Step 10: setup ObfuScation
+	InitRPCMining();
 
-    uiInterface.InitMessage(_("Loading masternode cache..."));
+	uiInterface.InitMessage(_("Loading masternode cache..."));
 
     CMasternodeDB mndb;
     CMasternodeDB::ReadResult readResult = mndb.Read(mnodeman);
@@ -1720,19 +1743,19 @@ bool AppInit2()
         LOCK(pwalletMain->cs_wallet);
         LogPrintf("Locking Masternodes:\n");
         uint256 mnTxHash;
-        for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {
+        BOOST_FOREACH (CMasternodeConfig::CMasternodeEntry mne, masternodeConfig.getEntries()) {
             LogPrintf("  %s %s\n", mne.getTxHash(), mne.getOutputIndex());
             mnTxHash.SetHex(mne.getTxHash());
-            COutPoint outpoint = COutPoint(mnTxHash, (unsigned int) std::stoul(mne.getOutputIndex().c_str()));
+            COutPoint outpoint = COutPoint(mnTxHash, boost::lexical_cast<unsigned int>(mne.getOutputIndex()));
             pwalletMain->LockCoin(outpoint);
         }
     }
 
-    fEnableZeromint = GetBoolArg("-enablezeromint", true);
+    fEnableZeromint = GetBoolArg("-enablezeromint", false);
 
     nZeromintPercentage = GetArg("-zeromintpercentage", 10);
     if (nZeromintPercentage > 100) nZeromintPercentage = 100;
-    if (nZeromintPercentage < 1) nZeromintPercentage = 1;
+    if (nZeromintPercentage < 10) nZeromintPercentage = 10;
 
     nPreferredDenom  = GetArg("-preferredDenom", 0);
     if (nPreferredDenom != 0 && nPreferredDenom != 1 && nPreferredDenom != 5 && nPreferredDenom != 10 && nPreferredDenom != 50 &&
@@ -1740,6 +1763,20 @@ bool AppInit2()
         LogPrintf("-preferredDenom: invalid denomination parameter %d. Default value used\n", nPreferredDenom);
         nPreferredDenom = 0;
     }
+
+// XX42 Remove/refactor code below. Until then provide safe defaults
+    nAnonymizeTranscendenceAmount = 2;
+
+//    nLiquidityProvider = GetArg("-liquidityprovider", 0); //0-100
+//    if (nLiquidityProvider != 0) {
+//        obfuScationPool.SetMinBlockSpacing(std::min(nLiquidityProvider, 100) * 15);
+//        fEnableZeromint = true;
+//        nZeromintPercentage = 99999;
+//    }
+//
+//    nAnonymizeTranscendenceAmount = GetArg("-anonymizetranscendenceamount", 0);
+//    if (nAnonymizeTranscendenceAmount > 999999) nAnonymizeTranscendenceAmount = 999999;
+//    if (nAnonymizeTranscendenceAmount < 2) nAnonymizeTranscendenceAmount = 2;
 
     fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
     nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);
@@ -1753,6 +1790,7 @@ bool AppInit2()
 
     LogPrintf("fLiteMode %d\n", fLiteMode);
     LogPrintf("nSwiftTXDepth %d\n", nSwiftTXDepth);
+    LogPrintf("Anonymize Transcendence Amount %d\n", nAnonymizeTranscendenceAmount);
     LogPrintf("Budget Mode %s\n", strBudgetMode.c_str());
 
     /* Denominations
@@ -1761,8 +1799,8 @@ bool AppInit2()
        is convertable to another.
 
        For example:
-       1PIV+1000 == (.1PIV+100)*10
-       10PIV+10000 == (1PIV+1000)*10
+       1TRANSCENDENCE+1000 == (.1TRANSCENDENCE+100)*10
+       10TRANSCENDENCE+10000 == (1TRANSCENDENCE+1000)*10
     */
     obfuScationDenominations.push_back((10000 * COIN) + 10000000);
     obfuScationDenominations.push_back((1000 * COIN) + 1000000);
@@ -1770,6 +1808,10 @@ bool AppInit2()
     obfuScationDenominations.push_back((10 * COIN) + 10000);
     obfuScationDenominations.push_back((1 * COIN) + 1000);
     obfuScationDenominations.push_back((.1 * COIN) + 100);
+    /* Disabled till we need them
+    obfuScationDenominations.push_back( (.01      * COIN)+10 );
+    obfuScationDenominations.push_back( (.001     * COIN)+1 );
+    */
 
     obfuScationPool.InitCollateralAddress();
 
@@ -1797,7 +1839,7 @@ bool AppInit2()
     if (GetBoolArg("-listenonion", DEFAULT_LISTEN_ONION))
         StartTorControl(threadGroup);
 
-    StartNode(threadGroup, scheduler);
+    StartNode(threadGroup,scheduler);
 
 #ifdef ENABLE_WALLET
     // Generate coins in the background
@@ -1817,19 +1859,8 @@ bool AppInit2()
 
         // Run a thread to flush wallet periodically
         threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
-
-        if (GetBoolArg("-precompute", false)) {
-            // Run a thread to precompute any zTELOS spends
-            threadGroup.create_thread(boost::bind(&ThreadPrecomputeSpends));
-        }
-
-        if (GetBoolArg("-staking", true)) {
-            // ppcoin:mint proof-of-stake blocks in the background
-            threadGroup.create_thread(boost::bind(&ThreadStakeMinter));
-        }
     }
 #endif
-
 
     return !fRequestShutdown;
 }

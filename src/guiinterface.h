@@ -1,10 +1,11 @@
 // Copyright (c) 2010 Satoshi Nakamoto
-// Copyright (c) 2012 The Bitcoin developers
+// Copyright (c) 2012-2014 The Bitcoin developers
+// Copyright (c) 2017-2019 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_UI_INTERFACE_H
-#define BITCOIN_UI_INTERFACE_H
+#ifndef BITCOIN_GUIINTERFACE_H
+#define BITCOIN_GUIINTERFACE_H
 
 #include <stdint.h>
 #include <string>
@@ -102,10 +103,12 @@ public:
 
     /** New block has been accepted */
     boost::signals2::signal<void(const uint256& hash)> NotifyBlockTip;
-    
+
+    /** New block has been accepted and is over a certain size */
+    boost::signals2::signal<void(int size, const uint256& hash)> NotifyBlockSize;
+
     /** Banlist did change. */
     boost::signals2::signal<void (void)> BannedListChanged;
-
 };
 
 extern CClientUIInterface uiInterface;
@@ -120,4 +123,4 @@ inline std::string _(const char* psz)
     return rv ? (*rv) : psz;
 }
 
-#endif // BITCOIN_UI_INTERFACE_H
+#endif // BITCOIN_GUIINTERFACE_H

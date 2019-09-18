@@ -392,7 +392,6 @@ void BitcoinGUI::createActions(const NetworkStyle* networkStyle)
     connect(privacyAction, SIGNAL(triggered()), this, SLOT(gotoPrivacyPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
-    connect(governanceAction, SIGNAL(triggered()), this, SLOT(gotoGovernancePage()));
 #endif // ENABLE_WALLET
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
@@ -823,12 +822,6 @@ void BitcoinGUI::gotoMasternodePage()
         masternodeAction->setChecked(true);
         if (walletFrame) walletFrame->gotoMasternodePage();
     }
-}
-
-void BitcoinGUI::gotoGovernancePage()
-{
-    governanceAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoGovernancePage();
 }
 
 void BitcoinGUI::gotoReceiveCoinsPage()

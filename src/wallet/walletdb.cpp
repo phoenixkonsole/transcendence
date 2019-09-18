@@ -11,11 +11,9 @@
 #include "protocol.h"
 #include "serialize.h"
 #include "sync.h"
-#include "txdb.h"
 #include "util.h"
 #include "utiltime.h"
 #include "wallet.h"
-#include <ztelos/deterministicmint.h>
 
 #include <boost/filesystem.hpp>
 #include <boost/foreach.hpp>
@@ -275,6 +273,11 @@ bool CWalletDB::WriteAccount(const string& strAccount, const CAccount& account)
 bool CWalletDB::WriteAccountingEntry(const uint64_t nAccEntryNum, const CAccountingEntry& acentry)
 {
     return Write(std::make_pair(std::string("acentry"), std::make_pair(acentry.strAccount, nAccEntryNum)), acentry);
+}
+
+bool CWalletDB::WriteAccountingEntry(const CAccountingEntry& acentry)
+{
+    return WriteAccountingEntry(++nAccountingEntryNumber, acentry);
 }
 
 CAmount CWalletDB::GetAccountCreditDebit(const string& strAccount)
@@ -892,12 +895,6 @@ void ThreadFlushWalletDB(const string& strFile)
     }
 }
 
-void NotifyBacked(const CWallet& wallet, bool fSuccess, string strMessage)
-{
-    LogPrint(nullptr, strMessage.data());
-    wallet.NotifyWalletBacked(fSuccess, strMessage);
-}
-
 bool BackupWallet(const CWallet& wallet, const string& strDest)
 {
     if (!wallet.fFileBacked)
@@ -1091,7 +1088,21 @@ bool CWalletDB::ArchiveMintOrphan(const CZerocoinMint& zerocoinMint)
     return true;
 }
 
-	std::list<CZerocoinMint> CWalletDB::ListMintedCoins(bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus)
+bool CWalletDB::UnarchiveZerocoin(const CZerocoinMint& mint)
+{
+    CDataStream ss(SER_GETHASH, 0);
+    ss << mint.GetValue();
+    uint256 hash = Hash(ss.begin(), ss.end());;
+
+    if (!Erase(make_pair(string("zco"), hash))) {
+        LogPrintf("%s : failed to erase archived zerocoin mint\n", __func__);
+        return false;
+    }
+
+    return WriteZerocoinMint(mint);
+}
+
+std::list<CZerocoinMint> CWalletDB::ListMintedCoins(bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus)
 {
     std::list<CZerocoinMint> listPubCoin;
     Dbc* pcursor = GetCursor();
@@ -1206,6 +1217,19 @@ bool CWalletDB::ArchiveMintOrphan(const CZerocoinMint& zerocoinMint)
 
     return listPubCoin;
 }
+// Just get the Serial Numbers
+std::list<CBigNum> CWalletDB::ListMintedCoinsSerial()
+{
+    std::list<CBigNum> listPubCoin;
+    std::list<CZerocoinMint> listCoins = ListMintedCoins(true, false, false);
+    
+    for ( auto& coin : listCoins) {
+        listPubCoin.push_back(coin.GetSerialNumber());
+    }
+    return listPubCoin;
+}
+
+
 std::list<CZerocoinSpend> CWalletDB::ListSpentCoins()
 {
     std::list<CZerocoinSpend> listCoinSpend;

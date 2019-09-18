@@ -59,7 +59,7 @@ SendWidget::SendWidget(TELOSGUI* parent) :
     setCssProperty(ui->labelSubtitle2, "text-subtitle");
 
     /* Address */
-    ui->labelSubtitleAddress->setText(tr("Enter a PIVX address or contact label"));
+    ui->labelSubtitleAddress->setText(tr("Enter a Transcendence address or contact label"));
     setCssProperty(ui->labelSubtitleAddress, "text-title");
 
 

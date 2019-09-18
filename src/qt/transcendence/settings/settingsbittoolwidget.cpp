@@ -81,7 +81,7 @@ SettingsBitToolWidget::SettingsBitToolWidget(TELOSGUI* _window, QWidget *parent)
     // Encrypt
 
     // Address
-    ui->labelSubtitleAddress->setText(tr("Enter a PIVX address"));
+    ui->labelSubtitleAddress->setText(tr("Enter a Transcendence address"));
     setCssProperty(ui->labelSubtitleAddress, "text-title");
 
     ui->addressIn_ENC->setPlaceholderText(tr("Add address"));

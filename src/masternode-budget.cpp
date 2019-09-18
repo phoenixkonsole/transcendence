@@ -615,7 +615,7 @@ bool CBudgetManager::IsBudgetPaymentBlock(int nBlockHeight)
 
     return false;
 }
-bool CBudgetManager::IsPassing(const CBlockIndex* pindexPrev, int nBlockStartBudget, int nBlockEndBudget, int mnCount)
+bool CBudgetProposal::IsPassing(const CBlockIndex* pindexPrev, int nBlockStartBudget, int nBlockEndBudget, int mnCount)
 {
     if (!fValid)
         return false;

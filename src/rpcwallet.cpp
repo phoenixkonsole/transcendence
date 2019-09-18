@@ -902,7 +902,7 @@ UniValue addmultisigaddress(const UniValue& params, bool fHelp)
 
                      "\nArguments:\n"
                      "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
-                     "2. \"keysobject\"   (string, required) A json array of pivx addresses or hex-encoded public keys\n"
+                     "2. \"keysobject\"   (string, required) A json array of transcendence addresses or hex-encoded public keys\n"
                      "     [\n"
                      "       \"address\"  (string) pivx address or hex-encoded public key\n"
                      "       ...,\n"
@@ -2257,7 +2257,7 @@ UniValue multisend(const UniValue& params, bool fHelp)
             "The MultiSend transaction is sent when the staked coins mature (100 confirmations)\n"
             "****************************************************************\n"
             "TO CREATE OR ADD TO THE MULTISEND VECTOR:\n"
-            "multisend <PIVX Address> <percent>\n"
+            "multisend <Transcendence Address> <percent>\n"
             "This will add a new address to the MultiSend vector\n"
             "Percent is a whole number 1 to 100.\n"
             "****************************************************************\n"

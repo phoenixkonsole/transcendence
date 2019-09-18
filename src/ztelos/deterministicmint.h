@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The dogecash developers
+// Copyright (c) 2018 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef dogecash_DETERMINISTICMINT_H
-#define dogecash_DETERMINISTICMINT_H
+#ifndef transcendence_DETERMINISTICMINT_H
+#define transcendence_DETERMINISTICMINT_H
 
 #include <libzerocoin/Denominations.h>
 #include <uint256.h>
@@ -64,4 +64,4 @@ public:
     };
 };
 
-#endif //dogecash_DETERMINISTICMINT_H
+#endif //transcendence_DETERMINISTICMINT_H

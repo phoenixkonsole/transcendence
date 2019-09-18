@@ -707,7 +707,7 @@ zTELOS are mature when they have more than 20 confirmations AND more than 2 mint
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../pivx.qrc">
+                             <iconset resource="../transcendence.qrc">
                               <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
                             </property>
                             <property name="shortcut">
@@ -724,7 +724,7 @@ zTELOS are mature when they have more than 20 confirmations AND more than 2 mint
                              <string/>
                             </property>
                             <property name="icon">
-                             <iconset resource="../pivx.qrc">
+                             <iconset resource="../transcendence.qrc">
                               <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
                             </property>
                             <property name="shortcut">
@@ -2554,7 +2554,7 @@ To change the percentage (no restart required):
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../pivx.qrc"/>
+  <include location="../transcendence.qrc"/>
  </resources>
  <connections/>
 </ui>

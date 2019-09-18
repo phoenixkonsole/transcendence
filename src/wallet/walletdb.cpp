@@ -277,11 +277,6 @@ bool CWalletDB::WriteAccountingEntry(const uint64_t nAccEntryNum, const CAccount
     return Write(std::make_pair(std::string("acentry"), std::make_pair(acentry.strAccount, nAccEntryNum)), acentry);
 }
 
-bool CWalletDB::WriteAccountingEntry_Backend(const CAccountingEntry& acentry)
-{
-    return WriteAccountingEntry(++nAccountingEntryNumber, acentry);
-}
-
 CAmount CWalletDB::GetAccountCreditDebit(const string& strAccount)
 {
     list<CAccountingEntry> entries;
@@ -1096,12 +1091,7 @@ bool CWalletDB::ArchiveMintOrphan(const CZerocoinMint& zerocoinMint)
     return true;
 }
 
-bool CWalletDB::WriteMintPoolPair(const uint256& hashMasterSeed, const uint256& hashPubcoin, const uint32_t& nCount)
-{
-    return Write(make_pair(string("mintpool"), hashPubcoin), make_pair(hashMasterSeed, nCount));
-}
-
-std::list<CZerocoinMint> CWalletDB::ListMintedCoins()
+	std::list<CZerocoinMint> CWalletDB::ListMintedCoins(bool fUnusedOnly, bool fMaturedOnly, bool fUpdateStatus)
 {
     std::list<CZerocoinMint> listPubCoin;
     Dbc* pcursor = GetCursor();
@@ -1133,19 +1123,89 @@ std::list<CZerocoinMint> CWalletDB::ListMintedCoins()
         if (strType != "zerocoin")
             break;
 
-        uint256 hashPubcoin;
-        ssKey >> hashPubcoin;
+        uint256 value;
+        ssKey >> value;
 
         CZerocoinMint mint;
         ssValue >> mint;
 
+        if (fUnusedOnly) {
+            if (mint.IsUsed())
+                continue;
+
+            //double check that we have no record of this serial being used
+            if (ReadZerocoinSpendSerialEntry(mint.GetSerialNumber())) {
+                mint.SetUsed(true);
+                vOverWrite.emplace_back(mint);
+                continue;
+            }
+        }
+
+        if (fMaturedOnly || fUpdateStatus) {
+            //if there is not a record of the block height, then look it up and assign it
+            if (!mint.GetHeight()) {
+                CTransaction tx;
+                uint256 hashBlock;
+                if(!GetTransaction(mint.GetTxHash(), tx, hashBlock, true)) {
+                    LogPrintf("%s failed to find tx for mint txid=%s\n", __func__, mint.GetTxHash().GetHex());
+                    vArchive.emplace_back(mint);
+                    continue;
+                }
+
+                //if not in the block index, most likely is unconfirmed tx
+                if (mapBlockIndex.count(hashBlock)) {
+                    mint.SetHeight(mapBlockIndex[hashBlock]->nHeight);
+                    vOverWrite.emplace_back(mint);
+                } else if (fMaturedOnly){
+                    continue;
+                }
+            }
+
+            //not mature
+            if (mint.GetHeight() > chainActive.Height() - Params().Zerocoin_MintRequiredConfirmations()) {
+                if (!fMaturedOnly)
+                    listPubCoin.emplace_back(mint);
+                continue;
+            }
+
+            //if only requesting an update (fUpdateStatus) then skip the rest and add to list
+            if (fMaturedOnly) {
+                // check to make sure there are at least 3 other mints added to the accumulators after this
+                if (chainActive.Height() < mint.GetHeight() + 1)
+                    continue;
+
+                CBlockIndex *pindex = chainActive[mint.GetHeight() + 1];
+                int nMintsAdded = 0;
+                while(pindex->nHeight < chainActive.Height() - 30) { // 30 just to make sure that its at least 2 checkpoints from the top block
+                    nMintsAdded += count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), mint.GetDenomination());
+                    if(nMintsAdded >= Params().Zerocoin_RequiredAccumulation())
+                        break;
+                    pindex = chainActive[pindex->nHeight + 1];
+                }
+
+                if(nMintsAdded < Params().Zerocoin_RequiredAccumulation())
+                    continue;
+            }
+        }
         listPubCoin.emplace_back(mint);
     }
 
     pcursor->close();
+
+    //overwrite any updates
+    for (CZerocoinMint mint : vOverWrite) {
+        if(!this->WriteZerocoinMint(mint))
+            LogPrintf("%s failed to update mint from tx %s\n", __func__, mint.GetTxHash().GetHex());
+    }
+
+    // archive mints
+    for (CZerocoinMint mint : vArchive) {
+        if (!this->ArchiveMintOrphan(mint))
+            LogPrintf("%s failed to archive mint from %s\n", __func__, mint.GetTxHash().GetHex());
+    }
+
     return listPubCoin;
 }
-
 std::list<CZerocoinSpend> CWalletDB::ListSpentCoins()
 {
     std::list<CZerocoinSpend> listCoinSpend;

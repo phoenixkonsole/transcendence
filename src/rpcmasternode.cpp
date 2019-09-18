@@ -473,7 +473,7 @@ UniValue masternodedebug (const UniValue& params, bool fHelp)
         return activeMasternode.GetStatus();
 
     CTxIn vin = CTxIn();
-    CPubKey pubkey = CScript();
+    CPubKey pubkey;
     CKey key;
     unsigned int tier;
 

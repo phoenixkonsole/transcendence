@@ -7,6 +7,7 @@
 
 #include "qt/transcendence/pwidget.h"
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QModelIndex>
 
 class TELOSGUI;

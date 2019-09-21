@@ -6,18 +6,20 @@
 #define SENDMULTIROW_H
 
 #include <QWidget>
-#include <QPushButton>
+#include "qt/materialui/qtmaterialraisedbutton.h"
+
 #include <QAction>
 #include "walletmodel.h"
 #include "amount.h"
 #include "qt/transcendence/pwidget.h"
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class WalletModel;
 class SendCoinsRecipient;
 
 namespace Ui {
 class SendMultiRow;
-class QPushButton;
+class QtMaterialRaisedButton;
 }
 
 class SendMultiRow : public PWidget
@@ -79,7 +81,7 @@ private slots:
 
 private:
     Ui::SendMultiRow *ui;
-    QPushButton *iconNumber;
+    QtMaterialRaisedButton *iconNumber;
     QAction *btnContact;
 
     int displayUnit;

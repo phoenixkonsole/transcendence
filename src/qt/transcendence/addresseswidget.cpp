@@ -17,6 +17,7 @@
 #include <QModelIndex>
 #include <QRegExpValidator>
 
+
 #define DECORATION_SIZE 60
 #define NUM_ITEMS 3
 

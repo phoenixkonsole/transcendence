@@ -6,10 +6,12 @@
 #define SETTINGSCONSOLEWIDGET_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include "qt/transcendence/pwidget.h"
 #include "guiutil.h"
 #include "net.h"
 #include <QCompleter>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class ClientModel;
 class RPCTimerInterface;

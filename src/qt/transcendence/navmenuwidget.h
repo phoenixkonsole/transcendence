@@ -6,6 +6,7 @@
 #define NAVMENUWIDGET_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class TELOSGUI;
 

@@ -6,8 +6,10 @@
 #define WELCOMECONTENTWIDGET_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QDialog>
-#include <QPushButton>
+#include "qt/materialui/qtmaterialraisedbutton.h"
+
 class OptionsModel;
 
 namespace Ui {
@@ -37,12 +39,12 @@ public slots:
 
 private:
     Ui::WelcomeContentWidget *ui;
-    QPushButton *icConfirm1;
-    QPushButton *icConfirm2;
-    QPushButton *icConfirm3;
-    QPushButton *icConfirm4;
-    QPushButton *backButton;
-    QPushButton *nextButton;
+    QtMaterialRaisedButton *icConfirm1;
+    QtMaterialRaisedButton *icConfirm2;
+    QtMaterialRaisedButton *icConfirm3;
+    QtMaterialRaisedButton *icConfirm4;
+    QtMaterialRaisedButton *backButton;
+    QtMaterialRaisedButton *nextButton;
 
     OptionsModel *model;
 

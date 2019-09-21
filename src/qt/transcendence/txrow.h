@@ -6,6 +6,7 @@
 #define TXROW_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QDateTime>
 #include "transactionrecord.h"
 

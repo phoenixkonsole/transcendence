@@ -6,6 +6,7 @@
 #define CONTACTDROPDOWNROW_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 namespace Ui {
 class ContactDropdownRow;

@@ -205,7 +205,7 @@
            <number>0</number>
           </property>
           <item alignment="Qt::AlignTop">
-           <widget class="QPushButton" name="btnMenu">
+           <widget class="QtMaterialRaisedButton" name="btnMenu">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -309,6 +309,13 @@ padding:0px;</string>
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

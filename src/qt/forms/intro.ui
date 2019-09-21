@@ -281,7 +281,7 @@
                      <number>2</number>
                     </property>
                     <item alignment="Qt::AlignRight|Qt::AlignVCenter">
-                     <widget class="QPushButton" name="ellipsisButton">
+                     <widget class="QtMaterialRaisedButton" name="ellipsisButton">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -449,7 +449,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButtonCancel">
+                <widget class="QtMaterialRaisedButton" name="pushButtonCancel">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -478,7 +478,7 @@
                 </spacer>
                </item>
                <item>
-                <widget class="QPushButton" name="pushButtonOk">
+                <widget class="QtMaterialRaisedButton" name="pushButtonOk">
                  <property name="minimumSize">
                   <size>
                    <width>100</width>
@@ -504,6 +504,13 @@
    </item>
   </layout>
  </widget>
+<customwidgets>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

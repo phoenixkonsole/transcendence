@@ -6,6 +6,7 @@
 #define FURLISTROW_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QColor>
 
 template <class T=QWidget*>

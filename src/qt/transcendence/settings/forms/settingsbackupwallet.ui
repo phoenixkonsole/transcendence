@@ -94,7 +94,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonDocuments">
+         <widget class="QtMaterialRaisedButton" name="pushButtonDocuments">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -149,7 +149,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonSave">
+         <widget class="QtMaterialRaisedButton" name="pushButtonSave">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -270,7 +270,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonSave_2">
+         <widget class="QtMaterialRaisedButton" name="pushButtonSave_2">
           <property name="minimumSize">
            <size>
             <width>200</width>
@@ -308,6 +308,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -774,7 +774,7 @@ void StartDummyRPCThread()
 
 void StopRPCThreads()
 {
-        LogPrint("rpc", "Stopping RPC\n");
+    LogPrint("rpc", "Stopping RPC\n");
     deadlineTimers.clear();
 }
 

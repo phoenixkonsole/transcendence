@@ -12,6 +12,7 @@
 #include "qt/transcendence/addressfilterproxymodel.h"
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class AddressViewDelegate;
 class TooltipMenu;

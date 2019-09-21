@@ -221,7 +221,7 @@
                 <number>0</number>
                </property>
                <item alignment="Qt::AlignVCenter">
-                <widget class="QPushButton" name="imgWarning">
+                <widget class="QtMaterialRaisedButton" name="imgWarning">
                  <property name="styleSheet">
                   <string notr="true">border:none;</string>
                  </property>
@@ -386,7 +386,7 @@
              <number>0</number>
             </property>
             <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-             <widget class="QPushButton" name="pushImgEmpty">
+             <widget class="QtMaterialRaisedButton" name="pushImgEmpty">
               <property name="minimumSize">
                <size>
                 <width>100</width>
@@ -440,7 +440,7 @@
           </spacer>
          </item>
          <item alignment="Qt::AlignHCenter">
-          <widget class="QPushButton" name="btnHowTo">
+          <widget class="QtMaterialRaisedButton" name="btnHowTo">
            <property name="minimumSize">
             <size>
              <width>280</width>
@@ -816,7 +816,7 @@
                      </spacer>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="pushButtonChartArrow">
+                     <widget class="QtMaterialRaisedButton" name="pushButtonChartArrow">
                       <property name="minimumSize">
                        <size>
                         <width>20</width>
@@ -912,7 +912,7 @@ margin:0px;</string>
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QPushButton" name="pushButtonMonth">
+                  <widget class="QtMaterialRaisedButton" name="pushButtonMonth">
                    <property name="minimumSize">
                     <size>
                      <width>50</width>
@@ -937,7 +937,7 @@ margin:0px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonYear">
+                  <widget class="QtMaterialRaisedButton" name="pushButtonYear">
                    <property name="minimumSize">
                     <size>
                      <width>50</width>
@@ -962,7 +962,7 @@ margin:0px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButtonAll">
+                  <widget class="QtMaterialRaisedButton" name="pushButtonAll">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
                      <horstretch>0</horstretch>
@@ -1194,7 +1194,7 @@ margin:0px;</string>
                <number>0</number>
               </property>
               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-               <widget class="QPushButton" name="pushImgEmptyChart">
+               <widget class="QtMaterialRaisedButton" name="pushImgEmptyChart">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
@@ -1297,6 +1297,13 @@ margin:0px;</string>
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

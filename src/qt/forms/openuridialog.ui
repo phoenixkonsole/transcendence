@@ -102,7 +102,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="selectFileButton">
+         <widget class="QtMaterialRaisedButton" name="selectFileButton">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -164,7 +164,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButtonCancel">
+          <widget class="QtMaterialRaisedButton" name="pushButtonCancel">
            <property name="minimumSize">
             <size>
              <width>100</width>
@@ -177,7 +177,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="pushButtonOK">
+          <widget class="QtMaterialRaisedButton" name="pushButtonOK">
            <property name="minimumSize">
             <size>
              <width>100</width>
@@ -203,6 +203,11 @@
    <extends>QLineEdit</extends>
    <header>qvalidatedlineedit.h</header>
   </customwidget>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
  </customwidgets>
  <resources/>
  <connections/>

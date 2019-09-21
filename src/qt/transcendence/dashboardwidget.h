@@ -14,6 +14,7 @@
 
 #include <cstdlib>
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QLineEdit>
 #include <QMap>
 

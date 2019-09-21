@@ -6,6 +6,7 @@
 #define SETTINGSWIDGET_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include "qt/transcendence/pwidget.h"
 #include "qt/transcendence/settings/settingsbackupwallet.h"
 #include "qt/transcendence/settings/settingsbittoolwidget.h"
@@ -92,9 +93,9 @@ private:
 
     QDataWidgetMapper* mapper;
 
-    QList<QPushButton*> options;
+    QList<QtMaterialRaisedButton*> options;
 
-    void selectOption(QPushButton* option);
+    void selectOption(QtMaterialRaisedButton* option);
     void openStandardDialog(QString title = "", QString body = "", QString okBtn = "OK", QString cancelBtn = "");
 };
 

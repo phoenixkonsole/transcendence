@@ -11,12 +11,13 @@
 #include <QIntValidator>
 #include <QRegExpValidator>
 
+
 MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MasterNodeWizardDialog),
-    icConfirm1(new QPushButton()),
-    icConfirm3(new QPushButton()),
-    icConfirm4(new QPushButton()),
+    icConfirm1(new QtMaterialRaisedButton()),
+    icConfirm3(new QtMaterialRaisedButton()),
+    icConfirm4(new QtMaterialRaisedButton()),
     walletModel(model)
 {
     ui->setupUi(this);
@@ -411,8 +412,8 @@ void MasterNodeWizardDialog::inform(QString text){
 }
 
 QSize BUTTON_SIZE = QSize(22, 22);
-void MasterNodeWizardDialog::initBtn(std::initializer_list<QPushButton*> args){
-    for (QPushButton* btn : args) {
+void MasterNodeWizardDialog::initBtn(std::initializer_list<QtMaterialRaisedButton*> args){
+    for (QtMaterialRaisedButton* btn : args) {
         btn->setMinimumSize(BUTTON_SIZE);
         btn->setMaximumSize(BUTTON_SIZE);
         btn->move(0, 0);

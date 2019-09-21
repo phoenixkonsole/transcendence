@@ -8,6 +8,7 @@
 #include "qt/transcendence/pwidget.h"
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 QT_BEGIN_NAMESPACE
 class QDataWidgetMapper;

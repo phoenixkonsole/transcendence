@@ -6,6 +6,7 @@
 #define SETTINGSINFORMATIONWIDGET_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 #include "qt/transcendence/pwidget.h"
 #include "rpcconsole.h"
 

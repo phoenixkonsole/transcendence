@@ -373,8 +373,8 @@ void SettingsWidget::onAboutClicked() {
 
 }
 
-void SettingsWidget::selectOption(QPushButton* option){
-    for (QPushButton* wid : options) {
+void SettingsWidget::selectOption(QtMaterialRaisedButton* option){
+    for (QtMaterialRaisedButton* wid : options) {
         if(wid) wid->setChecked(wid == option);
     }
 }

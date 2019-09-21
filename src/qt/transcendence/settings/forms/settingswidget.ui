@@ -207,7 +207,7 @@
                       <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
-                      <widget class="QPushButton" name="pushButtonFile">
+                      <widget class="QtMaterialRaisedButton" name="pushButtonFile">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -252,7 +252,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="pushButtonFile2">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonFile2">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -277,7 +277,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonFile3">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonFile3">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -316,7 +316,7 @@
                       <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
-                      <widget class="QPushButton" name="pushButtonConfiguration">
+                      <widget class="QtMaterialRaisedButton" name="pushButtonConfiguration">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -361,7 +361,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="pushButtonConfiguration4">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonConfiguration4">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -386,7 +386,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonConfiguration3">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonConfiguration3">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -425,7 +425,7 @@
                       <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
-                      <widget class="QPushButton" name="pushButtonOptions">
+                      <widget class="QtMaterialRaisedButton" name="pushButtonOptions">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -470,7 +470,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="pushButtonOptions1">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonOptions1">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -498,7 +498,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonOptions2">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonOptions2">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -523,7 +523,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonOptions5">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonOptions5">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -562,7 +562,7 @@
                       <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
-                      <widget class="QPushButton" name="pushButtonTools">
+                      <widget class="QtMaterialRaisedButton" name="pushButtonTools">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -607,7 +607,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="pushButtonTools1">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonTools1">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -635,7 +635,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonTools2">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonTools2">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -660,7 +660,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonTools5">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonTools5">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -699,7 +699,7 @@
                       <number>20</number>
                      </property>
                      <item alignment="Qt::AlignTop">
-                      <widget class="QPushButton" name="pushButtonHelp">
+                      <widget class="QtMaterialRaisedButton" name="pushButtonHelp">
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
@@ -744,7 +744,7 @@
                        <number>0</number>
                       </property>
                       <item>
-                       <widget class="QPushButton" name="pushButtonHelp1">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonHelp1">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -772,7 +772,7 @@
                        </widget>
                       </item>
                       <item>
-                       <widget class="QPushButton" name="pushButtonHelp2">
+                       <widget class="QtMaterialRaisedButton" name="pushButtonHelp2">
                         <property name="minimumSize">
                          <size>
                           <width>0</width>
@@ -849,6 +849,13 @@
    </item>
   </layout>
  </widget>
+  <customwidgets>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -16,6 +16,7 @@
 #include <QColor>
 #include <QDateTime>
 
+
 #define DECORATION_SIZE 70
 #define NUM_ITEMS 3
 

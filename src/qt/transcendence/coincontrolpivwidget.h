@@ -6,6 +6,7 @@
 #define COINCONTROLPIVWIDGET_H
 
 #include <QDialog>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 namespace Ui {
 class CoinControlPivWidget;

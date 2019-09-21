@@ -6,6 +6,7 @@
 #define SPLASH_H
 
 #include <QWidget>
+#include "qt/materialui/qtmaterialraisedbutton.h"
 
 namespace Ui {
 class Splash;

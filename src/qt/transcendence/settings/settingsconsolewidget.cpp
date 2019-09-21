@@ -270,7 +270,7 @@ SettingsConsoleWidget::SettingsConsoleWidget(TELOSGUI* _window, QWidget *parent)
     setCssBtnSecondary(ui->pushButtonOpenDebug);
     setCssBtnSecondary(ui->pushButtonCommandOptions);
 
-    connect(ui->pushButtonOpenDebug, &QPushButton::clicked, [this](){
+    connect(ui->pushButtonOpenDebug, &QtMaterialRaisedButton::clicked, [this](){
         if(!GUIUtil::openDebugLogfile()){
             inform(tr("Cannot open debug file.\nVerify that you have installed a predetermined text editor."));
         }

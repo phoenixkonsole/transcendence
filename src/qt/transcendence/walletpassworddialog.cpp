@@ -6,6 +6,7 @@
 #include "qt/transcendence/forms/ui_walletpassworddialog.h"
 #include <QGraphicsDropShadowEffect>
 
+
 WalletPasswordDialog::WalletPasswordDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::WalletPasswordDialog),

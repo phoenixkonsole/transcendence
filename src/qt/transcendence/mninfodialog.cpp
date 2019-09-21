@@ -10,6 +10,7 @@
 #include "qt/transcendence/qtutils.h"
 #include <QDateTime>
 
+
 MnInfoDialog::MnInfoDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::MnInfoDialog)
@@ -25,9 +26,9 @@ MnInfoDialog::MnInfoDialog(QWidget *parent) :
     setCssProperty({ui->pushCopy, ui->pushCopyId, ui->pushExport}, "ic-copy-big");
     setCssProperty(ui->btnEsc, "ic-close");
     connect(ui->btnEsc, SIGNAL(clicked()), this, SLOT(closeDialog()));
-    connect(ui->pushCopy, &QPushButton::clicked, [this](){ copyInform(txId, "Master Node public key copied"); });
-    connect(ui->pushCopyId, &QPushButton::clicked, [this](){ copyInform(pubKey, "Collateral tx id copied"); });
-    connect(ui->pushExport, &QPushButton::clicked, [this](){ exportMN = true; accept(); });
+    connect(ui->pushCopy, &QtMaterialRaisedButton::clicked, [this](){ copyInform(txId, "Master Node public key copied"); });
+    connect(ui->pushCopyId, &QtMaterialRaisedButton::clicked, [this](){ copyInform(pubKey, "Collateral tx id copied"); });
+    connect(ui->pushExport, &QtMaterialRaisedButton::clicked, [this](){ exportMN = true; accept(); });
 }
 
 void MnInfoDialog::setData(QString pubKey, QString name, QString address, QString txId, QString outputIndex, QString status){

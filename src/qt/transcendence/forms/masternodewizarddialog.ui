@@ -69,7 +69,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButtonSkip">
+         <widget class="QtMaterialRaisedButton" name="pushButtonSkip">
           <property name="minimumSize">
            <size>
             <width>20</width>
@@ -176,7 +176,7 @@
               <number>0</number>
              </property>
              <item alignment="Qt::AlignVCenter">
-              <widget class="QPushButton" name="pushNumber1">
+              <widget class="QtMaterialRaisedButton" name="pushNumber1">
                <property name="minimumSize">
                 <size>
                  <width>22</width>
@@ -277,7 +277,7 @@
               <number>0</number>
              </property>
              <item alignment="Qt::AlignVCenter">
-              <widget class="QPushButton" name="pushNumber3">
+              <widget class="QtMaterialRaisedButton" name="pushNumber3">
                <property name="minimumSize">
                 <size>
                  <width>22</width>
@@ -378,7 +378,7 @@
               <number>0</number>
              </property>
              <item alignment="Qt::AlignVCenter">
-              <widget class="QPushButton" name="pushNumber4">
+              <widget class="QtMaterialRaisedButton" name="pushNumber4">
                <property name="minimumSize">
                 <size>
                  <width>22</width>
@@ -491,7 +491,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushName1">
+             <widget class="QtMaterialRaisedButton" name="pushName1">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -532,7 +532,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushName3">
+             <widget class="QtMaterialRaisedButton" name="pushName3">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -570,7 +570,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushName4">
+             <widget class="QtMaterialRaisedButton" name="pushName4">
               <property name="minimumSize">
                <size>
                 <width>80</width>
@@ -1026,7 +1026,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnBack">
+         <widget class="QtMaterialRaisedButton" name="btnBack">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -1045,7 +1045,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="btnNext">
+         <widget class="QtMaterialRaisedButton" name="btnNext">
           <property name="minimumSize">
            <size>
             <width>0</width>
@@ -1070,6 +1070,13 @@
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

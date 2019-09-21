@@ -130,7 +130,7 @@
                 <number>0</number>
                </property>
                <item>
-                <widget class="QPushButton" name="pushLeft">
+                <widget class="QtMaterialRaisedButton" name="pushLeft">
                  <property name="minimumSize">
                   <size>
                    <width>120</width>
@@ -155,7 +155,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QPushButton" name="pushRight">
+                <widget class="QtMaterialRaisedButton" name="pushRight">
                  <property name="minimumSize">
                   <size>
                    <width>120</width>
@@ -377,7 +377,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButtonFee">
+           <widget class="QtMaterialRaisedButton" name="pushButtonFee">
             <property name="text">
              <string>PushButton</string>
             </property>
@@ -400,7 +400,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButtonClear">
+           <widget class="QtMaterialRaisedButton" name="pushButtonClear">
             <property name="layoutDirection">
              <enum>Qt::RightToLeft</enum>
             </property>
@@ -426,7 +426,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButtonAddRecipient">
+           <widget class="QtMaterialRaisedButton" name="pushButtonAddRecipient">
             <property name="text">
              <string>PushButton</string>
             </property>
@@ -644,7 +644,7 @@
            </spacer>
           </item>
           <item alignment="Qt::AlignBottom">
-           <widget class="QPushButton" name="pushButtonSave">
+           <widget class="QtMaterialRaisedButton" name="pushButtonSave">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -748,7 +748,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButtonReset">
+           <widget class="QtMaterialRaisedButton" name="pushButtonReset">
             <property name="minimumSize">
              <size>
               <width>200</width>
@@ -782,6 +782,11 @@
    <header>qt/transcendence/optionbutton.h</header>
    <container>1</container>
   </customwidget>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

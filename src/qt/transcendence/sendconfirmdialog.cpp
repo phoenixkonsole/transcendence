@@ -14,6 +14,7 @@
 #include <QList>
 #include <QDateTime>
 
+
 TxDetailDialog::TxDetailDialog(QWidget *parent, bool isConfirmDialog) :
     QDialog(parent),
     ui(new Ui::TxDetailDialog)
@@ -61,7 +62,7 @@ TxDetailDialog::TxDetailDialog(QWidget *parent, bool isConfirmDialog) :
         ui->labelDivider9->setVisible(false);
 
         connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(close()));
-        connect(ui->btnSave, &QPushButton::clicked, [this](){acceptTx();});
+        connect(ui->btnSave, &QtMaterialRaisedButton::clicked, [this](){acceptTx();});
     }else{
         ui->labelTitle->setText(tr("Transaction Details"));
         ui->containerButtons->setVisible(false);
@@ -98,7 +99,7 @@ void TxDetailDialog::setData(WalletModel *model, QModelIndex &index){
         ui->textStatus->setText(QString::fromStdString(rec->statusToString()));
         ui->textSize->setText(QString::number(rec->size) + " bytes");
 
-        connect(ui->pushCopy, &QPushButton::clicked, [this](){
+        connect(ui->pushCopy, &QtMaterialRaisedButton::clicked, [this](){
             GUIUtil::setClipboard(QString::fromStdString(this->txHash.GetHex()));
             if (!snackBar) snackBar = new SnackBar(nullptr, this);
             snackBar->setText(tr("ID copied"));

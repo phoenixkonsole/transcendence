@@ -15,12 +15,12 @@
 WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     QDialog(parent, Qt::FramelessWindowHint | Qt::WindowSystemMenuHint),
     ui(new Ui::WelcomeContentWidget),
-    backButton(new QPushButton()),
-    icConfirm1(new QPushButton()),
-    icConfirm2(new QPushButton()),
-    icConfirm3(new QPushButton()),
-    icConfirm4(new QPushButton()),
-    nextButton(new QPushButton())
+    backButton(new QtMaterialRaisedButton()),
+    icConfirm1(new QtMaterialRaisedButton()),
+    icConfirm2(new QtMaterialRaisedButton()),
+    icConfirm3(new QtMaterialRaisedButton()),
+    icConfirm4(new QtMaterialRaisedButton()),
+    nextButton(new QtMaterialRaisedButton())
 {
     ui->setupUi(this);
 
@@ -29,8 +29,8 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     ui->frame->setProperty("cssClass", "container-welcome-stack");
     ui->frame_2->setProperty("cssClass", "container-welcome");
 
-    backButton = new QPushButton(ui->container);
-    nextButton = new QPushButton(ui->container);
+    backButton = new QtMaterialRaisedButton(ui->container);
+    nextButton = new QtMaterialRaisedButton(ui->container);
 
     backButton->show();
     backButton->raise();
@@ -54,9 +54,9 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
 
     // position
     backButton->move(backX, backY);
-    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#5c4b7d;color: #5c4b7d; border-radius:2px;");
+    backButton->setStyleSheet("background: url(://ic-arrow-white-left); background-repeat:no-repeat;background-position:center;border:  0;background-color:#4b697d;color: #4b697d; border-radius:2px;");
     nextButton->move(nextX, nextY);
-    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#5c4b7d;color: #5c4b7d; border-radius:2px;");
+    nextButton->setStyleSheet("background: url(://ic-arrow-white-right);background-repeat:no-repeat;background-position:center;border:  0;background-color:#4b697d;color: #4b697d; border-radius:2px;");
 
     if (pos == 0) {
         backButton->setVisible(false);
@@ -112,10 +112,10 @@ WelcomeContentWidget::WelcomeContentWidget(QWidget *parent) :
     ui->labelMessage4->setProperty("cssClass", "text-main-white");
 
     // Confirm icons
-    icConfirm1 = new QPushButton(ui->layoutIcon1_2);
-    icConfirm2 = new QPushButton(ui->layoutIcon2_2);
-    icConfirm3 = new QPushButton(ui->layoutIcon3_2);
-    icConfirm4 = new QPushButton(ui->layoutIcon4_2);
+    icConfirm1 = new QtMaterialRaisedButton(ui->layoutIcon1_2);
+    icConfirm2 = new QtMaterialRaisedButton(ui->layoutIcon2_2);
+    icConfirm3 = new QtMaterialRaisedButton(ui->layoutIcon3_2);
+    icConfirm4 = new QtMaterialRaisedButton(ui->layoutIcon4_2);
 
     QSize BUTTON_CONFIRM_SIZE = QSize(22, 22);
     int posX = 0;

@@ -96,7 +96,7 @@
               <number>0</number>
              </property>
              <item>
-              <widget class="QPushButton" name="pushButtonNetworkMonitor">
+              <widget class="QtMaterialRaisedButton" name="pushButtonNetworkMonitor">
                <property name="minimumSize">
                 <size>
                  <width>120</width>
@@ -109,7 +109,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButtonBackups">
+              <widget class="QtMaterialRaisedButton" name="pushButtonBackups">
                <property name="minimumSize">
                 <size>
                  <width>120</width>
@@ -134,7 +134,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButtonFile">
+              <widget class="QtMaterialRaisedButton" name="pushButtonFile">
                <property name="minimumSize">
                 <size>
                  <width>125</width>
@@ -660,6 +660,13 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

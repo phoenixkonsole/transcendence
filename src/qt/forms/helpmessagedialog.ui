@@ -228,7 +228,7 @@ background-color:#FFFFFF;
             </spacer>
            </item>
            <item alignment="Qt::AlignVCenter">
-            <widget class="QPushButton" name="pushButtonOk">
+            <widget class="QtMaterialRaisedButton" name="pushButtonOk">
              <property name="minimumSize">
               <size>
                <width>150</width>
@@ -250,6 +250,13 @@ background-color:#FFFFFF;
    </item>
   </layout>
  </widget>
+ <customwidgets>
+ <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+</customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

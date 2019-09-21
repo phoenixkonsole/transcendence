@@ -169,6 +169,19 @@ QT_MOC_CPP = \
   qt/moc_walletview.cpp \
   qt/transcendence/moc_loadingdialog.cpp \
   qt/moc_zteloscontroldialog.cpp \
+  qt/materialui/moc_qtmaterialflatbutton.cpp \
+  qt/materialui/moc_qtmaterialraisedbutton.cpp \
+  qt/materialui/moc_qtmaterialflatbutton_internal.cpp \
+  qt/materialui/moc_qtmaterialcheckable.cpp \
+  qt/materialui/moc_qtmaterialcheckable_internal.cpp \
+  qt/materialui/moc_qtmaterialoverlaywidget.cpp \
+  qt/materialui/moc_qtmaterialripple.cpp \
+  qt/materialui/moc_qtmaterialrippleoverlay.cpp \
+  qt/materialui/moc_qtmaterialstatetransition.cpp \
+  qt/materialui/moc_qtmaterialstyle.cpp \
+  qt/materialui/moc_qtmaterialtextfield.cpp \
+  qt/materialui/moc_qtmaterialtextfield_internal.cpp \
+  qt/materialui/moc_qtmaterialtheme.cpp \
   qt/transcendence/moc_pwidget.cpp \
   qt/transcendence/moc_snackbar.cpp \
   qt/transcendence/moc_navmenuwidget.cpp \
@@ -298,6 +311,26 @@ BITCOIN_QT_H = \
   qt/utilitydialog.h \
   qt/walletframe.h \
   qt/walletmodel.h \
+  qt/materialui/qtmaterialflatbutton.h \
+  qt/materialui/qtmaterialflatbutton_internal.h \
+  qt/materialui/qtmaterialraisedbutton.h \
+  qt/materialui/qtmaterialtextfield.h \
+  qt/materialui/qtmaterialtextfield_internal.h \
+  qt/materialui/qtmaterialtextfield_p.h \
+  qt/materialui/qtmaterialflatbutton_p.h \
+  qt/materialui/qtmaterialraisedbutton_p.h \
+  qt/materialui/qtmaterialcheckable.h \
+  qt/materialui/qtmaterialcheckable_internal.h \
+  qt/materialui/qtmaterialcheckable_p.h \
+  qt/materialui/qtmaterialoverlaywidget.h \
+  qt/materialui/qtmaterialripple.h \
+  qt/materialui/qtmaterialrippleoverlay.h \
+  qt/materialui/qtmaterialstatetransition.h \
+  qt/materialui/qtmaterialstatetransitionevent.h \
+  qt/materialui/qtmaterialstyle.h \
+  qt/materialui/qtmaterialstyle_p.h \
+  qt/materialui/qtmaterialtheme.h \
+  qt/materialui/qtmaterialtheme_p.h \
   qt/walletmodeltransaction.h \
   qt/transcendence/prunnable.h \
   qt/transcendence/loadingdialog.h \
@@ -645,6 +678,19 @@ BITCOIN_QT_BASE_CPP = \
   qt/rpcconsole.cpp \
   qt/splashscreen.cpp \
   qt/trafficgraphwidget.cpp \
+  qt/materialui/qtmaterialflatbutton.cpp \
+  qt/materialui/qtmaterialraisedbutton.cpp \
+  qt/materialui/qtmaterialflatbutton_internal.cpp \
+  qt/materialui/qtmaterialcheckable.cpp \
+  qt/materialui/qtmaterialcheckable_internal.cpp \
+  qt/materialui/qtmaterialoverlaywidget.cpp \
+  qt/materialui/qtmaterialripple.cpp \
+  qt/materialui/qtmaterialrippleoverlay.cpp \
+  qt/materialui/qtmaterialstatetransition.cpp \
+  qt/materialui/qtmaterialstyle.cpp \
+  qt/materialui/qtmaterialtextfield.cpp \
+  qt/materialui/qtmaterialtextfield_internal.cpp \
+  qt/materialui/qtmaterialtheme.cpp \
   qt/utilitydialog.cpp
 
 BITCOIN_QT_WINDOWS_CPP = qt/winshutdownmonitor.cpp

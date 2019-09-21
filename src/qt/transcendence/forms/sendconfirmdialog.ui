@@ -125,7 +125,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnEsc">
+         <widget class="QtMaterialRaisedButton" name="btnEsc">
           <property name="minimumSize">
            <size>
             <width>24</width>
@@ -273,7 +273,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushCopy">
+                    <widget class="QtMaterialRaisedButton" name="pushCopy">
                      <property name="minimumSize">
                       <size>
                        <width>34</width>
@@ -349,7 +349,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushOutputs">
+                    <widget class="QtMaterialRaisedButton" name="pushOutputs">
                      <property name="minimumSize">
                       <size>
                        <width>34</width>
@@ -503,7 +503,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushInputs">
+                    <widget class="QtMaterialRaisedButton" name="pushInputs">
                      <property name="maximumSize">
                       <size>
                        <width>34</width>
@@ -881,7 +881,7 @@ background:transparent;
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btnCancel">
+          <widget class="QtMaterialRaisedButton" name="btnCancel">
            <property name="minimumSize">
             <size>
              <width>200</width>
@@ -894,7 +894,7 @@ background:transparent;
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btnSave">
+          <widget class="QtMaterialRaisedButton" name="btnSave">
            <property name="minimumSize">
             <size>
              <width>200</width>
@@ -914,6 +914,13 @@ background:transparent;
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

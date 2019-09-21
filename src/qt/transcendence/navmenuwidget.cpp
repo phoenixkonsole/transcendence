@@ -8,6 +8,7 @@
 #include "qt/transcendence/qtutils.h"
 #include "clientversion.h"
 
+
 NavMenuWidget::NavMenuWidget(TELOSGUI *mainWindow, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::NavMenuWidget),

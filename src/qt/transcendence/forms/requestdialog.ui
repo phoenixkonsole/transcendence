@@ -116,7 +116,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnEsc">
+         <widget class="QtMaterialRaisedButton" name="btnEsc">
           <property name="minimumSize">
            <size>
             <width>24</width>
@@ -581,7 +581,7 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="btnCopyAddress">
+             <widget class="QtMaterialRaisedButton" name="btnCopyAddress">
               <property name="minimumSize">
                <size>
                 <width>180</width>
@@ -594,7 +594,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnCopyUrl">
+             <widget class="QtMaterialRaisedButton" name="btnCopyUrl">
               <property name="minimumSize">
                <size>
                 <width>180</width>
@@ -648,7 +648,7 @@
           </spacer>
          </item>
          <item>
-          <widget class="QPushButton" name="btnCancel">
+          <widget class="QtMaterialRaisedButton" name="btnCancel">
            <property name="minimumSize">
             <size>
              <width>180</width>
@@ -661,7 +661,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPushButton" name="btnSave">
+          <widget class="QtMaterialRaisedButton" name="btnSave">
            <property name="minimumSize">
             <size>
              <width>180</width>
@@ -681,6 +681,13 @@
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

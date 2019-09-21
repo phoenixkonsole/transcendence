@@ -125,7 +125,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="btnEsc">
+         <widget class="QtMaterialRaisedButton" name="btnEsc">
           <property name="minimumSize">
            <size>
             <width>24</width>
@@ -276,7 +276,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushCopy">
+                    <widget class="QtMaterialRaisedButton" name="pushCopy">
                      <property name="minimumSize">
                       <size>
                        <width>34</width>
@@ -397,7 +397,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushCopyId">
+                    <widget class="QtMaterialRaisedButton" name="pushCopyId">
                      <property name="minimumSize">
                       <size>
                        <width>34</width>
@@ -559,7 +559,7 @@ background:transparent;
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushExport">
+                    <widget class="QtMaterialRaisedButton" name="pushExport">
                      <property name="minimumSize">
                       <size>
                        <width>34</width>
@@ -611,6 +611,13 @@ background:transparent;
    </item>
   </layout>
  </widget>
+   <customwidgets>
+   <customwidget>
+   <class>QtMaterialRaisedButton</class>
+   <extends>QWidget</extends>
+   <header>qt/materialui/qtmaterialraisedbutton.h</header>
+ </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

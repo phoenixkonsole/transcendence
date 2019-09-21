@@ -830,7 +830,7 @@
            <widget class="QComboBox" name="comboTierSelect"/>
           </item>
           <item>
-           <spacer name="verticalSpacer_1_5">
+           <spacer name="verticalSpacer_1_51">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>

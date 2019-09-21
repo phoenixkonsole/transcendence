@@ -57,7 +57,7 @@ HH       NAVIGATION
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 *[cssClass="container-nav"] {
-    background-color: qlineargradient(y1:0, y2: 1, stop: 0 #7d744b, stop: 1 #41365a);
+    background-color: qlineargradient(y1:0, y2: 1, stop: 0 #7d744b, stop: 1 #5a5336);
 }
 
 QPushButton[cssClass="img-nav-logo"] {
@@ -1580,9 +1580,9 @@ QProgressBar[cssClass="progress-splash"]::chunk:horizontal {
     y1: 0.5,
     x2: 1,
     y2: 0.5,
-    stop: 0 #80211a2f,
+    stop: 0 #802f2e1a,
     stop: 1 #80CEB247,
-    stop: 2 #80211a2f,);
+    stop: 2 #802f2e1a,);
     margin-right: 2px;
 }
 
@@ -2580,9 +2580,9 @@ QPushButton[cssClass="ic-step-confirm-welcome"] {
     background-image: url("://ic-check-white");
     background-position:center;
     background-repeat:no-repeat;
-    border:  1px solid #6C529D;
+    border:  1px solid #9d8e52;
     border-radius:11px;
-    background-color:#6C529D;
+    background-color:#9d8e52;
 }
 
 *[cssClass="text-title-welcome"] {
@@ -2983,7 +2983,7 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 
 *[cssClass="container-snackbar"]{
-    background-color:#382d4d;
+    background-color:#4d4b2d;
     border-top:2px solid #CEB247;
 }
 

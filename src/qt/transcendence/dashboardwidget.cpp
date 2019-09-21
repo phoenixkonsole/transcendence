@@ -418,7 +418,7 @@ void DashboardWidget::changeChartColors(){
         axisY->setGridLineColor(gridY);
         gridLineColorX = QColor(15,11,22);
         linePenColorY =  gridLineColorX;
-        backgroundColor = linePenColorY;
+        backgroundColor = QColor("#212121");
     }
 
     axisX->setGridLineColor(gridLineColorX);
@@ -588,8 +588,8 @@ void DashboardWidget::onChartRefreshed() {
     // init sets
     set0 = new QBarSet("TELOS");
     set1 = new QBarSet("zTELOS");
-    set0->setColor(QColor(92,75,125));
-    set1->setColor(QColor(176,136,255));
+    set0->setColor(QColor(173, 149, 59));
+    set1->setColor(QColor(255, 207, 136));
 
     if(!series) {
         series = new QBarSeries();

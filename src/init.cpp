@@ -1706,7 +1706,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     if (fMasterNode) {
-        LogPrintf("IS MASTER NODE\n");
+        LogPrintf("IS MASTERNODE\n");
         strMasterNodeAddr = GetArg("-masternodeaddr", "");
 
         LogPrintf(" addr %s\n", strMasterNodeAddr.c_str());

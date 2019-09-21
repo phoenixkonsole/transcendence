@@ -1513,6 +1513,9 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
     border: 1px solid #707070;
 }
 
+*[cssClass="edit-primaryx"]:hover {
+    border: 1px solid #707070;
+}
 *[cssClass="edit-primary-disabled"] {
     border:  1px solid #33ffffff;
     background-color:#0f0b16;
@@ -1530,7 +1533,14 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
     padding:8px;
     color: #707070;
 }
-
+*[cssClass="edit-primary-errorx"] {
+    border:  1px solid #f84444;
+    background-color:#ffffff;
+    font-size:18px;
+    border-radius: 2px;
+    padding:8px;
+    color: #707070;
+}
 QPushButton[cssClass="btn-expand"] {
     background-image: url("://ic-expand");
     background-position:center;

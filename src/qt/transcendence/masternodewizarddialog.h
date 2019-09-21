@@ -9,6 +9,7 @@
 #include "walletmodel.h"
 #include "qt/transcendence/snackbar.h"
 #include "masternodeconfig.h"
+#include <QComboBox>
 
 class WalletModel;
 
@@ -16,6 +17,7 @@ namespace Ui {
 class MasterNodeWizardDialog;
 class QPushButton;
 }
+int getSelectedTierAmount(QComboBox *combo);
 
 class MasterNodeWizardDialog : public QDialog
 {
@@ -24,7 +26,6 @@ class MasterNodeWizardDialog : public QDialog
 public:
     explicit MasterNodeWizardDialog(WalletModel *walletMode, QWidget *parent = nullptr);
     ~MasterNodeWizardDialog();
-
     QString returnStr = "";
     bool isOk = false;
     CMasternodeConfig::CMasternodeEntry* mnEntry = nullptr;
@@ -32,6 +33,7 @@ public:
 private slots:
     void onNextClicked();
     void onBackClicked();
+    void onTierSelected();
 private:
     Ui::MasterNodeWizardDialog *ui;
     QPushButton* icConfirm1;

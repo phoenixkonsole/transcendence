@@ -195,7 +195,9 @@ void initCssEditLine(QLineEdit *edit, bool isDialog){
 void setCssEditLine(QLineEdit *edit, bool isValid, bool forceUpdate){
     setCssProperty(edit, isValid ? "edit-primary" : "edit-primary-error", forceUpdate);
 }
-
+void setCssComboBox(QComboBox *combo, bool isValid, bool forceUpdate){
+    setCssProperty(combo, isValid ? "edit-primaryx" : "edit-primary-errorx", forceUpdate);
+}
 void setCssEditLineDialog(QLineEdit *edit, bool isValid, bool forceUpdate){
     setCssProperty(edit, isValid ? "edit-primary-dialog" : "edit-primary-dialog-error", forceUpdate);
 }

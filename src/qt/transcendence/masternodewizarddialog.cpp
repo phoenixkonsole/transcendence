@@ -49,6 +49,15 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     ui->lineEditName->setPlaceholderText(tr("e.g user_masternode"));
     initCssEditLine(ui->lineEditName);
     ui->lineEditName->setValidator(new QRegExpValidator(QRegExp("^[A-Za-z0-9]+"), ui->lineEditName));
+    initComboBox(ui->comboTierSelect);
+    ui->comboTierSelect->setEditable(false);
+    ui->comboTierSelect->addItem(tr("1,000"));
+    ui->comboTierSelect->addItem(tr("3,000"));
+    ui->comboTierSelect->addItem(tr("10,000"));
+    ui->comboTierSelect->addItem(tr("30,000"));
+    ui->comboTierSelect->addItem(tr("100,000"));
+    setCssComboBox(ui->comboTierSelect, true, true);
+
 
     // Frame 4
     setCssProperty(ui->labelTitle4, "text-title-dialog");
@@ -86,8 +95,34 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     connect(ui->pushButtonSkip, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->btnNext, SIGNAL(clicked()), this, SLOT(onNextClicked()));
     connect(ui->btnBack, SIGNAL(clicked()), this, SLOT(onBackClicked()));
-}
+    connect(ui->comboTierSelect, SIGNAL(activated(int)), this, SLOT(onTierSelected()));
 
+}
+int getSelectedTierAmount(QComboBox *combo){
+    int currentindex = combo->currentIndex();
+    switch (currentindex){
+       case 0:{
+       return 1000;
+       break; 
+       }
+       case 1:{
+       return 3000;
+       break; 
+       }
+       case 2:{
+       return 10000;
+       break; 
+       }
+       case 3:{
+       return 30000;
+       break; 
+       }
+       case 4:{
+       return 100000;
+       break; 
+       }
+    }
+}
 void MasterNodeWizardDialog::onNextClicked(){
     switch(pos){
         case 0:{
@@ -108,6 +143,12 @@ void MasterNodeWizardDialog::onNextClicked(){
                 setCssEditLine(ui->lineEditName, false, true);
                 return;
             }
+            //check if enough coins are available for tier
+            if(walletModel->getBalance() <= (getSelectedTierAmount(ui->comboTierSelect) * COIN)){
+                setCssComboBox(ui->comboTierSelect, false, true);
+                return;
+            }
+            setCssComboBox(ui->comboTierSelect, true, true);
             setCssEditLine(ui->lineEditName, true, true);
 
             ui->stackedWidget->setCurrentIndex(2);
@@ -134,6 +175,10 @@ void MasterNodeWizardDialog::onNextClicked(){
         }
     }
     pos++;
+}
+void MasterNodeWizardDialog::onTierSelected(){
+QString cb = ui->comboTierSelect->currentText();
+ui->labelMessage3->setText(QString("A transaction of %1 TELOS will be made to a new empty address in your wallet.\nThe Address is labeled under the masternode's name.").arg(cb));
 }
 
 bool MasterNodeWizardDialog::createMN(){
@@ -179,9 +224,10 @@ bool MasterNodeWizardDialog::createMN(){
 
         // New receive address
         CBitcoinAddress address = walletModel->getNewAddress(alias);
+        int tiercoins = getSelectedTierAmount(ui->comboTierSelect);
 
         // const QString& addr, const QString& label, const CAmount& amount, const QString& message
-        SendCoinsRecipient sendCoinsRecipient(QString::fromStdString(address.ToString()), "", CAmount(10000) * COIN, "");
+        SendCoinsRecipient sendCoinsRecipient(QString::fromStdString(address.ToString()), "", CAmount(tiercoins) * COIN, "");
 
         // Send the 10 tx to one of your address
         QList<SendCoinsRecipient> recipients;
@@ -199,7 +245,7 @@ bool MasterNodeWizardDialog::createMN(){
         );
 
         if (prepareStatus.status != WalletModel::OK) {
-            returnStr = tr("Prepare master node failed..");
+            returnStr = tr("Prepare masternode failed..");
             return false;
         }
 
@@ -266,7 +312,7 @@ bool MasterNodeWizardDialog::createMN(){
                 int indexOut = -1;
                 for (int i=0; i < (int)walletTx->vout.size(); i++){
                     CTxOut& out = walletTx->vout[i];
-                    if (out.nValue == 10000 * COIN){
+                    if (out.nValue == tiercoins * COIN){
                         indexOut = i;
                     }
                 }
@@ -296,7 +342,7 @@ bool MasterNodeWizardDialog::createMN(){
 
                 mnEntry = masternodeConfig.add(alias, ipAddress+":"+port, mnKeyString, txID, indexOutStr);
 
-                returnStr = tr("Master node created!");
+                returnStr = tr("Masternode created!");
                 return true;
             } else{
                 returnStr = tr("masternode.conf file doesn't exists");

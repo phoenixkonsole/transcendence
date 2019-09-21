@@ -1533,7 +1533,14 @@ HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
     padding:8px;
     color: #FFFFFF;
 }
-
+*[cssClass="edit-primary-errorx"] {
+    border:  1px solid #f84444;
+    background-color:#0f0b16;
+    font-size:18px;
+    border-radius: 2px;
+    padding:8px;
+    color: #FFFFFF;
+}
 QPushButton[cssClass="btn-expand"] {
     background-image: url("://ic-expand");
     background-position:center;

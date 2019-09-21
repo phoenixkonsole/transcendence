@@ -52,6 +52,7 @@ void initComboBox(QComboBox* combo, QLineEdit* lineEdit = nullptr);
 void initCssEditLine(QLineEdit *edit, bool isDialog = false);
 void setCssEditLine(QLineEdit *edit, bool isValid, bool forceUpdate = false);
 void setCssEditLineDialog(QLineEdit *edit, bool isValid, bool forceUpdate = false);
+void setCssComboBox(QComboBox *combo, bool isValid, bool forceUpdate);
 void setShadow(QWidget *edit);
 
 void setCssBtnPrimary(QPushButton *btn, bool forceUpdate = false);

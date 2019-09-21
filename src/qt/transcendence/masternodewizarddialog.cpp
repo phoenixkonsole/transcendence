@@ -63,7 +63,7 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     setCssProperty(ui->labelTitle4, "text-title-dialog");
     setCssProperty({ui->labelSubtitleIp, ui->labelSubtitlePort}, "text-title");
     setCssSubtitleScreen(ui->labelSubtitleAddressIp);
-    std::string p2p_port = std::to_string(Params().GetDefaultPort());
+    QString p2p_port = QString::number(Params().GetDefaultPort());
     ui->lineEditIpAddress->setPlaceholderText("e.g 18.255.255.255");
     ui->lineEditPort->setPlaceholderText("e.g " + p2p_port);
     initCssEditLine(ui->lineEditIpAddress);

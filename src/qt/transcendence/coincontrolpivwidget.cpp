@@ -5,7 +5,6 @@
 #include "qt/transcendence/coincontrolpivwidget.h"
 #include "qt/transcendence/forms/ui_coincontrolpivwidget.h"
 
-
 CoinControlPivWidget::CoinControlPivWidget(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CoinControlPivWidget)

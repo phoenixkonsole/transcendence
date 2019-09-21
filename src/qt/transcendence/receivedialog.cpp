@@ -8,7 +8,6 @@
 #include "walletmodel.h"
 #include <QFile>
 
-
 ReceiveDialog::ReceiveDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ReceiveDialog)

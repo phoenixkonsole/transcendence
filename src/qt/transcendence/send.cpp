@@ -19,12 +19,11 @@
 #include "openuridialog.h"
 #include "zteloscontroldialog.h"
 
-
 SendWidget::SendWidget(TELOSGUI* parent) :
     PWidget(parent),
     ui(new Ui::send),
-    coinIcon(new QtMaterialRaisedButton()),
-    btnContacts(new QtMaterialRaisedButton())
+    coinIcon(new QPushButton()),
+    btnContacts(new QPushButton())
 {
     ui->setupUi(this);
 
@@ -135,8 +134,8 @@ SendWidget::SendWidget(TELOSGUI* parent) :
     addEntry();
 
     // Connect
-    connect(ui->pushLeft, &QtMaterialRaisedButton::clicked, [this](){onPIVSelected(true);});
-    connect(ui->pushRight,  &QtMaterialRaisedButton::clicked, [this](){onPIVSelected(false);});
+    connect(ui->pushLeft, &QPushButton::clicked, [this](){onPIVSelected(true);});
+    connect(ui->pushRight,  &QPushButton::clicked, [this](){onPIVSelected(false);});
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onSendClicked()));
     connect(ui->pushButtonAddRecipient, SIGNAL(clicked()), this, SLOT(onAddEntryClicked()));
     connect(ui->pushButtonClear, SIGNAL(clicked()), this, SLOT(clearAll()));

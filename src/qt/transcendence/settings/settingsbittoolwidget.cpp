@@ -74,8 +74,8 @@ SettingsBitToolWidget::SettingsBitToolWidget(TELOSGUI* _window, QWidget *parent)
     ui->pushButtonImport->setText(tr("Import Address"));
     setCssProperty(ui->pushButtonImport, "btn-text-primary");
 
-    connect(ui->pushLeft, &QtMaterialRaisedButton::clicked, [this](){onEncryptSelected(true);});
-    connect(ui->pushRight,  &QtMaterialRaisedButton::clicked, [this](){onEncryptSelected(false);});
+    connect(ui->pushLeft, &QPushButton::clicked, [this](){onEncryptSelected(true);});
+    connect(ui->pushRight,  &QPushButton::clicked, [this](){onEncryptSelected(false);});
 
 
     // Encrypt
@@ -117,11 +117,11 @@ SettingsBitToolWidget::SettingsBitToolWidget(TELOSGUI* _window, QWidget *parent)
     ui->statusLabel_ENC->setStyleSheet("QLabel { color: transparent; }");
     ui->statusLabel_DEC->setStyleSheet("QLabel { color: transparent; }");
 
-    connect(ui->pushButtonEncrypt, &QtMaterialRaisedButton::clicked, this, &SettingsBitToolWidget::onEncryptKeyButtonENCClicked);
+    connect(ui->pushButtonEncrypt, &QPushButton::clicked, this, &SettingsBitToolWidget::onEncryptKeyButtonENCClicked);
     connect(ui->pushButtonDecrypt, SIGNAL(clicked()), this, SLOT(onDecryptClicked()));
     connect(ui->pushButtonImport, SIGNAL(clicked()), this, SLOT(importAddressFromDecKey()));
     connect(btnContact, SIGNAL(triggered()), this, SLOT(onAddressesClicked()));
-    connect(ui->pushButtonClear, &QtMaterialRaisedButton::clicked, this, &SettingsBitToolWidget::onClearAll);
+    connect(ui->pushButtonClear, &QPushButton::clicked, this, &SettingsBitToolWidget::onClearAll);
     connect(ui->pushButtonDecryptClear, SIGNAL(clicked()), this, SLOT(onClearDecrypt()));
 }
 

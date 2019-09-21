@@ -6,7 +6,6 @@
 #define SETTINGSDISPLAYOPTIONSWIDGET_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QDataWidgetMapper>
 #include "qt/transcendence/pwidget.h"
 

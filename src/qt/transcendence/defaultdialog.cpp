@@ -5,8 +5,6 @@
 #include "qt/transcendence/defaultdialog.h"
 #include "qt/transcendence/forms/ui_defaultdialog.h"
 #include "guiutil.h"
-
-
 DefaultDialog::DefaultDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DefaultDialog)
@@ -37,7 +35,7 @@ DefaultDialog::DefaultDialog(QWidget *parent) :
 
     connect(ui->btnEsc, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->btnSave, &QtMaterialRaisedButton::clicked, [this](){this->isOk = true; accept();});
+    connect(ui->btnSave, &QPushButton::clicked, [this](){this->isOk = true; accept();});
 }
 
 void DefaultDialog::setText(QString title, QString message, QString okBtnText, QString cancelBtnText){

@@ -6,7 +6,6 @@
 #define QTUTILS_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QDialog>
 #include <QPropertyAnimation>
 #include <QAbstractAnimation>
@@ -19,7 +18,6 @@
 #include <QStandardPaths>
 #include <initializer_list>
 #include "qt/transcendence/transcendencegui.h"
-#include "qt/materialui/qtmaterialraisedbutton.h"
 
 static Qt::Modifier SHORT_KEY
 #ifdef Q_OS_MAC
@@ -56,8 +54,8 @@ void setCssEditLine(QLineEdit *edit, bool isValid, bool forceUpdate = false);
 void setCssEditLineDialog(QLineEdit *edit, bool isValid, bool forceUpdate = false);
 void setShadow(QWidget *edit);
 
-void setCssBtnPrimary(QtMaterialRaisedButton *btn, bool forceUpdate = false);
-void setCssBtnSecondary(QtMaterialRaisedButton *btn, bool forceUpdate = false);
+void setCssBtnPrimary(QPushButton *btn, bool forceUpdate = false);
+void setCssBtnSecondary(QPushButton *btn, bool forceUpdate = false);
 void setCssTitleScreen(QLabel* label);
 void setCssSubtitleScreen(QWidget* wid);
 void setCssTextBodyDialog(std::initializer_list<QWidget*> args);

@@ -6,7 +6,7 @@
 #define SEND_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
+#include <QPushButton>
 
 #include "qt/transcendence/pwidget.h"
 #include "qt/transcendence/contactsdropdown.h"
@@ -26,7 +26,7 @@ class WalletModelTransaction;
 
 namespace Ui {
 class send;
-class QtMaterialRaisedButton;
+class QPushButton;
 }
 
 class SendWidget : public PWidget
@@ -72,8 +72,8 @@ private slots:
     void onResetCustomOptions();
 private:
     Ui::send *ui;
-    QtMaterialRaisedButton *coinIcon;
-    QtMaterialRaisedButton *btnContacts;
+    QPushButton *coinIcon;
+    QPushButton *btnContacts;
 
     SendCustomFeeDialog* customFeeDialog = nullptr;
     bool isCustomFeeSelected = false;

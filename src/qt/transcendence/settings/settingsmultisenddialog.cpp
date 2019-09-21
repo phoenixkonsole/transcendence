@@ -53,7 +53,7 @@ SettingsMultisendDialog::SettingsMultisendDialog(QWidget *parent) :
 
     connect(ui->btnEsc, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->btnSave, &QtMaterialRaisedButton::clicked, [this](){
+    connect(ui->btnSave, &QPushButton::clicked, [this](){
         this->isOk = true;
         accept();
     });

@@ -6,7 +6,6 @@
 #include "qt/transcendence/forms/ui_denomgenerationdialog.h"
 #include "QGraphicsDropShadowEffect"
 
-
 DenomGenerationDialog::DenomGenerationDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DenomGenerationDialog)

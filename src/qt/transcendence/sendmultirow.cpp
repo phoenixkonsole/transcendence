@@ -12,11 +12,10 @@
 #include "bitcoinunits.h"
 #include "qt/transcendence/qtutils.h"
 
-
 SendMultiRow::SendMultiRow(PWidget *parent) :
     PWidget(parent),
     ui(new Ui::SendMultiRow),
-    iconNumber(new QtMaterialRaisedButton())
+    iconNumber(new QPushButton())
 {
     ui->setupUi(this);
     this->setStyleSheet(parent->styleSheet());
@@ -63,7 +62,7 @@ SendMultiRow::SendMultiRow(PWidget *parent) :
     connect(ui->lineEditAmount, SIGNAL(textChanged(const QString&)), this, SLOT(amountChanged(const QString&)));
     connect(ui->lineEditAddress, SIGNAL(textChanged(const QString&)), this, SLOT(addressChanged(const QString&)));
     connect(btnContact, &QAction::triggered, [this](){emit onContactsClicked(this);});
-    connect(ui->btnMenu, &QtMaterialRaisedButton::clicked, [this](){emit onMenuClicked(this);});
+    connect(ui->btnMenu, &QPushButton::clicked, [this](){emit onMenuClicked(this);});
 }
 
 void SendMultiRow::amountChanged(const QString& amount){

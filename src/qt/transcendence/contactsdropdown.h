@@ -13,7 +13,6 @@
 #include <QListView>
 #include <QObject>
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 
 
 class ContactsViewDelegate;

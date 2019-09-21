@@ -78,7 +78,7 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QtMaterialRaisedButton" name="icon">
+          <widget class="QPushButton" name="icon">
            <property name="styleSheet">
             <string notr="true">border:none;</string>
            </property>
@@ -172,13 +172,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

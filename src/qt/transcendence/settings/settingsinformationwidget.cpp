@@ -108,8 +108,8 @@ SettingsInformationWidget::SettingsInformationWidget(TELOSGUI* _window,QWidget *
     ui->labelInfoBerkeley->setText(tr("No information"));
 #endif
 
-    connect(ui->pushButtonBackups, &QtMaterialRaisedButton::clicked, [](){GUIUtil::showBackups();});
-    connect(ui->pushButtonFile, &QtMaterialRaisedButton::clicked, [](){GUIUtil::openConfigfile();});
+    connect(ui->pushButtonBackups, &QPushButton::clicked, [](){GUIUtil::showBackups();});
+    connect(ui->pushButtonFile, &QPushButton::clicked, [](){GUIUtil::openConfigfile();});
     connect(ui->pushButtonNetworkMonitor, SIGNAL(clicked()), this, SLOT(openNetworkMonitor()));
 }
 

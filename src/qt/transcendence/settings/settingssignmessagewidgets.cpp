@@ -89,8 +89,8 @@ SettingsSignMessageWidgets::SettingsSignMessageWidgets(TELOSGUI* _window, QWidge
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onGoClicked()));
     connect(btnContact, SIGNAL(triggered()), this, SLOT(onAddressesClicked()));
     connect(ui->pushButtonClear, SIGNAL(clicked()), this, SLOT(onClearAll()));
-    connect(ui->pushSign, &QtMaterialRaisedButton::clicked, [this](){onModeSelected(true);});
-    connect(ui->pushVerify,  &QtMaterialRaisedButton::clicked, [this](){onModeSelected(false);});
+    connect(ui->pushSign, &QPushButton::clicked, [this](){onModeSelected(true);});
+    connect(ui->pushVerify,  &QPushButton::clicked, [this](){onModeSelected(false);});
 }
 
 SettingsSignMessageWidgets::~SettingsSignMessageWidgets(){

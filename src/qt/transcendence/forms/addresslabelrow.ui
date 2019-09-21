@@ -84,7 +84,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QtMaterialRaisedButton" name="btnMenu">
+       <widget class="QPushButton" name="btnMenu">
         <property name="styleSheet">
          <string notr="true">border:none; background-color:transparent;</string>
         </property>
@@ -133,13 +133,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources>
   <include location="resource.qrc"/>
  </resources>

@@ -261,21 +261,21 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4">
              <item alignment="Qt::AlignHCenter">
-              <widget class="QtMaterialRaisedButton" name="pushButtonLabel">
+              <widget class="QPushButton" name="pushButtonLabel">
                <property name="text">
                 <string>Add Label</string>
                </property>
               </widget>
              </item>
              <item alignment="Qt::AlignHCenter">
-              <widget class="QtMaterialRaisedButton" name="pushButtonNewAddress">
+              <widget class="QPushButton" name="pushButtonNewAddress">
                <property name="text">
                 <string>Generate Address</string>
                </property>
               </widget>
              </item>
              <item alignment="Qt::AlignHCenter">
-              <widget class="QtMaterialRaisedButton" name="pushButtonCopy">
+              <widget class="QPushButton" name="pushButtonCopy">
                <property name="text">
                 <string>Copy</string>
                </property>
@@ -392,11 +392,6 @@
    <header>qt/transcendence/optionbutton.h</header>
    <container>1</container>
   </customwidget>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

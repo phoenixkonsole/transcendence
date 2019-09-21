@@ -6,7 +6,6 @@
 #define SETTINGSFAQWIDGET_H
 
 #include <QDialog>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 
 namespace Ui {
 class SettingsFaqWidget;
@@ -40,7 +39,7 @@ private:
     Ui::SettingsFaqWidget *ui;
     int pos = 0;
 
-    std::vector<QtMaterialRaisedButton*> getButtons();
+    std::vector<QPushButton*> getButtons();
 };
 
 #endif // SETTINGSFAQWIDGET_H

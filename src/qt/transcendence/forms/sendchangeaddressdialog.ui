@@ -116,7 +116,7 @@
          </spacer>
         </item>
         <item>
-         <widget class="QtMaterialRaisedButton" name="btnEsc">
+         <widget class="QPushButton" name="btnEsc">
           <property name="minimumSize">
            <size>
             <width>24</width>
@@ -232,7 +232,7 @@
          <number>30</number>
         </property>
         <item>
-         <widget class="QtMaterialRaisedButton" name="btnCancel">
+         <widget class="QPushButton" name="btnCancel">
           <property name="minimumSize">
            <size>
             <width>180</width>
@@ -245,7 +245,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QtMaterialRaisedButton" name="btnSave">
+         <widget class="QPushButton" name="btnSave">
           <property name="minimumSize">
            <size>
             <width>180</width>
@@ -264,13 +264,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

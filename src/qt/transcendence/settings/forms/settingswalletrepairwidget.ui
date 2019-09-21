@@ -150,7 +150,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonSalvage">
+               <widget class="QPushButton" name="pushButtonSalvage">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -212,7 +212,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonRescan">
+               <widget class="QPushButton" name="pushButtonRescan">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -274,7 +274,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonRecover1">
+               <widget class="QPushButton" name="pushButtonRecover1">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -336,7 +336,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonRecover2">
+               <widget class="QPushButton" name="pushButtonRecover2">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -398,7 +398,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonUpgrade">
+               <widget class="QPushButton" name="pushButtonUpgrade">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -460,7 +460,7 @@
                <number>5</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonRebuild">
+               <widget class="QPushButton" name="pushButtonRebuild">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -522,7 +522,7 @@
                <number>0</number>
               </property>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonDelete">
+               <widget class="QPushButton" name="pushButtonDelete">
                 <property name="minimumSize">
                  <size>
                   <width>0</width>
@@ -585,13 +585,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
- <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
-</customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

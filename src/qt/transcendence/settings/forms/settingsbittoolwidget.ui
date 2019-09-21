@@ -116,7 +116,7 @@
               </spacer>
              </item>
              <item>
-              <widget class="QtMaterialRaisedButton" name="pushLeft">
+              <widget class="QPushButton" name="pushLeft">
                <property name="minimumSize">
                 <size>
                  <width>120</width>
@@ -141,7 +141,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QtMaterialRaisedButton" name="pushRight">
+              <widget class="QPushButton" name="pushRight">
                <property name="minimumSize">
                 <size>
                  <width>120</width>
@@ -446,7 +446,7 @@
                       </spacer>
                      </item>
                      <item>
-                      <widget class="QtMaterialRaisedButton" name="pushButtonImport">
+                      <widget class="QPushButton" name="pushButtonImport">
                        <property name="minimumSize">
                         <size>
                          <width>140</width>
@@ -515,7 +515,7 @@
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QtMaterialRaisedButton" name="pushButtonDecryptClear">
+                  <widget class="QPushButton" name="pushButtonDecryptClear">
                    <property name="minimumSize">
                     <size>
                      <width>200</width>
@@ -550,7 +550,7 @@
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QtMaterialRaisedButton" name="pushButtonDecrypt">
+                  <widget class="QPushButton" name="pushButtonDecrypt">
                    <property name="minimumSize">
                     <size>
                      <width>200</width>
@@ -857,7 +857,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonClear">
+               <widget class="QPushButton" name="pushButtonClear">
                 <property name="minimumSize">
                  <size>
                   <width>200</width>
@@ -886,7 +886,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QtMaterialRaisedButton" name="pushButtonEncrypt">
+               <widget class="QPushButton" name="pushButtonEncrypt">
                 <property name="minimumSize">
                  <size>
                   <width>200</width>
@@ -917,13 +917,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
- <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
-</customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

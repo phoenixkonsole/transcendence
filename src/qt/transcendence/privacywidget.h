@@ -14,7 +14,6 @@
 
 #include <QLabel>
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class TELOSGUI;
 class WalletModel;

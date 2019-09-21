@@ -9,13 +9,12 @@
 #include "walletmodel.h"
 #include "qt/transcendence/snackbar.h"
 #include "masternodeconfig.h"
-#include "qt/materialui/qtmaterialraisedbutton.h"
 
 class WalletModel;
 
 namespace Ui {
 class MasterNodeWizardDialog;
-class QtMaterialRaisedButton;
+class QPushButton;
 }
 
 class MasterNodeWizardDialog : public QDialog
@@ -35,9 +34,9 @@ private slots:
     void onBackClicked();
 private:
     Ui::MasterNodeWizardDialog *ui;
-    QtMaterialRaisedButton* icConfirm1;
-    QtMaterialRaisedButton* icConfirm3;
-    QtMaterialRaisedButton* icConfirm4;
+    QPushButton* icConfirm1;
+    QPushButton* icConfirm3;
+    QPushButton* icConfirm4;
     SnackBar *snackBar = nullptr;
     int pos = 0;
 
@@ -48,7 +47,7 @@ private:
     // Additional parameter msgArg can be used via .arg(msgArg).
     void processSendCoinsReturn(const WalletModel::SendCoinsReturn& sendCoinsReturn, const QString& msgArg = QString(), bool fPrepare = false);
     void inform(QString text);
-    void initBtn(std::initializer_list<QtMaterialRaisedButton*> args);
+    void initBtn(std::initializer_list<QPushButton*> args);
 };
 
 #endif // MASTERNODEWIZARDDIALOG_H

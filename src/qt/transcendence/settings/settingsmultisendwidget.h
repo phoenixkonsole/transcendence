@@ -6,7 +6,6 @@
 #define SETTINGSMULTISENDWIDGET_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QAbstractTableModel>
 #include "qt/transcendence/pwidget.h"
 #include "qt/transcendence/furabstractlistitemdelegate.h"

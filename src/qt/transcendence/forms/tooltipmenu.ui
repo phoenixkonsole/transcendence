@@ -60,7 +60,7 @@
        <number>0</number>
       </property>
       <item alignment="Qt::AlignLeft">
-       <widget class="QtMaterialRaisedButton" name="btnCopy">
+       <widget class="QPushButton" name="btnCopy">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -88,7 +88,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignLeft">
-       <widget class="QtMaterialRaisedButton" name="btnEdit">
+       <widget class="QPushButton" name="btnEdit">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -116,7 +116,7 @@
        </widget>
       </item>
       <item alignment="Qt::AlignLeft">
-       <widget class="QtMaterialRaisedButton" name="btnDelete">
+       <widget class="QPushButton" name="btnDelete">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -148,13 +148,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

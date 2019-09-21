@@ -7,7 +7,6 @@
 #include "walletmodel.h"
 #include "qt/transcendence/qtutils.h"
 
-
 SendChangeAddressDialog::SendChangeAddressDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SendChangeAddressDialog)
@@ -38,7 +37,7 @@ SendChangeAddressDialog::SendChangeAddressDialog(QWidget *parent) :
 
     connect(ui->btnEsc, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(close()));
-    connect(ui->btnSave, &QtMaterialRaisedButton::clicked, [this](){ selected = true; accept(); });
+    connect(ui->btnSave, &QPushButton::clicked, [this](){ selected = true; accept(); });
 }
 
 void SendChangeAddressDialog::setAddress(QString address){

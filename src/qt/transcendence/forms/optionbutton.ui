@@ -141,7 +141,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QtMaterialRaisedButton" name="labelArrow3">
+       <widget class="QPushButton" name="labelArrow3">
         <property name="minimumSize">
          <size>
           <width>24</width>
@@ -176,13 +176,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -27,7 +27,6 @@
 #include <iostream>
 #include <fstream>
 
-
 #define DECORATION_SIZE 65
 #define NUM_ITEMS 3
 

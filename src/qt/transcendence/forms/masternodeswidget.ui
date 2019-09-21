@@ -189,7 +189,7 @@
                <number>0</number>
               </property>
               <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-               <widget class="QtMaterialRaisedButton" name="pushImgEmpty"  native="true">
+               <widget class="QPushButton" name="pushImgEmpty">
                 <property name="minimumSize">
                  <size>
                   <width>100</width>
@@ -254,7 +254,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QtMaterialRaisedButton" name="pushButtonSave"  native="true">
+           <widget class="QPushButton" name="pushButtonSave">
             <property name="minimumSize">
              <size>
               <width>280</width>
@@ -346,11 +346,6 @@
    <header>qt/transcendence/optionbutton.h</header>
    <container>1</container>
   </customwidget>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
  </customwidgets>
  <resources/>
  <connections/>

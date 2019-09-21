@@ -156,7 +156,7 @@ void updateStyle(QWidget* widget){
 QColor getRowColor(bool isLightTheme, bool isHovered, bool isSelected){
     if(isLightTheme){
         if (isSelected) {
-            return QColor("#2588cbff");
+            return QColor("#25b088ff");
         }else if(isHovered){
             return QColor("#25bababa");
         } else{
@@ -164,7 +164,7 @@ QColor getRowColor(bool isLightTheme, bool isHovered, bool isSelected){
         }
     }else{
         if (isSelected) {
-            return QColor("#2588cbff");
+            return QColor("#25b088ff");
         }else if(isHovered){
             return QColor("#25bababa");
         } else{
@@ -209,11 +209,11 @@ void setShadow(QWidget *edit){
     edit->setGraphicsEffect(shadowEffect);
 }
 
-void setCssBtnPrimary(QtMaterialRaisedButton *btn, bool forceUpdate){
+void setCssBtnPrimary(QPushButton *btn, bool forceUpdate){
     setCssProperty(btn, "btn-primary", forceUpdate);
 }
 
-void setCssBtnSecondary(QtMaterialRaisedButton *btn, bool forceUpdate){
+void setCssBtnSecondary(QPushButton *btn, bool forceUpdate){
     setCssProperty(btn, "btn-secundary", forceUpdate);
 }
 

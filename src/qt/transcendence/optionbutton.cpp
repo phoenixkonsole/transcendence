@@ -16,7 +16,7 @@ OptionButton::OptionButton(QWidget *parent) :
     setCssProperty(ui->layoutOptions2, "container-options");
     ui->layoutOptions2->setContentsMargins(0,10,10,10);
     setCssProperty(ui->labelCircle, "btn-options-indicator");
-    connect(ui->labelArrow3, &QtMaterialRaisedButton::clicked, [this](){setChecked(!ui->labelArrow3->isChecked());});
+    connect(ui->labelArrow3, &QPushButton::clicked, [this](){setChecked(!ui->labelArrow3->isChecked());});
     setActive(false);
 }
 

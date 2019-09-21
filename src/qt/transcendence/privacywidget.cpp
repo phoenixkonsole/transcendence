@@ -14,7 +14,6 @@
 #include "coincontrol.h"
 #include "ztelos/accumulators.h"
 
-
 #define DECORATION_SIZE 65
 #define NUM_ITEMS 3
 
@@ -142,8 +141,8 @@ PrivacyWidget::PrivacyWidget(TELOSGUI* parent) :
     connect(ui->btnResetZerocoin, SIGNAL(clicked()), this, SLOT(onResetZeroClicked()));
 
     ui->pushRight->setChecked(true);
-    connect(ui->pushLeft, &QtMaterialRaisedButton::clicked, [this](){onMintSelected(false);});
-    connect(ui->pushRight,  &QtMaterialRaisedButton::clicked, [this](){onMintSelected(true);});
+    connect(ui->pushLeft, &QPushButton::clicked, [this](){onMintSelected(false);});
+    connect(ui->pushRight,  &QPushButton::clicked, [this](){onMintSelected(true);});
 
     // List
     setCssProperty(ui->listView, "container");

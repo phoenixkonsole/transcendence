@@ -11,7 +11,6 @@
 #include <QListView>
 #include <QComboBox>
 
-
 SendCustomFeeDialog::SendCustomFeeDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SendCustomFeeDialog)

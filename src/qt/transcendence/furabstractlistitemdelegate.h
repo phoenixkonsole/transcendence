@@ -11,7 +11,6 @@
 #include <QPainter>
 #include <QObject>
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include <QColor>
 #include <QModelIndex>
 #include <QObject>

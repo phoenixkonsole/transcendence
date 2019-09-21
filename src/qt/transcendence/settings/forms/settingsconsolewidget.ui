@@ -75,7 +75,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QtMaterialRaisedButton" name="pushButtonOpenDebug">
+           <widget class="QPushButton" name="pushButtonOpenDebug">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -88,7 +88,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QtMaterialRaisedButton" name="pushButtonCommandOptions">
+           <widget class="QPushButton" name="pushButtonCommandOptions">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -161,7 +161,7 @@
            <number>0</number>
           </property>
           <item>
-           <widget class="QtMaterialRaisedButton" name="pushButton">
+           <widget class="QPushButton" name="pushButton">
             <property name="minimumSize">
              <size>
               <width>45</width>
@@ -220,13 +220,6 @@
    </item>
   </layout>
  </widget>
- <customwidgets>
- <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
-</customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

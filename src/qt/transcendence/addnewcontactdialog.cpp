@@ -6,7 +6,6 @@
 #include "qt/transcendence/forms/ui_addnewcontactdialog.h"
 #include "qt/transcendence/qtutils.h"
 
-
 AddNewContactDialog::AddNewContactDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddNewContactDialog)

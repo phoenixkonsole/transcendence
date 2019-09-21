@@ -6,7 +6,6 @@
 #define LOCKUNLOCK_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include "walletmodel.h"
 
 namespace Ui {

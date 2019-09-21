@@ -87,7 +87,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
-            <widget class="QtMaterialRaisedButton" name="pushButtonUnlocked">
+            <widget class="QPushButton" name="pushButtonUnlocked">
              <property name="minimumSize">
               <size>
                <width>36</width>
@@ -119,7 +119,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_31">
            <item>
-            <widget class="QtMaterialRaisedButton" name="pushButtonLocked">
+            <widget class="QPushButton" name="pushButtonLocked">
              <property name="minimumSize">
               <size>
                <width>36</width>
@@ -148,7 +148,7 @@
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
-            <widget class="QtMaterialRaisedButton" name="pushButtonStaking">
+            <widget class="QPushButton" name="pushButtonStaking">
              <property name="minimumSize">
               <size>
                <width>36</width>
@@ -198,13 +198,6 @@
    </item>
   </layout>
  </widget>
-   <customwidgets>
-   <customwidget>
-   <class>QtMaterialRaisedButton</class>
-   <extends>QWidget</extends>
-   <header>qt/materialui/qtmaterialraisedbutton.h</header>
- </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

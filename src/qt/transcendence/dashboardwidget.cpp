@@ -17,7 +17,6 @@
 #include <QList>
 #include <QGraphicsLayout>
 
-
 #define DECORATION_SIZE 65
 #define NUM_ITEMS 3
 #define SHOW_EMPTY_CHART_VIEW_THRESHOLD 4000
@@ -157,9 +156,9 @@ bool hasCharts = false;
 #ifdef USE_QTCHARTS
     hasCharts = true;
     setChartShow(YEAR);
-    connect(ui->pushButtonYear, &QtMaterialRaisedButton::clicked, [this](){setChartShow(YEAR);});
-    connect(ui->pushButtonMonth, &QtMaterialRaisedButton::clicked, [this](){setChartShow(MONTH);});
-    connect(ui->pushButtonAll, &QtMaterialRaisedButton::clicked, [this](){setChartShow(ALL);});
+    connect(ui->pushButtonYear, &QPushButton::clicked, [this](){setChartShow(YEAR);});
+    connect(ui->pushButtonMonth, &QPushButton::clicked, [this](){setChartShow(MONTH);});
+    connect(ui->pushButtonAll, &QPushButton::clicked, [this](){setChartShow(ALL);});
 #endif
 
     if (hasCharts) {

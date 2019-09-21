@@ -6,7 +6,6 @@
 #define MASTERNODESWIDGET_H
 
 #include <QWidget>
-#include "qt/materialui/qtmaterialraisedbutton.h"
 #include "qt/transcendence/pwidget.h"
 #include "qt/transcendence/furabstractlistitemdelegate.h"
 #include "qt/transcendence/mnmodel.h"

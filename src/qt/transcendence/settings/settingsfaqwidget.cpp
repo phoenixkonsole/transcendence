@@ -109,7 +109,7 @@ SettingsFaqWidget::SettingsFaqWidget(QWidget *parent) :
 
 void SettingsFaqWidget::showEvent(QShowEvent *event){
     if(pos != 0){
-        QtMaterialRaisedButton* btn = getButtons()[pos - 1];
+        QPushButton* btn = getButtons()[pos - 1];
         QMetaObject::invokeMethod(btn, "setChecked", Qt::QueuedConnection, Q_ARG(bool, true));
         QMetaObject::invokeMethod(btn, "clicked", Qt::QueuedConnection);
     }
@@ -167,7 +167,7 @@ void SettingsFaqWidget::windowResizeEvent(QResizeEvent* event){
     this->move(QPoint(0, 0));
 }
 
-std::vector<QtMaterialRaisedButton*> SettingsFaqWidget::getButtons(){
+std::vector<QPushButton*> SettingsFaqWidget::getButtons(){
     return {
             ui->pushButtonFaq1,
             ui->pushButtonFaq2,

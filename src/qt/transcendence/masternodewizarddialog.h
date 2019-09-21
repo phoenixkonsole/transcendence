@@ -10,7 +10,8 @@
 #include "qt/transcendence/snackbar.h"
 #include "masternodeconfig.h"
 #include <QComboBox>
-
+#include "chainparams.h"
+#include <string>
 class WalletModel;
 
 namespace Ui {

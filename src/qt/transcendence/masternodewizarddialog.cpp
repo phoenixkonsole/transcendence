@@ -63,18 +63,18 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     setCssProperty(ui->labelTitle4, "text-title-dialog");
     setCssProperty({ui->labelSubtitleIp, ui->labelSubtitlePort}, "text-title");
     setCssSubtitleScreen(ui->labelSubtitleAddressIp);
-
+    std::string p2p_port = std::to_string(Params().GetDefaultPort());
     ui->lineEditIpAddress->setPlaceholderText("e.g 18.255.255.255");
-    ui->lineEditPort->setPlaceholderText("e.g 51472");
+    ui->lineEditPort->setPlaceholderText("e.g " + p2p_port);
     initCssEditLine(ui->lineEditIpAddress);
     initCssEditLine(ui->lineEditPort);
     ui->stackedWidget->setCurrentIndex(pos);
     ui->lineEditPort->setValidator(new QIntValidator(0, 9999999, ui->lineEditPort));
     if(walletModel->isTestnet()){
         ui->lineEditPort->setEnabled(false);
-        ui->lineEditPort->setText("51474");
+        ui->lineEditPort->setText(p2p_port);
     } else {
-        ui->lineEditPort->setText("51472");
+        ui->lineEditPort->setText(p2p_port);
     }
 
     // Confirm icons

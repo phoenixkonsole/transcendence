@@ -71,11 +71,11 @@ QString BitcoinUnits::name(int unit, bool isZTelos)
     } else {
         switch (unit) {
         case TELOS:
-            return z + QString("tPIV");
+            return z + QString("tTELOS");
         case mPIV:
-            return z + QString("mtPIV");
+            return z + QString("mtTELOS");
         case uPIV:
-            return z + QString::fromUtf8("μtPIV");
+            return z + QString::fromUtf8("μtTELOS");
         default:
             return QString("???");
         }
@@ -98,11 +98,11 @@ QString BitcoinUnits::description(int unit)
     } else {
         switch (unit) {
         case TELOS:
-            return QString("TestPIVs");
+            return QString("TestTELOSs");
         case mPIV:
-            return QString("Milli-TestPIV (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-TestTELOS (1 / 1" THIN_SP_UTF8 "000)");
         case uPIV:
-            return QString("Micro-TestPIV (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-TestTELOS (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }

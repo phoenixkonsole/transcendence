@@ -1,8 +1,8 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Transcendence developers
+// Copyright (c) 2018-2019 The Transcendence developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,9 +16,6 @@
 #include "guiinterface.h"
 #include "util.h"
 #include "utilstrencodings.h"
-#ifdef ENABLE_WALLET
-#include "wallet/wallet.h"
-#endif
 
 #include <boost/bind.hpp>
 #include <boost/filesystem.hpp>
@@ -41,7 +38,6 @@ static std::string rpcWarmupStatus("RPC server started");
 static CCriticalSection cs_rpcWarmup;
 
 /* Timer-creating functions */
-static std::vector<RPCTimerInterface*> timerInterfaces;
 static RPCTimerInterface* timerInterface = NULL;
 /* Map of name to timer.
  * @note Can be changed to std::unique_ptr when C++11 */
@@ -118,6 +114,9 @@ static inline int64_t roundint64(double d)
 
 CAmount AmountFromValue(const UniValue& value)
 {
+    if (!value.isNum())
+        throw JSONRPCError(RPC_TYPE_ERROR, "Amount is not a number");
+
     double dAmount = value.get_real();
     if (dAmount <= 0.0 || dAmount > 21000000.0)
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
@@ -137,13 +136,15 @@ UniValue ValueFromAmount(const CAmount& amount)
             strprintf("%s%d.%08d", sign ? "-" : "", quotient, remainder));
 }
 
-uint256 ParseHashV(const UniValue& v, string strName)
+uint256 ParseHashV(const UniValue& v, std::string strName)
 {
-    string strHex;
+    std::string strHex;
     if (v.isStr())
         strHex = v.get_str();
     if (!IsHex(strHex)) // Note: IsHex("") is false
         throw JSONRPCError(RPC_INVALID_PARAMETER, strName + " must be hexadecimal string (not '" + strHex + "')");
+    if (64 != strHex.length())
+        throw JSONRPCError(RPC_INVALID_PARAMETER, strprintf("%s must be of length %d (not %d)", strName, 64, strHex.length()));
     uint256 result;
     result.SetHex(strHex);
     return result;
@@ -269,7 +270,8 @@ UniValue stop(const UniValue& params, bool fHelp)
         throw runtime_error(
             "stop\n"
             "\nStop Transcendence server.");
-    // Shutdown will take long enough that the response should get back
+    // Event loop will exit after current HTTP requests have been handled, so
+    // this reply will get back to the client.
     StartShutdown();
     return "Transcendence server stopping";
 }
@@ -309,7 +311,6 @@ static const CRPCCommand vRPCCommands[] =
         {"blockchain", "getrawmempool", &getrawmempool, true, false, false},
         {"blockchain", "gettxout", &gettxout, true, false, false},
         {"blockchain", "gettxoutsetinfo", &gettxoutsetinfo, true, false, false},
-        {"blockchain", "verifychain", &verifychain, true, false, false},
         {"blockchain", "invalidateblock", &invalidateblock, true, true, false},
         {"blockchain", "reconsiderblock", &reconsiderblock, true, true, false},
 
@@ -348,7 +349,7 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Transcendence features */
+        /* transcendence features */
         {"transcendence", "masternode", &masternode, true, true, false},
         {"transcendence", "listmasternodes", &listmasternodes, true, true, false},
         {"transcendence", "getmasternodecount", &getmasternodecount, true, true, false},
@@ -362,7 +363,6 @@ static const CRPCCommand vRPCCommands[] =
         {"transcendence", "getmasternodestatus", &getmasternodestatus, true, true, false},
         {"transcendence", "getmasternodewinners", &getmasternodewinners, true, true, false},
         {"transcendence", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"transcendence", "mnbudget", &mnbudget, true, true, false},
         {"transcendence", "preparebudget", &preparebudget, true, true, false},
         {"transcendence", "submitbudget", &submitbudget, true, true, false},
         {"transcendence", "mnbudgetvote", &mnbudgetvote, true, true, false},
@@ -376,9 +376,8 @@ static const CRPCCommand vRPCCommands[] =
         {"transcendence", "mnsync", &mnsync, true, true, false},
         {"transcendence", "spork", &spork, true, true, false},
         {"transcendence", "getpoolinfo", &getpoolinfo, true, true, false},
-#ifdef ENABLE_WALLET
-        {"transcendence", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
+#ifdef ENABLE_WALLET
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
         {"wallet", "autocombinerewards", &autocombinerewards, false, false, true},
@@ -612,30 +611,29 @@ std::string HelpExampleRpc(string methodname, string args)
            "\"method\": \"" +
            methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:5520/\n";
 }
+
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)
 {
     if (!timerInterface)
         timerInterface = iface;
 }
 
-void RPCRegisterTimerInterface(RPCTimerInterface *iface)
+void RPCSetTimerInterface(RPCTimerInterface *iface)
 {
-    timerInterfaces.push_back(iface);
+    timerInterface = iface;
 }
 
-void RPCUnregisterTimerInterface(RPCTimerInterface *iface)
+void RPCUnsetTimerInterface(RPCTimerInterface *iface)
 {
-    std::vector<RPCTimerInterface*>::iterator i = std::find(timerInterfaces.begin(), timerInterfaces.end(), iface);
-    assert(i != timerInterfaces.end());
-    timerInterfaces.erase(i);
+    if (timerInterface == iface)
+        timerInterface = NULL;
 }
 
 void RPCRunLater(const std::string& name, boost::function<void(void)> func, int64_t nSeconds)
 {
-    if (timerInterfaces.empty())
+    if (!timerInterface)
         throw JSONRPCError(RPC_INTERNAL_ERROR, "No timer handler registered for RPC");
     deadlineTimers.erase(name);
-    RPCTimerInterface* timerInterface = timerInterfaces[0];
     LogPrint("rpc", "queue run of timer %s in %i seconds (using %s)\n", name, nSeconds, timerInterface->Name());
     deadlineTimers.insert(std::make_pair(name, boost::shared_ptr<RPCTimerBase>(timerInterface->NewTimer(func, nSeconds*1000))));
 }

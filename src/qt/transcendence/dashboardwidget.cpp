@@ -588,8 +588,8 @@ void DashboardWidget::onChartRefreshed() {
     // init sets
     set0 = new QBarSet("TELOS");
     set1 = new QBarSet("zTELOS");
-    set0->setColor(QColor(255, 183, 74));
-    set1->setColor(QColor(196, 168, 67));
+    set0->setColor(QColor("#7c7450"));
+    set1->setColor(QColor("#cab35a"));
 
     if(!series) {
         series = new QBarSeries();

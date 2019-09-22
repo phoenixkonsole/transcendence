@@ -1567,7 +1567,7 @@
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     <message>
         <source>Error</source>
         <translation>Greška</translation>

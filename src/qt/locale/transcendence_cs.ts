@@ -2331,7 +2331,7 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

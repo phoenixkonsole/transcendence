@@ -3309,7 +3309,7 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     <message>
         <source>(default: %s)</source>
         <translation>(numatytas: %s)</translation>

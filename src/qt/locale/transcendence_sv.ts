@@ -4939,7 +4939,7 @@ Var tålmodig...</translation>
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = behåll tx meta data t.ex. kontoägare och information om betalningsförfråga, 2 = släpp tx meta data)</translation>

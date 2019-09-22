@@ -1911,7 +1911,7 @@
     </message>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     <message>
         <source>Connection options:</source>
         <translation>Opcions de connexió:</translation>

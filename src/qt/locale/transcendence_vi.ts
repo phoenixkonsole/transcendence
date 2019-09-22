@@ -215,6 +215,6 @@
     <name>ZTelosControlDialog</name>
     </context>
 <context>
-    <name>pivx-core</name>
+    <name>transcendence-core</name>
     </context>
 </TS>

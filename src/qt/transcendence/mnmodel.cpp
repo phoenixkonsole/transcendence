@@ -88,7 +88,7 @@ QVariant MNModel::data(const QModelIndex &index, int role) const
                 return (pair.second) ? QString::fromStdString(pair.second->Status()) : "MISSING";
             }
             case TIER:{
-             return (isAvailable) ? "Tier:" + QString("%I1").arg(QString::number(GetMastenodeTierCoins(nodes.values().value(row).second->tier))) : "Not available";
+             return (isAvailable) ? "Tier:" + QString("%L1").arg(QString::number(GetMastenodeTierCoins(nodes.values().value(row).second->tier))) : "Not available";
             }
             case PRIV_KEY: {
                 for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {

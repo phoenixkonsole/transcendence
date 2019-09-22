@@ -1016,8 +1016,8 @@ QPushButton[cssClass="btn-check-right"]:checked {
 }
 
 QPushButton[cssClass="btn-check-right"]:checked:hover {
-    border:  1px solid #886fb7;
-    background-color:#886fb7;
+    border:  1px solid #b7a96f;
+    background-color:#b7a96f;
     font-size:18px;
     padding:4px;
     color: #FFFFFF;
@@ -1075,8 +1075,8 @@ QPushButton[cssClass="btn-check-left"]:checked {
 }
 
 QPushButton[cssClass="btn-check-left"]:checked:hover {
-    border:  1px solid #886fb7;
-    background-color:#886fb7;
+    border:  1px solid #b7a96f;
+    background-color:#b7a96f;
     font-size:18px;
     padding:4px;
     color: #FFFFFF;

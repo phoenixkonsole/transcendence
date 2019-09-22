@@ -10,7 +10,7 @@
 #include "netbase.h"
 #include "rpcprotocol.h" // For HTTP status codes
 #include "sync.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 
 #include <stdio.h>
 #include <stdlib.h>

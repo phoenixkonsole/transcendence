@@ -48,7 +48,8 @@ public:
         QString address = index.sibling(index.row(), MNModel::ADDRESS).data(Qt::DisplayRole).toString();
         QString status = index.sibling(index.row(), MNModel::STATUS).data(Qt::DisplayRole).toString();
         bool wasCollateralAccepted = index.sibling(index.row(), MNModel::WAS_COLLATERAL_ACCEPTED).data(Qt::DisplayRole).toBool();
-        row->updateView("Address: " + address, label, status, wasCollateralAccepted);
+        QString tier = index.sibling(index.row(), MNModel::TIER).data(Qt::DisplayRole).toString();
+        row->updateView("Address: " + address, label, status,tier,wasCollateralAccepted);
     }
 
     QColor rectColor(bool isHovered, bool isSelected) override{

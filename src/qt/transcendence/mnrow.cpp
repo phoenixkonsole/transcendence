@@ -17,9 +17,10 @@ MNRow::MNRow(QWidget *parent) :
     ui->lblDivisory->setStyleSheet("background-color:#bababa;");
 }
 
-void MNRow::updateView(QString address, QString label, QString status, bool wasCollateralAccepted){
+void MNRow::updateView(QString address, QString label, QString status,QString mntier, bool wasCollateralAccepted){
     ui->labelName->setText(label);
     ui->labelAddress->setText(address);
+    ui->labelTier->setText(mntier);
     ui->labelDate->setText("Status: " + status);
     if (!wasCollateralAccepted){
         ui->labelDate->setText("Status: Collateral tx not found");

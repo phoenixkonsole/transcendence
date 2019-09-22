@@ -93,6 +93,14 @@
          </item>
         </layout>
        </widget>
+        <widget class="QLabel" name="labelTier">
+           <property name="text">
+            <string>Tier: 1000</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer">

@@ -653,8 +653,8 @@
         <translation>TELOS 주소로 입금하기</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>결제 요청 (QR 코드 및 pivx: URI 생성)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>결제 요청 (QR 코드 및 transcendence: URI 생성)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -2167,7 +2167,7 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf<
         <translation>잘못된 결제 주소 %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
+        <source>Cannot start transcendence: click-to-pay handler</source>
         <translation>TELOS을 시작할 수 없습니다: 결제하기 위한 클릭 처리</translation>
     </message>
     <message>

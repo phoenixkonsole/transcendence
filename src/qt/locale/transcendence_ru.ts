@@ -653,7 +653,7 @@
         <translation>Отправить монеты на TELOS адрес</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>Запросить платежи (генерирует QR-код и TELOS: URI)</translation>
     </message>
     <message>
@@ -2167,8 +2167,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf<
         <translation>Неверный адрес оплаты %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
-        <translation>Не удалось запустить pivx: обработчик click-to-pay </translation>
+        <source>Cannot start transcendence: click-to-pay handler</source>
+        <translation>Не удалось запустить transcendence: обработчик click-to-pay </translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid TELOS address or malformed URI parameters.</source>

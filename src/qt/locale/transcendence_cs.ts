@@ -609,8 +609,8 @@
         <translation>Odeslat platbuna TELOS adresu</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Vyžádat platbu (generování QK kódu a pivx: URIs)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Vyžádat platbu (generování QK kódu a transcendence: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>

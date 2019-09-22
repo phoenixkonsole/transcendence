@@ -649,8 +649,8 @@
         <translation>Sendu mono al TELOS addreso</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Peto pagojn (generas QR kodojn kaj pivx: URIs)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Peto pagojn (generas QR kodojn kaj transcendence: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>

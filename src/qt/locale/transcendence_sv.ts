@@ -665,8 +665,8 @@
         <translation>Skicka mynt till en TELOS adress</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Begär betalning (genererar QR kod och pivx: URls)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Begär betalning (genererar QR kod och transcendence: URls)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -2322,8 +2322,8 @@ För att aktivera AutoMint ändra 'enablezeromint=0' till 'enablezeromint=1' i p
         <translation>Ogiltig betalningsadress %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
-        <translation>Kan ej starta pivx: klicka-för-att-betala hanterare</translation>
+        <source>Cannot start transcendence: click-to-pay handler</source>
+        <translation>Kan ej starta transcendence: klicka-för-att-betala hanterare</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid TELOS address or malformed URI parameters.</source>

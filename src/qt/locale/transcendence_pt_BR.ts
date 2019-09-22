@@ -621,8 +621,8 @@
         <translation>Enviar moedas para um endereço TELOS</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Requisitar pagamentos (gera códigos QR e pivx: URIs)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Requisitar pagamentos (gera códigos QR e transcendence: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>

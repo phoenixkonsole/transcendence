@@ -649,8 +649,8 @@
         <translation>Invia valuta all'indirizzo TELOS</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Richiedi pagamenti (genera codici QR e pivx: URIs)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Richiedi pagamenti (genera codici QR e transcendence: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>

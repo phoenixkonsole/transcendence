@@ -653,8 +653,8 @@
         <translation>An eine TELOS-Adresse überweisen</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Zahlung anfordern (QR-Code Generierung und pivx: URIs)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Zahlung anfordern (QR-Code Generierung und transcendence: URIs)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -2163,7 +2163,7 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>Ungültige Zahlungsaufforderungsadresse %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
+        <source>Cannot start transcendence: click-to-pay handler</source>
         <translation>Kann TELOS nicht starten: click-to-pay Handler</translation>
     </message>
     <message>

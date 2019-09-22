@@ -649,8 +649,8 @@
         <translation>Pošaljite kovanice na TELOS adresu</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Zahtjev za plaćanje (generira QR kodove i pivx: URI)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Zahtjev za plaćanje (generira QR kodove i transcendence: URI)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -2167,8 +2167,8 @@ Da biste omogućili, promjenite postavke AutoMint 'enablezeromint=0' na 'enablez
         <translation>Nevažeća adresa za plaćanje %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
-        <translation>Ne može se pokrenuti pivx: clik-to-pay handler</translation>
+        <source>Cannot start transcendence: click-to-pay handler</source>
+        <translation>Ne može se pokrenuti transcendence: clik-to-pay handler</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid TELOS address or malformed URI parameters.</source>

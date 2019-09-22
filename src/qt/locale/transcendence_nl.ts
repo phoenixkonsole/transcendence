@@ -661,7 +661,7 @@
         <translation>Verstuur munten naar een TELOS adres</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>Vraag betaling aan (genereert QR codes en TELOS: URI's)</translation>
     </message>
     <message>
@@ -2282,7 +2282,7 @@ Om AutoMint in te schakelend verander je 'enablezeromint=0' naar 'enablezeromint
         <translation>Ongeldig betalingsadres %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
+        <source>Cannot start transcendence: click-to-pay handler</source>
         <translation>Kan pivx niet starten: click-to-pay handler</translation>
     </message>
     <message>

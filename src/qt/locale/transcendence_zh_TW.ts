@@ -565,7 +565,7 @@
         <translation>送出錢幣到 TELOS 地址</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>請求付款 (會產生 QR Code跟 pivx 位址)</translation>
     </message>
     <message>

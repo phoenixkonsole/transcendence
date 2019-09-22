@@ -661,7 +661,7 @@
         <translation>Envoyer des pièces à une adresse TELOS</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>Requêtes de paiements (Génère des QR codes et des URIs TELOS)</translation>
     </message>
     <message>
@@ -2298,8 +2298,8 @@ Pour activer Auto-monnayage, changez 'enablezeromint = 0' en 'enablezeromint = 1
         <translation>Adresse de paiement invalide %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
-        <translation>Impossible de démarrer pivx: gestionnaire click-to-pay</translation>
+        <source>Cannot start transcendence: click-to-pay handler</source>
+        <translation>Impossible de démarrer transcendence: gestionnaire click-to-pay</translation>
     </message>
     <message>
         <source>URI cannot be parsed! This can be caused by an invalid TELOS address or malformed URI parameters.</source>

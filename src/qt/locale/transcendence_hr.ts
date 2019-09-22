@@ -625,8 +625,8 @@
         <translation>Pošaljite kovanice na TELOS adresu</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Zahtjev za plaćanja (generira QR kodove i pivx: URI)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Zahtjev za plaćanja (generira QR kodove i transcendence: URI)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>

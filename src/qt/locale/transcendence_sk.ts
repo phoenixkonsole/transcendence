@@ -577,8 +577,8 @@
         <translation>Odoslať mince na adresu TELOS</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
-        <translation>Vyžiadať platby (generuje QR kódy a pivx: identifikátory URI)</translation>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
+        <translation>Vyžiadať platby (generuje QR kódy a transcendence: identifikátory URI)</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>

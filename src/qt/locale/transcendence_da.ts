@@ -649,7 +649,7 @@
         <translation>Send mønter til en TELOS adresse</translation>
     </message>
     <message>
-        <source>Request payments (generates QR codes and pivx: URIs)</source>
+        <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>Anmod om betaling (genrerer QR kode og TELOS URL)</translation>
     </message>
     <message>
@@ -2181,7 +2181,7 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>Ugyldig betalingsadresse: %1</translation>
     </message>
     <message>
-        <source>Cannot start pivx: click-to-pay handler</source>
+        <source>Cannot start transcendence: click-to-pay handler</source>
         <translation>Kan ikke starte TELOS "klik for at betale" systemet</translation>
     </message>
     <message>

@@ -108,6 +108,8 @@ void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface);
 /** Unset factory function for timers */
 void RPCUnsetTimerInterface(RPCTimerInterface *iface);
 
+void RPCUnregisterTimerInterface(RPCTimerInterface *iface);
+void RPCRegisterTimerInterface(RPCTimerInterface *iface);
 /**
  * Run func nSeconds from now.
  * Overrides previous timer <name> (if any).

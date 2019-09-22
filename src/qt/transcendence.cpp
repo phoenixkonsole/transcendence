@@ -171,6 +171,7 @@ private:
     /// Flag indicating a restart
     bool execute_restart;
     boost::thread_group threadGroup;
+    
     /// Pass fatal exception message to UI thread
     void handleRunawayException(std::exception* e);
 };

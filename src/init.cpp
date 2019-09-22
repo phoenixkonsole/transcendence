@@ -1690,7 +1690,6 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     // ********************************************************* Step 10: setup ObfuScation
-	InitRPCMining();
 
 	uiInterface.InitMessage(_("Loading masternode cache..."));
 

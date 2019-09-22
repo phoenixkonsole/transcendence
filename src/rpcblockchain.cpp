@@ -172,40 +172,9 @@ UniValue getdifficulty(const UniValue& params, bool fHelp)
 }
 
 
+
 UniValue mempoolToJSON(bool fVerbose = false)
 {
-    if (fHelp || params.size() > 1)
-        throw runtime_error(
-            "getrawmempool ( verbose )\n"
-            "\nReturns all transaction ids in memory pool as a json array of string transaction ids.\n"
-            "\nArguments:\n"
-            "1. verbose           (boolean, optional, default=false) true for a json object, false for array of transaction ids\n"
-            "\nResult: (for verbose = false):\n"
-            "[                     (json array of string)\n"
-            "  \"transactionid\"     (string) The transaction id\n"
-            "  ,...\n"
-            "]\n"
-            "\nResult: (for verbose = true):\n"
-            "{                           (json object)\n"
-            "  \"transactionid\" : {       (json object)\n"
-            "    \"size\" : n,             (numeric) transaction size in bytes\n"
-            "    \"fee\" : n,              (numeric) transaction fee in transcendence\n"
-            "    \"time\" : n,             (numeric) local time transaction entered pool in seconds since 1 Jan 1970 GMT\n"
-            "    \"height\" : n,           (numeric) block height when transaction entered pool\n"
-            "    \"startingpriority\" : n, (numeric) priority when transaction entered pool\n"
-            "    \"currentpriority\" : n,  (numeric) transaction priority now\n"
-            "    \"depends\" : [           (array) unconfirmed transactions used as inputs for this transaction\n"
-            "        \"transactionid\",    (string) parent transaction id\n"
-            "       ... ]\n"
-            "  }, ...\n"
-            "]\n"
-            "\nExamples\n" +
-            HelpExampleCli("getrawmempool", "true") + HelpExampleRpc("getrawmempool", "true"));
-
-    bool fVerbose = false;
-    if (params.size() > 0)
-        fVerbose = params[0].get_bool();
-
     if (fVerbose) {
         LOCK(mempool.cs);
         UniValue o(UniValue::VOBJ);
@@ -246,6 +215,7 @@ UniValue mempoolToJSON(bool fVerbose = false)
         return a;
     }
 }
+
 
 UniValue getrawmempool(const UniValue& params, bool fHelp)
 {
@@ -714,7 +684,7 @@ UniValue getmempoolinfo(const UniValue& params, bool fHelp)
             "\nExamples:\n" +
             HelpExampleCli("getmempoolinfo", "") + HelpExampleRpc("getmempoolinfo", ""));
 
-    return mempoolInfoToJSON();
+    return mempoolToJSON();
 }
 
 UniValue invalidateblock(const UniValue& params, bool fHelp)

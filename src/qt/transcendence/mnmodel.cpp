@@ -62,30 +62,30 @@ int MNModel::columnCount(const QModelIndex &parent) const
 }
 
 std::string GetMasternodeTierFormatted(unsigned int tier){
-   std::string FTeir = "Not Available";
+   std::string FTeir = "0";
    switch (tier)
  {
-   case 0:{
+   case 1:{
        FTeir = "1,000";
            return FTeir;
        break;
     }
-   case 1:{
+   case 2:{
         FTeir ="3,000";
             return FTeir;
         break;
     }
-   case 2:{
+   case 3:{
         FTeir ="10,000";
             return FTeir;
         break;
     }
-   case 3:{
+   case 4:{
         FTeir ="30,000";
             return FTeir;
         break;
     }
-   case 4:{
+   case 5:{
         FTeir ="100,000";
             return FTeir;
         break;

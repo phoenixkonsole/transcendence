@@ -6,7 +6,7 @@
 #define MNMODEL_H
 
 #include <QAbstractTableModel>
-#include <QString>
+#include <string>
 #include "masternode.h"
 #include "masternodeconfig.h"
 class MNModel : public QAbstractTableModel
@@ -30,7 +30,7 @@ public:
         WAS_COLLATERAL_ACCEPTED = 9,
         TIER = 10
     };
-    QString GetMasternodeTierFormatted(unsigned int tier);
+    std::string GetMasternodeTierFormatted(unsigned int tier);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

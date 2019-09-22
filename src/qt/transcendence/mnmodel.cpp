@@ -61,8 +61,8 @@ int MNModel::columnCount(const QModelIndex &parent) const
     return 6;
 }
 
-QString MNModel::GetMasternodeTierFormatted(unsigned int tier){
-   QString FTeir = "Not Available";
+std::string MNModel::GetMasternodeTierFormatted(unsigned int tier){
+   std::string FTeir = "Not Available";
    switch (tier)
  {
    case 0:{
@@ -115,7 +115,7 @@ QVariant MNModel::data(const QModelIndex &index, int role) const
                 return (pair.second) ? QString::fromStdString(pair.second->Status()) : "MISSING";
             }
             case TIER:{
-                return "Tier:" + GetMasternodeTierFormatted(nodes.values().value(row).second->tier);
+                return "Tier:" + QString::fromStdString(GetMasternodeTierFormatted(nodes.values().value(row).second->tier));
             }
             case PRIV_KEY: {
                 for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {

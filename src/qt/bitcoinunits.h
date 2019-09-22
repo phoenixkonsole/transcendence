@@ -62,8 +62,8 @@ public:
      */
     enum Unit {
         TELOS,
-        mPIV,
-        uPIV
+        mTELOS,
+        uTELOS
     };
 
     enum SeparatorStyle {

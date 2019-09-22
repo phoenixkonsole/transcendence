@@ -74,7 +74,7 @@ extern double NSAppKitVersionNumber;
 #endif
 #endif
 
-#define URI_SCHEME "pivx"
+#define URI_SCHEME "transcendence"
 
 namespace GUIUtil
 {

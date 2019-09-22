@@ -115,7 +115,8 @@ QVariant MNModel::data(const QModelIndex &index, int role) const
                 return (pair.second) ? QString::fromStdString(pair.second->Status()) : "MISSING";
             }
             case TIER:{
-                return QString::fromStdString(GetMasternodeTierFormatted(nodes.values().value(row).second->tier));
+                std::string formattedtier = GetMasternodeTierFormatted(nodes.values().value(row).second->tier);
+                return QString::fromStdString(formattedtier);
             }
             case PRIV_KEY: {
                 for (CMasternodeConfig::CMasternodeEntry mne : masternodeConfig.getEntries()) {

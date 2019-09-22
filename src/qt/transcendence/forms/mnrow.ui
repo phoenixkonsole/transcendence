@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>475</width>
-    <height>65</height>
+    <height>73</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -91,16 +91,13 @@
            </property>
           </widget>
          </item>
-               <item>
-      <widget class="QLabel" name="labelTier">
+         <item>
+          <widget class="QLabel" name="labelTier">
            <property name="text">
             <string>Tier: 1000</string>
            </property>
           </widget>
          </item>
-        </layout>
-       </widget>
-      </item>
         </layout>
        </widget>
       </item>

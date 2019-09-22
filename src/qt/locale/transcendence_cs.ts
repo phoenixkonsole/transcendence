@@ -172,7 +172,7 @@
         <translation>Potvrdit zašifrování peněženky</translation>
     </message>
     <message>
-        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
         <translation>TELOS se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše PIVy před krádží, pokud je Váš počítač infikován malwarem.</translation>
     </message>
     <message>

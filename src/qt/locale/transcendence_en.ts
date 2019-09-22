@@ -221,7 +221,7 @@
     </message>
     <message>
         <location line="+9"/>
-        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

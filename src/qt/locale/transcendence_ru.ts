@@ -176,7 +176,7 @@
         <translation>Подтверждение шифрования кошелька</translation>
     </message>
     <message>
-        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
         <translation>TELOS сейчас закроется, чтобы завершить процесс шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши TELOS от кражи с использованием вредоносного ПО.</translation>
     </message>
     <message>

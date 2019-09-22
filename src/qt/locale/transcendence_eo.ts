@@ -176,7 +176,7 @@
         <translation>Konfirmi monerĉifrado</translation>
     </message>
     <message>
-        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your PIVs from being stolen by malware infecting your computer.</source>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
         <translation>TELOS fermos nun por fini ĉifran procezon. Memoru ke ĉifri vian monujon ne povas plene protekti viajn PIVs de esti ŝtelita per malware infektanta vian komputilon.</translation>
     </message>
     <message>

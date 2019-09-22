@@ -42,6 +42,7 @@ static CCriticalSection cs_rpcWarmup;
 
 /* Timer-creating functions */
 static std::vector<RPCTimerInterface*> timerInterfaces;
+static RPCTimerInterface* timerInterface = NULL;
 /* Map of name to timer.
  * @note Can be changed to std::unique_ptr when C++11 */
 static std::map<std::string, boost::shared_ptr<RPCTimerBase> > deadlineTimers;
@@ -613,8 +614,8 @@ std::string HelpExampleRpc(string methodname, string args)
 }
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)
 {
-    if (!timerInterfaces)
-        timerInterfaces = iface;
+    if (!timerInterface)
+        timerInterface = iface;
 }
 
 void RPCRegisterTimerInterface(RPCTimerInterface *iface)

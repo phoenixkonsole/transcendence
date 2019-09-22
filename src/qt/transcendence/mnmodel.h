@@ -30,7 +30,7 @@ public:
         WAS_COLLATERAL_ACCEPTED = 9,
         TIER = 10
     };
-    QString GetMasternodeTierFormatted(int tier);
+    QString GetMasternodeTierFormatted(unsigned int tier);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;

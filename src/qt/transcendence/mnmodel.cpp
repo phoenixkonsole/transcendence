@@ -61,7 +61,7 @@ int MNModel::columnCount(const QModelIndex &parent) const
     return 6;
 }
 
-QString MNModel::GetMasternodeTierFormatted(int tier){
+QString MNModel::GetMasternodeTierFormatted(unsigned int tier){
    QString FTeir = "Not Available";
    switch (tier)
  {

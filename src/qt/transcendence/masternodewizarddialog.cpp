@@ -122,6 +122,7 @@ int getSelectedTierAmount(QComboBox *combo){
        break; 
        }
     }
+    return 0;
 }
 void MasterNodeWizardDialog::onNextClicked(){
     switch(pos){

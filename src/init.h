@@ -23,6 +23,8 @@ bool ShutdownRequested();
 void Interrupt();
 void Shutdown();
 void PrepareShutdown();
+bool AppInit2();
+
 static const bool DEFAULT_AUTOCONVERTADDRESS = true;
 /** The help message mode determines what help message to show */
 enum HelpMessageMode {

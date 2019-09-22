@@ -134,8 +134,8 @@ SendWidget::SendWidget(TELOSGUI* parent) :
     addEntry();
 
     // Connect
-    connect(ui->pushLeft, &QPushButton::clicked, [this](){onPIVSelected(true);});
-    connect(ui->pushRight,  &QPushButton::clicked, [this](){onPIVSelected(false);});
+    connect(ui->pushLeft, &QPushButton::clicked, [this](){onTELOSSelected(true);});
+    connect(ui->pushRight,  &QPushButton::clicked, [this](){onTELOSSelected(false);});
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onSendClicked()));
     connect(ui->pushButtonAddRecipient, SIGNAL(clicked()), this, SLOT(onAddEntryClicked()));
     connect(ui->pushButtonClear, SIGNAL(clicked()), this, SLOT(clearAll()));
@@ -665,7 +665,7 @@ void SendWidget::onValueChanged() {
     refreshAmounts();
 }
 
-void SendWidget::onPIVSelected(bool _isPIV){
+void SendWidget::onTELOSSelected(bool _isPIV){
     isPIV = _isPIV;
     setCssProperty(coinIcon, _isPIV ? "coin-icon-piv" : "coin-icon-ztelos");
     refreshView();

@@ -166,6 +166,7 @@ public:
 static CCoinsViewDB* pcoinsdbview = NULL;
 static CCoinsViewErrorCatcher* pcoinscatcher = NULL;
 static boost::scoped_ptr<ECCVerifyHandle> globalVerifyHandle;
+static CScheduler scheduler;
 
 void Interrupt(boost::thread_group& threadGroup)
 {
@@ -183,7 +184,6 @@ void PrepareShutdown()
     fRequestShutdown = true;  // Needed when we shutdown the wallet
     fRestartRequested = true; // Needed when we restart the wallet
 
-	ShutdownRPCMining();
 
     LogPrintf("%s: In progress...\n", __func__);
     static CCriticalSection cs_Shutdown;

@@ -30,7 +30,6 @@ public:
         WAS_COLLATERAL_ACCEPTED = 9,
         TIER = 10
     };
-    std::string GetMasternodeTierFormatted(unsigned int tier);
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -45,5 +44,6 @@ private:
     QMap<QString, std::pair<QString,CMasternode*>> nodes;
     QMap<std::string, bool> collateralTxAccepted;
 };
+    std::string GetMasternodeTierFormatted(unsigned int tier);
 
 #endif // MNMODEL_H

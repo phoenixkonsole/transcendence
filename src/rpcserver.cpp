@@ -613,8 +613,8 @@ std::string HelpExampleRpc(string methodname, string args)
 }
 void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface)
 {
-    if (!timerInterface)
-        timerInterface = iface;
+    if (!timerInterfaces)
+        timerInterfaces = iface;
 }
 
 void RPCRegisterTimerInterface(RPCTimerInterface *iface)

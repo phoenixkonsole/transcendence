@@ -67,22 +67,27 @@ std::string GetMasternodeTierFormatted(unsigned int tier){
  {
    case 0:{
        FTeir = "1,000";
+           return FTeir;
        break;
     }
    case 1:{
         FTeir ="3,000";
+            return FTeir;
         break;
     }
    case 2:{
         FTeir ="10,000";
+            return FTeir;
         break;
     }
    case 3:{
         FTeir ="30,000";
+            return FTeir;
         break;
     }
    case 4:{
         FTeir ="100,000";
+            return FTeir;
         break;
     }
 }

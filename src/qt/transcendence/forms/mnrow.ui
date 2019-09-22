@@ -93,7 +93,9 @@
          </item>
         </layout>
        </widget>
-        <widget class="QLabel" name="labelTier">
+      </item>
+      <item>
+      <widget class="QLabel" name="labelTier">
            <property name="text">
             <string>Tier: 1000</string>
            </property>

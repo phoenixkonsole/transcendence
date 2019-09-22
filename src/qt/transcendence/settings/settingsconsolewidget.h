@@ -10,6 +10,7 @@
 #include "guiutil.h"
 #include "net.h"
 #include <QCompleter>
+#include "rpcserver.h"
 
 class ClientModel;
 class RPCTimerInterface;

@@ -33,7 +33,8 @@ UniValue getconnectioncount(const UniValue& params, bool fHelp)
             "\nExamples:\n" +
             HelpExampleCli("getconnectioncount", "") + HelpExampleRpc("getconnectioncount", ""));
 
-    LOCK(cs_vNodes);
+    LOCK2(cs_main, cs_vNodes);
+
     return (int)vNodes.size();
 }
 
@@ -49,7 +50,8 @@ UniValue ping(const UniValue& params, bool fHelp)
             HelpExampleCli("ping", "") + HelpExampleRpc("ping", ""));
 
     // Request that each node send a ping during next message processing pass
-    LOCK(cs_vNodes);
+    LOCK2(cs_main, cs_vNodes);
+
     BOOST_FOREACH (CNode* pNode, vNodes) {
         pNode->fPingQueued = true;
     }
@@ -106,6 +108,8 @@ UniValue getpeerinfo(const UniValue& params, bool fHelp)
             "]\n"
             "\nExamples:\n" +
             HelpExampleCli("getpeerinfo", "") + HelpExampleRpc("getpeerinfo", ""));
+
+    LOCK(cs_main);
 
     vector<CNodeStats> vstats;
     CopyNodeStats(vstats);
@@ -379,6 +383,8 @@ UniValue getnetworkinfo(const UniValue& params, bool fHelp)
             "}\n"
             "\nExamples:\n" +
             HelpExampleCli("getnetworkinfo", "") + HelpExampleRpc("getnetworkinfo", ""));
+
+    LOCK(cs_main);
 
     UniValue obj(UniValue::VOBJ);
     obj.push_back(Pair("version", CLIENT_VERSION));

@@ -19,6 +19,8 @@ extern CWallet* pwalletMain;
 
 void StartShutdown();
 bool ShutdownRequested();
+/** Interrupt threads */
+void Interrupt(boost::thread_group& threadGroup);
 void Shutdown();
 void PrepareShutdown();
 bool AppInit2(boost::thread_group& threadGroup);

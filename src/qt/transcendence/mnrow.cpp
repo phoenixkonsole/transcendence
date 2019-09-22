@@ -12,6 +12,7 @@ MNRow::MNRow(QWidget *parent) :
 {
     ui->setupUi(this);
     setCssProperty(ui->labelAddress, "text-list-body2");
+    setCssProperty(ui->labelTier, "text-list-body2");
     setCssProperty(ui->labelName, "text-list-title1");
     setCssProperty(ui->labelDate, "text-list-caption-medium");
     ui->lblDivisory->setStyleSheet("background-color:#bababa;");

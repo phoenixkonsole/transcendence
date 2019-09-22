@@ -66,7 +66,7 @@ QString MNModel::GetMasternodeTierFormatted(int tier){
    switch (tier)
  {
    case 0:{
-       FTeir = "1,000"
+       FTeir = "1,000";
        break;
     }
    case 1:{

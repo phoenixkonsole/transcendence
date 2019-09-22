@@ -57,7 +57,7 @@ HH       NAVIGATION
 HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH*/
 
 *[cssClass="container-nav"] {
-    background-color: qlineargradient(y1:0, y2: 1, stop: 0 #c2a84a, stop: 1 #212121);
+    background-color: qlineargradient(y1:0, y2: 1, stop: 0 #c2a84a,stop 1 #272121 stop: 2 #212121);
 }
 
 QPushButton[cssClass="img-nav-logo"] {

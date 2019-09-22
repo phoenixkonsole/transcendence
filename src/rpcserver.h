@@ -73,13 +73,6 @@ void RPCTypeCheck(const UniValue& params,
 void RPCTypeCheckObj(const UniValue& o,
                   const std::map<std::string, UniValue::VType>& typesExpected, bool fAllowNull=false);
 
-/** Set factory function for timers */
-void RPCSetTimerInterface(RPCTimerInterface *iface);
-/** Set factory function for timers, but only if unset */
-void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface);
-/** Unset factory function for timers */
-void RPCUnsetTimerInterface(RPCTimerInterface *iface);
-
 /** Opaque base class for timers returned by NewTimerFunc.
  * This provides no methods at the moment, but makes sure that delete
  * cleans up the whole state.

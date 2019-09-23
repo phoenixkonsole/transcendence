@@ -12,7 +12,7 @@
 #include "qt/transcendence/tooltipmenu.h"
 #include <QTimer>
 #include "masternodeman.h"
-#include "version.h"
+#include "main.h"
 class TELOSGUI;
 #if defined(HAVE_CONFIG_H)
 #include "config/transcendence-config.h" /* for USE_QTCHARTS */

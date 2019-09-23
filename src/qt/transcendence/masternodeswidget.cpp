@@ -214,7 +214,7 @@ void MasterNodesWidget::onTierChartBtnClicked(){
 void MasterNodesWidget::initChart() {
     QPieSeries *series = new QPieSeries();
     //Get tier count
-    mnodeman.CountTiers(PROTOCOL_VERSION,tier1, tier2, tier3,tier4,tier5);
+    mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);
     series->append("Tier 1", tier1);
     series->append("Tier 2", tier2);
     series->append("Tier 3", tier3);

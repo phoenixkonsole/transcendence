@@ -49,17 +49,12 @@ public:
     void loadWalletModel() override;
     void showEvent(QShowEvent *event) override;
     void hideEvent(QHideEvent *event) override;
-
-private slots:
     void onCreateMNClicked();
     void onTierChartBtnClicked();
     void initChart();
     void loadChart();
-    #ifdef USE_QTCHARTS
-    QChart *chart = nullptr;
-    QChartView *chartView = nullptr;
-    #endif
     void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
+private slots:
     void changeTheme(bool isLightTheme, QString &theme) override;
     void onMNClicked(const QModelIndex &index);
     void onEditMNClicked();
@@ -74,6 +69,10 @@ private:
     TooltipMenu* menu = nullptr;
     QModelIndex index;
     QTimer *timer = nullptr;
+    #ifdef USE_QTCHARTS
+    QChart *chart = nullptr;
+    QChartView *chartView = nullptr;
+    #endif
     int tier1 = 0,tier2 = 0,tier3 = 0,tier4 = 0,tier5 = 0; 
     void startAlias(QString strAlias);
 };

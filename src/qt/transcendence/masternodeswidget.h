@@ -50,7 +50,6 @@ public:
     void showEvent(QShowEvent *event) override;
     void hideEvent(QHideEvent *event) override;
     void onCreateMNClicked();
-    void onTierChartBtnClicked();
     void initChart();
     void loadChart();
     void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
@@ -61,6 +60,7 @@ private slots:
     void onDeleteMNClicked();
     void onInfoMNClicked();
     void updateListState();
+    void onTierChartBtnClicked();
 
 private:
     Ui::MasterNodesWidget *ui;

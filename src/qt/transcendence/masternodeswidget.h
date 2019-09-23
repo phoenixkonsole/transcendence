@@ -37,6 +37,7 @@ public:
 
 private slots:
     void onCreateMNClicked();
+    void onTeirChartBtnClicked();
     void changeTheme(bool isLightTheme, QString &theme) override;
     void onMNClicked(const QModelIndex &index);
     void onEditMNClicked();

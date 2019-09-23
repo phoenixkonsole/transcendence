@@ -120,6 +120,7 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
 
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onCreateMNClicked()));
     connect(ui->listMn, SIGNAL(clicked(QModelIndex)), this, SLOT(onMNClicked(QModelIndex)));
+    connect(ui->btnChartTiers, SIGNAL(clicked()), this, SLOT(onTeirChartBtnClicked()));
     connect(ui->btnAbout, &OptionButton::clicked, [this](){window->openFAQ(9);});
     connect(ui->btnAboutController, &OptionButton::clicked, [this](){window->openFAQ(10);});
 }
@@ -183,7 +184,16 @@ void MasterNodesWidget::onMNClicked(const QModelIndex &index){
     ui->listMn->clearSelection();
     ui->listMn->setFocus();
 }
-
+void MasterNodesWidget::onTeirChartBtnClicked(){
+ bool isVisible = ui->layoutDenom->isVisible();
+    if(!isVisible){
+        ui->layoutDenom->setVisible(true);
+        ui->btnChartTiers->setRightIconClass("btn-dropdown", true);
+    }else{
+        ui->layoutDenom->setVisible(false);
+        ui->btnChartTiers->setRightIconClass("ic-arrow", true);
+    }
+}
 void MasterNodesWidget::onEditMNClicked(){
     if(walletModel) {
         if (index.sibling(index.row(), MNModel::WAS_COLLATERAL_ACCEPTED).data(Qt::DisplayRole).toBool()) {

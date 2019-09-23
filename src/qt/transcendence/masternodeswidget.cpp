@@ -132,9 +132,6 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
     ui->labelEmpty->setText(tr("No active Masternode yet"));
     setCssProperty(ui->labelEmpty, "text-empty");
-    #ifdef USE_QTCHARTS
-    loadChart();
-    #endif
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onCreateMNClicked()));
     connect(ui->listMn, SIGNAL(clicked(QModelIndex)), this, SLOT(onMNClicked(QModelIndex)));
     connect(ui->btnChartTiers, SIGNAL(clicked()), this, SLOT(onTierChartBtnClicked()));
@@ -205,7 +202,7 @@ void MasterNodesWidget::onTierChartBtnClicked(){
  bool isVisible = ui->layoutDenom->isVisible();
     if(!isVisible){
         ui->layoutDenom->setVisible(true);
-        loadChart();
+        initChart();
         ui->btnChartTiers->setRightIconClass("btn-dropdown", true);
     }else{
         ui->layoutDenom->setVisible(false);

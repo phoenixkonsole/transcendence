@@ -423,19 +423,19 @@ void CMasternodeMan::CountTiers(int protocolVersion, int& tier1, int& tier2, int
         mn.Check();
         int tier = mn.tier;
         switch (tier) {
-            case 1 :
+            case 0 :
                 tier1++;
                 break;
-            case 2 :
+            case 1 :
                 tier2++;
                 break;
-            case 3 :
+            case 2 :
                 tier3++;
                 break;
-            case 4 :
+            case 3 :
                 tier4++;
                 break;
-            case 5 :
+            case 4 :
                 tier5++;
                 break;
         }

@@ -56,6 +56,7 @@ private slots:
     void initChart();
     #ifdef USE_QTCHARTS
     QChart *chart = nullptr;
+    QChartView *chartView = nullptr;
     #endif
     void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
     void changeTheme(bool isLightTheme, QString &theme) override;

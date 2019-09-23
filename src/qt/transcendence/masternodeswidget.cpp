@@ -229,7 +229,6 @@ void MasterNodesWidget::initChart() {
 
     // Chart style
     chart->legend()->setAlignment(Qt::AlignTop);
-    chart->layout()->setContentsMargins(0, 0, 0, 0);
     chart->setMargins({0, 0, 0, 0});
     chart->setBackgroundRoundness(0);
 

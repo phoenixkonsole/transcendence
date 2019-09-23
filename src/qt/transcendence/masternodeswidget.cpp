@@ -72,7 +72,7 @@ void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool fo
 }
 void MasterNodesWidget::loadChart(){
         if (!chart) {
-            showHideEmptyChart(false, false);
+            showHideEmptyChart(false, false,true);
             initChart();
         }
 }

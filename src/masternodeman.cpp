@@ -415,7 +415,32 @@ void CMasternodeMan::CountNetworks(int protocolVersion, int& ipv4, int& ipv6, in
         }
     }
 }
+void CMasternodeMan::CountTiers(int protocolVersion, int& tier1, int& tier2, int& tier3,int& tier4,int& tier5)
+{
+    protocolVersion = protocolVersion == -1 ? masternodePayments.GetMinMasternodePaymentsProto() : protocolVersion;
 
+    BOOST_FOREACH (CMasternode& mn, vMasternodes) {
+        mn.Check();
+        int tier = mn.tier;
+        switch (tier) {
+            case 1 :
+                tier1++;
+                break;
+            case 2 :
+                tier2++;
+                break;
+            case 3 :
+                tier3++;
+                break;
+            case 4 :
+                tier4++;
+                break;
+            case 5 :
+                tier5++;
+                break;
+        }
+    }
+}
 void CMasternodeMan::DsegUpdate(CNode* pnode)
 {
     LOCK(cs);

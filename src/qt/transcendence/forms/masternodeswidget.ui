@@ -350,7 +350,7 @@
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_4_8">
    <item>
-                  <widget class="QFrame" name="chartContainer">
+                  <widget class="QFrame" name="chartContainer" visible="false">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                      <horstretch>0</horstretch>

@@ -11,9 +11,24 @@
 #include "qt/transcendence/mnmodel.h"
 #include "qt/transcendence/tooltipmenu.h"
 #include <QTimer>
-
+#include "masternodeman.h"
+#include "version.h"
 class TELOSGUI;
+#if defined(HAVE_CONFIG_H)
+#include "config/transcendence-config.h" /* for USE_QTCHARTS */
+#endif
 
+#ifdef USE_QTCHARTS
+
+#include <QtCharts/QChartView>
+#include <QtCharts/QPieSeries>
+#include <QtCharts/QPieSlice>
+
+QT_CHARTS_USE_NAMESPACE
+
+using namespace QtCharts;
+
+#endif
 namespace Ui {
 class MasterNodesWidget;
 }
@@ -37,7 +52,12 @@ public:
 
 private slots:
     void onCreateMNClicked();
-    void onTeirChartBtnClicked();
+    void onTierChartBtnClicked();
+    void initChart();
+    #ifdef USE_QTCHARTS
+    QChart *chart = nullptr;
+    #endif
+    void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
     void changeTheme(bool isLightTheme, QString &theme) override;
     void onMNClicked(const QModelIndex &index);
     void onEditMNClicked();
@@ -52,7 +72,7 @@ private:
     TooltipMenu* menu = nullptr;
     QModelIndex index;
     QTimer *timer = nullptr;
-
+    int tier1 = 0,tier2 = 0,tier3 = 0,tier4 = 0,tier5 = 0; 
     void startAlias(QString strAlias);
 };
 

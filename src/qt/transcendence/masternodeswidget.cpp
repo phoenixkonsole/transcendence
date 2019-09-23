@@ -117,14 +117,30 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
     ui->labelEmpty->setText(tr("No active Masternode yet"));
     setCssProperty(ui->labelEmpty, "text-empty");
-
+    #ifdef USE_QTCHARTS
+    loadChart();
+    #endif
     connect(ui->pushButtonSave, SIGNAL(clicked()), this, SLOT(onCreateMNClicked()));
     connect(ui->listMn, SIGNAL(clicked(QModelIndex)), this, SLOT(onMNClicked(QModelIndex)));
-    connect(ui->btnChartTiers, SIGNAL(clicked()), this, SLOT(onTeirChartBtnClicked()));
+    connect(ui->btnChartTiers, SIGNAL(clicked()), this, SLOT(onTierChartBtnClicked()));
     connect(ui->btnAbout, &OptionButton::clicked, [this](){window->openFAQ(9);});
     connect(ui->btnAboutController, &OptionButton::clicked, [this](){window->openFAQ(10);});
 }
-
+void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool forceView) {
+    if (forceView) {
+        if (!ui->layoutChart->isVisible()) {
+            ui->layoutChart->setVisible(!showEmpty);
+            // ui->emptyContainerChart->setVisible(showEmpty);
+        }
+    }
+    // ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
+}
+void MasterNodesWidget::loadChart(){
+        if (!chart) {
+            showHideEmptyChart(false, false);
+            initChart();
+        }
+}
 void MasterNodesWidget::showEvent(QShowEvent *event){
     if (mnModel) mnModel->updateMNList();
     if(!timer) {
@@ -184,15 +200,50 @@ void MasterNodesWidget::onMNClicked(const QModelIndex &index){
     ui->listMn->clearSelection();
     ui->listMn->setFocus();
 }
-void MasterNodesWidget::onTeirChartBtnClicked(){
+void MasterNodesWidget::onTierChartBtnClicked(){
  bool isVisible = ui->layoutDenom->isVisible();
     if(!isVisible){
         ui->layoutDenom->setVisible(true);
+        loadChart();
         ui->btnChartTiers->setRightIconClass("btn-dropdown", true);
     }else{
         ui->layoutDenom->setVisible(false);
         ui->btnChartTiers->setRightIconClass("ic-arrow", true);
     }
+}
+void MasterNodesWidget::initChart() {
+    QPieSeries *series = new QPieSeries();
+    //Get tier count
+    mnodeman.CountTiers(PROTOCOL_VERSION,tier1, tier2, tier3,tier4,tier5)
+    series->append("Tier 1", tier1);
+    series->append("Tier 2", tier2);
+    series->append("Tier 3", tier3);
+    series->append("Tier 4", tier4);
+    series->append("Tier 5", tier5); /* Finished appending tier data */
+
+    //Initialize chart
+    chart = new QChart();
+    chart->addSeries(series);
+    chart->setTitle("Masternode Tier Dist");
+    chart->legend()->show();
+
+    // Chart style
+    chart->legend()->setAlignment(Qt::AlignTop);
+    chart->layout()->setContentsMargins(0, 0, 0, 0);
+    chart->setMargins({0, 0, 0, 0});
+    chart->setBackgroundRoundness(0);
+
+    chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setRubberBand( QChartView::HorizontalRubberBand );
+    chartView->setContentsMargins(0,0,0,0);
+
+    QHBoxLayout *baseScreensContainer = new QHBoxLayout(this);
+    baseScreensContainer->setMargin(0);
+    baseScreensContainer->addWidget(chartView);
+    ui->chartContainer->setLayout(baseScreensContainer);
+    ui->chartContainer->setContentsMargins(0,0,0,0);
+    setCssProperty(ui->chartContainer, "container-chart");
 }
 void MasterNodesWidget::onEditMNClicked(){
     if(walletModel) {

@@ -213,12 +213,12 @@ void MasterNodesWidget::initChart() {
     QPieSeries *series = new QPieSeries();
     //Get tier count
     mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);
-    if(tier1 !=0){
-    series->append("Tier 1", 100);
-    series->append("Tier 2", 200);
-    series->append("Tier 3", 300);
-    series->append("Tier 4", 400);
-    series->append("Tier 5", 500); /* Finished appending tier data */
+    if(tier1 !=0 && tier2 !=0 && tier3 !=0 && tier4 !=0 && tier5 != 0) {
+    series->append("Tier 1", tier1);
+    series->append("Tier 2", tier2);
+    series->append("Tier 3", tier3);
+    series->append("Tier 4", tier4);
+    series->append("Tier 5", tier5); /* Finished appending tier data */
     }
     //Initialize chart
     chart = new QChart();

@@ -128,6 +128,7 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     ui->listMn->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->layoutDenom->setVisible(false);
     setCssProperty(ui->chartContainer, "container-chart");
+    setCssProperty(ui->chartContainer2, "container-chart");
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
     ui->labelEmpty->setText(tr("No active Masternode yet"));
@@ -211,6 +212,7 @@ void MasterNodesWidget::onTierChartBtnClicked(){
 }
 void MasterNodesWidget::initChart() {
     QPieSeries *series = new QPieSeries();
+    QColor backgroundColor;
     //Get tier count
     mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);
     if(tier1 !=0 && tier2 !=0 && tier3 !=0 && tier4 !=0 && tier5 != 0) {
@@ -220,6 +222,12 @@ void MasterNodesWidget::initChart() {
     series->append("Tier 4", tier4);
     series->append("Tier 5", tier5); /* Finished appending tier data */
     }
+    if(isLightTheme()){
+        backgroundColor = QColor(255,255,255);
+    }
+    else{
+        backgroundColor = QColor("#212121");
+    }
     //Initialize chart
     chart = new QChart();
     chart->addSeries(series);
@@ -227,6 +235,7 @@ void MasterNodesWidget::initChart() {
 
     // Chart style
     chart->legend()->setAlignment(Qt::AlignTop);
+    chart->setBackgroundBrush(QBrush(backgroundColor));
 
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);

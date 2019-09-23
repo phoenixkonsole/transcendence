@@ -128,7 +128,6 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     ui->listMn->setSelectionBehavior(QAbstractItemView::SelectRows);
     ui->layoutDenom->setVisible(false);
     setCssProperty(ui->chartContainer, "container-chart");
-    setCssProperty(ui->chartContainer2, "container-chart");
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
     ui->labelEmpty->setText(tr("No active Masternode yet"));

@@ -104,7 +104,8 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     ui->btnAbout->setSubTitleClassAndText("text-subtitle", "FAQ explaining what Masternodes are");
     ui->btnAboutController->setTitleClassAndText("btn-title-grey", "What is a Controller?");
     ui->btnAboutController->setSubTitleClassAndText("text-subtitle", "FAQ explaining what is a Masternode Controller");
-
+    ui->btnChartTiers->setTitleClassAndText("btn-title-grey", "Masternodes Tier Distribution Chart");
+    ui->btnChartTiers->setSubTitleClassAndText("text-subtitle", "Shows a chart showing the distribution of various tiers");
     setCssProperty(ui->listMn, "container");
     ui->listMn->setItemDelegate(delegate);
     ui->listMn->setIconSize(QSize(DECORATION_SIZE, DECORATION_SIZE));

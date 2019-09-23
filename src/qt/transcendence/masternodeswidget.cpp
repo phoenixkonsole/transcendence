@@ -236,10 +236,9 @@ void MasterNodesWidget::initChart() {
     chart->legend()->setAlignment(Qt::AlignTop);
     chart->setBackgroundBrush(QBrush(backgroundColor));
     chart->setAnimationOptions(QChart::SeriesAnimations);
-    chart->layout()->setContentsMargins(0, 0, 0, 0);
     chart->setMargins({0, 0, 0, 0});
     chart->setBackgroundRoundness(0);
-    
+
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setContentsMargins(0,0,0,0);

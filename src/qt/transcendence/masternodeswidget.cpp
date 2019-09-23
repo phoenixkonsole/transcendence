@@ -126,6 +126,7 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     ui->listMn->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listMn->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listMn->setSelectionBehavior(QAbstractItemView::SelectRows);
+        ui->layoutDenom->setVisible(false);
 
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
@@ -215,30 +216,26 @@ void MasterNodesWidget::initChart() {
     QPieSeries *series = new QPieSeries();
     //Get tier count
     mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);
+    if(tier1 !=0){
     series->append("Tier 1", 100);
     series->append("Tier 2", 200);
     series->append("Tier 3", 300);
     series->append("Tier 4", 400);
     series->append("Tier 5", 500); /* Finished appending tier data */
-
+    }
     //Initialize chart
     chart = new QChart();
     chart->addSeries(series);
-    chart->setTitle("Masternode Tier Dist");
     chart->legend()->show();
 
     // Chart style
     chart->legend()->setAlignment(Qt::AlignTop);
-    chart->setMargins({0, 0, 0, 0});
-    chart->setBackgroundRoundness(0);
 
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
-    chartView->setRubberBand( QChartView::HorizontalRubberBand );
     chartView->setContentsMargins(0,0,0,0);
 
     QHBoxLayout *baseScreensContainer = new QHBoxLayout(this);
-    baseScreensContainer->setMargin(0);
     baseScreensContainer->addWidget(chartView);
     ui->chartContainer->setLayout(baseScreensContainer);
     ui->chartContainer->setContentsMargins(0,0,0,0);

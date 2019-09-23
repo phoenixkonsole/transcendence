@@ -54,6 +54,7 @@ private slots:
     void onCreateMNClicked();
     void onTierChartBtnClicked();
     void initChart();
+    void loadChart();
     #ifdef USE_QTCHARTS
     QChart *chart = nullptr;
     QChartView *chartView = nullptr;

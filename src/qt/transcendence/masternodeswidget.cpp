@@ -61,7 +61,21 @@ public:
     bool isLightTheme;
     MNRow* cachedRow = nullptr;
 };
-
+void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool forceView) {
+    if (forceView) {
+        if (!ui->layoutChart->isVisible()) {
+            ui->layoutChart->setVisible(!showEmpty);
+            // ui->emptyContainerChart->setVisible(showEmpty);
+        }
+    }
+    // ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
+}
+void MasterNodesWidget::loadChart(){
+        if (!chart) {
+            showHideEmptyChart(false, false);
+            initChart();
+        }
+}
 MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     PWidget(parent),
     ui(new Ui::MasterNodesWidget)
@@ -126,21 +140,7 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     connect(ui->btnAbout, &OptionButton::clicked, [this](){window->openFAQ(9);});
     connect(ui->btnAboutController, &OptionButton::clicked, [this](){window->openFAQ(10);});
 }
-void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool forceView) {
-    if (forceView) {
-        if (!ui->layoutChart->isVisible()) {
-            ui->layoutChart->setVisible(!showEmpty);
-            // ui->emptyContainerChart->setVisible(showEmpty);
-        }
-    }
-    // ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
-}
-void MasterNodesWidget::loadChart(){
-        if (!chart) {
-            showHideEmptyChart(false, false);
-            initChart();
-        }
-}
+
 void MasterNodesWidget::showEvent(QShowEvent *event){
     if (mnModel) mnModel->updateMNList();
     if(!timer) {

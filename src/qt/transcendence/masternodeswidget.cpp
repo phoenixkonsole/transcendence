@@ -221,7 +221,7 @@ void MasterNodesWidget::initChart(bool isLightTheme) {
     series->append("Tier 4", tier4);
     series->append("Tier 5", tier5); /* Finished appending tier data */
     }
-    if(isLightTheme){
+    if(!isLightTheme){
         backgroundColor = QColor(255,255,255);
     }
     else{

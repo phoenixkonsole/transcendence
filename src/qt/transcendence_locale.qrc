@@ -6,14 +6,20 @@
         <file alias="da">locale/transcendence_da.qm</file>
         <file alias="de">locale/transcendence_de.qm</file>
         <file alias="en">locale/transcendence_en.qm</file>
+        <file alias="en_GB">locale/transcendence_en_GB.qm</file>
         <file alias="en_US">locale/transcendence_en_US.qm</file>
+        <file alias="eo">locale/transcendence_eo.qm</file>
         <file alias="es">locale/transcendence_es.qm</file>
+        <file alias="es_ES">locale/transcendence_es_ES.qm</file>
         <file alias="fi">locale/transcendence_fi.qm</file>
         <file alias="fr_FR">locale/transcendence_fr_FR.qm</file>
+        <file alias="hi_IN">locale/transcendence_hi_IN.qm</file>
         <file alias="hr">locale/transcendence_hr.qm</file>
+        <file alias="hr_HR">locale/transcendence_hr_HR.qm</file>
         <file alias="it">locale/transcendence_it.qm</file>
         <file alias="ja">locale/transcendence_ja.qm</file>
         <file alias="ko_KR">locale/transcendence_ko_KR.qm</file>
+        <file alias="lt_LT">locale/transcendence_lt_LT.qm</file>
         <file alias="nl">locale/transcendence_nl.qm</file>
         <file alias="pl">locale/transcendence_pl.qm</file>
         <file alias="pt">locale/transcendence_pt.qm</file>
@@ -24,6 +30,7 @@
         <file alias="sv">locale/transcendence_sv.qm</file>
         <file alias="tr">locale/transcendence_tr.qm</file>
         <file alias="uk">locale/transcendence_uk.qm</file>
+        <file alias="vi">locale/transcendence_vi.qm</file>
         <file alias="zh_CN">locale/transcendence_zh_CN.qm</file>
         <file alias="zh_TW">locale/transcendence_zh_TW.qm</file>
     </qresource>

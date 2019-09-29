@@ -8,7 +8,7 @@
 
 #include "main.h"
 
-#include "accumulators.h"
+#include "ztelos/accumulators.h"
 #include "addrman.h"
 #include "alert.h"
 #include "chainparams.h"
@@ -29,11 +29,11 @@
 #include "swifttx.h"
 #include "txdb.h"
 #include "txmempool.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #include "utilmoneystr.h"
 
-#include "primitives/zerocoin.h"
+#include "ztelos/zerocoin.h"
 #include "libzerocoin/Denominations.h"
 
 #include <sstream>
@@ -1228,8 +1228,9 @@ bool BlockToZerocoinMintList(const CBlock& block, std::list<CZerocoinMint>& vMin
             PublicCoin pubCoin(Params().Zerocoin_Params());
             if(!TxOutToPublicCoin(txOut, pubCoin, state))
                 return false;
+            uint8_t version = 1;
 
-            CZerocoinMint mint = CZerocoinMint(pubCoin.getDenomination(), pubCoin.getValue(), 0, 0, false);
+            CZerocoinMint mint = CZerocoinMint(pubCoin.getDenomination(), pubCoin.getValue(), 0, 0, false, version, nullptr);
             mint.SetTxHash(tx.GetHash());
             vMints.push_back(mint);
         }
@@ -1409,7 +1410,7 @@ bool CheckZerocoinSpend(const CTransaction tx, bool fVerifySignature, CValidatio
     return fValidated;
 }
 
-bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state)
+bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fRejectBadUTXO, CValidationState& state, bool fFakeSerialAttack)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -1444,10 +1445,8 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
             return state.DoS(100, error("CheckTransaction() : txout total out of range"),
                 REJECT_INVALID, "bad-txns-txouttotal-toolarge");
         if (fZerocoinActive && txout.IsZerocoinMint()) {
-            if(!CheckZerocoinMint(tx.GetHash(), txout, state, false)) {
-                if (fRejectBadUTXO)
-                    return state.DoS(100, error("CheckTransaction() : invalid zerocoin mint"));
-            }
+            if(!CheckZerocoinMint(tx.GetHash(), txout, state, true))
+                return state.DoS(100, error("CheckTransaction() : invalid zerocoin mint"));
         }
         if (fZerocoinActive && txout.scriptPubKey.IsZerocoinSpend())
             nZCSpendCount++;
@@ -1459,16 +1458,11 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, bool fReject
 
         if (tx.IsZerocoinSpend()) {
             //require that a zerocoinspend only has inputs that are zerocoins
-            for (const CTxIn in : tx.vin) {
+            for (const CTxIn& in : tx.vin) {
                 if (!in.scriptSig.IsZerocoinSpend())
                     return state.DoS(100,
                                      error("CheckTransaction() : zerocoinspend contains inputs that are not zerocoins"));
             }
-
-            // Do not require signature verification if this is initial sync and a block over 24 hours old
-            bool fVerifySignature = !IsInitialBlockDownload() && (GetTime() - chainActive.Tip()->GetBlockTime() < (60*60*24));
-            if (!CheckZerocoinSpend(tx, fVerifySignature, state))
-                return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
         }
     }
 
@@ -1979,6 +1973,21 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
 
     // SyncWithWallets(tx, NULL);
 
+    return true;
+}
+
+/** Retrieve an output (from memory pool, or from disk, if possible) */
+bool GetOutput(const uint256& hash, unsigned int index, CValidationState& state, CTxOut& out)
+{
+    CTransaction txPrev;
+    uint256 hashBlock;
+    if (!GetTransaction(hash, txPrev, hashBlock, true)) {
+        return state.DoS(100, error("Output not found"));
+    }
+    if (index > txPrev.vout.size()) {
+        return state.DoS(100, error("Output not found, invalid index %d for %s",index, hash.GetHex()));
+    }
+    out = txPrev.vout[index];
     return true;
 }
 
@@ -6524,7 +6533,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
                 if (pto->addr.IsLocal())
                     LogPrintf("Warning: not banning local peer %s!\n", pto->addr.ToString());
                 else {
-                    CNode::Ban(pto->addr);
+                    CNode::Ban(pto->addr, BanReasonNodeMisbehaving);
                 }
             }
             state.fShouldBan = false;

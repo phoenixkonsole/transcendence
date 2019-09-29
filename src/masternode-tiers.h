@@ -7,7 +7,7 @@
 
 #include "amount.h"
 #include "uint256.h"
-
+#include "util.h"
 enum MasternodeTiers { TIER_1K = 0, TIER_3K, TIER_10K, TIER_30K, TIER_100K, TIER_NONE};
 
 const int MASTERNODE_TIER_COINS[MasternodeTiers::TIER_NONE] = {1000, 3000, 10000, 30000, 100000};

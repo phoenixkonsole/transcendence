@@ -20,10 +20,10 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #ifdef ENABLE_WALLET
-#include "wallet.h"
+#include "wallet/wallet.h"
 #endif
 #include "masternode-payments.h"
-#include "accumulators.h"
+#include "ztelos/accumulators.h"
 #include "spork.h"
 
 #include <boost/thread.hpp>

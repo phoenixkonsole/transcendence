@@ -121,7 +121,7 @@ void CActiveMasternode::ManageStatus()
                 return;
             }
 
-            LogPrintf("CActiveMasternode::ManageStatus() - Is capable master node!\n");
+            LogPrintf("CActiveMasternode::ManageStatus() - Is capable masternode!\n");
             status = ACTIVE_MASTERNODE_STARTED;
 
             return;

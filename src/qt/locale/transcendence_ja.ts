@@ -109,6 +109,9 @@
     </message>
     </context>
 <context>
+    <name>BanTableModel</name>
+    </context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>Address:</source>
@@ -142,6 +145,9 @@
     <name>FreespaceChecker</name>
     </context>
 <context>
+    <name>GovernancePage</name>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     </context>
 <context>
@@ -162,7 +168,7 @@
     </message>
     </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     </context>
 <context>
     <name>OpenURIDialog</name>
@@ -181,6 +187,9 @@
     </context>
 <context>
     <name>PrivacyDialog</name>
+    </context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
@@ -203,6 +212,10 @@
     </context>
 <context>
     <name>RecentRequestsTableModel</name>
+    <message>
+        <source>Address</source>
+        <translation>アドレス</translation>
+    </message>
     </context>
 <context>
     <name>SendCoinsDialog</name>
@@ -263,7 +276,7 @@
     </message>
     </context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
     </context>
 <context>
     <name>transcendence-core</name>

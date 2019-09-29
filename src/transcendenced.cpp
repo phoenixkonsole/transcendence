@@ -12,12 +12,16 @@
 #include "masternodeconfig.h"
 #include "noui.h"
 #include "rpcserver.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
+#include "httpserver.h"
+#include "httprpc.h"
+#include "rpcserver.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/thread.hpp>
+#include <stdio.h>
 
 /* Introduction text for doxygen: */
 
@@ -37,7 +41,7 @@
 
 static bool fDaemon;
 
-void DetectShutdownThread(boost::thread_group* threadGroup)
+void WaitForShutdown()
 {
     bool fShutdown = ShutdownRequested();
     // Tell the main threads to shutdown.
@@ -45,11 +49,9 @@ void DetectShutdownThread(boost::thread_group* threadGroup)
         MilliSleep(200);
         fShutdown = ShutdownRequested();
     }
-    if (threadGroup) {
-        threadGroup->interrupt_all();
-        threadGroup->join_all();
-    }
+    Interrupt();
 }
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -57,9 +59,6 @@ void DetectShutdownThread(boost::thread_group* threadGroup)
 //
 bool AppInit(int argc, char* argv[])
 {
-    boost::thread_group threadGroup;
-    boost::thread* detectShutdownThread = NULL;
-
     bool fRet = false;
 
     //
@@ -143,8 +142,7 @@ bool AppInit(int argc, char* argv[])
 #endif
         SoftSetBoolArg("-server", true);
 
-        detectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
-        fRet = AppInit2(threadGroup);
+        fRet = AppInit2();
     } catch (std::exception& e) {
         PrintExceptionContinue(&e, "AppInit()");
     } catch (...) {
@@ -152,19 +150,9 @@ bool AppInit(int argc, char* argv[])
     }
 
     if (!fRet) {
-        if (detectShutdownThread)
-            detectShutdownThread->interrupt();
-
-        threadGroup.interrupt_all();
-        // threadGroup.join_all(); was left out intentionally here, because we didn't re-test all of
-        // the startup-failure cases to make sure they don't result in a hang due to some
-        // thread-blocking-waiting-for-another-thread-during-startup case
-    }
-
-    if (detectShutdownThread) {
-        detectShutdownThread->join();
-        delete detectShutdownThread;
-        detectShutdownThread = NULL;
+        Interrupt();
+    } else {
+        WaitForShutdown();
     }
     Shutdown();
 

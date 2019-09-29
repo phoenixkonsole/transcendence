@@ -1,4 +1,6 @@
-// Copyright (c) 2011-2013 The Bitcoin developers
+// Copyright (c) 2011-2014 The Bitcoin developers
+// Copyright (c) 2014-2016 The Dash developers
+// Copyright (c) 2016-2018 The PIVX developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -75,6 +77,7 @@ public:
         Other,
         Generated,
         StakeMint,
+        StakeZTELOS,
         SendToAddress,
         SendToOther,
         RecvWithAddress,
@@ -84,7 +87,7 @@ public:
         ZerocoinMint,
         ZerocoinSpend,
         RecvFromZerocoinSpend,
-        ZerocoinSpend_Change_zTELOS,
+        ZerocoinSpend_Change_zTelos,
         ZerocoinSpend_FromMe,
         RecvWithObfuscation,
         ObfuscationDenominate,
@@ -97,17 +100,17 @@ public:
     /** Number of confirmation recommended for accepting a transaction */
     static const int RecommendedNumConfirmations = 6;
 
-    TransactionRecord() : hash(), time(0), type(Other), address(""), debit(0), credit(0), idx(0)
+    TransactionRecord(unsigned int size) : hash(), time(0), type(Other), address(""), debit(0), credit(0), size(size), idx(0)
     {
     }
 
-    TransactionRecord(uint256 hash, qint64 time) : hash(hash), time(time), type(Other), address(""), debit(0),
-                                                   credit(0), idx(0)
+    TransactionRecord(uint256 hash, qint64 time, unsigned int size) : hash(hash), time(time), type(Other), address(""), debit(0),
+                                                   credit(0), size(size), idx(0)
     {
     }
 
-    TransactionRecord(uint256 hash, qint64 time, Type type, const std::string& address, const CAmount& debit, const CAmount& credit) : hash(hash), time(time), type(type), address(address), debit(debit), credit(credit),
-                                                                                                                                       idx(0)
+    TransactionRecord(uint256 hash, qint64 time, unsigned int size, Type type, const std::string& address, const CAmount& debit, const CAmount& credit) : hash(hash), time(time), type(type), address(address), debit(debit), credit(credit),
+                                                                                                                                       size(size), idx(0)
     {
     }
 
@@ -124,6 +127,7 @@ public:
     std::string address;
     CAmount debit;
     CAmount credit;
+    unsigned int size;
     /**@}*/
 
     /** Subtransaction index, for sort key */
@@ -148,6 +152,10 @@ public:
     /** Return whether a status update is needed.
      */
     bool statusUpdateNeeded();
+
+    /** Return transaction status
+     */
+    std::string statusToString();
 };
 
 #endif // BITCOIN_QT_TRANSACTIONRECORD_H

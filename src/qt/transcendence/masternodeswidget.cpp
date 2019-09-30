@@ -435,7 +435,7 @@ void MasterNodesWidget::changeChartColors(){
         gridLineColorX = QColor(255,255,255);
         backgroundColor = gridLineColorX;
     }else{
-        gridLineColorX = QColor(22, 18, 11);
+        gridLineColorX = QColor("#212121");
         backgroundColor = gridLineColorX;
     }
     chart->setBackgroundBrush(QBrush(backgroundColor));

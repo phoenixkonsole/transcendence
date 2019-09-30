@@ -361,6 +361,12 @@
                     <string notr="true">padding:0px;
 margin:0px;</string>
                    </property>
+                  <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>450</height>
+                 </size>
+                </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>

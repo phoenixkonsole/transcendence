@@ -435,7 +435,6 @@ void MasterNodesWidget::changeChartColors(){
     if(isLightTheme()){
         gridLineColorX = QColor(255,255,255);
         backgroundColor = gridLineColorX;
-        
     }else{
         gridLineColorX = QColor("#212121");
         backgroundColor = gridLineColorX;
@@ -444,7 +443,7 @@ void MasterNodesWidget::changeChartColors(){
     chart->setBackgroundBrush(QBrush(backgroundColor));
     chart->legend()->setBrush(QBrush(legendTextColor));
     chart->legend()->setPen(QPen(legendTextColor));
-    chart->legend()->setColor(legendTextColor);
+    chart->legend()->setLabelColor(legendTextColor);
 }
 void MasterNodesWidget::changeTheme(bool isLightTheme, QString& theme){
     static_cast<MNHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;

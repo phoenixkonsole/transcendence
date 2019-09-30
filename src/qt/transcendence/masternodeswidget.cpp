@@ -71,7 +71,7 @@ void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool fo
 void MasterNodesWidget::loadChart(){
         if (!chart) {
             showHideEmptyChart(false, false,true);
-            initChart(isLightTheme);
+            initChart();
         }
 }
 MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
@@ -200,14 +200,14 @@ void MasterNodesWidget::onTierChartBtnClicked(){
  bool isVisible = ui->layoutDenom->isVisible();
     if(!isVisible){
         ui->layoutDenom->setVisible(true);
-        initChart(isLightTheme);
+        initChart();
         ui->btnChartTiers->setRightIconClass("btn-dropdown", true);
     }else{
         ui->layoutDenom->setVisible(false);
         ui->btnChartTiers->setRightIconClass("ic-arrow", true);
     }
 }
-void MasterNodesWidget::initChart(bool isLightTheme) {
+void MasterNodesWidget::initChart() {
     series = new QPieSeries();
     //Get tier count
     mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);

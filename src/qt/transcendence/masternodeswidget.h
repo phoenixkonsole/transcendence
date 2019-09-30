@@ -50,7 +50,7 @@ public:
     void showEvent(QShowEvent *event) override;
     void hideEvent(QHideEvent *event) override;
     void onCreateMNClicked();
-    void initChart(bool isLightTheme);
+    void initChart();
     void loadChart();
     void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
 private slots:

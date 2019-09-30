@@ -443,7 +443,7 @@ void MasterNodesWidget::changeChartColors(){
     }
     chart->setBackgroundBrush(QBrush(backgroundColor));
     chart->legend()->setBrush(QBrush(legendTextColor));
-    m_chart->legend()->setPen(QPen(legendTextColor));
+    chart->legend()->setPen(QPen(legendTextColor));
 }
 void MasterNodesWidget::changeTheme(bool isLightTheme, QString& theme){
     static_cast<MNHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;

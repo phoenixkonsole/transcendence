@@ -228,11 +228,15 @@ void MasterNodesWidget::initChart() {
     chart->setAnimationOptions(QChart::SeriesAnimations);
     chart->setMargins({0, 0, 0, 0});
     chart->setBackgroundRoundness(0);
+    chart->layout()->setContentsMargins(0, 0, 0, 0);
     changeChartColors();
+
+    //Finalize chartview
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
+    chartView->setRubberBand( QChartView::HorizontalRubberBand );
     chartView->setContentsMargins(0,0,0,0);
-
+    //Add chartview to qhboxlayout
     QHBoxLayout *baseScreensContainer = new QHBoxLayout(this);
     baseScreensContainer->addWidget(chartView);
     ui->chartContainer->setLayout(baseScreensContainer);

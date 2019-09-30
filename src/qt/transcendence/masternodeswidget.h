@@ -71,14 +71,14 @@ private:
     TooltipMenu* menu = nullptr;
     QModelIndex index;
     QTimer *timer = nullptr;
-    #ifdef USE_QTCHARTS
-    QChart *chart = nullptr;
-    QChartView *chartView = nullptr;
-    QPieSeries *series;
     QColor backgroundColor;
     QColor gridLineColorX;
     QColor linePenColorY;
     QColor gridY;
+    #ifdef USE_QTCHARTS
+    QChart *chart = nullptr;
+    QChartView *chartView = nullptr;
+    QPieSeries *series;
     #endif
     int tier1 = 0,tier2 = 0,tier3 = 0,tier4 = 0,tier5 = 0; 
     void startAlias(QString strAlias);

@@ -61,7 +61,7 @@ private slots:
     void onInfoMNClicked();
     void updateListState();
     void onTierChartBtnClicked();
-#ifdef USE_QTCHARTSß
+#ifdef USE_QTCHARTS
     void changeChartColors();
 #endif
 private:

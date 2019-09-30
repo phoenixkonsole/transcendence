@@ -439,7 +439,6 @@ void DashboardWidget::changeChartColors(){
         linePenColorY =  gridLineColorX;
         backgroundColor = QColor("#212121");
     }
-
     chart->setBackgroundBrush(QBrush(backgroundColor));
 }
 void MasterNodesWidget::changeTheme(bool isLightTheme, QString& theme){

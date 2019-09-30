@@ -125,7 +125,7 @@ MasterNodesWidget::MasterNodesWidget(TELOSGUI *parent) :
     ui->listMn->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listMn->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listMn->setSelectionBehavior(QAbstractItemView::SelectRows);
-    ui->layoutDenom->setVisible(false);
+    ui->layoutChart->setVisible(false);
     setCssProperty(ui->chartContainer, "container-chart");
     ui->emptyContainer->setVisible(false);
     setCssProperty(ui->pushImgEmpty, "img-empty-master");
@@ -198,13 +198,13 @@ void MasterNodesWidget::onMNClicked(const QModelIndex &index){
     ui->listMn->setFocus();
 }
 void MasterNodesWidget::onTierChartBtnClicked(){
- bool isVisible = ui->layoutDenom->isVisible();
+ bool isVisible = ui->layoutChart->isVisible();
     if(!isVisible){
-        ui->layoutDenom->setVisible(true);
+        ui->layoutChart->setVisible(true);
         initChart();
         ui->btnChartTiers->setRightIconClass("btn-dropdown", true);
     }else{
-        ui->layoutDenom->setVisible(false);
+        ui->layoutChart->setVisible(false);
         ui->btnChartTiers->setRightIconClass("ic-arrow", true);
     }
 }
@@ -431,14 +431,19 @@ void MasterNodesWidget::changeChartColors(){
     //declare vars
     QColor backgroundColor = QColor(0,0,0);
     QColor gridLineColorX  = QColor(0,0,0);
+    QColor legendTextColor = QColor(0,0,0);
     if(isLightTheme()){
         gridLineColorX = QColor(255,255,255);
         backgroundColor = gridLineColorX;
+        
     }else{
         gridLineColorX = QColor("#212121");
         backgroundColor = gridLineColorX;
+        legendTextColor = QColor(225,225,225);
     }
     chart->setBackgroundBrush(QBrush(backgroundColor));
+    chart->legend()->setBrush(QBrush(legendTextColor));
+    m_chart->legend()->setPen(QPen(legendTextColor));
 }
 void MasterNodesWidget::changeTheme(bool isLightTheme, QString& theme){
     static_cast<MNHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;

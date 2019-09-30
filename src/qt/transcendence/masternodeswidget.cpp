@@ -65,10 +65,8 @@ void MasterNodesWidget::showHideEmptyChart(bool showEmpty, bool loading, bool fo
     if (forceView) {
         if (!ui->layoutChart->isVisible()) {
             ui->layoutChart->setVisible(!showEmpty);
-            // ui->emptyContainerChart->setVisible(showEmpty);
         }
     }
-    // ui->labelEmptyChart->setText(loading ? tr("Loading chart..") : tr("You have no staking rewards"));
 }
 void MasterNodesWidget::loadChart(){
         if (!chart) {
@@ -210,8 +208,7 @@ void MasterNodesWidget::onTierChartBtnClicked(){
     }
 }
 void MasterNodesWidget::initChart(bool isLightTheme) {
-    QPieSeries *series = new QPieSeries();
-    QColor backgroundColor;
+    series = new QPieSeries();
     //Get tier count
     mnodeman.CountTiers(ActiveProtocol(),tier1, tier2, tier3,tier4,tier5);
     if(tier1 !=0 && tier2 !=0 && tier3 !=0 && tier4 !=0 && tier5 != 0) {
@@ -221,7 +218,7 @@ void MasterNodesWidget::initChart(bool isLightTheme) {
     series->append("Tier 4", tier4);
     series->append("Tier 5", tier5); /* Finished appending tier data */
     }
-    if(!isLightTheme){
+    if((isLightTheme())){
         backgroundColor = QColor(255,255,255);
     }
     else{
@@ -432,10 +429,24 @@ void MasterNodesWidget::onCreateMNClicked(){
         dialog->deleteLater();
     }
 }
+void DashboardWidget::changeChartColors(){
+    if(isLightTheme()){
+        gridLineColorX = QColor(255,255,255);
+        linePenColorY = gridLineColorX;
+        backgroundColor = linePenColorY;
+    }else{
+        gridLineColorX = QColor(15,11,22);
+        linePenColorY =  gridLineColorX;
+        backgroundColor = QColor("#212121");
+    }
 
+    chart->setBackgroundBrush(QBrush(backgroundColor));
+}
 void MasterNodesWidget::changeTheme(bool isLightTheme, QString& theme){
     static_cast<MNHolder*>(this->delegate->getRowFactory())->isLightTheme = isLightTheme;
-    initChart(isLightTheme);
+#ifdef USE_QTCHARTS
+    if (chart) this->changeChartColors();
+#endif
 }
 
 MasterNodesWidget::~MasterNodesWidget()

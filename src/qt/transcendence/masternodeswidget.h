@@ -61,7 +61,9 @@ private slots:
     void onInfoMNClicked();
     void updateListState();
     void onTierChartBtnClicked();
-
+#ifdef USE_QTCHARTSß
+    void changeChartColors();
+#endif
 private:
     Ui::MasterNodesWidget *ui;
     FurAbstractListItemDelegate *delegate;
@@ -72,6 +74,11 @@ private:
     #ifdef USE_QTCHARTS
     QChart *chart = nullptr;
     QChartView *chartView = nullptr;
+    QPieSeries *series;
+    QColor backgroundColor;
+    QColor gridLineColorX;
+    QColor linePenColorY;
+    QColor gridY;
     #endif
     int tier1 = 0,tier2 = 0,tier3 = 0,tier4 = 0,tier5 = 0; 
     void startAlias(QString strAlias);

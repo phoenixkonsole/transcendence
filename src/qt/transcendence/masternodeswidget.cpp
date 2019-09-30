@@ -218,12 +218,6 @@ void MasterNodesWidget::initChart() {
     series->append("Tier 4", tier4);
     series->append("Tier 5", tier5); /* Finished appending tier data */
     }
-    if((isLightTheme())){
-        backgroundColor = QColor(255,255,255);
-    }
-    else{
-        backgroundColor = QColor("#212121");
-    }
     //Initialize chart
     chart = new QChart();
     chart->addSeries(series);
@@ -231,11 +225,10 @@ void MasterNodesWidget::initChart() {
 
     // Chart style
     chart->legend()->setAlignment(Qt::AlignTop);
-    chart->setBackgroundBrush(QBrush(backgroundColor));
     chart->setAnimationOptions(QChart::SeriesAnimations);
     chart->setMargins({0, 0, 0, 0});
     chart->setBackgroundRoundness(0);
-
+    changeChartColors();
     chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
     chartView->setContentsMargins(0,0,0,0);

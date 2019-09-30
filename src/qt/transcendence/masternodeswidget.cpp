@@ -423,6 +423,9 @@ void MasterNodesWidget::onCreateMNClicked(){
     }
 }
 void DashboardWidget::changeChartColors(){
+    //declare vars
+    QColor backgroundColor = QColor(0,0,0);
+    QColor gridLineColorX  = QColor(0,0,0);
     if(isLightTheme()){
         gridLineColorX = QColor(255,255,255);
         backgroundColor = gridLineColorX;

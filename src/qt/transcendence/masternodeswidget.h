@@ -71,8 +71,6 @@ private:
     TooltipMenu* menu = nullptr;
     QModelIndex index;
     QTimer *timer = nullptr;
-    QColor backgroundColor = QColor(0,0,0);
-    QColor gridLineColorX  = QColor(0,0,0);
     #ifdef USE_QTCHARTS
     QChart *chart = nullptr;
     QChartView *chartView = nullptr;

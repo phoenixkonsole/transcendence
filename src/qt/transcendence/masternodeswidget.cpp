@@ -425,12 +425,10 @@ void MasterNodesWidget::onCreateMNClicked(){
 void DashboardWidget::changeChartColors(){
     if(isLightTheme()){
         gridLineColorX = QColor(255,255,255);
-        linePenColorY = gridLineColorX;
-        backgroundColor = linePenColorY;
+        backgroundColor = gridLineColorX;
     }else{
-        gridLineColorX = QColor(15,11,22);
-        linePenColorY =  gridLineColorX;
-        backgroundColor = QColor("#212121");
+        gridLineColorX = QColor(22, 18, 11);
+        backgroundColor = gridLineColorX;
     }
     chart->setBackgroundBrush(QBrush(backgroundColor));
 }

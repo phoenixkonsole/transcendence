@@ -422,7 +422,7 @@ void MasterNodesWidget::onCreateMNClicked(){
         dialog->deleteLater();
     }
 }
-void DashboardWidget::changeChartColors(){
+void MasterNodesWidget::changeChartColors(){
     //declare vars
     QColor backgroundColor = QColor(0,0,0);
     QColor gridLineColorX  = QColor(0,0,0);

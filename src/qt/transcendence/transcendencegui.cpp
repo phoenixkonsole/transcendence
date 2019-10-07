@@ -186,7 +186,6 @@ void TELOSGUI::connectActions() {
     connect(sendWidget, &SendWidget::showHide, this, &TELOSGUI::showHide);
     connect(receiveWidget, &ReceiveWidget::showHide, this, &TELOSGUI::showHide);
     connect(addressesWidget, &AddressesWidget::showHide, this, &TELOSGUI::showHide);
-    connect(privacyWidget, &LinksWidget::showHide, this, &TELOSGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TELOSGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TELOSGUI::execDialog);
     connect(settingsWidget, &SettingsWidget::execDialog, this, &TELOSGUI::execDialog);

@@ -128,7 +128,7 @@ private:
     SendWidget *sendWidget = nullptr;
     ReceiveWidget *receiveWidget = nullptr;
     AddressesWidget *addressesWidget = nullptr;
-    PrivacyWidget *privacyWidget = nullptr;
+    LinksWidget *privacyWidget = nullptr;
     MasterNodesWidget *masterNodesWidget = nullptr;
     SettingsWidget* settingsWidget = nullptr;
 

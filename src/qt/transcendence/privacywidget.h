@@ -8,16 +8,16 @@
 #include <QDialog>
 
 namespace Ui {
-class SettingsFaqWidget;
+class LinksWidget;
 }
 
-class SettingsFaqWidget : public QDialog
+class LinksWidget : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit SettingsFaqWidget(QWidget *parent = nullptr);
-    ~SettingsFaqWidget();
+    explicit LinksWidget(QWidget *parent = nullptr);
+    ~LinksWidget();
 
     void showEvent(QShowEvent *event) override;
 
@@ -36,7 +36,7 @@ private slots:
     void onFaq9Clicked();
     void onFaq10Clicked();
 private:
-    Ui::SettingsFaqWidget *ui;
+    Ui::LinksWidget *ui;
     int pos = 0;
 
     std::vector<QPushButton*> getButtons();

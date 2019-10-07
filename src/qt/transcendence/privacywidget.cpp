@@ -2,15 +2,15 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "qt/transcendence/settings/settingsfaqwidget.h"
-#include "qt/transcendence/settings/forms/ui_settingsfaqwidget.h"
+#include "qt/transcendence/privacywidget.h"
+#include "qt/transcendence/settings/forms/ui_privacywidget.h"
 #include <QScrollBar>
 #include <QMetaObject>
 #include "qt/transcendence/qtutils.h"
 
-SettingsFaqWidget::SettingsFaqWidget(QWidget *parent) :
+LinksWidget::LinksWidget(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SettingsFaqWidget)
+    ui(new Ui::LinksWidget)
 {
     ui->setupUi(this);
 
@@ -107,7 +107,7 @@ SettingsFaqWidget::SettingsFaqWidget(QWidget *parent) :
         connect(parent, SIGNAL(windowResizeEvent(QResizeEvent*)), this, SLOT(windowResizeEvent(QResizeEvent*)));
 }
 
-void SettingsFaqWidget::showEvent(QShowEvent *event){
+void LinksWidget::showEvent(QShowEvent *event){
     if(pos != 0){
         QPushButton* btn = getButtons()[pos - 1];
         QMetaObject::invokeMethod(btn, "setChecked", Qt::QueuedConnection, Q_ARG(bool, true));
@@ -115,59 +115,59 @@ void SettingsFaqWidget::showEvent(QShowEvent *event){
     }
 }
 
-void SettingsFaqWidget::setSection(int num){
+void LinksWidget::setSection(int num){
     if (num < 1 || num > 10)
         return;
     pos = num;
 }
 
-void SettingsFaqWidget::onFaq1Clicked(){
+void LinksWidget::onFaq1Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq1->y());
 }
 
-void SettingsFaqWidget::onFaq2Clicked(){
+void LinksWidget::onFaq2Clicked(){
    ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq2->y());
 }
 
-void SettingsFaqWidget::onFaq3Clicked(){
+void LinksWidget::onFaq3Clicked(){
    ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq3->y());
 }
 
-void SettingsFaqWidget::onFaq4Clicked(){
+void LinksWidget::onFaq4Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq4->y());
 }
 
-void SettingsFaqWidget::onFaq5Clicked(){
+void LinksWidget::onFaq5Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq5->y());
 }
 
-void SettingsFaqWidget::onFaq6Clicked(){
+void LinksWidget::onFaq6Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq6->y());
 }
 
-void SettingsFaqWidget::onFaq7Clicked(){
+void LinksWidget::onFaq7Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq7->y());
 }
 
-void SettingsFaqWidget::onFaq8Clicked(){
+void LinksWidget::onFaq8Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq8->y());
 }
 
-void SettingsFaqWidget::onFaq9Clicked(){
+void LinksWidget::onFaq9Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq9->y());
 }
 
-void SettingsFaqWidget::onFaq10Clicked(){
+void LinksWidget::onFaq10Clicked(){
     ui->scrollAreaFaq->verticalScrollBar()->setValue(ui->widgetFaq10->y());
 }
 
-void SettingsFaqWidget::windowResizeEvent(QResizeEvent* event){
+void LinksWidget::windowResizeEvent(QResizeEvent* event){
     QWidget* w = qobject_cast<QWidget*>(parent());
     this->resize(w->width(), w->height());
     this->move(QPoint(0, 0));
 }
 
-std::vector<QPushButton*> SettingsFaqWidget::getButtons(){
+std::vector<QPushButton*> LinksWidget::getButtons(){
     return {
             ui->pushButtonFaq1,
             ui->pushButtonFaq2,
@@ -182,7 +182,7 @@ std::vector<QPushButton*> SettingsFaqWidget::getButtons(){
     };
 }
 
-SettingsFaqWidget::~SettingsFaqWidget(){
+LinksWidget::~LinksWidget(){
     delete ui;
 }
 

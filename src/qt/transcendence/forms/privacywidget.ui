@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingsFaqWidget</class>
- <widget class="QWidget" name="SettingsFaqWidget">
+ <class>LinksWidget</class>
+ <widget class="QWidget" name="LinksWidget">
   <property name="geometry">
    <rect>
     <x>0</x>

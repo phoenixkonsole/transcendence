@@ -2,63 +2,44 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PRIVACYWIDGET_H
-#define PRIVACYWIDGET_H
+#ifndef SETTINGSFAQWIDGET_H
+#define SETTINGSFAQWIDGET_H
 
-#include "qt/transcendence/pwidget.h"
-#include "qt/transcendence/furabstractlistitemdelegate.h"
-#include "qt/transcendence/txviewholder.h"
-#include "transactiontablemodel.h"
-#include "transactionfilterproxy.h"
-#include "coincontroldialog.h"
-
-#include <QLabel>
-#include <QWidget>
-
-class TELOSGUI;
-class WalletModel;
+#include <QDialog>
 
 namespace Ui {
-class PrivacyWidget;
+class SettingsFaqWidget;
 }
 
-QT_BEGIN_NAMESPACE
-class QModelIndex;
-QT_END_NAMESPACE
-
-class PrivacyWidget : public PWidget
+class SettingsFaqWidget : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit PrivacyWidget(TELOSGUI* parent);
-    ~PrivacyWidget();
+    explicit SettingsFaqWidget(QWidget *parent = nullptr);
+    ~SettingsFaqWidget();
 
-    void loadWalletModel() override;
+    void showEvent(QShowEvent *event) override;
+
+public slots:
+   void windowResizeEvent(QResizeEvent* event);
+   void setSection(int num);
 private slots:
-    void changeTheme(bool isLightTheme, QString &theme) override;
-    void onCoinControlClicked();
-    void onDenomClicked();
-    void onRescanMintsClicked();
-    void onResetZeroClicked();
-    void onTotalZTelosClicked();
-    void updateDisplayUnit();
-    void showList();
-    void onSendClicked();
-    void onMintSelected(bool isMint);
-
+    void onFaq1Clicked();
+    void onFaq2Clicked();
+    void onFaq3Clicked();
+    void onFaq4Clicked();
+    void onFaq5Clicked();
+    void onFaq6Clicked();
+    void onFaq7Clicked();
+    void onFaq8Clicked();
+    void onFaq9Clicked();
+    void onFaq10Clicked();
 private:
-    Ui::PrivacyWidget *ui;
-    FurAbstractListItemDelegate *delegate = nullptr;
-    TransactionTableModel* txModel = nullptr;
-    TxViewHolder *txHolder = nullptr;
-    TransactionFilterProxy* filter = nullptr;
-    CoinControlDialog *coinControlDialog = nullptr;
+    Ui::SettingsFaqWidget *ui;
+    int pos = 0;
 
-    int nDisplayUnit;
-    void mint(CAmount value);
-    void spend(CAmount value);
-    void updateDenomsSupply();
+    std::vector<QPushButton*> getButtons();
 };
 
-#endif // PRIVACYWIDGET_H
+#endif // SETTINGSFAQWIDGET_H

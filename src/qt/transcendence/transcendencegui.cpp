@@ -115,7 +115,7 @@ TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         sendWidget = new SendWidget(this);
         receiveWidget = new ReceiveWidget(this);
         addressesWidget = new AddressesWidget(this);
-        privacyWidget = new PrivacyWidget(this);
+        privacyWidget = new SettingsFaqWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
         settingsWidget = new SettingsWidget(this);
 

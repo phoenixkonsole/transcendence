@@ -115,7 +115,7 @@ TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         sendWidget = new SendWidget(this);
         receiveWidget = new ReceiveWidget(this);
         addressesWidget = new AddressesWidget(this);
-        privacyWidget = new SettingsFaqWidget(this);
+        privacyWidget = new LinksWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
         settingsWidget = new SettingsWidget(this);
 
@@ -186,7 +186,7 @@ void TELOSGUI::connectActions() {
     connect(sendWidget, &SendWidget::showHide, this, &TELOSGUI::showHide);
     connect(receiveWidget, &ReceiveWidget::showHide, this, &TELOSGUI::showHide);
     connect(addressesWidget, &AddressesWidget::showHide, this, &TELOSGUI::showHide);
-    connect(privacyWidget, &PrivacyWidget::showHide, this, &TELOSGUI::showHide);
+    connect(privacyWidget, &LinksWidget::showHide, this, &TELOSGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TELOSGUI::showHide);
     connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TELOSGUI::execDialog);
     connect(settingsWidget, &SettingsWidget::execDialog, this, &TELOSGUI::execDialog);
@@ -566,12 +566,11 @@ bool TELOSGUI::addWallet(const QString& name, WalletModel* walletModel)
     receiveWidget->setWalletModel(walletModel);
     sendWidget->setWalletModel(walletModel);
     addressesWidget->setWalletModel(walletModel);
-    privacyWidget->setWalletModel(walletModel);
     masterNodesWidget->setWalletModel(walletModel);
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
-    connect(privacyWidget, &PrivacyWidget::message, this, &TELOSGUI::message);
+    connect(privacyWidget, &LinksWidget::message, this, &TELOSGUI::message);
     connect(masterNodesWidget, &MasterNodesWidget::message, this, &TELOSGUI::message);
     connect(topBar, &TopBar::message, this, &TELOSGUI::message);
     connect(sendWidget, &SendWidget::message,this, &TELOSGUI::message);

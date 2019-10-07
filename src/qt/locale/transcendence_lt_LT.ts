@@ -2124,7 +2124,7 @@ Nesubrendusios: patvirtintos, bet mažiau nei 1 konvertacijos to pačio nominalo
         <translation>Nuskenuoti iš naujo</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRIVATUMAS</translation>
     </message>
     <message>

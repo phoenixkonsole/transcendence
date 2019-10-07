@@ -2307,7 +2307,7 @@ For at aktivere AutoMint-ændring 'enablezeromint = 0' til 'enablezeromint = 1' 
         <translation>Status og / eller Beskeder fra sidste minuts handling.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRIVATLIV</translation>
     </message>
     <message>

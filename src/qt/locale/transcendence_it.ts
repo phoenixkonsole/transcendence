@@ -1866,8 +1866,8 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>Reset</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
-        <translation>PRIVACY</translation>
+        <source>LINKS</source>
+        <translation>LINKS</translation>
     </message>
     <message>
         <source>zTELOS Control</source>

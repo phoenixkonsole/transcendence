@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "qt/transcendence/privacywidget.h"
-#include "qt/transcendence/forms/ui_privacywidget.h"
+#include "qt/transcendence/linkswidget.h"
+#include "qt/transcendence/forms/ui_linkswidget.h"
 #include <QScrollBar>
 #include <QMetaObject>
 #include "qt/transcendence/qtutils.h"

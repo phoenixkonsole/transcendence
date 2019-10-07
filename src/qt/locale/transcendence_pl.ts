@@ -2420,7 +2420,7 @@ Aby włączyć AutoMint zmień "enablezeromint = 0" na "enablezeromint = 1" w pl
         <translation>Status i / lub wiadomości z ostatniej akcji mint.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRYWATNOŚĆ</translation>
     </message>
     <message>

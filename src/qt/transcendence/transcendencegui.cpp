@@ -115,7 +115,7 @@ TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         sendWidget = new SendWidget(this);
         receiveWidget = new ReceiveWidget(this);
         addressesWidget = new AddressesWidget(this);
-        privacyWidget = new LinksWidget(this);
+        linksWidget = new LinksWidget(this);
         masterNodesWidget = new MasterNodesWidget(this);
         settingsWidget = new SettingsWidget(this);
 
@@ -124,7 +124,7 @@ TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         stackedContainer->addWidget(sendWidget);
         stackedContainer->addWidget(receiveWidget);
         stackedContainer->addWidget(addressesWidget);
-        stackedContainer->addWidget(privacyWidget);
+        stackedContainer->addWidget(linksWidget);
         stackedContainer->addWidget(masterNodesWidget);
         stackedContainer->addWidget(settingsWidget);
         stackedContainer->setCurrentWidget(dashboard);
@@ -460,8 +460,8 @@ void TELOSGUI::goToAddresses(){
     showTop(addressesWidget);
 }
 
-void TELOSGUI::goToPrivacy(){
-    showTop(privacyWidget);
+void TELOSGUI::goToLinks(){
+    showTop(linksWidget);
 }
 
 void TELOSGUI::goToMasterNodes(){

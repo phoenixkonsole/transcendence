@@ -2293,7 +2293,7 @@ Da biste omogućili, promjenite postavke AutoMint 'enablezeromint=0' na 'enablez
         <translation>Status i/ili poruke od zadnje Mint akcije</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRIVATNOST</translation>
     </message>
     <message>

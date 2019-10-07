@@ -2372,8 +2372,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf<
         <translation>Status and/or Messages from the last Mint Action.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
-        <translation>PRIVACY</translation>
+        <source>LINKS</source>
+        <translation>LINKS</translation>
     </message>
     <message>
         <source>zTELOS Control</source>

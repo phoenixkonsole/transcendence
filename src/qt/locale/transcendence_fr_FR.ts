@@ -2424,7 +2424,7 @@ Pour activer Auto-monnayage, changez 'enablezeromint = 0' en 'enablezeromint = 1
         <translation>Statut et / ou messages de dernière action Monnayage.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>CONFIDENTIALITÉ</translation>
     </message>
     <message>

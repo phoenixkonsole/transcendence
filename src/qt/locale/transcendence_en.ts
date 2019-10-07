@@ -3110,7 +3110,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="-360"/>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

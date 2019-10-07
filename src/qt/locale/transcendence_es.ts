@@ -2340,7 +2340,7 @@ Para habilitar AutoMint cambie 'enablezeromint = 0' a 'enablezeromint = 1' en pi
         <translation>Estado y/o Mensajes de la última acción mint.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRIVACIDAD</translation>
     </message>
     <message>

@@ -2321,7 +2321,7 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf<
         <translation>Son mint Eyleminden Durum ve / veya Mesajlar</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>GİZLİLİK</translation>
     </message>
     <message>

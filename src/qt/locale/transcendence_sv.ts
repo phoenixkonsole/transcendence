@@ -2448,7 +2448,7 @@ För att aktivera AutoMint ändra 'enablezeromint=0' till 'enablezeromint=1' i p
         <translation>Status och/eller Meddelande från den senaste präglingen.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>SEKRETESS</translation>
     </message>
     <message>

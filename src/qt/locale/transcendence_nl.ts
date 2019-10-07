@@ -2408,8 +2408,8 @@ Om AutoMint in te schakelend verander je 'enablezeromint=0' naar 'enablezeromint
         <translation>Status en/of Berichten van de laatste mint actie.</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
-        <translation>PRIVACY</translation>
+        <source>LINKS</source>
+        <translation>LINKS</translation>
     </message>
     <message>
         <source>zTELOS Control</source>

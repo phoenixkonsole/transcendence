@@ -2289,7 +2289,7 @@ Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablez
         <translation>Status und/oder Mitteilungen aus der letzten Prägung</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>PRIVATSPHÄRE</translation>
     </message>
     <message>

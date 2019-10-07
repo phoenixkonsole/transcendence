@@ -36,7 +36,7 @@ NavMenuWidget::NavMenuWidget(TELOSGUI *mainWindow, QWidget *parent) :
     ui->btnAddress->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     ui->btnPrivacy->setProperty("name", "privacy");
-    ui->btnPrivacy->setText("PRIVACY\n");
+    ui->btnPrivacy->setText("LINKS\n");
     ui->btnPrivacy->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
 
     ui->btnMaster->setProperty("name", "master");

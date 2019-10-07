@@ -20,7 +20,7 @@
 #include "qt/transcendence/send.h"
 #include "qt/transcendence/receivewidget.h"
 #include "qt/transcendence/addresseswidget.h"
-#include "qt/transcendence/privacywidget.h"
+#include "qt/transcendence/linkswidget.h"
 #include "qt/transcendence/masternodeswidget.h"
 #include "qt/transcendence/snackbar.h"
 #include "qt/transcendence/settings/settingswidget.h"
@@ -65,7 +65,7 @@ public slots:
     void goToSend();
     void goToReceive();
     void goToAddresses();
-    void goToPrivacy();
+    void goToLinks();
     void goToMasterNodes();
     void goToSettings();
 
@@ -128,7 +128,7 @@ private:
     SendWidget *sendWidget = nullptr;
     ReceiveWidget *receiveWidget = nullptr;
     AddressesWidget *addressesWidget = nullptr;
-    LinksWidget *privacyWidget = nullptr;
+    LinksWidget *linksWidget = nullptr;
     MasterNodesWidget *masterNodesWidget = nullptr;
     SettingsWidget* settingsWidget = nullptr;
 

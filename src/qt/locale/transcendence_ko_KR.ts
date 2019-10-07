@@ -2293,7 +2293,7 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf<
         <translation>마지막 발행 이후 상태나 메세지</translation>
     </message>
     <message>
-        <source>PRIVACY</source>
+        <source>LINKS</source>
         <translation>프라이버시</translation>
     </message>
     <message>

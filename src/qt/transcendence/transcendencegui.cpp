@@ -570,7 +570,6 @@ bool TELOSGUI::addWallet(const QString& name, WalletModel* walletModel)
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
-    connect(privacyWidget, &LinksWidget::message, this, &TELOSGUI::message);
     connect(masterNodesWidget, &MasterNodesWidget::message, this, &TELOSGUI::message);
     connect(topBar, &TopBar::message, this, &TELOSGUI::message);
     connect(sendWidget, &SendWidget::message,this, &TELOSGUI::message);

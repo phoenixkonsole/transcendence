@@ -169,7 +169,7 @@ margin:0px;</string>
        </widget>
       </item>
       <item>
-       <widget class="QToolButton" name="btnPrivacy">
+       <widget class="QToolButton" name="btnLinks">
         <property name="minimumSize">
          <size>
           <width>100</width>

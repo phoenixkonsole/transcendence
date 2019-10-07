@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef SETTINGSFAQWIDGET_H
-#define SETTINGSFAQWIDGET_H
+#ifndef LINKSWIDGET_H
+#define LINKSWIDGET_H
 
 #include <QDialog>
 
@@ -42,4 +42,4 @@ private:
     std::vector<QPushButton*> getButtons();
 };
 
-#endif // SETTINGSFAQWIDGET_H
+#endif // LINKSWIDGET_H

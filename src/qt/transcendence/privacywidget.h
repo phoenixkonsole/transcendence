@@ -14,7 +14,7 @@
 
 #include <QLabel>
 #include <QWidget>
-
+#include <QQuickWidget>
 class TELOSGUI;
 class WalletModel;
 

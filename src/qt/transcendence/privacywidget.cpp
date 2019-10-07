@@ -158,6 +158,9 @@ PrivacyWidget::PrivacyWidget(TELOSGUI* parent) :
     ui->listView->setMinimumHeight(NUM_ITEMS * (DECORATION_SIZE + 2));
     ui->listView->setAttribute(Qt::WA_MacShowFocusRect, false);
     ui->listView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    QQuickWidget *view = new QQuickWidget;
+view->setSource(QUrl::fromLocalFile("myqmlfile.qml"));
+view->show();
 }
 
 void PrivacyWidget::loadWalletModel(){

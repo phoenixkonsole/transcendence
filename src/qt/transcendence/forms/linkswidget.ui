@@ -75,13 +75,6 @@
           </property>
          </spacer>
         </item>
-        <item>
-         <widget class="QPushButton" name="pushButtonExit">
-          <property name="text">
-           <string>PushButton</string>
-          </property>
-         </widget>
-        </item>
        </layout>
       </item>
       <item>

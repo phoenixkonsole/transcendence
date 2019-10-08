@@ -81,17 +81,12 @@ LinksWidget::LinksWidget(QWidget *parent) :
     ui->labelContent5->setOpenExternalLinks(true);
     ui->labelContent8->setOpenExternalLinks(true);
 
-    // Exit button
-    ui->pushButtonExit->setText(tr("Exit"));
-    setCssProperty(ui->pushButtonExit, "btn-faq-exit");
-
     // Web Link
     ui->pushButtonWebLink->setText("https://PIVX.org/");
     setCssProperty(ui->pushButtonWebLink, "btn-faq-web");
     setCssProperty(ui->containerButtons, "container-faq-buttons");
 
     // Buttons
-    connect(ui->pushButtonExit, SIGNAL(clicked()), this, SLOT(close()));
     connect(ui->pushButtonFaq1, SIGNAL(clicked()), this, SLOT(onFaq1Clicked()));
     connect(ui->pushButtonFaq2, SIGNAL(clicked()), this, SLOT(onFaq2Clicked()));
     connect(ui->pushButtonFaq3, SIGNAL(clicked()), this, SLOT(onFaq3Clicked()));

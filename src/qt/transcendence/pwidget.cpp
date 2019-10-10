@@ -119,6 +119,6 @@ void PWidget::changeTheme(bool isLightTheme, QString& theme){
 void PWidget::run(int type) {
     // override
 }
-void PWidget::onError(int type, QString error) {
+void PWidget::onError(QString error, int type) {
     // override
 }

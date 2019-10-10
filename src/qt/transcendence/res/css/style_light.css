@@ -1734,6 +1734,16 @@ QComboBox[cssClass="btn-combo-chart-selected"] {
     border-radius: 2px;
 }
 
+QComboBox[cssClass="btn-combo-chart-selected"]:disabled {
+    background-color:#2e2e19;
+    padding:6px 12px 6px 6px;
+    font-size:16px;
+    border:1px solid #7d694b;
+    color: #FFFFFF;
+    text-align: right;
+    border-radius: 2px;
+}
+
 QComboBox[cssClass="btn-combo-chart-selected"]::down-arrow {
     image: url("://ic-arrow-drop-down-white");
     width: 24px;
@@ -1785,6 +1795,15 @@ QPushButton[cssClass="btn-check-time"]:pressed {
     font-size:14px;
     padding:4px;
     color: #CEB247;
+}
+
+QPushButton[cssClass="btn-check-time"]:disabled {
+    background-color:#2e2e19;
+    font-size:14px;
+    color: #FFFFFF;
+    padding:4px;
+    border:1px solid #7d694b;
+    border-radius: 2px;
 }
 
 /*HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH

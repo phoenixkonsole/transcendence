@@ -1740,6 +1740,15 @@ QComboBox[cssClass="btn-combo-chart-selected"]::down-arrow {
     padding-right: 10px;
     height: 24px;
 }
+QComboBox[cssClass="btn-combo-chart-selected"]:disabled {
+    background-color:#2e2e19;
+    padding:6px 12px 6px 6px;
+    font-size:16px;
+    border:1px solid #7d694b;
+    color: #FFFFFF;
+    text-align: right;
+    border-radius:2px;
+}
 
 QComboBox[cssClass="btn-combo-chart-selected"]:on {
     padding-top: 10px;
@@ -1769,6 +1778,15 @@ QPushButton[cssClass="btn-check-time"]:checked {
     font-size:14px;
     padding:4px;
     color: #FFFFFF;
+}
+
+QPushButton[cssClass="btn-check-time"]:disabled {
+    background-color:#2e2e19;
+    border-radius:2px;
+    font-size:14px;
+    padding:4px;
+    color: #FFFFFF;
+    border:1px solid #7d694b;
 }
 
 QPushButton[cssClass="btn-check-time"]:hover {

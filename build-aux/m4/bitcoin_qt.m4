@@ -446,6 +446,9 @@ AC_DEFUN([_BITCOIN_QT_FIND_LIBS_WITH_PKGCONFIG],[
       PKG_CHECK_MODULES([QT_SVG], [${QT_LIB_PREFIX}Svg], [QT_SVG_INCLUDES="$QT_SVG_CFLAGS"; QT_LIBS="$QT_LIBS $QT_SVG_LIBS"],, BITCOIN_QT_FAIL([QtSvg not found]))
     ])
     BITCOIN_QT_CHECK([
+      PKG_CHECK_MODULES([QT_CONCURRENT], [${QT_LIB_PREFIX}Concurrent], [QT_INCLUDES="$QT_INCLUDES $QT_CONCURRENT_CFLAGS"; QT_LIBS="$QT_LIBS $QT_CONCURRENT_LIBS"],, BITCOIN_QT_FAIL([QtConcurrent not found]))
+    ])
+    BITCOIN_QT_CHECK([
       PKG_CHECK_MODULES([QT_TEST], [${QT_LIB_PREFIX}Test], [QT_TEST_INCLUDES="$QT_TEST_CFLAGS"; have_qt_test=yes], [have_qt_test=no])
       if test "x$use_dbus" != xno; then
         PKG_CHECK_MODULES([QT_DBUS], [${QT_LIB_PREFIX}DBus], [QT_DBUS_INCLUDES="$QT_DBUS_CFLAGS"; have_qt_dbus=yes], [have_qt_dbus=no])
@@ -476,6 +479,7 @@ AC_DEFUN([_BITCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
   BITCOIN_QT_CHECK([AC_CHECK_HEADER([QtPlugin],,BITCOIN_QT_FAIL(QtCore headers missing))])
   BITCOIN_QT_CHECK([AC_CHECK_HEADER([QApplication],, BITCOIN_QT_FAIL(QtGui headers missing))])
   BITCOIN_QT_CHECK([AC_CHECK_HEADER([QLocalSocket],, BITCOIN_QT_FAIL(QtNetwork headers missing))])
+  BITCOIN_QT_CHECK([AC_CHECK_HEADER([QtConcurrent],, BITCOIN_QT_FAIL(QtConcurrent headers missing))])
 
   BITCOIN_QT_CHECK([
     if test "x$bitcoin_qt_want_version" = xauto; then
@@ -510,6 +514,7 @@ AC_DEFUN([_BITCOIN_QT_FIND_LIBS_WITHOUT_PKGCONFIG],[
   BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Gui]    ,[main],,BITCOIN_QT_FAIL(lib${QT_LIB_PREFIX}Gui not found)))
   BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Network],[main],,BITCOIN_QT_FAIL(lib${QT_LIB_PREFIX}Network not found)))
   BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Widgets],[main],,BITCOIN_QT_FAIL(lib${QT_LIB_PREFIX}Widgets not found)))
+  BITCOIN_QT_CHECK(AC_CHECK_LIB([${QT_LIB_PREFIX}Concurrent],[main],,BITCOIN_QT_FAIL(lib${QT_LIB_PREFIX}Concurrent not found)))
   QT_LIBS="$LIBS"
   LIBS="$TEMP_LIBS"
 

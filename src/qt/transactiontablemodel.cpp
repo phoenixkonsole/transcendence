@@ -150,16 +150,12 @@ public:
         return cachedWallet;
     }
 
-    void updateHasZcTxesIfNeeded(const TransactionRecord& record) {
-        if (hasZcTxes) return;
-        if (record.type == TransactionRecord::ZerocoinMint ||
-            record.type == TransactionRecord::ZerocoinSpend ||
-            record.type == TransactionRecord::ZerocoinSpend_Change_zTelos ||
-            record.type == TransactionRecord::ZerocoinSpend_FromMe) {
-            hasZcTxes = true;
-        }
+    static bool HasZcTxesIfNeeded(const TransactionRecord& record) {
+        return (record.type == TransactionRecord::ZerocoinMint ||
+                record.type == TransactionRecord::ZerocoinSpend ||
+                record.type == TransactionRecord::ZerocoinSpend_Change_zTelos ||
+                record.type == TransactionRecord::ZerocoinSpend_FromMe);
     }
-
     /* Update our model of the wallet incrementally, to synchronize our model of the wallet
        with that of the core.
 

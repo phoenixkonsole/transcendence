@@ -353,8 +353,6 @@ public:
 
     std::vector<CWalletTx> getWalletTxs();
 
-    void PrecomputeSpends();
-
     //! check whether we are allowed to upgrade (or already support) to the named feature
     bool CanSupportFeature(enum WalletFeature wf)
     {

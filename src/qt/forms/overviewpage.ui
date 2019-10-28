@@ -411,7 +411,7 @@
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="labelPIVPercent">
+                        <widget class="QLabel" name="labelTelosPercent">
                          <property name="text">
                           <string notr="true">0 %</string>
                          </property>

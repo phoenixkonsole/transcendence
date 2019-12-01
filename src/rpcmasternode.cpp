@@ -247,7 +247,7 @@ Value listmasternodes(const Array& params, bool fHelp)
 
     if (fHelp || (params.size() > 2))
         throw runtime_error(
-            "listmasternodes ( \"filter\" )\n"
+            "listmasternodes ( \"filter\" network )\n"
             "\nGet a ranked list of masternodes\n"
 
             "\nArguments:\n"

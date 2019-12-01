@@ -581,7 +581,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent1">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can easily host TELOS Nodes at &lt;a style='color: #CEB247' href=&quot;https://peertoro.eu&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Peertoro.eu &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;If you'd like your own hosting service to be linked here, consider becoming a Developement-Sponsor and contact us under info@teloscoin.org&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can easily host TELOS Nodes at &lt;a style='color: #CEB247' href=&quot;https://peertoro.eu&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Peertoro.eu &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;If you'd like your own hosting service to be linked here, consider becoming a Developement-Sponsor and contact us under info@teloscoin.org&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -674,7 +674,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent2">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can vote about any TELOS related topic and suggest your own Votings or do a Bounty funding on &lt;a style='color: #CEB247' href=&quot;https://governance.rocks&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;www.governance.rocks&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can vote about any TELOS related topic and suggest your own Votings or do a Bounty funding on &lt;a style='color: #CEB247' href=&quot;https://governance.rocks&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;www.governance.rocks&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -764,7 +764,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent3">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes there is for example an online auction plattform called &lt;a style='color: #CEB247' href=&quot;https://kryptobay.eu&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;kryptobay.eu&lt;/span&gt;&lt;/a&gt; where you can sell used and new stuff to earn TELOS. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes there is for example an online auction plattform called &lt;a style='color: #CEB247' href=&quot;https://kryptobay.eu&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;kryptobay.eu&lt;/span&gt;&lt;/a&gt; where you can sell used and new stuff to earn TELOS. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -854,7 +854,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent4">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Visit &lt;a style='color: #CEB247' href=&quot;https://blueboxing.net&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;blueboxing.net &lt;/span&gt;&lt;/a&gt;to find out how to host Nodes of different Coins at home.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Visit &lt;a style='color: #CEB247' href=&quot;https://blueboxing.net&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;blueboxing.net &lt;/span&gt;&lt;/a&gt;to find out how to host Nodes of different Coins at home.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -944,7 +944,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent5">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and BitcoinSubsidium at &lt;a style='color: #CEB247' href=&quot;https://trade.birake.com/?r=phoenixkonsole-01&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Birake DEX&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and USDT at &lt;a style='color: #CEB247' href=&quot;https://whitebit.com/referral/6cfafae7-d4ea-4d04-8c7d-4c4c5926f775&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Whitebit.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin Ethereum YEN USD EURO ROUBLES at &lt;a  style='color: #CEB247' href=&quot;https://crex24.com/?refid=msf3sqzhr0k81ekjknzx&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Crex24 &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and DOGE at &lt;a style='color: #CEB247' href=&quot;https://www.finexbox.com/Reg/register/referrer/341316.html&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Finexbox.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Telos is also tradeable at Graviex.net against Bitcoin &lt;a style='color: #CEB247' href=&quot;https://graviex.net/signup?ref=b0852bec93869be981123767&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Graviex.net&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and BitcoinSubsidium at &lt;a style='color: #CEB247' href=&quot;https://trade.birake.com/?r=phoenixkonsole-01&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Birake DEX&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and USDT at &lt;a style='color: #CEB247' href=&quot;https://whitebit.com/referral/6cfafae7-d4ea-4d04-8c7d-4c4c5926f775&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Whitebit.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin Ethereum YEN USD EURO ROUBLES at &lt;a  style='color: #CEB247' href=&quot;https://crex24.com/?refid=msf3sqzhr0k81ekjknzx&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Crex24 &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;You can Trade TELOS for Bitcoin and DOGE at &lt;a style='color: #CEB247' href=&quot;https://www.finexbox.com/Reg/register/referrer/341316.html&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Finexbox.com&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;Telos is also tradeable at Graviex.net against Bitcoin &lt;a style='color: #CEB247' href=&quot;https://graviex.net/signup?ref=b0852bec93869be981123767&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Graviex.net&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1037,7 +1037,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent6">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Because of the fact that Google prohibits Crypto advertising and monetarization we created &lt;a style='color: #CEB247' href=&quot;https://gunsrus.tv&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://gunsrus.tv&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Because of the fact that Google prohibits Crypto advertising and monetarization we created &lt;a style='color: #CEB247' href=&quot;https://gunsrus.tv&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;https://gunsrus.tv&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1127,7 +1127,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent7">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can find statistics on &lt;a style='color: #CEB247' href=&quot;https://Masternodestats.info&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Masternodestats.info&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;You can find statistics on &lt;a style='color: #CEB247' href=&quot;https://Masternodestats.info&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;Masternodestats.info&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1217,7 +1217,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent8">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes, there is one currently available at &lt;a style='color: #CEB247' href=&quot;https://apps.apple.com/de/app/telos-wallet/id1479606829&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://apps.apple.com/de/app/telos-wallet/id1479606829&lt;/span&gt;&lt;/a&gt; .&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes, there is one currently available at &lt;a style='color: #CEB247' href=&quot;https://apps.apple.com/de/app/telos-wallet/id1479606829&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;https://apps.apple.com/de/app/telos-wallet/id1479606829&lt;/span&gt;&lt;/a&gt; .&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1307,7 +1307,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent9">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes, it is available in the &lt;a style='color: #CEB247' href=&quot;https://play.google.com/store/apps/details?id=transcendence.tech.akshaynexus&amp;amp;hl=gsw&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;PlayStore&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;Yes, it is available in the &lt;a style='color: #CEB247' href=&quot;https://play.google.com/store/apps/details?id=transcendence.tech.akshaynexus&amp;amp;hl=gsw&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;PlayStore&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
@@ -1397,7 +1397,7 @@
                       <item>
                        <widget class="QLabel" name="labelContent10">
                         <property name="text">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A mining and staking mobile phone currently under development - Infos can be found at &lt;a style='color: #CEB247' href=&quot;https://bluephone.biz&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;bluephone.biz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;A mining and staking mobile phone currently under development - Infos can be found at &lt;a style='color: #CEB247' href=&quot;https://bluephone.biz&quot;&gt;&lt;text-decoration: underline; color:#0000ff;&quot;&gt;bluephone.biz&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="alignment">
                          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>

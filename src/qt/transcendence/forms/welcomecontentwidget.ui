@@ -1115,7 +1115,7 @@ Transcendence Core Wallet</string>
                 <item>
                  <widget class="QLabel" name="labelMessage4">
                   <property name="text">
-                   <string>The masternode network is Transcendence's second layer network on top of the blockchain that enables our DAO to provide decentralized governance, treasury, and SwiftX transactions.</string>
+                   <string>The masternode network is Transcendence's second layer network on top of the blockchain that enables our DAO to provide decentralized governance, and SwiftX transactions.</string>
                   </property>
                   <property name="alignment">
                    <set>Qt::AlignCenter</set>

@@ -18497,7 +18497,7 @@ fi
 if test "${enable_tests+set}" = set; then :
   enableval=$enable_tests; use_tests=$enableval
 else
-  use_tests=yes
+  use_tests=no
 fi
 
 

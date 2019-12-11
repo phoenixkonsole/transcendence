@@ -66,17 +66,17 @@ void OptionsModel::Init()
         settings.setValue("fCoinControlFeatures", false);
     fCoinControlFeatures = settings.value("fCoinControlFeatures", false).toBool();
 
-    if (!settings.contains("fZeromintEnable"))
-        settings.setValue("fZeromintEnable", true);
-    fEnableZeromint = settings.value("fZeromintEnable").toBool();
+   /* if (!settings.contains("fZeromintEnable"))
+        settings.setValue("fZeromintEnable", true);*/
+    fEnableZeromint = false;//settings.value("fZeromintEnable").toBool();
 
-    if (!settings.contains("fEnableAutoConvert"))
-        settings.setValue("fEnableAutoConvert", true);
-    fEnableAutoConvert = settings.value("fEnableAutoConvert").toBool();
+   /* if (!settings.contains("fEnableAutoConvert"))
+        settings.setValue("fEnableAutoConvert", true);*/
+    fEnableAutoConvert = false;//settings.value("fEnableAutoConvert").toBool();
 
-    if (!settings.contains("nZeromintPercentage"))
-        settings.setValue("nZeromintPercentage", 10);
-    nZeromintPercentage = settings.value("nZeromintPercentage").toLongLong();
+   /* if (!settings.contains("nZeromintPercentage"))
+        settings.setValue("nZeromintPercentage", 10);*/
+    nZeromintPercentage = 0;//settings.value("nZeromintPercentage").toLongLong();
 
     if (!settings.contains("nPreferredDenom"))
         settings.setValue("nPreferredDenom", 0);
@@ -199,12 +199,12 @@ void OptionsModel::setDisplayDefaultOptions(QSettings& settings, bool reset){
     if (!SoftSetArg("-lang", settings.value("language").toString().toStdString()))
         addOverriddenOption("-lang");
 
-    if (settings.contains("fZeromintEnable") || reset)
+/*if (settings.contains("fZeromintEnable") || reset)
         SoftSetBoolArg("-enablezeromint", settings.value("fZeromintEnable").toBool());
     if (settings.contains("fEnableAutoConvert") || reset)
         SoftSetBoolArg("-enableautoconvertaddress", settings.value("fEnableAutoConvert").toBool());
     if (settings.contains("nZeromintPercentage") || reset)
-        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());
+        SoftSetArg("-zeromintpercentage", settings.value("nZeromintPercentage").toString().toStdString());*/
     if (settings.contains("nPreferredDenom") || reset)
         SoftSetArg("-preferredDenom", settings.value("nPreferredDenom").toString().toStdString());
     if (settings.contains("nAnonymizePivxAmount") || reset)
@@ -417,16 +417,16 @@ bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int 
             }
             break;
         case ZeromintEnable:
-            fEnableZeromint = value.toBool();
+            fEnableZeromint = false;//value.toBool();
             settings.setValue("fZeromintEnable", fEnableZeromint);
             emit zeromintEnableChanged(fEnableZeromint);
             break;
         case ZeromintAddresses:
-            fEnableAutoConvert = value.toBool();
+            fEnableAutoConvert = false;//value.toBool();
             settings.setValue("fEnableAutoConvert", fEnableAutoConvert);
             emit zeromintAddressesChanged(fEnableAutoConvert);
         case ZeromintPercentage:
-            nZeromintPercentage = value.toInt();
+            nZeromintPercentage = 0;//value.toInt();
             settings.setValue("nZeromintPercentage", nZeromintPercentage);
             emit zeromintPercentageChanged(nZeromintPercentage);
             break;

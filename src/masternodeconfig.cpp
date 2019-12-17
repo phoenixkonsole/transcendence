@@ -72,15 +72,25 @@ bool CMasternodeConfig::read(std::string& strErr)
             }
         }
 
+        int port = 0;
+        std::string hostname = "";
+        SplitHostPort(ip, port, hostname);
+        if(port == 0 || hostname == "") {
+            strErr = _("Failed to parse host:port string") + "\n"+
+                     strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"";
+            streamConfig.close();
+            return false;
+        }
+
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (CService(ip).GetPort() != 8051) {
+            if (port != 8051) {
                 strErr = _("Invalid port detected in masternode.conf") + "\n" +
-                         strprintf(_("Line: %d"), linenumber) + +"\n\""  + strprintf(_("Port detected: %d"), CService(ip).GetPort())  +"\n\"" + line + "\"" + "\n" +
+                         strprintf(_("Line: %d"), linenumber) + +"\n\""  + strprintf(_("Port detected: %d"), port)  +"\n\"" + line + "\"" + "\n" +
                          _("(must be 8051 for mainnet)");
                 streamConfig.close();
                 return false;
             }
-        } else if (CService(ip).GetPort() == 8051) {
+        } else if (port == 8051) {
             strErr = _("Invalid port detected in masternode.conf") + "\n" +
                      strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
                      _("(8051 could be used only on mainnet)");

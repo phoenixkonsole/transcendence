@@ -442,7 +442,7 @@ transcendenced_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-transcendenced_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS)
+transcendenced_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(UNBOUND_LIBS)
 
 # transcendence-cli binary #
 transcendence_cli_SOURCES = transcendence-cli.cpp
@@ -460,7 +460,7 @@ transcendence_cli_LDADD = \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(UNBOUND_LIBS)
 #
 
 # transcendence-tx binary #
@@ -481,7 +481,7 @@ transcendence_tx_LDADD = \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-transcendence_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+transcendence_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS) $(UNBOUND_LIBS)
 #
 
 # bitcoinconsensus library #

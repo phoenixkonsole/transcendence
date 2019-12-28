@@ -17,6 +17,10 @@
 #include "util.h"
 #include "utilstrencodings.h"
 
+#ifdef HAVE_UNBOUND
+#include <unbound.h>
+#endif
+
 #ifdef HAVE_GETADDRINFO_A
 #include <netdb.h>
 #endif
@@ -93,6 +97,41 @@ void SplitHostPort(std::string in, int& portOut, std::string& hostOut)
         hostOut = in;
 }
 
+bool static CustomLookup(const char* pszName, std::vector<CNetAddr>& vIP)
+{
+#ifdef HAVE_UNBOUND
+    struct ub_ctx* ctx;
+    struct ub_result* result;
+    int retval;
+
+    ctx = ub_ctx_create();
+    if (ctx == nullptr) {
+        LogPrintf("Could not create DNS context\n");
+        return false;
+    }
+
+    ub_ctx_set_fwd(ctx, pszName);
+
+    retval = ub_resolve(ctx, pszName, 1, 1, &result);
+    if (retval != 0) {
+        LogPrintf("Could not resolve host: %s\n", ub_strerror(retval));
+        return false;
+    }
+
+    if (result->havedata) {
+        for (int i = 0; result->data[i] != nullptr; ++i) {
+            vIP.push_back(CNetAddr(*(struct in_addr*)result->data[0]));
+        }
+    }
+
+    ub_resolve_free(result);
+    ub_ctx_delete(ctx);
+
+    return (vIP.size() > 0);
+#endif
+    return false;
+}
+
 bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsigned int nMaxSolutions, bool fAllowLookup)
 {
     vIP.clear();
@@ -104,6 +143,10 @@ bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsign
             return true;
         }
     }
+
+#ifdef HAVE_UNBOUND
+    return CustomLookup(pszName, vIP);
+#endif
 
 #ifdef HAVE_GETADDRINFO_A
     struct in_addr ipv4_addr;

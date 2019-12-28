@@ -32,6 +32,10 @@ if test -z $with_miniupnpc && test -n "@no_upnp@"; then
   with_miniupnpc=no
 fi
 
+if test -z $with_adns && test -n "@no_adns@"; then
+  with_adns=no
+fi
+
 if test -z $with_gui && test -n "@no_qt@"; then
   with_gui=no
 fi

@@ -202,6 +202,12 @@ AC_ARG_ENABLE([zmq],
   [use_zmq=$enableval],
   [use_zmq=yes])
 
+AC_ARG_ENABLE([unbound],
+  [AS_HELP_STRING([--disable-unbound],
+  [disable unbound (custom dns resolver)])],
+  [use_unbound=$enableval],
+  [use_unbound=yes])
+
 AC_ARG_WITH([zerocoin-bignum],
   [AS_HELP_STRING([--with-zerocoin-bignum=gmp|openssl|auto],
   [Specify Bignum Implementation. Default is auto])],
@@ -1016,6 +1022,20 @@ fi
 
 fi
 
+if test "x$use_unbound" = "xyes"; then
+ AC_CHECK_HEADER([unbound.h],
+   [AC_DEFINE([HAVE_UNBOUND],[1],[Define to 1 to enable unbound functions])],
+   [AC_MSG_WARN([unbound.h not found, disabling unbound support])
+    use_unbound=no
+    AC_DEFINE([HAVE_UNBOUND],[0],[Define to 1 to enable unbound functions])])
+ AC_CHECK_LIB([unbound],[main],UNBOUND_LIBS=-lunbound,
+   [AC_MSG_WARN([libunbound not found, disabling unbound support])
+    use_unbound=no
+    AC_DEFINE([HAVE_UNBOUND],[0],[Define to 1 to enable unbound functions])])
+else
+    AC_DEFINE_UNQUOTED([HAVE_UNBOUND],[0],[Define to 1 to enable unbound functions])
+fi
+
 if test x$use_pkgconfig = xyes; then
   : dnl
   m4_ifdef(
@@ -1391,6 +1411,7 @@ AC_SUBST(CRYPTO_LIBS)
 AC_SUBST(SSL_LIBS)
 AC_SUBST(EVENT_LIBS)
 AC_SUBST(EVENT_PTHREADS_LIBS)
+AC_SUBST(UNBOUND_LIBS)
 AC_SUBST(ZMQ_LIBS)
 AC_SUBST(PROTOBUF_LIBS)
 AC_SUBST(QR_LIBS)
@@ -1463,6 +1484,7 @@ if test x$bitcoin_enable_qt != xno; then
     echo "    with qtcharts     = $use_qtcharts"
 fi
 echo "  with zmq      = $use_zmq"
+echo "  with unbound  = $use_unbound"
 echo "  with bignum   = $set_bignum"
 echo "  with test     = $use_tests"
 echo "  with bench    = $use_bench"

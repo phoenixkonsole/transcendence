@@ -427,7 +427,7 @@ border:none;</string>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
-                   <width>40</width>
+                   <width>20</width>
                    <height>20</height>
                   </size>
                  </property>
@@ -451,6 +451,40 @@ border:none;</string>
                  </item>
                 </layout>
                </item>
+               <item>
+                <spacer name="horizontalSpacer_Locked">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Fixed</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+                <item>
+                  <layout class="QVBoxLayout" name="verticalLayout_locked">
+                  <item>
+                  <widget class="QLabel" name="labelTitleLocked">
+                  <property name="text">
+                      <string>Locked</string>
+                  </property>
+                  </widget>
+                  </item>
+                  <item>
+                  <widget class="QLabel" name="labelAmountPivLocked">
+                  <property name="text">
+                      <string>10 TELOS</string>
+                  </property>
+                  </widget>
+                  </item>
+                  </layout>
+                </item>
               </layout>
              </item>
             </layout>

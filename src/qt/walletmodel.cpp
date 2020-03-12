@@ -852,6 +852,8 @@ int64_t WalletModel::getKeyCreationTime(const CBitcoinAddress& address){
 }
 
 CBitcoinAddress WalletModel::getNewAddress(std::string label) const{
+    LOCK(wallet->cs_wallet);
+    
     if (!wallet->IsLocked())
         wallet->TopUpKeyPool();
 

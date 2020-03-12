@@ -97,6 +97,29 @@ void SplitHostPort(std::string in, int& portOut, std::string& hostOut)
         hostOut = in;
 }
 
+bool static CheckIp(const char* pszName, std::vector<CNetAddr>& vIP)
+{
+    std::string strHost(pszName);
+    if (strHost.empty())
+        return false;
+
+    if (boost::algorithm::starts_with(strHost, "[") && boost::algorithm::ends_with(strHost, "]"))
+        return false; // skip checking ipv6
+
+    in_addr addr;
+    unsigned char a, b, c, d;
+    int out = sscanf(pszName, "%hhu.%hhu.%hhu.%hhu", &a, &b, &c, &d);
+    if (out != 4)
+        return false;
+    addr.s_addr = d << 24 | c << 16 | b << 8 | a;
+    if (addr.s_addr != 0){
+        vIP.push_back(CNetAddr(addr));
+        return true;
+    }
+
+    return false;
+}
+
 bool static CustomLookup(const char* pszName, std::vector<CNetAddr>& vIP)
 {
 #ifdef HAVE_UNBOUND
@@ -740,17 +763,13 @@ CNetAddr::CNetAddr(const char* pszIp, bool fAllowLookup)
 {
     Init();
     std::vector<CNetAddr> vIP;
-    if (LookupHost(pszIp, vIP, 1, fAllowLookup))
+    if (CheckIp(pszIp, vIP))
+        *this = vIP[0];
+    else if (fAllowLookup && LookupHost(pszIp, vIP, 1, fAllowLookup))
         *this = vIP[0];
 }
 
-CNetAddr::CNetAddr(const std::string& strIp, bool fAllowLookup)
-{
-    Init();
-    std::vector<CNetAddr> vIP;
-    if (LookupHost(strIp.c_str(), vIP, 1, fAllowLookup))
-        *this = vIP[0];
-}
+CNetAddr::CNetAddr(const std::string& strIp, bool fAllowLookup) : CNetAddr(strIp.c_str(), fAllowLookup) { }
 
 unsigned int CNetAddr::GetByte(int n) const
 {
@@ -1465,7 +1484,7 @@ std::string NetworkErrorString(int err)
 #else                    /* POSIX variant always returns message in buffer */
     if (strerror_r(err, buf, sizeof(buf)))
         buf[0] = 0;
-#endif
+#endif 
     return strprintf("%s (%d)", s, err);
 }
 #endif

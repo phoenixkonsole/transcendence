@@ -2014,7 +2014,7 @@ bool GetTransaction(const uint256& hash, CTransaction& txOut, uint256& hashBlock
                     file >> header;
                     fseek(file.Get(), postx.nTxOffset, SEEK_CUR);
                     file >> txOut;
-                } catch (std::exception& e) {
+                } catch (const std::exception& e) {
                     return error("%s : Deserialize or I/O error - %s", __func__, e.what());
                 }
                 hashBlock = header.GetHash();
@@ -2022,6 +2022,9 @@ bool GetTransaction(const uint256& hash, CTransaction& txOut, uint256& hashBlock
                     return error("%s : txid mismatch", __func__);
                 return true;
             }
+
+            // transaction not found in the index, nothing more can be done
+            return false;
         }
 
         if (fAllowSlow) { // use coin database to locate block that contains transaction, and scan it
@@ -5705,6 +5708,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         vector<CInv> vInv;
         vRecv >> vInv;
         if (vInv.size() > MAX_INV_SZ) {
+            LOCK(cs_main);
             Misbehaving(pfrom->GetId(), 20);
             return error("message inv size() = %u", vInv.size());
         }

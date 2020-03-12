@@ -35,7 +35,7 @@ TopBar::TopBar(TELOSGUI* _mainWindow, QWidget *parent) :
     ui->containerTop->setProperty("cssClass", "container-top");
     ui->containerTop->setContentsMargins(10,4,10,10);
 
-    std::initializer_list<QWidget*> lblTitles = {ui->labelTitle1, ui->labelTitle2, ui->labelTitle3, ui->labelTitle4, ui->labelTitle5, ui->labelTitle6};
+    std::initializer_list<QWidget*> lblTitles = {ui->labelTitle1, ui->labelTitleLocked, ui->labelTitle2, ui->labelTitle3, ui->labelTitle4, ui->labelTitle5, ui->labelTitle6};
     setCssProperty(lblTitles, "text-title-topbar");
     QFont font;
     font.setWeight(QFont::Light);
@@ -45,7 +45,7 @@ TopBar::TopBar(TELOSGUI* _mainWindow, QWidget *parent) :
     ui->widgetTopAmount->setVisible(false);
     setCssProperty({ui->labelAmountTopPiv, ui->labelAmountTopzTelos}, "amount-small-topbar");
     setCssProperty({ui->labelAmountPiv, ui->labelAmountzTelos}, "amount-topbar");
-    setCssProperty({ui->labelPendingPiv, ui->labelPendingzTelos, ui->labelImmaturePiv, ui->labelImmaturezTelos}, "amount-small-topbar");
+    setCssProperty({ui->labelPendingPiv, ui->labelAmountPivLocked, ui->labelPendingzTelos, ui->labelImmaturePiv, ui->labelImmaturezTelos}, "amount-small-topbar");
 
     // Progress Sync
     progressBar = new QProgressBar(ui->layoutSync);
@@ -489,10 +489,12 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
     if (!walletModel) {
         nLockedBalance = walletModel->getLockedBalance();
     }
+    
+    ui->labelTitle1->setText(nLockedBalance > 0 ? tr("Available (Locked included)") : tr("Available"));
 
     // TELOS Balance
     //CAmount nTotalBalance = balance + unconfirmedBalance;
-    CAmount pivAvailableBalance = balance - immatureBalance - nLockedBalance;
+    CAmount pivAvailableBalance = balance - immatureBalance;
 
     // zTELOS Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
@@ -505,8 +507,10 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
     ui->labelAmountTopzTelos->setText(totalzTelos);
 
     // Expanded
-    ui->labelAmountPiv->setText(totalPiv);
+    ui->labelAmountPiv->setText(GUIUtil::formatBalance(pivAvailableBalance - nLockedBalance, nDisplayUnit));
     ui->labelAmountzTelos->setText(totalzTelos);
+    
+    ui->labelAmountPivLocked->setText(GUIUtil::formatBalance(nLockedBalance, nDisplayUnit));
 
     ui->labelPendingPiv->setText(GUIUtil::formatBalance(unconfirmedBalance, nDisplayUnit));
     ui->labelPendingzTelos->setText(GUIUtil::formatBalance(unconfirmedZerocoinBalance, nDisplayUnit, true));

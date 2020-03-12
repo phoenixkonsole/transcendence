@@ -18,5 +18,5 @@ define $(package)_stage_cmds
 endef
 
 define $(package)_set_vars
-  $(package)_config_opts=--disable-shared --enable-static-exe
+  $(package)_config_opts=--disable-shared --enable-static-exe --with-pic CXXFLAGS="-fPIC" CPPFLAGS="-fPIC"
 endef

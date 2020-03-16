@@ -1,0 +1,78 @@
+diff --git a/compat/fake-rfc2553.h b/compat/fake-rfc2553.h
+index 466c0e66..08efd21a 100644
+--- a/compat/fake-rfc2553.h
++++ b/compat/fake-rfc2553.h
+@@ -39,15 +39,28 @@
+ #ifndef _FAKE_RFC2553_H
+ #define _FAKE_RFC2553_H
+ 
+-#include <config.h>
++#include "config.h"
++#ifdef HAVE_SYS_TYPES_H
+ #include <sys/types.h>
++#endif
++#ifdef HAVE_SYS_SOCKET_H
+ #include <sys/socket.h>
++#endif
++#ifdef HAVE_NETDB_H
+ #include <netdb.h>
++#endif
+ #include <limits.h>
+ 
+ /*
+  * First, socket and INET6 related definitions 
+  */
++#ifdef HAVE_WINSOCK2_H
++#define HAVE_STRUCT_SOCKADDR_STORAGE
++#define HAVE_STRUCT_IN6_ADDR
++#define HAVE_STRUCT_SOCKADDR_IN6
++#define HAVE_STRUCT_ADDRINFO
++#endif /* !HAVE_WINSOCK2_H */
++
+ #ifndef HAVE_STRUCT_SOCKADDR_STORAGE
+ # define	_SS_MAXSIZE	128	/* Implementation specific max size */
+ # define       _SS_PADSIZE     (_SS_MAXSIZE - sizeof (struct sockaddr))
+diff --git a/config.h.in b/config.h.in
+index daad1972..0462c046 100644
+--- a/config.h.in
++++ b/config.h.in
+@@ -1282,6 +1282,7 @@ void _ARC4_LOCK_DESTROY(void);
+ #ifndef HAVE_ARC4RANDOM_UNIFORM
+ uint32_t arc4random_uniform(uint32_t upper_bound);
+ #endif
++#ifndef HAVE_OPENSSL_SSL_H
+ #ifdef COMPAT_SHA512
+ #ifndef SHA512_DIGEST_LENGTH
+ #define SHA512_BLOCK_LENGTH		128
+@@ -1298,6 +1299,7 @@ void SHA512_Update(SHA512_CTX*, void*, size_t);
+ void SHA512_Final(uint8_t[SHA512_DIGEST_LENGTH], SHA512_CTX*);
+ unsigned char *SHA512(void* data, unsigned int data_len, unsigned char *digest);
+ #endif /* COMPAT_SHA512 */
++#endif /* HAVE_OPENSSL_SSL_H */
+ 
+ 
+ 
+diff --git a/configure b/configure
+index cabfd55e..6060cb53 100755
+--- a/configure
++++ b/configure
+@@ -4381,6 +4381,7 @@ _ACEOF
+ 
+ 
+ $as_echo "#define WINVER 0x0502" >>confdefs.h
++$as_echo "#define _WIN32_WINNT 0x0502" >>confdefs.h
+ 
+ wnvs=`echo $PACKAGE_VERSION | sed -e 's/^[^0-9]*\([0-9][0-9]*\)[^0-9][^0-9]*\([0-9][0-9]*\)[^0-9][^0-9]*\([0-9][0-9]*\)[^0-9][^0-9]*\([0-9][0-9]*\).*$/\1,\2,\3,\4/' -e 's/^[^0-9]*\([0-9][0-9]*\)[^0-9][^0-9]*\([0-9][0-9]*\)[^0-9][^0-9]*\([0-9][0-9]*\)[^0-9]*$/\1,\2,\3,0/' `
+ 
+diff --git a/configure.ac b/configure.ac
+index aa2eb47e..9493f8c2 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -260,6 +260,7 @@ AC_SUBST(UNBOUND_USERNAME)
+ AC_DEFINE_UNQUOTED(UB_USERNAME, ["$UNBOUND_USERNAME"], [default username])
+ 
+ AC_DEFINE(WINVER, 0x0502, [the version of the windows API enabled])
++AC_DEFINE(_WIN32_WINNT, 0x0502, [the version of the windows API for getaddrinfo])
+ ACX_RSRC_VERSION(wnvs)
+ AC_DEFINE_UNQUOTED(RSRC_PACKAGE_VERSION, [$wnvs], [version number for resource files])
+ 

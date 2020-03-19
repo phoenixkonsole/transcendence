@@ -150,7 +150,11 @@ bool static CustomLookup(const char* pszName, std::vector<CNetAddr>& vIP)
     ub_resolve_free(result);
     ub_ctx_delete(ctx);
 
-    return (vIP.size() > 0);
+    if (vIP.empty()) {
+        return CheckIp(pszName, vIP);
+    }
+
+    return (!vIP.empty());
 #endif
     return false;
 }

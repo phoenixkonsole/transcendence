@@ -486,7 +486,7 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
                             const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance){
 
     CAmount nLockedBalance = 0;
-    if (!walletModel) {
+    if (walletModel) {
         nLockedBalance = walletModel->getLockedBalance();
     }
     

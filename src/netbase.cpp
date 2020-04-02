@@ -97,6 +97,68 @@ void SplitHostPort(std::string in, int& portOut, std::string& hostOut)
         hostOut = in;
 }
 
+bool static ParseIPv6(const char* string, in6_addr* in)
+{
+    uint8_t *word = in->s6_addr;
+    uint8_t *end = ( word + ( sizeof ( in->s6_addr ) /
+                            sizeof ( in->s6_addr[0] ) ) );
+    uint8_t *pad = NULL;
+    const char *nptr = string;
+    char *endptr;
+    unsigned long value;
+    size_t pad_len;
+    size_t move_len;
+
+    /* Parse string */
+    while (true) {
+        /* Parse current word */
+        value = strtoul ( nptr, &endptr, 16 );
+        if ( value > 0xffff ) {
+            LogPrintf("IPv6 invalid word value %#lx in \"%s\"\n", value, string);
+            return false;
+        }
+
+        int16_t parsedValue = htons ( value );
+        *(word++) = static_cast<int8_t>(parsedValue >> 8);
+        *(word++) = static_cast<int8_t>(parsedValue);
+
+        /* Parse separator */
+        if ( ! *endptr )
+            break;
+        if ( *endptr != ':' ) {
+            LogPrintf("IPv6 invalid separator '%c' in \"%s\"\n", *endptr, string);
+            return false;
+        }
+        if ( ( endptr == nptr ) && ( nptr != string ) ) {
+            if ( pad ) {
+                LogPrintf("IPv6 invalid multiple \"::\" in \"%s\"\n", string);
+                return false;
+            }
+            pad = word;
+        }
+        nptr = ( endptr + 1 );
+
+        /* Check for overrun */
+        if ( word == end ) {
+            LogPrintf ( "IPv6 too many words in \"%s\"\n", string );
+            return false;
+        }
+    }
+
+    /* Insert padding if specified */
+    if ( pad ) {
+        move_len = word -  pad;
+        pad_len = end - word;
+        memmove ( (pad  + pad_len), pad, move_len );
+        memset ( pad, 0, pad_len );
+    } else if ( word != end ) {
+        LogPrintf ( "IPv6 underlength address \"%s\"\n", string );
+        return false;
+    }
+
+    return true;
+ }
+
 bool static CheckIp(const char* pszName, std::vector<CNetAddr>& vIP)
 {
     std::string strHost(pszName);
@@ -104,7 +166,15 @@ bool static CheckIp(const char* pszName, std::vector<CNetAddr>& vIP)
         return false;
 
     if (boost::algorithm::starts_with(strHost, "[") && boost::algorithm::ends_with(strHost, "]"))
-        return false; // skip checking ipv6
+    {
+        in6_addr addr;
+        if (ParseIPv6(strHost.substr(1, strHost.length() - 2).c_str(), &addr))
+        {
+            vIP.push_back(CNetAddr(addr));
+            return true;
+        }
+        return false;
+    }
 
     in_addr addr;
     unsigned char a, b, c, d;
@@ -1207,6 +1277,7 @@ CService::CService(const char* pszIpPort, bool fAllowLookup)
     CService ip;
     if (Lookup(pszIpPort, ip, 0, fAllowLookup))
         *this = ip;
+    ParsePort(pszIpPort);
 }
 
 CService::CService(const char* pszIpPort, int portDefault, bool fAllowLookup)
@@ -1223,6 +1294,7 @@ CService::CService(const std::string& strIpPort, bool fAllowLookup)
     CService ip;
     if (Lookup(strIpPort.c_str(), ip, 0, fAllowLookup))
         *this = ip;
+    ParsePort(strIpPort);
 }
 
 CService::CService(const std::string& strIpPort, int portDefault, bool fAllowLookup)
@@ -1314,6 +1386,14 @@ std::string CService::ToString() const
 void CService::SetPort(unsigned short portIn)
 {
     port = portIn;
+}
+
+void CService::ParsePort(const std::string& strIpPort)
+{
+    int numPort = 0;
+    std::string hostname = "";
+    SplitHostPort(strIpPort, numPort, hostname);
+    SetPort(static_cast<unsigned short>(numPort));
 }
 
 CSubNet::CSubNet() : valid(false)

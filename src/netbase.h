@@ -184,6 +184,9 @@ public:
         if (ser_action.ForRead())
             port = ntohs(portN);
     }
+
+private:
+    void ParsePort(const std::string& strIpPort);
 };
 
 class proxyType

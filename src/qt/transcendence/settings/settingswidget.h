@@ -8,6 +8,7 @@
 #include <QWidget>
 #include "qt/transcendence/pwidget.h"
 #include "qt/transcendence/settings/settingsbackupwallet.h"
+#include "qt/transcendence/settings/settingsexportcsv.h"
 #include "qt/transcendence/settings/settingsbittoolwidget.h"
 #include "qt/transcendence/settings/settingssignmessagewidgets.h"
 #include "qt/transcendence/settings/settingswalletrepairwidget.h"
@@ -50,6 +51,7 @@ private slots:
     void onFileClicked();
     void onBackupWalletClicked();
     void onSignMessageClicked();
+    void onExportCSVClicked();
 
     // Wallet Configuration
     void onConfigurationClicked();
@@ -80,6 +82,7 @@ private:
     Ui::SettingsWidget *ui;
 
     SettingsBackupWallet *settingsBackupWallet;
+    SettingsExportCSV *settingsExportCsvWidget;
     SettingsBitToolWidget *settingsBitToolWidget;
     SettingsSignMessageWidgets *settingsSingMessageWidgets;
     SettingsWalletRepairWidget *settingsWalletRepairWidget;

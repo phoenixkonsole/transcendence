@@ -28,7 +28,8 @@ public:
     enum ColumnIndex {
         Label = 0,  /**< User specified label */
         Address = 1, /**< Bitcoin address */
-        Date = 2 /**< Address creation date */
+        Date = 2, /**< Address creation date */
+        Type = 3 /**< Address Type */
     };
 
     enum RoleIndex {

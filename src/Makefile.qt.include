@@ -100,6 +100,7 @@ QT_FORMS_UI = \
   qt/transcendence/forms/denomgenerationdialog.ui \
   qt/transcendence/forms/linkswidget.ui \
   qt/transcendence/settings/forms/settingsbackupwallet.ui \
+  qt/transcendence/settings/forms/settingsexportcsv.ui \
   qt/transcendence/settings/forms/settingsbittoolwidget.ui \
   qt/transcendence/settings/forms/settingsconsolewidget.ui \
   qt/transcendence/settings/forms/settingsdisplayoptionswidget.ui \
@@ -207,6 +208,7 @@ QT_MOC_CPP = \
   qt/transcendence/moc_denomgenerationdialog.cpp \
   qt/transcendence/moc_linkswidget.cpp \
   qt/transcendence/settings/moc_settingsbackupwallet.cpp \
+  qt/transcendence/settings/moc_settingsexportcsv.cpp \
   qt/transcendence/settings/moc_settingsbittoolwidget.cpp \
   qt/transcendence/settings/moc_settingsconsolewidget.cpp \
   qt/transcendence/settings/moc_settingsdisplayoptionswidget.cpp \
@@ -347,6 +349,7 @@ BITCOIN_QT_H = \
   qt/transcendence/denomgenerationdialog.h \
   qt/transcendence/linkswidget.h \
   qt/transcendence/settings/settingsbackupwallet.h \
+  qt/transcendence/settings/settingsexportcsv.h \
   qt/transcendence/settings/settingsbittoolwidget.h \
   qt/transcendence/settings/settingsconsolewidget.h \
   qt/transcendence/settings/settingsdisplayoptionswidget.h \
@@ -726,6 +729,7 @@ BITCOIN_QT_WALLET_CPP = \
   qt/transcendence/denomgenerationdialog.cpp \
   qt/transcendence/linkswidget.cpp \
   qt/transcendence/settings/settingsbackupwallet.cpp \
+  qt/transcendence/settings/settingsexportcsv.cpp \
   qt/transcendence/settings/settingsbittoolwidget.cpp \
   qt/transcendence/settings/settingsconsolewidget.cpp \
   qt/transcendence/settings/settingsdisplayoptionswidget.cpp \

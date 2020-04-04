@@ -2166,8 +2166,10 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 100 * COIN;
     } else if (nHeight <= TIER_BLOCK_HEIGHT && nHeight > 19008) {
         nSubsidy = 200 * COIN;
-    } else if (nHeight > TIER_BLOCK_HEIGHT) {
+    } else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight > TIER_BLOCK_HEIGHT) {
         nSubsidy = 100 * COIN;
+    } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT) {
+        nSubsidy = 50 * COIN;
     } else {
         nSubsidy = 0.1 * COIN;
     }

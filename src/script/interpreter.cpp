@@ -1091,7 +1091,7 @@ bool VerifyScript(const CScript& scriptSig, const CScript& scriptPubKey, unsigne
         return set_error(serror, SCRIPT_ERR_SIG_PUSHONLY);
     }
 
-    vector<vector<unsigned char> > stack, stackCopy;
+    std::vector<std::vector<unsigned char> > stack, stackCopy;
     if (!EvalScript(stack, scriptSig, flags, checker, serror))
         // serror is set
         return false;

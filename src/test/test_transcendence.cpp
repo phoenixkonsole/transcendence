@@ -28,8 +28,11 @@ struct TestingSetup {
     CCoinsViewDB *pcoinsdbview;
     boost::filesystem::path pathTemp;
     boost::thread_group threadGroup;
+    ECCVerifyHandle globalVerifyHandle;
 
     TestingSetup() {
+        ECC_Start();
+
         SetupEnvironment();
         fPrintToDebugLog = false; // don't want to write to debug.log file
         fCheckBlockIndex = true;
@@ -58,6 +61,7 @@ struct TestingSetup {
     }
     ~TestingSetup()
     {
+        ECC_Stop();
         threadGroup.interrupt_all();
         threadGroup.join_all();
         UnregisterNodeSignals(GetNodeSignals());

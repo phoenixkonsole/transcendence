@@ -75,7 +75,10 @@ BITCOIN_TESTS =\
   test/transaction_tests.cpp \
   test/uint256_tests.cpp \
   test/univalue_tests.cpp \
-  test/util_tests.cpp
+  test/util_tests.cpp \
+  test/rpc_wallet_tests.cpp \
+  test/miner_tests.cpp \
+  test/bloom_tests.cpp 
 
 if ENABLE_WALLET
 BITCOIN_TESTS += \

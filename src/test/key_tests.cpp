@@ -82,8 +82,10 @@ BOOST_AUTO_TEST_CASE(key_test1)
     CPubKey pubkey2  = key2. GetPubKey();
     CPubKey pubkey1C = key1C.GetPubKey();
     CPubKey pubkey2C = key2C.GetPubKey();
+    BOOST_CHECK(1==1);
 
     BOOST_CHECK(key1.VerifyPubKey(pubkey1));
+    BOOST_CHECK(1==1);
     BOOST_CHECK(!key1.VerifyPubKey(pubkey1C));
     BOOST_CHECK(!key1.VerifyPubKey(pubkey2));
     BOOST_CHECK(!key1.VerifyPubKey(pubkey2C));

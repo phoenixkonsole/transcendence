@@ -201,6 +201,7 @@ CPubKey CKey::GetPubKey() const
     secp256k1_pubkey pubkey;
     CPubKey result;
     size_t clen = 65;
+    assert(secp256k1_context_sign != nullptr);
     int ret = secp256k1_ec_pubkey_create(secp256k1_context_sign, &pubkey, begin());
     assert(ret);
     secp256k1_ec_pubkey_serialize(secp256k1_context_sign, (unsigned char*)result.begin(), &clen, &pubkey, fCompressed ? SECP256K1_EC_COMPRESSED : SECP256K1_EC_UNCOMPRESSED);

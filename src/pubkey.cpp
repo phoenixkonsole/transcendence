@@ -172,6 +172,7 @@ bool CPubKey::Verify(const uint256& hash, const std::vector<unsigned char>& vchS
         return false;
     secp256k1_pubkey pubkey;
     secp256k1_ecdsa_signature sig;
+    assert(secp256k1_context_verify != nullptr);
     if (!secp256k1_ec_pubkey_parse(secp256k1_context_verify, &pubkey, &(*this)[0], size())) {
         return false;
     }

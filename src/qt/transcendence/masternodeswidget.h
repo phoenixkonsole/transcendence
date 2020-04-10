@@ -49,7 +49,6 @@ public:
     void loadWalletModel() override;
     void showEvent(QShowEvent *event) override;
     void hideEvent(QHideEvent *event) override;
-    void onCreateMNClicked();
     void initChart();
     void loadChart();
     void showHideEmptyChart(bool showEmpty, bool loading, bool forceView);
@@ -61,6 +60,7 @@ private slots:
     void onInfoMNClicked();
     void updateListState();
     void onTierChartBtnClicked();
+    void onCreateMNClicked();
 #ifdef USE_QTCHARTS
     void changeChartColors();
 #endif

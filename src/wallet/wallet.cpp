@@ -461,8 +461,14 @@ bool CWallet::IsSpent(const uint256& hash, unsigned int n) const
     for (TxSpends::const_iterator it = range.first; it != range.second; ++it) {
         const uint256& wtxid = it->second;
         std::map<uint256, CWalletTx>::const_iterator mit = mapWallet.find(wtxid);
-        if (mit != mapWallet.end() && mit->second.GetDepthInMainChain() >= 0)
-            return true; // Spent
+        if (mit != mapWallet.end()) {
+            bool fConflicted;
+            const int nDepth = mit->second.GetDepthAndMempool(fConflicted);
+            // not in mempool txes can spend coins only if not coinstakes
+            const bool fConflictedCoinstake = fConflicted && mit->second.IsCoinStake();
+            if (nDepth > 0  || (nDepth == 0 && !fConflictedCoinstake) )
+                return true; // Spent
+        }
     }
     return false;
 }
@@ -1234,7 +1240,7 @@ bool CWalletTx::InMempool() const
 
 void CWalletTx::RelayWalletTransaction(std::string strCommand)
 {
-    if (!IsCoinBase()) {
+    if (!IsCoinBase() && !IsCoinStake()) {
         if (GetDepthInMainChain() == 0) {
             uint256 hash = GetHash();
             LogPrintf("Relaying wtx %s\n", hash.ToString());
@@ -1695,11 +1701,6 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
             int nDepth = pcoin->GetDepthInMainChain(false);
             // do not use IX for inputs that have less then 6 blockchain confirmations
             if (fUseIX && nDepth < 6)
-                continue;
-
-            // We should not consider coins which aren't at least in our mempool
-            // It's possible for these to be conflicted via ancestors which we may never be able to detect
-            if (nDepth == 0 && !pcoin->InMempool())
                 continue;
 
             for (unsigned int i = 0; i < pcoin->vout.size(); i++) {
@@ -3256,7 +3257,10 @@ std::map<CTxDestination, CAmount> CWallet::GetAddressBalances()
             if (pcoin->IsCoinBase() && pcoin->GetBlocksToMaturity() > 0)
                 continue;
 
-            int nDepth = pcoin->GetDepthInMainChain();
+            bool fConflicted;
+            int nDepth = pcoin->GetDepthAndMempool(fConflicted);
+            if (fConflicted)
+                continue;
             if (nDepth < (pcoin->IsFromMe(ISMINE_ALL) ? 0 : 1))
                 continue;
 

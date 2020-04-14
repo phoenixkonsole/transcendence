@@ -594,13 +594,16 @@ CAmount GetAccountBalance(CWalletDB& walletdb, const string& strAccount, int nMi
     // Tally wallet transactions
     for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin(); it != pwalletMain->mapWallet.end(); ++it) {
         const CWalletTx& wtx = (*it).second;
-        if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity() > 0 || wtx.GetDepthInMainChain() < 0)
+        bool fConflicted;
+        int depth = wtx.GetDepthAndMempool(fConflicted);
+
+        if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity() > 0 || depth < 0 || fConflicted)
             continue;
 
         CAmount nReceived, nSent, nFee;
         wtx.GetAccountAmounts(strAccount, nReceived, nSent, nFee, filter);
 
-        if (nReceived != 0 && wtx.GetDepthInMainChain() >= nMinDepth)
+        if (nReceived != 0 && depth >= nMinDepth)
             nBalance += nReceived;
         nBalance -= nSent + nFee;
     }
@@ -659,7 +662,10 @@ UniValue getbalance(const UniValue& params, bool fHelp)
         CAmount nBalance = 0;
         for (map<uint256, CWalletTx>::iterator it = pwalletMain->mapWallet.begin(); it != pwalletMain->mapWallet.end(); ++it) {
             const CWalletTx& wtx = (*it).second;
-            if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity() > 0 || wtx.GetDepthInMainChain() < 0)
+            bool fConflicted;
+            int depth = wtx.GetDepthAndMempool(fConflicted);
+
+            if (!IsFinalTx(wtx) || wtx.GetBlocksToMaturity() > 0 || depth < 0 || fConflicted)
                 continue;
 
             CAmount allFee;
@@ -667,11 +673,11 @@ UniValue getbalance(const UniValue& params, bool fHelp)
             list<COutputEntry> listReceived;
             list<COutputEntry> listSent;
             wtx.GetAmounts(listReceived, listSent, allFee, strSentAccount, filter);
-            if (wtx.GetDepthInMainChain() >= nMinDepth) {
-                BOOST_FOREACH (const COutputEntry& r, listReceived)
+            if (depth >= nMinDepth) {
+                for (const COutputEntry& r : listReceived)
                     nBalance += r.amount;
             }
-            BOOST_FOREACH (const COutputEntry& s, listSent)
+            for (const COutputEntry& s : listSent)
                 nBalance -= s.amount;
             nBalance -= allFee;
         }
@@ -1161,7 +1167,8 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
     }
 
     // Received
-    if (listReceived.size() > 0 && wtx.GetDepthInMainChain() >= nMinDepth) {
+    int depth = wtx.GetDepthInMainChain();
+    if (listReceived.size() > 0 && depth >= nMinDepth) {
         BOOST_FOREACH (const COutputEntry& r, listReceived) {
             string account;
             if (pwalletMain->mapAddressBook.count(r.destination))
@@ -1173,7 +1180,7 @@ void ListTransactions(const CWalletTx& wtx, const string& strAccount, int nMinDe
                 entry.push_back(Pair("account", account));
                 MaybePushAddress(entry, r.destination);
                 if (wtx.IsCoinBase()) {
-                    if (wtx.GetDepthInMainChain() < 1)
+                    if (depth < 1)
                         entry.push_back(Pair("category", "orphan"));
                     else if (wtx.GetBlocksToMaturity() > 0)
                         entry.push_back(Pair("category", "immature"));
@@ -1365,8 +1372,9 @@ UniValue listaccounts(const UniValue& params, bool fHelp)
         string strSentAccount;
         list<COutputEntry> listReceived;
         list<COutputEntry> listSent;
-        int nDepth = wtx.GetDepthInMainChain();
-        if (wtx.GetBlocksToMaturity() > 0 || nDepth < 0)
+        bool fConflicted;
+        int nDepth = wtx.GetDepthAndMempool(fConflicted);
+        if (wtx.GetBlocksToMaturity() > 0 || nDepth < 0 || fConflicted)
             continue;
         wtx.GetAmounts(listReceived, listSent, nFee, strSentAccount, includeWatchonly);
         mapAccountBalances[strSentAccount] -= nFee;

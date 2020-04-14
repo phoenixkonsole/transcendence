@@ -953,6 +953,13 @@ public:
         pwallet = pwalletIn;
         MarkDirty();
     }
+ 
+    int GetDepthAndMempool(bool& fConflicted, bool enableIX = true) const
+    {
+        int ret = GetDepthInMainChain(enableIX);
+        fConflicted = (ret == 0 && !InMempool());  // not in chain nor in mempool
+        return ret;
+    }
 
     //! filter decides which addresses will count towards the debit
     CAmount GetDebit(const isminefilter& filter) const

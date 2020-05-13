@@ -363,7 +363,7 @@ UniValue masternodeconnect(const UniValue& params, bool fHelp)
             "\nAttempts to connect to specified masternode address\n"
 
             "\nArguments:\n"
-            "1. \"address\"     (string, required) IP or net address to connect to\n"
+            "1. \"address\"     (string, required) IPv4 address to connect to\n"
 
             "\nExamples:\n" +
             HelpExampleCli("masternodeconnect", "\"192.168.0.6:8051\"") + HelpExampleRpc("masternodeconnect", "\"192.168.0.6:8051\""));

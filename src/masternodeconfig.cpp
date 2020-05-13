@@ -82,6 +82,14 @@ bool CMasternodeConfig::read(std::string& strErr)
             return false;
         }
 
+        if (!IsIpv4(ip)) {
+            strErr = _("Invalid ip detected in masternode.conf") + "\n" +
+                    strprintf(_("Line: %d"), linenumber) + +"\n\""  + strprintf(_("Ip: %d"), ip)  +"\n\"" + line + "\"" + "\n" +
+                    _("(only ipv4 supported)");
+            streamConfig.close();
+            return false;
+        }
+
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (port != 8051) {
                 strErr = _("Invalid port detected in masternode.conf") + "\n" +

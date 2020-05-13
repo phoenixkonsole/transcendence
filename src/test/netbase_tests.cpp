@@ -74,6 +74,21 @@ BOOST_AUTO_TEST_CASE(netbase_splithost)
     BOOST_CHECK(TestSplitHost("", "", -1));
 }
 
+BOOST_AUTO_TEST_CASE(netbase_isipv4)
+{
+    BOOST_CHECK(!IsIpv4("www.bitcoin.org"));
+    BOOST_CHECK(!IsIpv4(""));
+    BOOST_CHECK(!IsIpv4("FD87:D87E:EB43:edb1:8e4:3588:e546:35ca"));
+    BOOST_CHECK(!IsIpv4("::1"));
+    BOOST_CHECK(!IsIpv4("2001::8888"));
+
+    BOOST_CHECK(IsIpv4("127.0.0.1"));
+    BOOST_CHECK(IsIpv4("127.0.0.1:8051"));
+    BOOST_CHECK(IsIpv4("::ffff:127.0.0.1"));
+    BOOST_CHECK(IsIpv4("[127.0.0.1]"));
+    BOOST_CHECK(IsIpv4("[127.0.0.1]:8051"));
+}
+
 bool static TestParse(string src, string canon)
 {
     CService addr;

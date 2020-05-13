@@ -76,7 +76,6 @@ std::string GetNetworkName(enum Network net)
         return "";
     }
 }
-
 void SplitHostPort(std::string in, int& portOut, std::string& hostOut)
 {
     size_t colon = in.find_last_of(':');
@@ -166,19 +165,13 @@ bool static CheckIp(const char* pszName, std::vector<CNetAddr>& vIP)
         return false;
 
     if (boost::algorithm::starts_with(strHost, "[") && boost::algorithm::ends_with(strHost, "]"))
-    {
-        in6_addr addr;
-        if (ParseIPv6(strHost.substr(1, strHost.length() - 2).c_str(), &addr))
-        {
-            vIP.push_back(CNetAddr(addr));
-            return true;
-        }
-        return false;
-    }
+        return false; // skip checking ipv6
+
+    const char* mask = (boost::algorithm::starts_with(strHost, "::ffff:") ? "::ffff:%hhu.%hhu.%hhu.%hhu" : "%hhu.%hhu.%hhu.%hhu");
 
     in_addr addr;
     unsigned char a, b, c, d;
-    int out = sscanf(pszName, "%hhu.%hhu.%hhu.%hhu", &a, &b, &c, &d);
+    int out = sscanf(pszName, mask, &a, &b, &c, &d);
     if (out != 4)
         return false;
     addr.s_addr = d << 24 | c << 16 | b << 8 | a;
@@ -325,6 +318,16 @@ bool static LookupIntern(const char* pszName, std::vector<CNetAddr>& vIP, unsign
     freeaddrinfo(aiRes);
 
     return (vIP.size() > 0);
+}
+
+bool IsIpv4(const std::string& ip)
+{
+    int port;
+    std::string host;
+    SplitHostPort(ip, port, host);
+
+    std::vector<CNetAddr> vIP;
+    return CheckIp(host.c_str(), vIP);
 }
 
 bool LookupHost(const char* pszName, std::vector<CNetAddr>& vIP, unsigned int nMaxSolutions, bool fAllowLookup)

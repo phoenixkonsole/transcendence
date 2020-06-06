@@ -54,7 +54,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
         CTxDestination address;
 
         if (isminetype mine = wallet->IsMine(wtx.vout[1])) {
-            // DOGEC stake reward
+            // TELOS stake reward
             sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
             sub.type = TransactionRecord::StakeMint;
             sub.address = CBitcoinAddress(address).ToString();

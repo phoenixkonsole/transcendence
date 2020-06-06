@@ -1,7 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017 The Transcendence developers
+// Copyright (c) 2015-2019 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,14 +12,11 @@
 
 #include "base58.h"
 #include "chainparams.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
-#include "wallet.h"
+#include "wallet/wallet.h"
 
 #include <cstdlib>
-
-#include <openssl/x509.h>
-#include <openssl/x509_vfy.h>
 
 #include <QApplication>
 #include <QByteArray>
@@ -42,15 +38,8 @@
 #include <QSslSocket>
 #include <QStringList>
 #include <QTextDocument>
-
-#if QT_VERSION < 0x050000
-#include <QUrl>
-#else
 #include <QUrlQuery>
-#endif
 
-using namespace boost;
-using namespace std;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
 const QString BITCOIN_IPC_PREFIX("transcendence:");
@@ -58,9 +47,9 @@ const QString BITCOIN_IPC_PREFIX("transcendence:");
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/transcendence-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/transcendence-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/transcendence-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/pivx-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/pivx-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/pivx-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 
@@ -87,7 +76,7 @@ namespace // Anon namespace
 //
 static QString ipcServerName()
 {
-    QString name("TranscendenceQt");
+    QString name("PIVXQt");
 
     // Append a simple hash of the datadir
     // Note that GetDataDir(true) returns a different path
@@ -107,7 +96,7 @@ static QList<QString> savedPaymentRequests;
 
 static void ReportInvalidCertificate(const QSslCertificate& cert)
 {
-    qDebug() << "ReportInvalidCertificate : Payment server found an invalid certificate: " << cert.subjectInfo(QSslCertificate::CommonName);
+    qDebug() << QString("%1: Payment server found an invalid certificate: ").arg(__func__) << cert.serialNumber() << cert.subjectInfo(QSslCertificate::CommonName) << cert.subjectInfo(QSslCertificate::DistinguishedNameQualifier) << cert.subjectInfo(QSslCertificate::OrganizationalUnitName);
 }
 
 //
@@ -147,12 +136,12 @@ void PaymentServer::LoadRootCAs(X509_STORE* _store)
             ReportInvalidCertificate(cert);
             continue;
         }
-#if QT_VERSION >= 0x050000
+
+        // Blacklisted certificate
         if (cert.isBlacklisted()) {
             ReportInvalidCertificate(cert);
             continue;
         }
-#endif
         QByteArray certData = cert.toDer();
         const unsigned char* data = (const unsigned char*)certData.data();
 
@@ -375,11 +364,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
 
     if (s.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // transcendence: URI
     {
-#if QT_VERSION < 0x050000
-        QUrl uri(s);
-#else
         QUrlQuery uri((QUrl(s)));
-#endif
         if (uri.hasQueryItem("r")) // payment request URI
         {
             QByteArray temp;
@@ -587,7 +572,7 @@ void PaymentServer::fetchPaymentACK(CWallet* wallet, SendCoinsRecipient recipien
     // Create a new refund address, or re-use:
     QString account = tr("Refund from %1").arg(recipient.authenticatedMerchant);
     std::string strAccount = account.toStdString();
-    set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
+    std::set<CTxDestination> refundAddresses = wallet->GetAccountAddresses(strAccount);
     if (!refundAddresses.empty()) {
         CScript s = GetScriptForDestination(*refundAddresses.begin());
         payments::Output* refund_to = payment.add_refund_to();

@@ -11,6 +11,8 @@
 #include <QSettings>
 #include <QStringList>
 
+#include <iostream>
+
 BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
                                               unitlist(availableUnits())
 {
@@ -19,7 +21,7 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(TRANSCENDENCE);
+    unitlist.append(TELOS);
     unitlist.append(mTELOS);
     unitlist.append(uTELOS);
     return unitlist;
@@ -28,7 +30,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case TRANSCENDENCE:
+    case TELOS:
     case mTELOS:
     case uTELOS:
         return true;
@@ -40,8 +42,8 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case TRANSCENDENCE:
-        return QString("telos");
+    case TELOS:
+        return QString("TELOS");
     case mTELOS:
         return QString("mtelos");
     case uTELOS:
@@ -51,27 +53,29 @@ QString BitcoinUnits::id(int unit)
     }
 }
 
-QString BitcoinUnits::name(int unit)
+QString BitcoinUnits::name(int unit, bool isZTelos)
 {
+    QString z = "";
+    if(isZTelos) z = "z";
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case TRANSCENDENCE:
-            return QString("TELOS");
+        case TELOS:
+            return z + QString("TELOS");
         case mTELOS:
-            return QString("mTELOS");
+            return z + QString("mTELOS");
         case uTELOS:
-            return QString::fromUtf8("μTELOS");
+            return z + QString::fromUtf8("μTELOS");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case TRANSCENDENCE:
-            return QString("tTELOS");
+        case TELOS:
+            return z + QString("tTELOS");
         case mTELOS:
-            return QString("mtTELOS");
+            return z + QString("mtTELOS");
         case uTELOS:
-            return QString::fromUtf8("μtTELOS");
+            return z + QString::fromUtf8("μtTELOS");
         default:
             return QString("???");
         }
@@ -82,18 +86,18 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case TRANSCENDENCE:
-            return QString("TRANSCENDENCE");
+        case TELOS:
+            return QString("TELOS");
         case mTELOS:
-            return QString("Milli-TRANSCENDENCE (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-TELOS (1 / 1" THIN_SP_UTF8 "000)");
         case uTELOS:
-            return QString("Micro-TRANSCENDENCE (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-TELOS (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case TRANSCENDENCE:
+        case TELOS:
             return QString("TestTELOSs");
         case mTELOS:
             return QString("Milli-TestTELOS (1 / 1" THIN_SP_UTF8 "000)");
@@ -108,7 +112,7 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case TRANSCENDENCE:
+    case TELOS:
         return 100000000;
     case mTELOS:
         return 100000;
@@ -122,7 +126,7 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case TRANSCENDENCE:
+    case TELOS:
         return 8;
     case mTELOS:
         return 5;
@@ -133,12 +137,13 @@ int BitcoinUnits::decimals(int unit)
     }
 }
 
-QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators)
+QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, SeparatorStyle separators, bool cleanRemainderZeros)
 {
     // Note: not using straight sprintf here because we do NOT want
     // localized number formatting.
-    if (!valid(unit))
+    if (!valid(unit)){
         return QString(); // Refuse to format invalid unit
+    }
     qint64 n = (qint64)nIn;
     qint64 coin = factor(unit);
     int num_decimals = decimals(unit);
@@ -163,6 +168,18 @@ QString BitcoinUnits::format(int unit, const CAmount& nIn, bool fPlus, Separator
 
     if (num_decimals <= 0)
         return quotient_str;
+
+    if(cleanRemainderZeros) {
+        // Clean remainder
+        QString cleanRemainder = remainder_str;
+        for (int i = (remainder_str.length() - 1); i > 1; i--) {
+            if (remainder_str.at(i) == QChar('0')) {
+                cleanRemainder = cleanRemainder.left(cleanRemainder.lastIndexOf("0"));
+            } else
+                break;
+        }
+        return quotient_str + QString(".") + cleanRemainder;
+    }
 
     return quotient_str + QString(".") + remainder_str;
 }
@@ -191,25 +208,34 @@ QString BitcoinUnits::formatWithUnit(int unit, const CAmount& amount, bool pluss
 QString BitcoinUnits::formatHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
 {
     QString str(formatWithUnit(unit, amount, plussign, separators));
-    str.replace(QChar(THIN_SP_CP), QString(THIN_SP_HTML));
+    str.replace(QChar(THIN_SP_CP), QString(COMMA_HTML));
     return QString("<span style='white-space: nowrap;'>%1</span>").arg(str);
 }
 
-QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString BitcoinUnits::floorWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZTELOS)
 {
     QSettings settings;
     int digits = settings.value("digits").toInt();
 
-    QString result = format(unit, amount, plussign, separators);
-    if (decimals(unit) > digits) result.chop(decimals(unit) - digits);
+    QString result = format(unit, amount, plussign, separators, cleanRemainderZeros);
+    if(decimals(unit) > digits) {
+        if (!cleanRemainderZeros) {
+            result.chop(decimals(unit) - digits);
+        } else {
+            int lenght = result.mid(result.indexOf("."), result.length() - 1).length() - 1;
+            if (lenght > digits) {
+                result.chop(lenght - digits);
+            }
+        }
+    }
 
-    return result + QString(" ") + name(unit);
+    return result + QString(" ") + name(unit, isZTELOS);
 }
 
-QString BitcoinUnits::floorHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators)
+QString BitcoinUnits::floorHtmlWithUnit(int unit, const CAmount& amount, bool plussign, SeparatorStyle separators, bool cleanRemainderZeros, bool isZTELOS)
 {
-    QString str(floorWithUnit(unit, amount, plussign, separators));
-    str.replace(QChar(THIN_SP_CP), QString(THIN_SP_HTML));
+    QString str(floorWithUnit(unit, amount, plussign, separators, cleanRemainderZeros, isZTELOS));
+    str.replace(QChar(THIN_SP_CP), QString(COMMA_HTML));
     return QString("<span style='white-space: nowrap;'>%1</span>").arg(str);
 }
 

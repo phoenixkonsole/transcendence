@@ -1,4 +1,6 @@
 // Copyright (c) 2012 Pieter Wuille
+// Copyright (c) 2012-2014 The Bitcoin developers
+// Copyright (c) 2017 The PIVX developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,15 +24,16 @@
  */
 class CAddrInfo : public CAddress
 {
+public:
+    //! last try whatsoever by us (memory only)
+    int64_t nLastTry;
+
 private:
     //! where knowledge about this address first came from
     CNetAddr source;
 
     //! last successful connection by us
     int64_t nLastSuccess;
-
-    //! last try whatsoever by us:
-    // int64_t CAddress::nLastTry
 
     //! connection attempts since last successful attempt
     int nAttempts;
@@ -229,7 +232,7 @@ protected:
 
     //! Select an address to connect to.
     //! nUnkBias determines how much to favor new addresses over tried ones (min=0, max=100)
-    CAddress Select_();
+    CAddrInfo Select_();
 
 #ifdef DEBUG_ADDRMAN
     //! Perform consistency check. Returns an error code or zero.
@@ -531,9 +534,9 @@ public:
      * Choose an address to connect to.
      * nUnkBias determines how much "new" entries are favored over "tried" ones (0-100).
      */
-    CAddress Select()
+    CAddrInfo Select()
     {
-        CAddress addrRet;
+        CAddrInfo addrRet;
         {
             LOCK(cs);
             Check();

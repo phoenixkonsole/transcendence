@@ -70,7 +70,10 @@ void CActiveMasternode::ManageStatus()
 
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
             if (service.GetPort() != 8051) {
-                notCapableReason = strprintf("Invalid port: %u - only 8051 is supported on mainnet.", service.GetPort());
+                if (!IsIpv4(strMasterNodeAddr))
+                    notCapableReason = strprintf("Invalid ip detected for masternode: %s. (only ipv4 supported)\n", strMasterNodeAddr);
+                else
+                    notCapableReason = strprintf("Invalid port: %u - only 8051 is supported on mainnet.", service.GetPort());
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
@@ -121,7 +124,7 @@ void CActiveMasternode::ManageStatus()
                 return;
             }
 
-            LogPrintf("CActiveMasternode::ManageStatus() - Is capable master node!\n");
+            LogPrintf("CActiveMasternode::ManageStatus() - Is capable masternode!\n");
             status = ACTIVE_MASTERNODE_STARTED;
 
             return;
@@ -270,7 +273,10 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
     CService service = CService(strService);
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         if (service.GetPort() != 8051) {
-            errorMessage = strprintf("Invalid port %u for masternode %s - only 8051 is supported on mainnet.", service.GetPort(), strService);
+            if (!IsIpv4(strService))
+                errorMessage = strprintf("Invalid ip detected for masternode: %s. (only ipv4 supported)\n", strService);
+            else 
+                errorMessage = strprintf("Invalid port %u for masternode %s - only 8051 is supported on mainnet.", service.GetPort(), strService);
             LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
             return false;
         }

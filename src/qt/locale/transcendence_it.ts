@@ -62,12 +62,12 @@
         <translation>Indirizzi di ricezione</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Questi sono gli indirizzi Transcendence per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
+        <source>These are your TELOS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Questi sono gli indirizzi TELOS per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Questi sono gli indirizzi Transcendence per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
+        <source>These are your TELOS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Questi sono gli indirizzi TELOS per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -136,8 +136,8 @@
         <translation>Serve per impedire invii accidentali nel caso in cui l'utenza del sistema operativo sia stata compromessa. Non garantisce alcuna reale sicurezza.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Esclusivamente per anonimizzazione e staking</translation>
+        <source>For anonymization, automint, and staking only</source>
+        <translation>Solo per anonimizzazione, conio automatico e stake</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -176,16 +176,16 @@
         <translation>Conferma cifratura portafoglio</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi TRANSCENDENCE dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
+        <translation>TELOS verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi TELOS dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Confermi di voler crittografare il portafoglio?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
-        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI TRANSCENDENCE&lt;7b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI TELOS&lt;7b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -229,6 +229,17 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    <message>
+        <source>IP/Netmask</source>
+        <translation>IP/Netmask</translation>
+    </message>
+    <message>
+        <source>Banned Until</source>
+        <translation>Bloccato fino a</translation>
+    </message>
+</context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
@@ -239,16 +250,16 @@
         <translation>&amp;BIP 38 Criptato</translation>
     </message>
     <message>
-        <source>Enter a Transcendence Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Inserisci un indirizzo Transcendence che desideri crittografare utilizzando BIP 38. Inserisci una passphrase nella casella centrale. Premi Cripta per calcolare la chiave privata crittografata.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Indirizzo:</translation>
     </message>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>L'indirizzo Transcendence per firmare il messaggio con</translation>
+        <source>Enter a TELOS Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Inserire un indirizzo TELOS da crittografare utilizzando BIP 38. Inserire una password nel campo centrale. Cliccare su "cripta" per generare la chiave privata crittografata.</translation>
+    </message>
+    <message>
+        <source>The TELOS address to encrypt</source>
+        <translation>Indirizzo TELOS da crittografare</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -279,16 +290,24 @@
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo Transcendence</translation>
+        <source>Encrypt the private key for this TELOS address</source>
+        <translation>Crittografa la chiave privata per questo indirizzo TELOS</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>Reimposta tutti i campi</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>La chiave privata crittografata</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>Decrittografa la chiave inserita utilizzando la password</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
         <translation>Cripta &amp;Key</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Reimposta tutti i campi del messaggio segno</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -303,20 +322,8 @@
         <translation>Immettere la chiave privata codificata BIP 38. Inserire la passphrase nella casella centrale. Fare clic su Decripta Chiave per calcolare la chiave privata. Dopo che la chiave viene decrittata, cliccando su "Importa indirizzo" verrà aggiunta questa chiave privata al portafoglio.</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>L'indirizzo Transcendence con cui è stato firmato il messaggio</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo Transcendence specificato </translation>
-    </message>
-    <message>
         <source>Decrypt &amp;Key</source>
         <translation>Decripta &amp;Key</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Ripristinare tutti i campi del messaggio verificati</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -424,6 +431,10 @@
     <message>
         <source>Browse transaction history</source>
         <translation>Espora la cronologia delle transazioni</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zTELOS</source>
+        <translation>Operazioni di privacy per zTELOS</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -566,12 +577,52 @@
         <translation>Mostra l'elenco degli indirizzi e delle etichette di ricezione utilizzati</translation>
     </message>
     <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>Creazione &amp;Firma multipla...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Aggiunta di un nuovo indirizzo a firma multipla a questo wallet</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>Pagamento a firma &amp;Multipla...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Paga da un indirizzo a firma multipla</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>Firma digitale &amp;Multipla...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Firma digitale con un indirizzo a firma multipla</translation>
+    </message>
+    <message>
         <source>Open &amp;URI...</source>
         <translation>Apri URL</translation>
     </message>
     <message>
+        <source>&amp;Command-line options</source>
+        <translation>Opzioni riga di &amp;Comando</translation>
+    </message>
+    <message>
         <source>Synchronizing additional data: %p%</source>
         <translation>Sincronizzazione dati addizionali: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 arretrati. Scansione blocco %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Il wallet è &lt;b&gt;crittografato&lt;/b&gt; e attualmente &lt;b&gt; sbloccato&lt;/b&gt; solo per anonimizzazione e staking</translation>
+    </message>
+    <message>
+        <source>&amp;File</source>
+        <translation>&amp;File</translation>
     </message>
     <message>
         <source>&amp;Settings</source>
@@ -590,16 +641,20 @@
         <translation>Schede degli strumenti</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
-        <source>Send coins to a Transcendence address</source>
-        <translation>Invia monete all' indirizzo Transcendence</translation>
+        <source>Send coins to a TELOS address</source>
+        <translation>Invia valuta all'indirizzo TELOS</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and transcendence: URIs)</source>
         <translation>Richiedi pagamenti (genera codici QR e transcendence: URIs)</translation>
+    </message>
+    <message>
+        <source>&amp;Privacy</source>
+        <translation>&amp;pRIVACY</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -610,44 +665,72 @@
         <translation>Esplora i masternodes</translation>
     </message>
     <message>
-        <source>&amp;About Transcendence Core</source>
-        <translation>&amp;Informazioni Transcendence Core</translation>
+        <source>&amp;About TELOS Core</source>
+        <translation>&amp;Informazioni TELOS Core</translation>
     </message>
     <message>
-        <source>Show information about Transcendence Core</source>
-        <translation>Visualizza informazioni su Transcendence Core</translation>
+        <source>Show information about TELOS Core</source>
+        <translation>Visualizza informazioni su TELOS Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for Transcendence</source>
-        <translation>Modifica le opzioni di configurazione per Transcendence</translation>
+        <source>Modify configuration options for TELOS</source>
+        <translation>Modifica le opzioni di configurazione per TELOS</translation>
     </message>
     <message>
-        <source>Sign messages with your Transcendence addresses to prove you own them</source>
-        <translation>Firma i messaggi con i tuoi indirizzi Transcendence per dimostrare di essere il proprietario </translation>
+        <source>Sign messages with your TELOS addresses to prove you own them</source>
+        <translation>Firma i messaggi con i tuoi indirizzi TELOS per dimostrare di essere il proprietario </translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Transcendence addresses</source>
-        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi Transcendence specifici</translation>
+        <source>Verify messages to ensure they were signed with specified TELOS addresses</source>
+        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi TELOS specifici</translation>
+    </message>
+    <message>
+        <source>&amp;BIP38 tool</source>
+        <translation>Strumenti &amp;BIP38</translation>
     </message>
     <message>
         <source>Encrypt and decrypt private keys using a passphrase</source>
         <translation>Crittografa e decrittografa le chiavi private usando una passphrase</translation>
     </message>
     <message>
+        <source>&amp;MultiSend</source>
+        <translation>&amp;MultiSend</translation>
+    </message>
+    <message>
         <source>MultiSend Settings</source>
         <translation>Impostazioni MultiSend</translation>
     </message>
     <message>
-        <source>Open a Transcendence: URI or payment request</source>
-        <translation>Apri un Transcendence: URI o richiesta di pagamento</translation>
+        <source>Open Wallet &amp;Configuration File</source>
+        <translation>Apri file di &amp;Configurazione wallet</translation>
+    </message>
+    <message>
+        <source>Open &amp;Masternode Configuration File</source>
+        <translation>Apri file di configurazione &amp;Masternodo</translation>
+    </message>
+    <message>
+        <source>Open Masternode configuration file</source>
+        <translation>Apri file di configurazione del Masternodo</translation>
+    </message>
+    <message>
+        <source>Open a TELOS: URI or payment request</source>
+        <translation>Apri un TELOS: URI o richiesta di pagamento</translation>
+    </message>
+    <message>
+        <source>&amp;Blockchain explorer</source>
+        <translation>Esplora &amp;Blockchain</translation>
     </message>
     <message>
         <source>Block explorer window</source>
         <translation>Finestra Block Explorer</translation>
     </message>
     <message>
-        <source>Show the Transcendence Core help message to get a list with possible Transcendence command-line options</source>
-        <translation>Mostra il messaggio di aiuto Transcendence Core per ottenere un elenco con le possibili opzioni di riga di comando Transcendence</translation>
+        <source>Show the TELOS Core help message to get a list with possible TELOS command-line options</source>
+        <translation>Mostra il messaggio di aiuto TELOS Core per ottenere un elenco con le possibili opzioni di riga di comando TELOS</translation>
+    </message>
+    <message>
+        <source>TELOS Core client</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -668,6 +751,10 @@
     <message>
         <source>Up to date</source>
         <translation>Aggiornato</translation>
+    </message>
+    <message>
+        <source>%1 and %2</source>
+        <translation>%1 e %2</translation>
     </message>
     <message>
         <source>Last received block was generated %1 ago.</source>
@@ -734,8 +821,20 @@ MultiSend: %1</translation>
 MultiSend: %1</translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
-        <translation>Il portafoglio è &lt;b&gt;crittografato&lt;/b&gt; e attualmente &lt;b&gt;sbloccato&lt;/b&gt; per l'anonimizzazione e il solo stacking</translation>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Conio automatico è attivo e impostato su</translation>
+    </message>
+    <message>
+        <source>AutoMint is disabled</source>
+        <translation>Conio automatico disabilitato</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Il portafoglio è &lt;b&gt;crittografato&lt;/b&gt; e attualmente &lt;b&gt;sbloccato&lt;/b&gt; </translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
+        <translation>Il portafoglio è &lt;b&gt;crittografato&lt;/b&gt; e attualmente &lt;b&gt;bloccato&lt;/b&gt;</translation>
     </message>
     </context>
 <context>
@@ -743,6 +842,14 @@ MultiSend: %1</translation>
     <message>
         <source>Blockchain Explorer</source>
         <translation>Esplora catena dei blocchi</translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation>Indietro</translation>
+    </message>
+    <message>
+        <source>Forward</source>
+        <translation>Avanti</translation>
     </message>
     <message>
         <source>Address / Block / Transaction</source>
@@ -753,18 +860,34 @@ MultiSend: %1</translation>
         <translation>Cerca</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (transcendence.conf).</source>
-        <translation>Non tutte le transazioni verranno visualizzate. Per vedere tutte le transazioni è necessario aggiungere txindex=1 nel file di configurazione (transcendence.conf)</translation>
+        <source>TextLabel</source>
+        <translation>Etichetta</translation>
+    </message>
+    <message>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pivx.conf).</source>
+        <translation>Non tutte le transazioni verranno visualizzate. Per vedere tutte le transazioni è necessario aggiungere txindex=1 nel file di configurazione (pivx.conf)</translation>
     </message>
 </context>
 <context>
     <name>ClientModel</name>
-    </context>
+    <message>
+        <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
+        <translation>Totale: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Sconosciuti: %5)</translation>
+    </message>
+    <message>
+        <source>Network Alert</source>
+        <translation>Avviso di rete</translation>
+    </message>
+</context>
 <context>
     <name>CoinControlDialog</name>
     <message>
         <source>Quantity:</source>
         <translation>Quantità:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Byte:</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -776,11 +899,31 @@ MultiSend: %1</translation>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>Tassa:</translation>
+        <translation>Commissione:</translation>
+    </message>
+    <message>
+        <source>Coin Selection</source>
+        <translation>Selezione moneta</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Polvere:</translation>
+    </message>
+    <message>
+        <source>After Fee:</source>
+        <translation>Importo al netto della commissione:</translation>
     </message>
     <message>
         <source>Change:</source>
         <translation>Differenza:</translation>
+    </message>
+    <message>
+        <source>(un)select all</source>
+        <translation>(de)seleziona tutto</translation>
+    </message>
+    <message>
+        <source>toggle lock state</source>
+        <translation>Attiva/disattiva stato bloccato</translation>
     </message>
     <message>
         <source>Tree mode</source>
@@ -789,6 +932,10 @@ MultiSend: %1</translation>
     <message>
         <source>List mode</source>
         <translation>Modalità lista</translation>
+    </message>
+    <message>
+        <source>(1 locked)</source>
+        <translation>(1 bloccato)</translation>
     </message>
     <message>
         <source>Amount</source>
@@ -801,6 +948,10 @@ MultiSend: %1</translation>
     <message>
         <source>Received with address</source>
         <translation>Ricevute con indirizzo</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Date</source>
@@ -835,8 +986,88 @@ MultiSend: %1</translation>
         <translation>Copia ID transazione</translation>
     </message>
     <message>
+        <source>Lock unspent</source>
+        <translation>Blocca non spesi</translation>
+    </message>
+    <message>
+        <source>Unlock unspent</source>
+        <translation>Sblocca non spesi</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Copia importo</translation>
+    </message>
+    <message>
+        <source>Copy fee</source>
+        <translation>Copia commissione</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Copia importo al netto della commissione</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Copia byte</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Copia priorità</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Copia polvere</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Copia resto</translation>
+    </message>
+    <message>
         <source>Please switch to "List mode" to use this function.</source>
         <translation>Prego selezionare "Modalità lista" per utilizzare questa funzione</translation>
+    </message>
+    <message>
+        <source>highest</source>
+        <translation>massima</translation>
+    </message>
+    <message>
+        <source>higher</source>
+        <translation>molto alta</translation>
+    </message>
+    <message>
+        <source>high</source>
+        <translation>alta</translation>
+    </message>
+    <message>
+        <source>medium-high</source>
+        <translation>medio-alta</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>media</translation>
+    </message>
+    <message>
+        <source>low-medium</source>
+        <translation>medio-bassa</translation>
+    </message>
+    <message>
+        <source>low</source>
+        <translation>basso</translation>
+    </message>
+    <message>
+        <source>lower</source>
+        <translation>bassa</translation>
+    </message>
+    <message>
+        <source>lowest</source>
+        <translation>minima</translation>
+    </message>
+    <message>
+        <source>(%1 locked)</source>
+        <translation>(%1 bloccati)</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>nessuno</translation>
     </message>
     <message>
         <source>yes</source>
@@ -851,10 +1082,42 @@ MultiSend: %1</translation>
         <translation>Questa etichetta diventerà rossa se la transazione supera i 1000 bytes</translation>
     </message>
     <message>
+        <source>This means a fee of at least %1 per kB is required.</source>
+        <translation>Vuol dire che è richiesta una commissione minima di %1 per kB.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- 1 byte per input.</source>
+        <translation>Può variare di +/- 1 byte per input.</translation>
+    </message>
+    <message>
+        <source>Transactions with higher priority are more likely to get included into a block.</source>
+        <translation>Transazioni con priorità maggiore verranno aggiunte con maggiore probabilità in un blocco.</translation>
+    </message>
+    <message>
+        <source>This label turns red, if the priority is smaller than "medium".</source>
+        <translation>Questa etichetta diventa rossa se la priorità è inferiore a "media".</translation>
+    </message>
+    <message>
+        <source>This label turns red, if any recipient receives an amount smaller than %1.</source>
+        <translation>Questa etichetta diventa rossa se uno dei destinatari riceve un importo inferiore a %1.</translation>
+    </message>
+    <message>
+        <source>Can vary +/- %1 upiv per input.</source>
+        <translation>Può variare di +/- %1 uTELOS per input.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(nessuna etichetta)</translation>
     </message>
-    </context>
+    <message>
+        <source>change from %1 (%2)</source>
+        <translation>resto da %1 (%2)</translation>
+    </message>
+    <message>
+        <source>(change)</source>
+        <translation>(resto)</translation>
+    </message>
+</context>
 <context>
     <name>EditAddressDialog</name>
     <message>
@@ -870,15 +1133,70 @@ MultiSend: %1</translation>
         <translation>&amp;Indirizzo</translation>
     </message>
     <message>
+        <source>New receiving address</source>
+        <translation>Nuovo indirizzo di ricezione</translation>
+    </message>
+    <message>
+        <source>New sending address</source>
+        <translation>Nuovo indirizzo di invio</translation>
+    </message>
+    <message>
+        <source>Edit receiving address</source>
+        <translation>Modifica indirizzo di ricezione</translation>
+    </message>
+    <message>
+        <source>Edit sending address</source>
+        <translation>Modifica indirizzo di invio</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is not a valid TELOS address.</source>
+        <translation>L'indirizzo inserito "%1" non è un indirizzo TELOS valido.</translation>
+    </message>
+    <message>
+        <source>The entered address "%1" is already in the address book.</source>
+        <translation>L'indirizzo inserito "%1" è già presente in rubrica.</translation>
+    </message>
+    <message>
         <source>Could not unlock wallet.</source>
         <translation>Impossibile sbloccare il portafoglio</translation>
     </message>
-    </context>
+    <message>
+        <source>New key generation failed.</source>
+        <translation>Generazione nuovo codice fallita.</translation>
+    </message>
+</context>
 <context>
     <name>FreespaceChecker</name>
     <message>
+        <source>A new data directory will be created.</source>
+        <translation>Verrà creata una nuova cartella dati.</translation>
+    </message>
+    <message>
         <source>name</source>
         <translation>nome</translation>
+    </message>
+    <message>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation>Cartella esistente. Aggiunti %1 se intendi creare una nuova cartella qui.</translation>
+    </message>
+    <message>
+        <source>Path already exists, and is not a directory.</source>
+        <translation>Percorso già esistente, e non è una cartella.</translation>
+    </message>
+    <message>
+        <source>Cannot create data directory here.</source>
+        <translation>Impossibile creare la cartella dati qui.</translation>
+    </message>
+</context>
+<context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Modulo</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     </context>
 <context>
@@ -888,12 +1206,16 @@ MultiSend: %1</translation>
         <translation>versione</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
+    </message>
+    <message>
+        <source>About TELOS Core</source>
+        <translation>Informazioni su TELOS Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -907,7 +1229,31 @@ MultiSend: %1</translation>
         <source>command-line options</source>
         <translation>opzioni linea di comando</translation>
     </message>
-    </context>
+    <message>
+        <source>UI Options:</source>
+        <translation>Opzioni interfaccia:</translation>
+    </message>
+    <message>
+        <source>Choose data directory on startup (default: %u)</source>
+        <translation>Seleziona cartella dati all'avvio (predefinita: %u)</translation>
+    </message>
+    <message>
+        <source>Show splash screen on startup (default: %u)</source>
+        <translation>Mostra schermata di benvenuto all'avvio (predefinita: %u)</translation>
+    </message>
+    <message>
+        <source>Set language, for example "de_DE" (default: system locale)</source>
+        <translation>Imposta lingua, per esempio "it_IT" (predefinito: lingua di sistema)</translation>
+    </message>
+    <message>
+        <source>Start minimized</source>
+        <translation>Avvio ridotto a icona</translation>
+    </message>
+    <message>
+        <source>Set SSL root certificates for payment request (default: -system-)</source>
+        <translation>Imposta certificati SSL root per richiesta di pagamento (predefinito: -system-)</translation>
+    </message>
+</context>
 <context>
     <name>Intro</name>
     <message>
@@ -915,67 +1261,652 @@ MultiSend: %1</translation>
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>Welcome to TELOS Core.</source>
+        <translation>Benvenuto in PIVIX Core.</translation>
+    </message>
+    <message>
+        <source>As this is the first time the program is launched, you can choose where TELOS Core will store its data.</source>
+        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove TELOS Core salverà i propri dati.</translation>
+    </message>
+    <message>
+        <source>TELOS Core will download and store a copy of the TELOS block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>TELOS Core scaricherà e salverà una copia della blockchain TELOS. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
+    </message>
+    <message>
+        <source>Use the default data directory</source>
+        <translation>Utilizza la cartella dati predefinita</translation>
+    </message>
+    <message>
+        <source>Use a custom data directory:</source>
+        <translation>Utilizza una cartella dati personalizzata:</translation>
+    </message>
+    <message>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
+    </message>
+    <message>
+        <source>Error: Specified data directory "%1" cannot be created.</source>
+        <translation>Errore: la cartella dati specificata "%1" non può essere creata.</translation>
     </message>
     <message>
         <source>Error</source>
         <translation>Errore</translation>
     </message>
-    </context>
+    <message>
+        <source>%1 GB of free space available</source>
+        <translation>%1 GB di spazio disponibile</translation>
+    </message>
+    <message>
+        <source>(of %1 GB needed)</source>
+        <translation>(di %1 GB necessari)</translation>
+    </message>
+</context>
 <context>
     <name>MasternodeList</name>
     <message>
-        <source>My Masternodes</source>
-        <translation>I miei Masternodes</translation>
+        <source>Form</source>
+        <translation>Modulo</translation>
+    </message>
+    <message>
+        <source>MASTERNODES</source>
+        <translation>MASTERNODI</translation>
+    </message>
+    <message>
+        <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
+        <translation>Nota: Lo stato dei tuoi masternodi nel portafoglio locale potrebbe essere leggermente incorretto. &lt;br /&gt;Attendi sempre che il portafoglio sincronizzi le informazioni addizionali e poi verifica con un altro nodo&lt;br /&gt;se il tuo nodo dovrebbe essere avviato ma continui a vedere "MANCANTE" nel campo "Stato".</translation>
+    </message>
+    <message>
+        <source>Alias</source>
+        <translation>Alias</translation>
     </message>
     <message>
         <source>Address</source>
         <translation>Indirizzo</translation>
     </message>
     <message>
+        <source>Protocol</source>
+        <translation>Protocollo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Stato</translation>
+    </message>
+    <message>
         <source>Active</source>
         <translation>Attivo </translation>
     </message>
-    </context>
+    <message>
+        <source>Last Seen (UTC)</source>
+        <translation>Ultima rilevazione (UTC)</translation>
+    </message>
+    <message>
+        <source>Pubkey</source>
+        <translation>Chiave pubblica</translation>
+    </message>
+    <message>
+        <source>S&amp;tart alias</source>
+        <translation>A&amp;vvia alias</translation>
+    </message>
+    <message>
+        <source>Start &amp;all</source>
+        <translation>Avvia &amp;tutti</translation>
+    </message>
+    <message>
+        <source>Start &amp;MISSING</source>
+        <translation>Avvia &amp;MANCANTI</translation>
+    </message>
+    <message>
+        <source>&amp;Update status</source>
+        <translation>&amp;Aggiorna stato</translation>
+    </message>
+    <message>
+        <source>Status will be updated automatically in (sec):</source>
+        <translation>Lo stato verrà aggiornato automaticamente in (sec):</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Start alias</source>
+        <translation>Avvia alias</translation>
+    </message>
+    <message>
+        <source>Confirm masternode start</source>
+        <translation>Conferma avvio masternodo</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start masternode %1?</source>
+        <translation>Confermi di voler avviare il masternodo %1?</translation>
+    </message>
+    <message>
+        <source>Confirm all masternodes start</source>
+        <translation>Conferma l'avvio di tutti i masternodi</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start ALL masternodes?</source>
+        <translation>Confermi l'avvio di TUTTI i masternodi?</translation>
+    </message>
+    <message>
+        <source>Command is not available right now</source>
+        <translation>Comando attualmente non disponibile</translation>
+    </message>
+    <message>
+        <source>You can't use this command until masternode list is synced</source>
+        <translation>Non è possibile usare questo comando finché la lista dei masternodi non è aggiornata</translation>
+    </message>
+    <message>
+        <source>Confirm missing masternodes start</source>
+        <translation>Conferma l'avvia dei masternodi mancanti</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to start MISSING masternodes?</source>
+        <translation>Confermi di voler avviare masternodi MANCANTI?</translation>
+    </message>
+</context>
 <context>
     <name>MultiSendDialog</name>
+    <message>
+        <source>MultiSend</source>
+        <translation>MultiSend</translation>
+    </message>
+    <message>
+        <source>Enter whole numbers 1 - 100</source>
+        <translation>Inserire numeri interi 1 - 100</translation>
+    </message>
+    <message>
+        <source>Enter % to Give (1-100)</source>
+        <translation>Inserisci % da inviare (1-100)</translation>
+    </message>
+    <message>
+        <source>Enter Address to Send to</source>
+        <translation>Inserire indirizzo destinatario</translation>
+    </message>
+    <message>
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TELOS addresses after it matures.
+To Add: enter percentage to give and TELOS address to add to the MultiSend vector.
+To Delete: Enter address to delete and press delete.
+MultiSend will not be activated unless you have clicked Activate</source>
+        <translation>MultiSend ti permette di inviare automaticamente ad una lista di indirizzi TELOS fino al 100% delle ricompense di stake o masternodi, dopo che queste sono mature.
+Per Aggiunger: inserisci la percentuale da inviare e l'indirizzo TELOS da aggiungere al vettore MultiSend.
+Per Eliminare: Inserisci l'indirizzo da eliminare e premi elimina.
+MultiSend non verrà attivato a meno che tu non prema su Attiva</translation>
+    </message>
+    <message>
+        <source>Add to MultiSend Vector</source>
+        <translation>Aggiungi a Vettore MultiSend</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>Aggiungi</translation>
+    </message>
+    <message>
+        <source>Deactivate MultiSend</source>
+        <translation>Disattiva MultiSend</translation>
+    </message>
+    <message>
+        <source>Deactivate</source>
+        <translation>Disattiva</translation>
+    </message>
+    <message>
+        <source>Choose an address from the address book</source>
+        <translation>Scegli un indirizzo dalla rubrica</translation>
+    </message>
     <message>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
+        <source>Percentage of stake to send</source>
+        <translation>Percentuale dello stake da inviare</translation>
+    </message>
+    <message>
+        <source>Percentage:</source>
+        <translation>Percentuale:</translation>
+    </message>
+    <message>
+        <source>Address to send portion of stake to</source>
+        <translation>Indirizzo a cui inviare la percentuale dello stake</translation>
+    </message>
+    <message>
         <source>Address:</source>
         <translation>Indirizzo:</translation>
     </message>
-    </context>
-<context>
-    <name>ObfuscationConfig</name>
-    </context>
-<context>
-    <name>OpenURIDialog</name>
-    </context>
-<context>
-    <name>OptionsDialog</name>
-    </context>
-<context>
-    <name>OverviewPage</name>
-    </context>
-<context>
-    <name>PaymentServer</name>
-    </context>
-<context>
-    <name>PeerTableModel</name>
-    </context>
-<context>
-    <name>PrivacyDialog</name>
     <message>
-        <source>Quantity:</source>
-        <translation>Quantità:</translation>
+        <source>Label:</source>
+        <translation>Etichetta:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Inserisci un'etichetta per questo indirizzo da aggiungere alla tua rubrica</translation>
+    </message>
+    <message>
+        <source>Delete Address From MultiSend Vector</source>
+        <translation>Elimina indirizzo dal vettore MultiSend</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Elimina</translation>
+    </message>
+    <message>
+        <source>Activate MultiSend</source>
+        <translation>Attiva MultiSend</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>Attiva</translation>
+    </message>
+    <message>
+        <source>View MultiSend Vector</source>
+        <translation>Visualizza vettore MultiSend</translation>
+    </message>
+    <message>
+        <source>View MultiSend</source>
+        <translation>Visualizza MultiSend</translation>
+    </message>
+    <message>
+        <source>Send For Stakes</source>
+        <translation>Invia per stake</translation>
+    </message>
+    <message>
+        <source>Send For Masternode Rewards</source>
+        <translation>Invio per le Ricompense Masternodo</translation>
+    </message>
+    <message>
+        <source>(no label)</source>
+        <translation>(nessuna etichetta)</translation>
+    </message>
+    <message>
+        <source>Please Enter 1 - 100 for percent.</source>
+        <translation>Per favore inserisci 1 - 100 come percentuale.</translation>
+    </message>
+</context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Multisignature Address Interactions</source>
+        <translation>Interazioni indirizzo multifirma</translation>
+    </message>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Crea indirizzo a firme &amp;Multiple</translation>
+    </message>
+    <message>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Quante persone devono firmare per verificare una transazione</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>Etichetta indirizzo:</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Aggiungi indirizzo / codice</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>Crea un nuovo indirizzo multifirma</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>C&amp;rea</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>Stato:</translation>
+    </message>
+    <message>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Crea Tx multifirma</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>Input:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>Controllo Monete</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Quantità Selezionata:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     <message>
         <source>Amount:</source>
         <translation>Totale:</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Indirizzo / Quantità:</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Cr&amp;ea</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Firma Tx a firma multipla</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Hex Transazione:</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>F&amp;irma</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Aggiungi &amp;Chiave Privata</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Quantità:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Massimo (15)</translation>
+    </message>
+</context>
+<context>
+    <name>OpenURIDialog</name>
+    <message>
+        <source>Open URI</source>
+        <translation>Apri URI</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation>URI:</translation>
+    </message>
+    </context>
+<context>
+    <name>OptionsDialog</name>
+    <message>
+        <source>Options</source>
+        <translation>Opzioni</translation>
+    </message>
+    <message>
+        <source>MB</source>
+        <translation>MB</translation>
+    </message>
+    <message>
+        <source>Map port using &amp;UPnP</source>
+        <translation>Mappa la porta utilizzando &amp;UPnP</translation>
+    </message>
+    <message>
+        <source>Enable automatic minting of TELOS units to zTELOS</source>
+        <translation>Attiva il conio automatico di unità TELOS in zTELOS</translation>
+    </message>
+    <message>
+        <source>Enable zTELOS Automint</source>
+        <translation>Attiva Conio automatico zTELOS</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentuale di TELOS in entrata che viene automaticamente convertita in zTELOS attraverso il protocollo Zerocoin (min: 10%)</translation>
+    </message>
+    <message>
+        <source>Percentage of autominted zTELOS</source>
+        <translation>Percentuale di zTELOS Percentuale di zTELOS da coniare automaticamente</translation>
+    </message>
+    <message>
+        <source>Preferred Automint zTELOS Denomination</source>
+        <translation>Denominazione preferita conio automatico zTELOS</translation>
+    </message>
+    <message>
+        <source>Proxy &amp;IP:</source>
+        <translation>Proxy &amp;IP:</translation>
+    </message>
+    <message>
+        <source>&amp;Port:</source>
+        <translation>&amp;Porta:</translation>
+    </message>
+    <message>
+        <source>&amp;Window</source>
+        <translation>&amp;Finestra</translation>
+    </message>
+    <message>
+        <source>Decimal digits</source>
+        <translation>Cifre decimali</translation>
+    </message>
+    <message>
+        <source>Hide empty balances</source>
+        <translation>Nascondi bilanci vuoti</translation>
+    </message>
+    <message>
+        <source>&amp;Reset Options</source>
+        <translation>Opzioni &amp;Reset</translation>
+    </message>
+    <message>
+        <source>&amp;OK</source>
+        <translation>&amp;OK</translation>
+    </message>
+    <message>
+        <source>&amp;Cancel</source>
+        <translation>&amp;Cancella</translation>
+    </message>
+    <message>
+        <source>default</source>
+        <translation>predefinito</translation>
+    </message>
+    <message>
+        <source>none</source>
+        <translation>nessuno</translation>
+    </message>
+    </context>
+<context>
+    <name>OverviewPage</name>
+    <message>
+        <source>Form</source>
+        <translation>Modulo</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Disponibile:</translation>
+    </message>
+    <message>
+        <source>Your current spendable balance</source>
+        <translation>Il tuo saldo spendibile corrente</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Saldo totale, inclusi tutte le monete non disponibili.</translation>
+    </message>
+    <message>
+        <source>TELOS Balance</source>
+        <translation>Bilancio TELOS</translation>
+    </message>
+    <message>
+        <source>Immature:</source>
+        <translation>Non maturi:</translation>
+    </message>
+    <message>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Saldo corrente bloccato in indirizzi sola-lettura.</translation>
+    </message>
+    <message>
+        <source>Your current TELOS balance, unconfirmed and immature transactions included</source>
+        <translation>Il tuo saldo TELOS corrente, incluse le transazioni non confermate e non mature</translation>
+    </message>
+    <message>
+        <source>zTELOS Balance</source>
+        <translation>Bilancio zTELOS</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zTELOS are spendable.</source>
+        <translation>Maturi: più di 20 conferme e più di 1 conio della stessa denominazione dopo il conio.
+Questi zTELOS sono spendibili.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>PANORAMICA</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Saldo complessivo (incluse monete non confermate e non mature)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Saldo complessivo</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Totale:</translation>
+    </message>
+    <message>
+        <source>Current total balance in watch-only addresses</source>
+        <translation>Saldo corrente totale in indirizzi sola-lettura</translation>
+    </message>
+    <message>
+        <source>Your current balance in watch-only addresses</source>
+        <translation>Il tuo saldo corrente in indirizzi sola-lettura</translation>
+    </message>
+    <message>
+        <source>Spendable:</source>
+        <translation>Spendibili:</translation>
+    </message>
+    <message>
+        <source>Locked TELOS or Masternode collaterals. These are excluded from zTELOS minting.</source>
+        <translation>TELOS bloccati o collaterali Masternodo. Questi sono esclusi dal conio di zTELOS.</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>Bloccati:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Non confermati:</translation>
+    </message>
+    <message>
+        <source>Your current zTELOS balance, unconfirmed and immature zTELOS included.</source>
+        <translation>Il tuo saldo zTELOS corrente, inclusi zTELOS non confermati e non maturi</translation>
+    </message>
+    <message>
+        <source>Recent transactions</source>
+        <translation>Transazioni recenti</translation>
+    </message>
+    <message>
+        <source>Current percentage of zTELOS.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>Percentuale corrente di zTELOS.
+Se il conio automatico è attivato questa percentuale si stabilizzerà all'incirca sulla percentuale stabilita per il conio automatico (percentuale prestabilita = 10%).
+</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Conio automatico è attivo e impostato su</translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in pivx.conf.</source>
+        <translation>Per disabilitare il conio automatico aggiungi 'enablezeromint=0' in pivx.conf.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf</source>
+        <translation>Conio automatico è correntemente disattivato.
+Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=1' in pivx.conf</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Invalid payment address %1</source>
+        <translation>Indirizzo di pagamento %1 invalido</translation>
+    </message>
+    <message>
+        <source>Payment request rejected</source>
+        <translation>Richiesta di pagamento rifiutata</translation>
+    </message>
+    <message>
+        <source>Payment request has expired.</source>
+        <translation>La richiesta di pagamento è scaduta.</translation>
+    </message>
+    <message>
+        <source>Requested payment amount of %1 is too small (considered dust).</source>
+        <translation>L'ammontare della richiesta di pagamento di %1 è troppo basso (considerato polvere).</translation>
+    </message>
+    <message>
+        <source>Refund from %1</source>
+        <translation>Risarcimento da %1</translation>
+    </message>
+    </context>
+<context>
+    <name>PeerTableModel</name>
+    <message>
+        <source>Version</source>
+        <translation>Versione</translation>
+    </message>
+    </context>
+<context>
+    <name>PrivacyDialog</name>
+    <message>
+        <source>Zerocoin Actions:</source>
+        <translation>Azioni Zerocoin:</translation>
+    </message>
+    <message>
+        <source>Mint Zerocoin</source>
+        <translation>Conia Zerocoin</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zTELOS</source>
+        <translation>zTELOS</translation>
+    </message>
+    <message>
+        <source>Reset</source>
+        <translation>Reset</translation>
+    </message>
+    <message>
+        <source>LINKS</source>
+        <translation>LINKS</translation>
+    </message>
+    <message>
+        <source>zTELOS Control</source>
+        <translation>Controllo zTELOS</translation>
+    </message>
+    <message>
+        <source>zTELOS Selected:</source>
+        <translation>zTELOS selezionati:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Quantità Selezionata:</translation>
+    </message>
+    <message>
+        <source>Spend Zerocoin</source>
+        <translation>Spendi Zerocoin</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zTELOS for spending</source>
+        <translation>zTELOS disponibili disponibili per essere spesi (maturi e spendibili)</translation>
+    </message>
+    <message>
+        <source>Available Balance:</source>
+        <translation>Bilancio Disponibile:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zTELOS for spending
+
+zTELOS are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>zTELOS disponibili disponibili per essere spesi (maturi e spendibili)
+Gli zTELOS sono maturi quando hanno più di 20 conferme E più di 2 conii della stessa denominazione dopo che sono stati coniati</translation>
+    </message>
+    <message>
+        <source>0 zTELOS</source>
+        <translation>0 zTELOS</translation>
+    </message>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Paga &amp;A:</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -994,31 +1925,231 @@ MultiSend: %1</translation>
         <translation>Alt+P</translation>
     </message>
     <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etichetta:</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Q&amp;uantità:</translation>
+    </message>
+    <message>
+        <source>Convert Change to Zerocoin (might cost additional fees)</source>
+        <translation>Converti resto in Zerocoin (può costare commissioni aggiuntive)</translation>
+    </message>
+    <message>
+        <source>Minimize Change</source>
+        <translation>Minimizza Resto</translation>
+    </message>
+    <message>
+        <source>Zerocoin Stats:</source>
+        <translation>Statistiche Zerocoin:</translation>
+    </message>
+    <message>
+        <source>Total Balance including unconfirmed and immature zTELOS</source>
+        <translation>Saldo totale inclusi zTELOS non confermati e non maturi</translation>
+    </message>
+    <message>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Saldo totale Zerocoin:</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zTELOS minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to pivx.conf
+- disable: add 'enablezeromint=0' to pivx.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zTELOS
+
+</source>
+        <translation>Mostra lo stato corrente del conio automatico zTELOS.
+Per cambiare lo stato (riavvio necessario):
+- attivato: aggiungi 'enablezeromint=1' a pivx.conf
+- disattivato: aggiungi 'enablezeromint=0' a pivx.conf
+
+Per cambiare la percentuale (riavvio non necessario):
+- menu Impostazioni-&gt;Opzioni-&gt;Percentuale di zTELOS da coniare automaticamente
+
+</translation>
+    </message>
+    <message>
+        <source>AutoMint Status</source>
+        <translation>Stato Conio automatico</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Denom. 1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Denom. 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Denom. 10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Denom. 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Denom. 100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Denom. 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Denom. 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Denom. 5000:</translation>
+    </message>
+    <message>
+        <source>0 x</source>
+        <translation>0 x</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5:</source>
+        <translation>Denominazioni con valore 5:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5:</source>
+        <translation>Denom. con valore 5:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 10:</source>
+        <translation>Denominazioni con valore 10:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 10:</source>
+        <translation>Denom. con valore 10:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 50:</source>
+        <translation>Denominazioni con valore 50:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 50:</source>
+        <translation>Denom. con valore 50:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 100:</source>
+        <translation>Denominazioni con valore 100:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 100:</source>
+        <translation>Denom. con valore 100:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 500:</source>
+        <translation>Denominazioni con valore 500:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 500:</source>
+        <translation>Denom. con valore 500:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 1000:</source>
+        <translation>Denominazioni con valore 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 1000:</source>
+        <translation>Denom. con valore 1000:</translation>
+    </message>
+    <message>
+        <source>Denominations with value 5000:</source>
+        <translation>Denominazioni con valore 5000:</translation>
+    </message>
+    <message>
+        <source>Denom. with value 5000:</source>
+        <translation>Denom. con valore 5000:</translation>
+    </message>
+    <message>
         <source>Priority:</source>
         <translation>Priorità:</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>Etichetta</translation>
+    </message>
+    <message>
         <source>Fee:</source>
-        <translation>Tassa:</translation>
+        <translation>Commissione:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Polvere:</translation>
     </message>
     <message>
         <source>no</source>
         <translation>no</translation>
     </message>
     <message>
+        <source>Bytes:</source>
+        <translation>Byte:</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Fondi insufficienti!</translation>
+    </message>
+    <message>
+        <source>medium</source>
+        <translation>media</translation>
+    </message>
+    <message>
+        <source>Amount After Fee:</source>
+        <translation>Importo al netto della commissione:</translation>
+    </message>
+    <message>
         <source>Change:</source>
         <translation>Differenza:</translation>
     </message>
     <message>
-        <source>Copy amount</source>
-        <translation>Copia ammontare</translation>
+        <source>zTELOS Mint</source>
+        <translation>Conio zTELOS</translation>
     </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>Stato Conio automatico:</translation>
+    </message>
+    <message>
+        <source>Invalid Send Amount</source>
+        <translation>Importo di invio non valido</translation>
+    </message>
+    <message>
+        <source>Confirm additional Fees</source>
+        <translation>Conferma commissioni aggiuntive</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Conferma invio monete</translation>
+    </message>
+    <message>
+        <source>Sending successful, return code: </source>
+        <translation>Invio riuscito con successo, codice di conferma:</translation>
+    </message>
+    <message>
+        <source>fee: </source>
+        <translation>commissione</translation>
+    </message>
+</context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Ammontare</translation>
+    </message>
+    <message>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     </context>
 <context>
@@ -1030,9 +2161,29 @@ MultiSend: %1</translation>
         <source>&amp;Information</source>
         <translation>&amp;Informazioni</translation>
     </message>
+    <message>
+        <source>Protocol</source>
+        <translation>Protocollo</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>Versione</translation>
+    </message>
+    <message>
+        <source>Last Send</source>
+        <translation>Ultimo Invio</translation>
+    </message>
     </context>
 <context>
     <name>ReceiveCoinsDialog</name>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Q&amp;uantità:</translation>
+    </message>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etichetta:</translation>
+    </message>
     <message>
         <source>Copy label</source>
         <translation>Copia etichetta</translation>
@@ -1040,6 +2191,10 @@ MultiSend: %1</translation>
     <message>
         <source>Copy amount</source>
         <translation>Copia ammontare</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Copia indirizzo</translation>
     </message>
 </context>
 <context>
@@ -1068,6 +2223,10 @@ MultiSend: %1</translation>
         <translation>Etichetta</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>Indirizzo</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Ammontare</translation>
     </message>
@@ -1079,8 +2238,24 @@ MultiSend: %1</translation>
 <context>
     <name>SendCoinsDialog</name>
     <message>
+        <source>Send Coins</source>
+        <translation>Invia Monete</translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>INVIA</translation>
+    </message>
+    <message>
+        <source>Insufficient funds!</source>
+        <translation>Fondi insufficienti!</translation>
+    </message>
+    <message>
         <source>Quantity:</source>
         <translation>Quantità:</translation>
+    </message>
+    <message>
+        <source>Bytes:</source>
+        <translation>Byte:</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -1091,28 +2266,104 @@ MultiSend: %1</translation>
         <translation>Priorità:</translation>
     </message>
     <message>
+        <source>medium</source>
+        <translation>media</translation>
+    </message>
+    <message>
         <source>Fee:</source>
-        <translation>Tassa:</translation>
+        <translation>Commissione:</translation>
+    </message>
+    <message>
+        <source>Dust:</source>
+        <translation>Polvere:</translation>
     </message>
     <message>
         <source>no</source>
         <translation>no</translation>
     </message>
     <message>
+        <source>After Fee:</source>
+        <translation>Importo al netto della commissione:</translation>
+    </message>
+    <message>
         <source>Change:</source>
         <translation>Differenza:</translation>
+    </message>
+    <message>
+        <source>Transaction Fee:</source>
+        <translation>Commissione di transazione:</translation>
+    </message>
+    <message>
+        <source>collapse fee-settings</source>
+        <translation>Nascondi impostazioni commissioni</translation>
+    </message>
+    <message>
+        <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
+        <translation>(Commissioni smart non ancora inizializzate. L'inizializzazione richiede in genere un paio di blocchi...)</translation>
+    </message>
+    <message>
+        <source>Send as zero-fee transaction if possible</source>
+        <translation>Invia qualora possibile come transazione a commissione-zero</translation>
+    </message>
+    <message>
+        <source>Confirm the send action</source>
+        <translation>Conferma l'azione di invio</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
         <translation>Cancella &amp;All</translation>
     </message>
     <message>
+        <source>Send to multiple recipients at once</source>
+        <translation>Invia contemporaneamente a destinatari multipli</translation>
+    </message>
+    <message>
+        <source>Balance:</source>
+        <translation>Saldo:</translation>
+    </message>
+    <message>
+        <source>Copy quantity</source>
+        <translation>Copia importo</translation>
+    </message>
+    <message>
         <source>Copy amount</source>
         <translation>Copia ammontare</translation>
     </message>
     <message>
-        <source>anonymous funds</source>
-        <translation>Fondi anonimi</translation>
+        <source>Copy fee</source>
+        <translation>Copia commissione</translation>
+    </message>
+    <message>
+        <source>Copy after fee</source>
+        <translation>Copia importo al netto della commissione</translation>
+    </message>
+    <message>
+        <source>Copy bytes</source>
+        <translation>Copia byte</translation>
+    </message>
+    <message>
+        <source>Copy priority</source>
+        <translation>Copia priorità</translation>
+    </message>
+    <message>
+        <source>Copy dust</source>
+        <translation>Copia polvere</translation>
+    </message>
+    <message>
+        <source>Copy change</source>
+        <translation>Copia resto</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to send?</source>
+        <translation>Sei sicuro di voler inviare?</translation>
+    </message>
+    <message>
+        <source>Confirm send coins</source>
+        <translation>Conferma invio monete</translation>
+    </message>
+    <message>
+        <source>The amount exceeds your balance.</source>
+        <translation>L'importo eccede il tuo saldo.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1121,6 +2372,10 @@ MultiSend: %1</translation>
 </context>
 <context>
     <name>SendCoinsEntry</name>
+    <message>
+        <source>Pay &amp;To:</source>
+        <translation>Paga &amp;A:</translation>
+    </message>
     <message>
         <source>Choose previously used address</source>
         <translation>Scegli l'indirizzo utilizzato in precedenza</translation>
@@ -1137,15 +2392,27 @@ MultiSend: %1</translation>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
     </message>
-    </context>
+    <message>
+        <source>&amp;Label:</source>
+        <translation>&amp;Etichetta:</translation>
+    </message>
+    <message>
+        <source>A&amp;mount:</source>
+        <translation>Q&amp;uantità:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Inserisci un'etichetta per questo indirizzo da aggiungere alla tua rubrica</translation>
+    </message>
+</context>
 <context>
     <name>ShutdownWindow</name>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>L'indirizzo Transcendence per firmare il messaggio con</translation>
+        <source>The TELOS address to sign the message with</source>
+        <translation>L'indirizzo TELOS per firmare il messaggio con</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1168,16 +2435,16 @@ MultiSend: %1</translation>
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo Transcendence</translation>
+        <source>Sign the message to prove you own this TELOS address</source>
+        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo TELOS</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>L'indirizzo Transcendence con cui è stato firmato il messaggio</translation>
+        <source>The TELOS address the message was signed with</source>
+        <translation>L'indirizzo TELOS con cui è stato firmato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo Transcendence specificato </translation>
+        <source>Verify the message to ensure it was signed with the specified TELOS address</source>
+        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo TELOS specificato </translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1215,8 +2482,8 @@ MultiSend: %1</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     </context>
 <context>
@@ -1224,6 +2491,10 @@ MultiSend: %1</translation>
     </context>
 <context>
     <name>TransactionDesc</name>
+    <message>
+        <source>Status</source>
+        <translation>Stato</translation>
+    </message>
     <message>
         <source>Date</source>
         <translation>Data</translation>
@@ -1241,6 +2512,10 @@ MultiSend: %1</translation>
     <message>
         <source>Date</source>
         <translation>Data</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Address</source>
@@ -1278,6 +2553,10 @@ MultiSend: %1</translation>
         <translation>Data</translation>
     </message>
     <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
         <source>Label</source>
         <translation>Etichetta</translation>
     </message>
@@ -1298,6 +2577,10 @@ MultiSend: %1</translation>
     </context>
 <context>
     <name>WalletModel</name>
+    <message>
+        <source>Send Coins</source>
+        <translation>Invia Monete</translation>
+    </message>
     </context>
 <context>
     <name>WalletView</name>
@@ -1311,7 +2594,15 @@ MultiSend: %1</translation>
     </message>
     </context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>zTELOS</source>
+        <translation>zTELOS</translation>
+    </message>
     </context>
 <context>
     <name>transcendence-core</name>
@@ -1322,6 +2613,10 @@ MultiSend: %1</translation>
     <message>
         <source>Information</source>
         <translation>Informazioni</translation>
+    </message>
+    <message>
+        <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
+        <translation>Importo invalido per -maxtxfee=&lt;amount&gt;: '%s'</translation>
     </message>
     <message>
         <source>Warning</source>

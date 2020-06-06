@@ -8,8 +8,8 @@
 #include "denomination_functions.h"
 #include "main.h"
 #include "txdb.h"
-#include "wallet.h"
-#include "walletdb.h"
+#include "wallet/wallet.h"
+#include "wallet/walletdb.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 
@@ -93,7 +93,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test241)
             CBigNum rand;
             CBigNum serial;
             bool isUsed = false;
-            CZerocoinMint mint(denom, value, rand, serial, isUsed);
+            CZerocoinMint mint(denom, value, rand, serial, isUsed, 1);
             listMints.push_back(mint);
         }
         mapDenom.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
@@ -172,7 +172,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test115)
             CBigNum rand;
             CBigNum serial;
             bool isUsed = false;
-            CZerocoinMint mint(denom, value, rand, serial, isUsed);
+            CZerocoinMint mint(denom, value, rand, serial, isUsed, 1);
             listMints.push_back(mint);
         }
         mapDenom.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
@@ -251,7 +251,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_245)
             CBigNum rand;
             CBigNum serial;
             bool isUsed = false;
-            CZerocoinMint mint(denom, value, rand, serial, isUsed);
+            CZerocoinMint mint(denom, value, rand, serial, isUsed, 1);
             listMints.push_back(mint);
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
@@ -348,7 +348,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test_from_145)
             CBigNum rand;
             CBigNum serial;
             bool isUsed = false;
-            CZerocoinMint mint(denom, value, rand, serial, isUsed);
+            CZerocoinMint mint(denom, value, rand, serial, isUsed, 1);
             listMints.push_back(mint);
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));
@@ -449,7 +449,7 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test99)
             CBigNum rand;
             CBigNum serial;
             bool isUsed = false;
-            CZerocoinMint mint(denom, value, rand, serial, isUsed);
+            CZerocoinMint mint(denom, value, rand, serial, isUsed, 1);
             listMints.push_back(mint);
         }
         mapOfDenomsHeld.insert(std::pair<CoinDenomination, CAmount>(denom, DenomAmounts[j]));

@@ -3,7 +3,7 @@
     <name>AddressBookPage</name>
     <message>
         <source>Right-click to edit address or label</source>
-        <translation>Rechts-Klick um Adresse oder Bezeichnung zu bearbeiten</translation>
+        <translation>Rechtsklick um Adresse oder Bezeichnung zu bearbeiten</translation>
     </message>
     <message>
         <source>Create a new address</source>
@@ -31,7 +31,7 @@
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Daten der aktuellen Ansicht in eine Datei exportieren</translation>
+        <translation>Daten aus der aktuellen Ansicht in eine Datei exportieren</translation>
     </message>
     <message>
         <source>&amp;Export</source>
@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Choose the address to send coins to</source>
-        <translation>Wählen Sie die Adresse aus, an die Sie Transcendence überweisen möchten</translation>
+        <translation>Wählen Sie die Adresse aus, an die Sie TELOS überweisen möchten</translation>
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Wählen Sie die Adresse aus, über die Sie Transcendence empfangen wollen</translation>
+        <translation>Wählen Sie die Adresse aus, über die Sie TELOS empfangen wollen</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -62,12 +62,12 @@
         <translation>Empfangsadressen</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Dies sind ihre Transcendence-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie Transcendence überweisen.</translation>
+        <source>These are your TELOS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Dies sind ihre TELOS-Adressen zum Tätigen von Überweisungen. Bitte prüfen Sie den Betrag und die Empfangsadresse, bevor Sie TELOS überweisen.</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Dies sind ihre Transcendence-Adressen zum Empfangen von Zahlungen. Es wird empfohlen für jede Transaktion eine neue Empfangsadresse zu verwenden.</translation>
+        <source>These are your TELOS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Dies sind ihre TELOS-Adressen zum Empfangen von Zahlungen. Es wird empfohlen für jede Transaktion eine neue Empfangsadresse zu verwenden.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Kommagetrennte-Datei (*.csv)</translation>
+        <translation>Kommagetrennte Datei (*.csv)</translation>
     </message>
     <message>
         <source>Exporting Failed</source>
@@ -95,7 +95,7 @@
     </message>
     <message>
         <source>There was an error trying to save the address list to %1. Please try again.</source>
-        <translation>Beim Speichern der Adressliste nach %1 ist ein Fehler aufgetreten. Bitte noch einmal versuchen.</translation>
+        <translation>Beim Speichern der Adressliste nach %1 ist ein Fehler aufgetreten. Bitte erneut versuchen.</translation>
     </message>
 </context>
 <context>
@@ -117,7 +117,7 @@
     <name>AskPassphraseDialog</name>
     <message>
         <source>Passphrase Dialog</source>
-        <translation>Passphrasendialog</translation>
+        <translation>Passphrase Dialog</translation>
     </message>
     <message>
         <source>Enter passphrase</source>
@@ -136,12 +136,12 @@
         <translation>Verhindert das einfache Überweisen von Geld, falls das Systemkonto kompromittiert wurde. Bietet keine wirkliche Sicherheit.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Nur zur Anonymisierung und "Staking"</translation>
+        <source>For anonymization, automint, and staking only</source>
+        <translation>Nur zur Anonymisierung, automatischen Prägung (automint) und Staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte benutzen Sie eine Passphrase bestehend aus &lt;b&gt;10 oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;8 oder mehr Wörtern&lt;/b&gt;.</translation>
+        <translation>Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte verwenden Sie eine Passphrase bestehend aus &lt;b&gt;10 oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;8 oder mehr Wörtern&lt;/b&gt;.</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
@@ -169,23 +169,23 @@
     </message>
     <message>
         <source>Enter the old and new passphrase to the wallet.</source>
-        <translation>Geben Sie die alte und neue Wallet-Passphrase ein.</translation>
+        <translation>Geben Sie die alte und neue Passphrase für die Wallet ein.</translation>
     </message>
     <message>
         <source>Confirm wallet encryption</source>
-        <translation>Wallet-Verschlüsselung bestätigen</translation>
+        <translation>Verschlüsselung der Wallet bestätigen</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
-        <translation>Die Anwendungs wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte beachten Sie, dass auch Verschlüsselung nicht nicht vollständig vor Diebstahl ihrer TRANSCENDENCEs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
+        <translation>Die Anwendung wird nun geschlossen um die Verschlüsselung abzuschließen. Bitte bedenken Sie, dass auch die Verschlüsselung nicht sicher vor Diebstahl ihrer PIVs durch Schadsoftware schützt, die ihren Computer befällt.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
-        <translation>Sind Sie sich sicher, dass Sie ihre Wallet verschlüsseln möchten?</translation>
+        <translation>Sind Sie sich sicher, dass Sie Ihre Wallet verschlüsseln möchten?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
-        <translation>Warnung: Wenn Sie ihre Wallet verschlüsseln und Ihre Passphrase verlieren werden Sie &lt;b&gt;alle ihre TRANSCENDENCEs verlieren&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Warnung: Wenn Sie Ihre Wallet verschlüsseln und Ihre Passphrase verlieren, &lt;b&gt;verlieren Sie alle ihre PIVs&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -197,35 +197,46 @@
     </message>
     <message>
         <source>Wallet encryption failed</source>
-        <translation>Wallet-Verschlüsselung fehlgeschlagen</translation>
+        <translation>Verschlüsselung der Wallet fehlgeschlagen</translation>
     </message>
     <message>
         <source>Wallet encryption failed due to an internal error. Your wallet was not encrypted.</source>
-        <translation>Die Wallet-Verschlüsselung ist aufgrund eines internen Fehlers fehlgeschlagen. Ihre Wallet wurde nicht verschlüsselt.</translation>
+        <translation>Die Verschlüsselung der Wallet ist aufgrund eines internen Fehlers fehlgeschlagen. Ihre Wallet wurde nicht verschlüsselt.</translation>
     </message>
     <message>
         <source>The supplied passphrases do not match.</source>
-        <translation>Die eingegebenen Passphrasen stimmen nicht überein.</translation>
+        <translation>Die eingegebenen Passphrases stimmen nicht überein.</translation>
     </message>
     <message>
         <source>Wallet unlock failed</source>
-        <translation>Wallet-Entsperrung fehlgeschlagen</translation>
+        <translation>Entsperrung der Wallet fehlgeschlagen</translation>
     </message>
     <message>
         <source>The passphrase entered for the wallet decryption was incorrect.</source>
-        <translation>Die eingegebene Passphrase zur Wallet-Entschlüsselung war nicht korrekt.</translation>
+        <translation>Die eingegebene Passphrase zur Entschlüsselung der Wallet ist nicht korrekt.</translation>
     </message>
     <message>
         <source>Wallet decryption failed</source>
-        <translation>Wallet-Entschlüsselung fehlgeschlagen</translation>
+        <translation>Entschlüsselung der Wallet fehlgeschlagen</translation>
     </message>
     <message>
         <source>Wallet passphrase was successfully changed.</source>
-        <translation>Die Wallet-Passphrase wurde erfolgreich geändert.</translation>
+        <translation>Die Passphrase der Wallet wurde erfolgreich geändert.</translation>
     </message>
     <message>
         <source>Warning: The Caps Lock key is on!</source>
         <translation>Warnung: Die Feststelltaste ist aktiviert!</translation>
+    </message>
+</context>
+<context>
+    <name>BanTableModel</name>
+    <message>
+        <source>IP/Netmask</source>
+        <translation>IP/Netzmaske</translation>
+    </message>
+    <message>
+        <source>Banned Until</source>
+        <translation>Gesperrt bis</translation>
     </message>
 </context>
 <context>
@@ -239,16 +250,16 @@
         <translation>&amp;BIP 38 Verschlüsselung</translation>
     </message>
     <message>
-        <source>Enter a Transcendence Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Gib eine Transcendence Adresse ein welche mit BIP 38 verschlüsselt werden soll. Gib ein Passwort in die mittleren Box ein. Drücke auf verschlüsseln, um den privaten schlüssel zu errechenen.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Adresse:</translation>
     </message>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Transcendence Adresse mit welcher die Nachricht signiert werden soll</translation>
+        <source>Enter a TELOS Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Bitte die TELOS-Adresse eingeben, welche mittels BIP 38 verschlüsselt werden soll. Bitte ein Passwort in die mittlere Box eintragen. Klicken Sie auf "Verschlüsslen" um den privaten Schlüssel zu generieren.</translation>
+    </message>
+    <message>
+        <source>The TELOS address to encrypt</source>
+        <translation>Die zu verschlüsselnde TELOS-Adresse</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -276,19 +287,27 @@
     </message>
     <message>
         <source>Copy the current signature to the system clipboard</source>
-        <translation>Kopiert die aktuelle Signatur in den Zwischenspeicher</translation>
+        <translation>Kopiert die aktuelle Signatur in die Zwischenablage</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Signiere die Nachricht um zu Beweisen, dass du diese Transcendence Adresse besitzt</translation>
+        <source>Encrypt the private key for this TELOS address</source>
+        <translation>Den privaten Schlüssel für diese TELOS-Adresse verschlüsseln</translation>
+    </message>
+    <message>
+        <source>Reset all fields</source>
+        <translation>Alle Felder zurücksetzen</translation>
+    </message>
+    <message>
+        <source>The encrypted private key</source>
+        <translation>Der verschlüsselte private Schlüssel</translation>
+    </message>
+    <message>
+        <source>Decrypt the entered key using the passphrase</source>
+        <translation>Den eigegebenen Schlüssel mittels Passwort entschlüsseln</translation>
     </message>
     <message>
         <source>Encrypt &amp;Key</source>
         <translation>Verschlüsselt &amp;Schlüssel</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Setze alle signierten Nachrichten Felder zurück</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -300,23 +319,11 @@
     </message>
     <message>
         <source>Enter the BIP 38 encrypted private key. Enter the passphrase in the middle box. Click Decrypt Key to compute the private key. After the key is decrypted, clicking 'Import Address' will add this private key to the wallet.</source>
-        <translation>Geben Sie den BIP 38 verschlüsselten privaten Schlüssel ein. Geben Sie die Passphrase im mittleren Feld ein. Klicken Sie auf Entschlüsselung, um den privaten Schlüssel zu berechnen. Nachdem der Schlüssel entschlüsselt wurde, klicken Sie auf 'Adresse importieren', fügen Sie diesen privaten Schlüssel der Wallet hinzu.</translation>
-    </message>
-    <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Die Transcendence Adresse mit welcher die Nachricht signiert wurde.</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Überprüfen Sie die Nachricht, um sicherzustellen, dass sie mit der angegebenen Transcendence-Adresse signiert wurde.</translation>
+        <translation>Geben Sie den BIP 38 verschlüsselten privaten Schlüssel ein. Geben Sie die Passphrase in das mittlere Feld ein. Klicken Sie auf 'Entschlüsseln', um den privaten Schlüssel zu berechnen. Nach erfolgreicher Entschlüsselung, wird durch Klicken auf 'Adresse importieren' dieser private Schlüssel der Wallet hinzugefügt.</translation>
     </message>
     <message>
         <source>Decrypt &amp;Key</source>
         <translation>Entschlüsseln &amp;Schlüssel</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Zurücksetzen aller überprüften Felder.</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -348,15 +355,15 @@
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>Die eingegebene Adresse passt nicht zu einem Schlüssel</translation>
+        <translation>Die eingegebene Adresse passt zu keinem Schlüssel</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Wallet-Entsperrung wurde abgebrochen.</translation>
+        <translation>Entsperrung der Wallet wurde abgebrochen.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
-        <translation>Privater Schlüssel für die eingegebene Adresse ist nicht verfügbar</translation>
+        <translation>Kein privater Schlüssel für die eingegebene Adresse verfügbar</translation>
     </message>
     <message>
         <source>Failed to decrypt.</source>
@@ -364,15 +371,15 @@
     </message>
     <message>
         <source>Please check the key and passphrase and try again.</source>
-        <translation>Bitte überprüfe den Schlüssel und die Passphrase und versuche es erneut.</translation>
+        <translation>Bitte überprüfen Sie den Schlüssel und die Passphrase und versuchen Sie es erneut.</translation>
     </message>
     <message>
         <source>Data Not Valid.</source>
-        <translation>Daten fehlerhaft</translation>
+        <translation>Daten ungültig.</translation>
     </message>
     <message>
         <source>Please try again.</source>
-        <translation>Bitte versuche es noch einmal</translation>
+        <translation>Bitte versuchen Sie es erneut.</translation>
     </message>
     <message>
         <source>Please wait while key is imported</source>
@@ -380,15 +387,15 @@
     </message>
     <message>
         <source>Key Already Held By Wallet</source>
-        <translation>Schlüssel bereits im Wallet vorhanden</translation>
+        <translation>Schlüssel bereits in der Wallet vorhanden</translation>
     </message>
     <message>
         <source>Error Adding Key To Wallet</source>
-        <translation>Fehler beim hinzufügen des Schlüssels zum Wallet</translation>
+        <translation>Fehler beim Hinzufügen des Schlüssels zur Wallet</translation>
     </message>
     <message>
         <source>Successfully Added Private Key To Wallet</source>
-        <translation>Erfolgreiches hinzufügen eines privaten Schlüssels zum Wallet</translation>
+        <translation>Privater Schlüssel erfolgreich zur Wallet hinzugefügt</translation>
     </message>
 </context>
 <context>
@@ -399,7 +406,7 @@
     </message>
     <message>
         <source>Node</source>
-        <translation>Knoten</translation>
+        <translation>Node</translation>
     </message>
     <message>
         <source>&amp;Overview</source>
@@ -407,7 +414,7 @@
     </message>
     <message>
         <source>Show general overview of wallet</source>
-        <translation>Allgemeine Wallet-Übersicht anzeigen</translation>
+        <translation>Gesamtübersicht der Wallet anzeigen</translation>
     </message>
     <message>
         <source>&amp;Send</source>
@@ -423,7 +430,11 @@
     </message>
     <message>
         <source>Browse transaction history</source>
-        <translation>Transaktionsverlauf durchsehen</translation>
+        <translation>Transaktionsverlauf durchsuchen</translation>
+    </message>
+    <message>
+        <source>Privacy Actions for zTELOS</source>
+        <translation>Datenschutzmaßnahmen für zTELOS</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -459,7 +470,7 @@
     </message>
     <message>
         <source>Encrypt the private keys that belong to your wallet</source>
-        <translation>Verschlüsselt die zu ihrer Wallet gehörenden privaten Schlüssel</translation>
+        <translation>Verschlüsselt die zu Ihrer Wallet gehörenden privaten Schlüssel</translation>
     </message>
     <message>
         <source>&amp;Backup Wallet...</source>
@@ -467,7 +478,7 @@
     </message>
     <message>
         <source>Backup wallet to another location</source>
-        <translation>Eine Wallet-Sicherungskopie erstellen und abspeichern</translation>
+        <translation>Sicherung der Wallet an einem anderen Ort speichern</translation>
     </message>
     <message>
         <source>&amp;Change Passphrase...</source>
@@ -475,7 +486,7 @@
     </message>
     <message>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation>Ändert die Passphrase, die für die Wallet-Verschlüsselung benutzt wird</translation>
+        <translation>Ändert die Passphrase, die für die Verschlüsselung der Wallet benutzt wird</translation>
     </message>
     <message>
         <source>&amp;Unlock Wallet...</source>
@@ -491,11 +502,11 @@
     </message>
     <message>
         <source>Sign &amp;message...</source>
-        <translation>Nachricht s&amp;ignieren...</translation>
+        <translation>Nachricht &amp;signieren...</translation>
     </message>
     <message>
         <source>&amp;Verify message...</source>
-        <translation>Nachricht prüfen...</translation>
+        <translation>&amp;Nachricht prüfen...</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -566,6 +577,30 @@
         <translation>Liste verwendeter Empfangsadressen und Bezeichnungen anzeigen</translation>
     </message>
     <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;Mehrfachsignatur erstellen...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>Erstelle eine neue mehrfach signierte Adresse und füge sie diesem Wallet hinzu</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;Mehrfachsignatur überweisen...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>Von einer mehrfach signierten Adresse überweisen</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;Mehrfachsignatur signieren...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>Signiere mit einer mehrfach signierten Adresse</translation>
+    </message>
+    <message>
         <source>Open &amp;URI...</source>
         <translation>&amp;URI öffnen...</translation>
     </message>
@@ -573,13 +608,21 @@
         <source>&amp;Command-line options</source>
         <translation>&amp;Kommandozeilenoptionen</translation>
     </message>
-    <message numerus="yes">
-        <source>Processed %n blocks of transaction history.</source>
-        <translation><numerusform>%n Block des Transaktionsverlaufs verarbeitet.</numerusform><numerusform>%n Blöcke des Transaktionsverlaufs verarbeitet.</numerusform></translation>
-    </message>
     <message>
         <source>Synchronizing additional data: %p%</source>
         <translation>Synchronisiere zusätzliche Daten:  %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 im Rückstand. Scanne Block %2</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonymization and staking only</source>
+        <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell nur zum Anonymisieren und "staking"&lt;b&gt;entsperrt&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <source>Tor is &lt;b&gt;enabled&lt;/b&gt;: %1</source>
+        <translation>Tor ist &lt;b&gt;aktiviert&lt;/b&gt;: %1</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -602,12 +645,12 @@
         <translation>Registerkartenleiste</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
-        <source>Send coins to a Transcendence address</source>
-        <translation>An eine Transcendence-Adresse überweisen</translation>
+        <source>Send coins to a TELOS address</source>
+        <translation>An eine TELOS-Adresse überweisen</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and transcendence: URIs)</source>
@@ -618,10 +661,6 @@
         <translation>&amp;Privatsphäre</translation>
     </message>
     <message>
-        <source>Privacy Action for zTELOS and Obfuscation</source>
-        <translation>Privatsphäre Aktion für zTELOS und Verschleierung</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Masternodes</translation>
     </message>
@@ -630,28 +669,32 @@
         <translation>Masternodes durchsuchen</translation>
     </message>
     <message>
-        <source>&amp;About Transcendence Core</source>
-        <translation>Über.Transcendence Core</translation>
+        <source>&amp;About TELOS Core</source>
+        <translation>Über TELOS Core</translation>
     </message>
     <message>
-        <source>Show information about Transcendence Core</source>
-        <translation>Zeigt Informationen über Transcendence Core</translation>
+        <source>Show information about TELOS Core</source>
+        <translation>Zeigt Informationen über TELOS Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for Transcendence</source>
-        <translation>Konfiguration von Transcendence verändern</translation>
+        <source>Modify configuration options for TELOS</source>
+        <translation>Konfiguration von TELOS verändern</translation>
     </message>
     <message>
-        <source>Sign messages with your Transcendence addresses to prove you own them</source>
-        <translation>Unterschreibt eine Nachricht mit Ihrer Transcendence-Adresse und beweist, dass sie Ihnen gehört</translation>
+        <source>Sign messages with your TELOS addresses to prove you own them</source>
+        <translation>Unterschreibt eine Nachricht mit Ihrer TELOS-Adresse und beweist, dass sie Ihnen gehört</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Transcendence addresses</source>
-        <translation>Überprüft eine Nachricht um zu prüfen ob diese mit einer bestimmten Transcendence-Adresse signiert wurde</translation>
+        <source>Verify messages to ensure they were signed with specified TELOS addresses</source>
+        <translation>Überprüft eine Nachricht um zu prüfen ob diese mit einer bestimmten TELOS-Adresse signiert wurde</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
         <translation>&amp;BIP38 Hilfsprogramm</translation>
+    </message>
+    <message>
+        <source>Encrypt and decrypt private keys using a passphrase</source>
+        <translation>Den eigegebenen Schlüssel mittels Passwort entschlüsseln</translation>
     </message>
     <message>
         <source>&amp;MultiSend</source>
@@ -674,8 +717,8 @@
         <translation>Öffne Masternode Einstellungsdatei</translation>
     </message>
     <message>
-        <source>Open a Transcendence: URI or payment request</source>
-        <translation>Öffne eine Transcendence: URI or Zahlungsanfrage</translation>
+        <source>Open a TELOS: URI or payment request</source>
+        <translation>Öffne eine TELOS: URI oder Zahlungsanfrage</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -686,16 +729,12 @@
         <translation>Blockchain Betrachter Fenster</translation>
     </message>
     <message>
-        <source>Show the Transcendence Core help message to get a list with possible Transcendence command-line options</source>
-        <translation>Zeige die Transcendence-Core Hilfe, um mögliche Transcendence Kommando-Zeilen-Optionen anzuzeigen</translation>
+        <source>Show the TELOS Core help message to get a list with possible TELOS command-line options</source>
+        <translation>Zeige die TELOS-Core Hilfe, um mögliche TELOS Kommando-Zeilen-Optionen anzuzeigen</translation>
     </message>
     <message>
-        <source>Transcendence Core client</source>
-        <translation>Transcendence Core Client</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n active connection(s) to Transcendence network</source>
-        <translation><numerusform>%n aktive Verbindung zum Transcendence Netzwerk</numerusform><numerusform>%n aktive Verbindungen zum Transcendence Netzwerk</numerusform></translation>
+        <source>TELOS Core client</source>
+        <translation>TELOS Core Client</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -717,29 +756,9 @@
         <source>Up to date</source>
         <translation>Auf aktuellem Stand</translation>
     </message>
-    <message numerus="yes">
-        <source>%n hour(s)</source>
-        <translation><numerusform>%n Stunde</numerusform><numerusform>%n Stunden</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n day(s)</source>
-        <translation><numerusform>%n Tag</numerusform><numerusform>%n Tage</numerusform></translation>
-    </message>
-    <message numerus="yes">
-        <source>%n week(s)</source>
-        <translation><numerusform>%n Woche</numerusform><numerusform>%n Wochen</numerusform></translation>
-    </message>
     <message>
         <source>%1 and %2</source>
         <translation>%1 und %2</translation>
-    </message>
-    <message numerus="yes">
-        <source>%n year(s)</source>
-        <translation><numerusform>%n Jahr</numerusform><numerusform>%n Jahre</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 im Rückstand</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -800,7 +819,7 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>Not Active</source>
-        <translation>Nicht Aktiv</translation>
+        <translation>Nicht aktiv</translation>
     </message>
     <message>
         <source>Staking is not active
@@ -809,18 +828,22 @@ Adresse: %4</translation>
  MultiSend: %1</translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
-        <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;entsperrt&lt;/b&gt;</translation>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Automatisches Prägen ist aktiv und eingestellt auf </translation>
     </message>
     <message>
-        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt; for anonimization and staking only</source>
-        <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell nur zum Anonymisieren und "staking"&lt;b&gt;entsperrt&lt;/b&gt;</translation>
+        <source>AutoMint is disabled</source>
+        <translation>Automatisches Prägen ist deaktiviert</translation>
+    </message>
+    <message>
+        <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
+        <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;entsperrt&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;locked&lt;/b&gt;</source>
         <translation>Wallet ist &lt;b&gt;verschlüsselt&lt;/b&gt; und aktuell &lt;b&gt;gesperrt&lt;/b&gt;</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>BlockExplorer</name>
     <message>
@@ -848,8 +871,8 @@ Adresse: %4</translation>
         <translation>TextEtikett</translation>
     </message>
     <message>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (transcendence.conf).</source>
-        <translation>Nicht alle Transaktionen können anzezeigt werden. Um alle Transaktionen zu sehen, müssen sie die Option  "txindex=1" in der "transcendence.conf" Konfigurationsdatei hinzufügen.</translation>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pivx.conf).</source>
+        <translation>Nicht alle Transaktionen können anzezeigt werden. Um alle Transaktionen zu sehen, müssen sie die Option  "txindex=1" in der "pivx.conf" Konfigurationsdatei hinzufügen.</translation>
     </message>
 </context>
 <context>
@@ -934,6 +957,10 @@ Adresse: %4</translation>
         <translation>Empfangen mit Adresse</translation>
     </message>
     <message>
+        <source>Type</source>
+        <translation>Art</translation>
+    </message>
+    <message>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
@@ -975,11 +1002,11 @@ Adresse: %4</translation>
     </message>
     <message>
         <source>Copy quantity</source>
-        <translation>Kopiere Anzahl</translation>
+        <translation>Anzahl kopieren</translation>
     </message>
     <message>
         <source>Copy fee</source>
-        <translation>Kopiere Gebühr</translation>
+        <translation>Gebühr kopieren</translation>
     </message>
     <message>
         <source>Copy after fee</source>
@@ -1020,10 +1047,6 @@ Adresse: %4</translation>
     <message>
         <source>medium-high</source>
         <translation>mittel-hoch</translation>
-    </message>
-    <message>
-        <source>Can vary +/- %1 duff(s) per input.</source>
-        <translation>Kann um +/- %1 Abzug(s) pro Eingang variieren.</translation>
     </message>
     <message>
         <source>medium</source>
@@ -1086,6 +1109,10 @@ Adresse: %4</translation>
         <translation>Diese Bezeichnung wird rot, wenn ein Empfänger einen Betrag erhält, der kleiner ist als %1.</translation>
     </message>
     <message>
+        <source>Can vary +/- %1 upiv per input.</source>
+        <translation>Kann um +/- %1 upiv pro Eingang variieren.</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(keine Bezeichnung)</translation>
     </message>
@@ -1137,8 +1164,8 @@ Adresse: %4</translation>
         <translation>Zahlungsadresse bearbeiten</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid Transcendence address.</source>
-        <translation>Die eingegebene Adresse "%1" ist keine gültige Transcendence-Adresse.</translation>
+        <source>The entered address "%1" is not a valid TELOS address.</source>
+        <translation>Die eingegebene Adresse "%1" ist keine gültige TELOS-Adresse.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1177,22 +1204,33 @@ Adresse: %4</translation>
     </message>
 </context>
 <context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Formular</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
         <source>version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-Bit)</translation>
     </message>
     <message>
-        <source>About Transcendence Core</source>
-        <translation>Über Transcendence Core</translation>
+        <source>About TELOS Core</source>
+        <translation>Über TELOS Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1238,16 +1276,16 @@ Adresse: %4</translation>
         <translation>Willkommen</translation>
     </message>
     <message>
-        <source>Welcome to Transcendence Core.</source>
-        <translation>Willkommen zu Transcendence Core.</translation>
+        <source>Welcome to TELOS Core.</source>
+        <translation>Willkommen zu TELOS Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where Transcendence Core will store its data.</source>
-        <translation>Da dies das erste Mal ist, dass Sie Transcendence Core starten, legen Sie jetzt bitte fest, an welchem Ort die Daten gespeichert werden sollen.</translation>
+        <source>As this is the first time the program is launched, you can choose where TELOS Core will store its data.</source>
+        <translation>Da dies das erste Mal ist, dass Sie TELOS Core starten, legen Sie jetzt bitte fest, an welchem Ort die Daten gespeichert werden sollen.</translation>
     </message>
     <message>
-        <source>Transcendence Core will download and store a copy of the Transcendence block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>Transcendence Core wird die Blockchain laden und lokal speichern. Dafür sind mindestens %1GB freier Speicherplatz erforderlich. Der Speicherbedarf wird mit der Zeit anwachsen. Die Wallet wird ebenfalls in diesem Verzeichnis gespeichert.</translation>
+        <source>TELOS Core will download and store a copy of the TELOS block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>TELOS Core wird die Blockchain laden und lokal speichern. Dafür sind mindestens %1GB freier Speicherplatz erforderlich. Der Speicherbedarf wird mit der Zeit anwachsen. Die Wallet wird ebenfalls in diesem Verzeichnis gespeichert.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1258,8 +1296,8 @@ Adresse: %4</translation>
         <translation>Ein benutzerdefiniertes Datenverzeichnis verwenden:</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1285,12 +1323,12 @@ Adresse: %4</translation>
         <translation>Formular</translation>
     </message>
     <message>
-        <source>My Masternodes</source>
-        <translation>Meine Masternodes</translation>
+        <source>MASTERNODES</source>
+        <translation>MASTERNODES</translation>
     </message>
     <message>
         <source>Note: Status of your masternodes in local wallet can potentially be slightly incorrect.&lt;br /&gt;Always wait for wallet to sync additional data and then double check from another node&lt;br /&gt;if your node should be running but you still see "MISSING" in "Status" field.</source>
-        <translation>Achtung: Der Status Ihrer Masternodes kann in der lokalen Wallet leicht inkorrekt sein. &lt;br /&gt;Warten Sie immer bis die Wallet vollständig synchronisiert ist und überprüfen Sie von einer anderen Installation aus&lt;br /&gt;, sollte Ihre Masternode immer noch als "MISSING" angezeigt werden.</translation>
+        <translation>Hinweis: Der Status Ihrer Masternodes kann in der lokalen Wallet möglicherweise falsch sein.&lt;br /&gt;Warten Sie, bis die Wallet zusätzliche Daten synchronisiert hat. Wenn Ihr Node läuft,&lt;br /&gt;aber trotzdem "MISSING" im Feld "Status" steht, überprüfen Sie den Status von einem anderen Knoten aus.</translation>
     </message>
     <message>
         <source>Alias</source>
@@ -1396,12 +1434,12 @@ Adresse: %4</translation>
         <translation>Zieladresse eingeben</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Transcendence addresses after it matures.
-To Add: enter percentage to give and Transcendence address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other TELOS addresses after it matures.
+To Add: enter percentage to give and TELOS address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiSend ermöglicht es automatisch bis zu 100% Ihrer Stake- oder Masternode-Belohnung zu einer Liste von anderen Transcendence-Adressen zu senden.
-Zum hinzufügen: Gebe den Prozentsätze ein, um die Transcendence-Adressen des MultiSend-Vektor hinzuzufügen.
+        <translation>MultiSend ermöglicht es automatisch bis zu 100% Ihrer Stake- oder Masternode-Belohnung zu einer Liste von anderen TELOS-Adressen zu senden.
+Zum hinzufügen: Gebe den Prozentsätze ein, um die TELOS-Adressen des MultiSend-Vektor hinzuzufügen.
 Zum entfernen: Gebe die zu löschende Adresse ein und drücke löschen.
 MultiSend wird nicht aktiviert bis Sie auf Aktivieren geklickt haben.</translation>
     </message>
@@ -1439,11 +1477,19 @@ MultiSend wird nicht aktiviert bis Sie auf Aktivieren geklickt haben.</translati
     </message>
     <message>
         <source>Address to send portion of stake to</source>
-        <translation>Adresse zum senden Teil des Staken an</translation>
+        <translation>Adresse an die der Staking-Anteil gesendet wird</translation>
     </message>
     <message>
         <source>Address:</source>
         <translation>Adresse:</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Bezeichnung:</translation>
+    </message>
+    <message>
+        <source>Enter a label for this address to add it to your address book</source>
+        <translation>Adressbezeichnung eingeben, diese wird zusammen mit der Adresse dem Adressbuch hinzugefügt</translation>
     </message>
     <message>
         <source>Delete Address From MultiSend Vector</source>
@@ -1478,109 +1524,183 @@ MultiSend wird nicht aktiviert bis Sie auf Aktivieren geklickt haben.</translati
         <translation>Für Masternode Rewards versenden</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Die eingegebene Adresse:
-</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>ist ungültig.
-Bitte Adresse überprüfen und nochmals versuchen.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>Die Gesamtzahl des MultiSend Vektors ist über 100% des Stake Rewards
-</translation>
+        <source>(no label)</source>
+        <translation>(keine Bezeichnung)</translation>
     </message>
     <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Bitte eine Zahl zwischen 1-100 in Prozent eingeben.</translation>
     </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend Vektor
-</translation>
-    </message>
-    <message>
-        <source>Removed </source>
-        <translation>Gelöscht</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Konnte Adresse nicht ermitteln
-</translation>
-    </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     <message>
-        <source>Configure Obfuscation</source>
-        <translation>Verschleierung konfigurieren</translation>
+        <source>Multisignature Address Interactions</source>
+        <translation>Mehrfachsignatur- und Adressinteraktionen</translation>
     </message>
     <message>
-        <source>Basic Privacy</source>
-        <translation>Geringe Privatsphäre</translation>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>Erstelle Mehrfachsignatur $Address</translation>
     </message>
     <message>
-        <source>High Privacy</source>
-        <translation>Hohe Privatsphäre</translation>
+        <source>How many people must sign to verify a transaction</source>
+        <translation>Wie viele Personen müssen diese Transaktion signieren um Sie zu verifizieren?</translation>
     </message>
     <message>
-        <source>Maximum Privacy</source>
-        <translation>Maximale Privatsphäre</translation>
+        <source>Enter the minimum number of signatures required to sign transactions</source>
+        <translation>Anzahl der minimal benötigten Signierungen um Transaktionen zu signieren.</translation>
     </message>
     <message>
-        <source>Please select a privacy level.</source>
-        <translation>Bitte den gewünschten Privatsphäre Level auswählen.</translation>
+        <source>Address Label:</source>
+        <translation>Adressbezeichnung:</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
-        <translation>2 separate Masternodes verwenden um bis zu 10000 TRANSCENDENCE zu mixen</translation>
+        <source>Add another address that could sign to verify a transaction from the multisig address.</source>
+        <translation>Berechtige eine weitere Adresse, eine Signatur zur Verifikation einer Transaktion von einer mehrfach signierten Adresse zu leisten.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
-        <translation>8 separate Masternodes verwenden um bis zu 10000 TRANSCENDENCE zu mixen</translation>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;Füge Adresse / Schlüssel hinzu</translation>
     </message>
     <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>16 separate Masternodes verwenden</translation>
+        <source>Local addresses or public keys that can sign:</source>
+        <translation>Lokale Adressen oder öffentliche Schlüssel die Signieren dürfen:</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
-        <translation>Diese Option ist die schnellst und kostet ungefähr ~0.025 TRANSCENDENCE um 10000 TRANSCENDENCE zu anonymisieren </translation>
+        <source>Create a new multisig address</source>
+        <translation>Erstelle eine neue Mehrfachsignatur-Adresse</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
-        <translation>Diese Option ist angemessen schnell und kostet ungefähr  0.05 TRANSCENDENCE um 10000 TRANSCENDENCE zu anonymisieren</translation>
+        <source>C&amp;reate</source>
+        <translation>C&amp;reate</translation>
     </message>
     <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Diese Option ist die langsamste und sicherste Option. Die Verwendung maximaler Anonymisierung kostet</translation>
+        <source>Status:</source>
+        <translation>Status:</translation>
     </message>
     <message>
-        <source>0.1 TRANSCENDENCE per 10000 TRANSCENDENCE you anonymize.</source>
-        <translation>0.1 TRANSCENDENCE per 10000 TRANSCENDENCE die anonymisiert werden.</translation>
+        <source>Use below to quickly import an address by its redeem. Don't forget to add a label before clicking import!
+Keep in mind, the wallet will rescan the blockchain to find transactions containing the new address.
+Please be patient after clicking import.</source>
+        <translation>Verwenden Sie unten, um eine Adresse schnell zu importieren, indem Sie sie einlösen. Vergessen Sie nicht, eine Beschriftung hinzuzufügen, bevor Sie auf Importieren klicken! 
+Beachten Sie, dass die Brieftasche die Blockchain erneut scannt, um Transaktionen zu finden, die die neue Adresse enthalten
+Bitte haben Sie etwas Geduld, nachdem Sie auf Importieren geklickt haben.</translation>
     </message>
     <message>
-        <source>Obfuscation Configuration</source>
-        <translation>Verschleierungskonfiguration</translation>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp; Importieren einlösen</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Transcendence's configuration screen.</source>
-        <translation>Verschleierung erfolgreich auf normal gesetzt (%1 und 2 Runden). Sie können dies jederzeit in den Transcendences Konfigurationen ändern.</translation>
+        <source>&amp;Create MultiSignature Tx</source>
+        <translation>&amp;Erstelle eine mehrfach signierte Transaktion </translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Transcendence's configuration screen.</source>
-        <translation>Verschleierung erfolgreich auf hohen gesetzt (%1 und 8 Runden). Sie können dies jederzeit in den Transcendences Konfigurationen ändern.</translation>
+        <source>Inputs:</source>
+        <translation>Eingaben:</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Transcendence's configuration screen.</source>
-        <translation>Verschleierung erfolgreich auf maximal gesetzt (%1 und 16 Runden). Sie können dies jederzeit in den Transcendences Konfigurationen ändern.</translation>
+        <source>Coin Control</source>
+        <translation>Coinverwaltung</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Menge ausgewählt:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Betrag:</translation>
+    </message>
+    <message>
+        <source>Add an input to fund the outputs</source>
+        <translation>Füge eine Eingabe hinzu damit die Ausgabe finanziert wird.</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation>Füge eine rohe Eingabe hinzu</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>Adresse / Menge:</translation>
+    </message>
+    <message>
+        <source>Add destinations to send TELOS to</source>
+        <translation>Füge Transaktionsziele für TELOS-Überweisung hinzu</translation>
+    </message>
+    <message>
+        <source>Add &amp;Destination</source>
+        <translation>Füge &amp;Transaktionsziel hinzu</translation>
+    </message>
+    <message>
+        <source>Create a transaction object using the given inputs to the given outputs</source>
+        <translation>Erstelle eine Transaktion mit den gegeben Eingaben zu den angegebenen Zielen.</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>Erzeuge</translation>
+    </message>
+    <message>
+        <source>&amp;Sign MultiSignature Tx</source>
+        <translation>&amp;Signiere mehrfach signierte Transaktion</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaktionsschlüssel HEX:</translation>
+    </message>
+    <message>
+        <source>Sign the transaction from this wallet or from provided private keys</source>
+        <translation>Signiere eine Transaktion von diesem Wallet oder von bereitgestellten privaten Schlüsseln.</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>Unterschreiben</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;DISABLED until transaction has been signed enough times.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; DEAKTIVIERT bis die Transaktion entsprechend oft signiert wurde.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Co&amp;mmit</source>
+        <translation>Co&amp;mmit</translation>
+    </message>
+    <message>
+        <source>Add private keys to sign the transaction with</source>
+        <translation>Füge private Schlüssel zum signieren der Transaktion hinzu</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>Füge privaten &amp;Key hinzu</translation>
+    </message>
+    <message>
+        <source>Sign with only private keys (Not Recommened)</source>
+        <translation>Nur mit privaten Schlüsseln signieren (Nicht empfohlen)</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>Ungültiger Transaktions-Hash.</translation>
+    </message>
+    <message>
+        <source>Vout position must be positive.</source>
+        <translation>Vout-Position muss positiv sein.</translation>
+    </message>
+    <message>
+        <source>Maximum possible addresses reached. (15)</source>
+        <translation>Maximale Anzahl möglicher Adressen erreicht. (15)</translation>
+    </message>
+    <message>
+        <source>Vout Position: </source>
+        <translation>Vout Position:</translation>
+    </message>
+    <message>
+        <source>Amount: </source>
+        <translation>Menge:</translation>
+    </message>
+    <message>
+        <source>Maximum (15)</source>
+        <translation>Maximum (15)</translation>
     </message>
 </context>
 <context>
@@ -1641,8 +1761,8 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Wenn Sie das Ausgeben von unbestätigten Wechselgeld deaktivieren, so kann das Wechselgeld von einer Transaktion &lt;br/&gt;nicht verwendet werden, bis mindestens eine Bestätigung vorliegt.&lt;br/&gt;Dies hat auch Auswirkungen auf ihre Bilanzberechnung.</translation>
     </message>
     <message>
-        <source>Automatically open the Transcendence client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatisches öffnen des Transcendence-Client-Port im Router. Dies funktioniert nur, wenn ihr Router UPnP unterstützt und es eingeschaltet ist.</translation>
+        <source>Automatically open the TELOS client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatisches öffnen des TELOS-Client-Port im Router. Dies funktioniert nur, wenn ihr Router UPnP unterstützt und es eingeschaltet ist.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1661,12 +1781,12 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>Experte</translation>
     </message>
     <message>
-        <source>Automatically start Transcendence after logging in to the system.</source>
-        <translation>Transcendence automatisch nach dem Login starten.</translation>
+        <source>Automatically start TELOS after logging in to the system.</source>
+        <translation>TELOS automatisch nach dem Login starten.</translation>
     </message>
     <message>
-        <source>&amp;Start Transcendence on system login</source>
-        <translation>Transcendence automatisch beim System Login &amp;starten.</translation>
+        <source>&amp;Start TELOS on system login</source>
+        <translation>TELOS automatisch beim System Login &amp;starten.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1693,38 +1813,50 @@ Bitte Adresse überprüfen und nochmals versuchen.</translation>
         <translation>&amp;Netzwerk</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Transcendence.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting TELOS.</source>
         <translation>Die Sprache der Benutzeroberfläche kann hier festgelegt werden. Diese Einstellung wird nach einem Neustart realisiert.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/transcendence-project/transcendence-project-translations</source>
+https://www.transifex.com/pivx-project/pivx-project-translations</source>
         <translation>Sprache fehlt oder ist unvollständig? Helfe mit und trage zur Übersetzung bei unter:
-https://www.transifex.com/transcendence-project/transcendence-project-translations</translation>
+https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Port mit &amp;UPnP mappen</translation>
     </message>
     <message>
-        <source>Percentage of incoming TRANSCENDENCE which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
-        <translation>Anteil des eingehenden TRANSCENDENCE, welcher automatisch zu zTELOS via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
+        <source>Enable automatic minting of TELOS units to zTELOS</source>
+        <translation>Aktivieren Sie die automatische Prägung von TELOS-Einheiten zu zTELOS</translation>
+    </message>
+    <message>
+        <source>Enable zTELOS Automint</source>
+        <translation>Aktivieren Sie zTELOS Automint</translation>
+    </message>
+    <message>
+        <source>Percentage of incoming TELOS which get automatically converted to zTELOS via Zerocoin Protocol (min: 10%)</source>
+        <translation>Anteil des eingehenden TELOS, welcher automatisch zu zTELOS via Zerocoin Protokoll konvertiert wird (min: 10%)</translation>
     </message>
     <message>
         <source>Percentage of autominted zTELOS</source>
         <translation>Prozentsatz der automatisierten zTELOS</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough TRANSCENDENCE for this denomination is available</source>
-        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend TRANSCENDENCE für diese Stückelung verfügbar ist</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough TELOS for this denomination is available</source>
+        <translation>Warte mit automatischer Konvertierung zu Zerocoin, bis genügend TELOS für diese Stückelung verfügbar ist</translation>
     </message>
     <message>
         <source>Preferred Automint zTELOS Denomination</source>
         <translation>Bevorzugte automatisierte zTELOS Stückelung </translation>
     </message>
     <message>
-        <source>Connect to the Transcendence network through a SOCKS5 proxy.</source>
-        <translation>Durch einen SOCKS5 Proxy mit dem Transcendence Netzwerk verbinden.</translation>
+        <source>Stake split threshold:</source>
+        <translation>Staff Split-Schwelle:</translation>
+    </message>
+    <message>
+        <source>Connect to the TELOS network through a SOCKS5 proxy.</source>
+        <translation>Durch einen SOCKS5 Proxy mit dem TELOS Netzwerk verbinden.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1775,10 +1907,6 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Benutzeroberfläche Motiv:</translation>
     </message>
     <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Einheit des Betrags anzeigen in:</translation>
-    </message>
-    <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Wähle die Standardunterteilungseinheit, um sie auf der Oberfläche anzuzeigen und wenn Coins gesendet werden.</translation>
     </message>
@@ -1787,8 +1915,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Dezimalstellen</translation>
     </message>
     <message>
+        <source>Hide empty balances</source>
+        <translation>Leere Salden ausblenden</translation>
+    </message>
+    <message>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
-        <translation>Drittpartei URLs (z.B. Blockexplorer) die auf der Registerkarte Transaktionen als Kontextmenü erscheinen.. %s in der URL wird durch den Transaktionshash ersetzt. Mehrere URLs sind durch vertikale Balken | getrennt.</translation>
+        <translation>Drittpartei URLs (z.B. Blockexplorer) die auf der Registerkarte Transaktionen als Kontextmenü erscheinen. %s in der URL wird durch den Transaktionshash ersetzt. Mehrere URLs sind durch vertikale Balken | getrennt.</translation>
     </message>
     <message>
         <source>Third party transaction URLs</source>
@@ -1815,8 +1947,8 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>&amp;Abbrechen</translation>
     </message>
     <message>
-        <source>I don't care</source>
-        <translation>Mir egal</translation>
+        <source>Any</source>
+        <translation>Irgendein</translation>
     </message>
     <message>
         <source>default</source>
@@ -1846,6 +1978,14 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <source>The supplied proxy address is invalid.</source>
         <translation>Die eingegeben PROXY-Adresse ist ungültig.</translation>
     </message>
+    <message>
+        <source>The supplied proxy port is invalid.</source>
+        <translation>Der angegebene Proxy-Port ist ungültig.</translation>
+    </message>
+    <message>
+        <source>The supplied proxy settings are invalid.</source>
+        <translation>Die angegebenen Proxyeinstellungen sind ungültig.</translation>
+    </message>
 </context>
 <context>
     <name>OverviewPage</name>
@@ -1854,16 +1994,20 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Formular</translation>
     </message>
     <message>
-        <source>TRANSCENDENCE Balances</source>
-        <translation>TRANSCENDENCE Bilanzen</translation>
-    </message>
-    <message>
         <source>Available:</source>
         <translation>Verfügbar:</translation>
     </message>
     <message>
         <source>Your current spendable balance</source>
         <translation>Ihr aktuell verfügbarer Kontostand</translation>
+    </message>
+    <message>
+        <source>Total Balance, including all unavailable coins.</source>
+        <translation>Gesamtsaldo, einschließlich aller nicht verfügbaren Münzen.</translation>
+    </message>
+    <message>
+        <source>TELOS Balance</source>
+        <translation>TELOS Bilanzen</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -1882,8 +2026,44 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Erarbeiteter Betrag der noch nicht gereift ist</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Transcendence network after a connection is established, but this process has not completed yet.</source>
-        <translation>Die angezeigte Information ist möglicherweise nicht mehr aktuell. Ihre Wallet synchronisiert sich automatisch mit dem Transcendence-Netzwerk, nachdem eine Verbindung hergestellt wurde. Aber dieser Vorgang ist noch nicht abgeschlossen.</translation>
+        <source>Current locked balance in watch-only addresses</source>
+        <translation>Der aktuelle gesperrte Kontostand in Nur-Uhr-Adressen</translation>
+    </message>
+    <message>
+        <source>Your current TELOS balance, unconfirmed and immature transactions included</source>
+        <translation>Ihr aktueller TELOS-Saldo, unbestätigte und unreife Transaktionen sind enthalten</translation>
+    </message>
+    <message>
+        <source>zTELOS Balance</source>
+        <translation>zTELOS Bilanzen</translation>
+    </message>
+    <message>
+        <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
+These zTELOS are spendable.</source>
+        <translation>Ausgereift: Mehr als 20 Bestätigungen und mehr als 1 Prägungen der selben Stückelung nach erfolgter Prägung.
+Diese zTELOS sind Verwendbar.</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Unbestätigt: Weniger als 20 Bestätigungen
+Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter Prägung</translation>
+    </message>
+    <message>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the TELOS network after a connection is established, but this process has not completed yet.</source>
+        <translation>Die angezeigte Information ist möglicherweise nicht mehr aktuell. Ihre Wallet synchronisiert sich automatisch mit dem TELOS-Netzwerk, nachdem eine Verbindung hergestellt wurde. Aber dieser Vorgang ist noch nicht abgeschlossen.</translation>
+    </message>
+    <message>
+        <source>OVERVIEW</source>
+        <translation>ÜBERBLICK</translation>
+    </message>
+    <message>
+        <source>Combined Balance (including unconfirmed and immature coins)</source>
+        <translation>Kombinierte Beträge (einschließlich unbestätigte und unreife Coins)</translation>
+    </message>
+    <message>
+        <source>Combined Balance</source>
+        <translation>Kombiniertes Guthaben</translation>
     </message>
     <message>
         <source>Unconfirmed transactions to watch-only addresses</source>
@@ -1896,10 +2076,6 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     <message>
         <source>Total:</source>
         <translation>Gesamtbetrag:</translation>
-    </message>
-    <message>
-        <source>Your current total balance</source>
-        <translation>Aktueller Gesamtbetrag aus obigen Kategorien</translation>
     </message>
     <message>
         <source>Current total balance in watch-only addresses</source>
@@ -1918,24 +2094,20 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Verfügbar:</translation>
     </message>
     <message>
-        <source>Combined Balances (including immature coins)</source>
-        <translation>Kombinierte Bilanz (einschließlich unreifer Coins)</translation>
+        <source>Locked TELOS or Masternode collaterals. These are excluded from zTELOS minting.</source>
+        <translation>Gesperrte TELOS oder Masternode Pfand. Diese sind vom zTELOS Prägen ausgeschlossen.</translation>
     </message>
     <message>
-        <source>TRANSCENDENCE:</source>
-        <translation>TRANSCENDENCE:</translation>
+        <source>Locked:</source>
+        <translation>Gesperrt:</translation>
     </message>
     <message>
-        <source>zTELOS:</source>
-        <translation>zTELOS:</translation>
+        <source>Unconfirmed:</source>
+        <translation>Unbestätigt:</translation>
     </message>
     <message>
-        <source>0 %</source>
-        <translation>0 %</translation>
-    </message>
-    <message>
-        <source>Zerocoin Balance</source>
-        <translation>Zerocoin Bilanz</translation>
+        <source>Your current zTELOS balance, unconfirmed and immature zTELOS included.</source>
+        <translation>Ihre aktuelle zTELOS-Bilanz, unbestätigte und unreife zTELOS enthalten.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -1944,6 +2116,28 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     <message>
         <source>out of sync</source>
         <translation>nicht synchron</translation>
+    </message>
+    <message>
+        <source>Current percentage of zTELOS.
+If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
+</source>
+        <translation>Aktueller Prozentsatz an zTELOS.
+Falls das automatische Prägen aktiviert ist, wird sich dieser Prozentsatz um den eingestellten Prozentsatz fürs automatisierte Prägen einpendeln (Standard = 10%).
+</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>Automatisches Prägen ist aktiv und eingestellt auf </translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in pivx.conf.</source>
+        <translation>Um das automatische Prägen zu deaktivieren, füge 'enablezeromint=0' in pivx.conf ein.</translation>
+    </message>
+    <message>
+        <source>AutoMint is currently disabled.
+To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in pivx.conf</source>
+        <translation>Das automatische Prägen ist deaktiviert.
+Um das automatische Prägen zu aktivieren ändere 'enablezeromint=0' zu 'enablezeromint=1' in pivx.conf</translation>
     </message>
 </context>
 <context>
@@ -1966,15 +2160,15 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     </message>
     <message>
         <source>Invalid payment address %1</source>
-        <translation>Zahlungsaufforderungadresse %1</translation>
+        <translation>Ungültige Zahlungsaufforderungsadresse %1</translation>
     </message>
     <message>
         <source>Cannot start transcendence: click-to-pay handler</source>
-        <translation>Kann Transcendence nicht starten: click-to-pay Handler</translation>
+        <translation>Kann TELOS nicht starten: click-to-pay Handler</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid Transcendence address or malformed URI parameters.</source>
-        <translation>URI kann nicht analysiert werden! Dies kann durch eine ungültige Transcendence-Adresse oder fehlerhafte URI-Parameter verursacht worden sein.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid TELOS address or malformed URI parameters.</source>
+        <translation>URI kann nicht analysiert werden! Dies kann durch eine ungültige TELOS-Adresse oder fehlerhafte URI-Parameter verursacht worden sein.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2055,24 +2249,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>TRANSCENDENCE which were anonymized via Zerocin Protocol</source>
-        <translation>TRANSCENDENCE, die über das Zerocoin-Protokoll anonymisiert wurden</translation>
-    </message>
-    <message>
-        <source>Zerocoin TRANSCENDENCE (zTELOS)</source>
-        <translation>Zerocoin TRANSCENDENCE (zTELOS)</translation>
-    </message>
-    <message>
         <source>Zerocoin Actions:</source>
         <translation>Zerocoin Aktionen:</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Transcendence network after a connection is established, but this process has not completed yet.</source>
-        <translation>Die angezeigte Information ist möglicherweise nicht mehr aktuell. Ihre Wallet synchronisiert sich automatisch mit dem Transcendence-Netzwerk, nachdem eine Verbindung hergestellt wurde. Aber dieser Vorgang ist noch nicht abgeschlossen.</translation>
-    </message>
-    <message>
-        <source>Enter an amount of Phr to convert to zPhr</source>
-        <translation>Eingabe des Phr-Betrags, um in zPhr umzuwandeln</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the TELOS network after a connection is established, but this process has not completed yet.</source>
+        <translation>Die angezeigte Information ist möglicherweise nicht mehr aktuell. Ihre Wallet synchronisiert sich automatisch mit dem TELOS-Netzwerk, nachdem eine Verbindung hergestellt wurde. Aber dieser Vorgang ist noch nicht abgeschlossen.</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2087,32 +2269,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>zTELOS</translation>
     </message>
     <message>
-        <source>Available for Minting:</source>
-        <translation>Verfügbar für Prägung:</translation>
-    </message>
-    <message>
-        <source>0.000 000 00 TRANSCENDENCE</source>
-        <translation>0.000 000 00 TRANSCENDENCE</translation>
-    </message>
-    <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
         <translation>Zurücksetzen der Zerocoin-Wallet-DB. Löscht Transaktionen, die es nicht in die Blockchain geschafft haben.</translation>
     </message>
     <message>
         <source>Reset</source>
         <translation>Zurücksetzen</translation>
-    </message>
-    <message>
-        <source>Coin Control...</source>
-        <translation>Coin-Kontrolle...</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Anzahl:</translation>
-    </message>
-    <message>
-        <source>Amount:</source>
-        <translation>Betrag:</translation>
     </message>
     <message>
         <source>Rescan the complete blockchain for  Zerocoin mints and their meta-data.</source>
@@ -2127,12 +2289,16 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Status und/oder Mitteilungen aus der letzten Prägung</translation>
     </message>
     <message>
-        <source>zPhr Control</source>
-        <translation>zPhr Kontrolle</translation>
+        <source>LINKS</source>
+        <translation>PRIVATSPHÄRE</translation>
     </message>
     <message>
-        <source>zPhr Selected:</source>
-        <translation>zPhr Ausgewählt:</translation>
+        <source>zTELOS Control</source>
+        <translation>zTELOS Control</translation>
+    </message>
+    <message>
+        <source>zTELOS Selected:</source>
+        <translation>zTELOS ausgewählt:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2147,32 +2313,32 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Überweise Zerocoin</translation>
     </message>
     <message>
+        <source>Available (mature and spendable) zTELOS for spending</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zTELOS zum Überweisen</translation>
+    </message>
+    <message>
         <source>Available Balance:</source>
         <translation>Verfügbare Bilanz:</translation>
+    </message>
+    <message>
+        <source>Available (mature and spendable) zTELOS for spending
+
+zTELOS are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Verfügbare (ausgereifte und aufwendbare) zTELOS zum Überweisen
+
+zTELOS sind ausgereift wenn sie mehr als 20 Bestätigungen und mehr als 2 Prägungen in der selben Stückelung nach erfolgter Prägung halten.</translation>
     </message>
     <message>
         <source>0 zTELOS</source>
         <translation>0 zTELOS</translation>
     </message>
     <message>
-        <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
-        <translation>Sicherheitsstufe für Zerocoin-Transaktionen. Höher ist besser, benötigt jedoch mehr Zeit und Ressourcen.</translation>
-    </message>
-    <message>
-        <source>Security Level:</source>
-        <translation>Sicherheitsstufe:</translation>
-    </message>
-    <message>
-        <source>Security Level 1 - 100 (default: 42)</source>
-        <translation>Sicherheitsstufe 1 - 100 (Voreinstellung: 42)</translation>
-    </message>
-    <message>
         <source>Pay &amp;To:</source>
         <translation>E&amp;mpfänger:</translation>
     </message>
     <message>
-        <source>The Transcendence address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>Die Transcendence-Adresse, an die die Zahlung gesendet wird. Erstellt eine lokale Zahlung an Sie selbst, wenn die Zeile leer ist.</translation>
+        <source>The TELOS address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>Die TELOS-Adresse, an die die Zahlung gesendet wird. Erstellt eine lokale Zahlung an Sie selbst, wenn die Zeile leer ist.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2223,12 +2389,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Zerocoin Statistiken:</translation>
     </message>
     <message>
-        <source>Available Funds</source>
-        <translation>Verfügbare Mittel</translation>
+        <source>Total Balance including unconfirmed and immature zTELOS</source>
+        <translation>Totales Guthaben, einschließlich unbestätigter und unreifer zTELOS</translation>
     </message>
     <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>Verfügbare Zerocoin Bilanz:</translation>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>Totales Zerocoin Guthaben:</translation>
     </message>
     <message>
         <source>Denominations with value 1:</source>
@@ -2237,6 +2403,73 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
     <message>
         <source>Denom. with value 1:</source>
         <translation>Stücke mit Wert 1:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed: less than 20 confirmations
+Immature: confirmed, but less than 1 mint of the same denomination after it was minted</source>
+        <translation>Unbestätigt: Weniger als 20 Bestätigungen
+Unreif: Bestätigt, aber keine Prägung in der selben Stückelung seit erfolgter Prägung</translation>
+    </message>
+    <message>
+        <source>Show the current status of automatic zTELOS minting.
+
+To change the status (restart required):
+- enable: add 'enablezeromint=1' to pivx.conf
+- disable: add 'enablezeromint=0' to pivx.conf
+
+To change the percentage (no restart required):
+- menu Settings-&gt;Options-&gt;Percentage of autominted zTELOS
+
+</source>
+        <translation>Zeigt den aktuellen Status der automatischen zTELOS-Prägung an
+
+Um den Status zu ändern (Neustart erforderlich): 
+- enable: füge 'enablezeromint = 1' zu pivx.conf hinzu
+- disable: füge 'enablezeromint = 0' zu pivx.conf hinzu
+
+Um den Prozentsatz zu ändern (kein Neustart erforderlich): 
+- Menü Einstellungen-&gt; Optionen-&gt; Prozentsatz der autom. zTELOS
+</translation>
+    </message>
+    <message>
+        <source>AutoMint Status</source>
+        <translation>AutoMint-Status</translation>
+    </message>
+    <message>
+        <source>Global Supply:</source>
+        <translation>Globales Angebot:</translation>
+    </message>
+    <message>
+        <source>Denom. 1:</source>
+        <translation>Wertstufe 1:</translation>
+    </message>
+    <message>
+        <source>Denom. 5:</source>
+        <translation>Wertstufe 5:</translation>
+    </message>
+    <message>
+        <source>Denom. 10:</source>
+        <translation>Wertstufe 10:</translation>
+    </message>
+    <message>
+        <source>Denom. 50:</source>
+        <translation>Wertstufe 50:</translation>
+    </message>
+    <message>
+        <source>Denom. 100:</source>
+        <translation>Wertstufe 100:</translation>
+    </message>
+    <message>
+        <source>Denom. 500:</source>
+        <translation>Wertstufe 500:</translation>
+    </message>
+    <message>
+        <source>Denom. 1000:</source>
+        <translation>Wertstufe 1000:</translation>
+    </message>
+    <message>
+        <source>Denom. 5000:</source>
+        <translation>Wertstufe 5000:</translation>
     </message>
     <message>
         <source>0 x</source>
@@ -2299,12 +2532,12 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Stücke mit Wert 5000:</translation>
     </message>
     <message>
-        <source>Note: This hidden objects are used for communication between the 'Coin Control' dialog and its parent objects. We don't want to change/reimplement the existing Coin Control, so this objects must be here, even when we don't use them. No, we don't like this approach, either.</source>
-        <translation>Hinweis: Diese verborgenen Objekte werden für die Kommunikation zwischen dem Dialog "Coin Kontrolle" und den übergeordneten Objekten verwendet. Wir wollen die bestehende Coin Kontrolle nicht ändern / reimplementieren. Also müssen diese Objekte hier sein, auch wenn wir sie nicht benutzen. Nein, das gefällt uns auch nicht.</translation>
-    </message>
-    <message>
         <source>Priority:</source>
         <translation>Priorität:</translation>
+    </message>
+    <message>
+        <source>TextLabel</source>
+        <translation>TextEtikett</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -2363,48 +2596,106 @@ https://www.transifex.com/transcendence-project/transcendence-project-translatio
         <translation>Prägestatus: Okay</translation>
     </message>
     <message>
-        <source>Copy quantity</source>
-        <translation>Kopiere Anzahl</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Betrag kopieren</translation>
-    </message>
-    <message>
-        <source>Zerocoin functionality is not enabled on the Transcendence network yet.</source>
-        <translation>Die Zerocoin Funktionalität ist im Transcendence Netzwerk im Moment nicht freigeschaltet.</translation>
-    </message>
-    <message>
-        <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
-        <translation>Fehler: Ihre Wallet ist gesperrt. Bitte geben Sie zuerst ihre Wallet Passphrase ein.</translation>
-    </message>
-    <message>
-        <source>Message: Enter an amount &gt; 0.</source>
-        <translation>Nachricht: Geben Sie einen Betrag &gt; 0 ein.</translation>
-    </message>
-    <message>
-        <source>Minting </source>
-        <translation>Prägung</translation>
-    </message>
-    <message>
-        <source>Successfully minted </source>
-        <translation>Erfolgreich geprägt</translation>
-    </message>
-    <message>
-        <source> zTELOS in </source>
-        <translation> zTELOS in </translation>
-    </message>
-    <message>
-        <source> sec. Used denominations:
-</source>
-        <translation> ausg. Verwendete Stückelungen:
-</translation>
-    </message>
-    <message>
         <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
 Please be patient...</source>
-        <translation>Starten von ResetMintZerocoin: Erneutes Scannen der kompletten Blockchain. Das benötigt, je nach Hardware, bis zu 30 Minuten .
+        <translation>Starten von ResetMintZerocoin: Erneutes Scannen der kompletten Blockchain. Das benötigt, je nach Hardware, bis zu 30 Minuten.
 Bitte haben Sie etwas Geduld...</translation>
+    </message>
+    <message>
+        <source>zTELOS Spend #: </source>
+        <translation>zTELOS Ausgeben #:</translation>
+    </message>
+    <message>
+        <source>zTELOS Mint</source>
+        <translation>zTELOS Prägen</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt;enabled&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> &lt;b&gt;disabled&lt;/b&gt;.</source>
+        <translation> &lt;b&gt;disabled&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source> Configured target percentage: &lt;b&gt;</source>
+        <translation>Konfigurierter Zielprozentsatz: &lt;b&gt;</translation>
+    </message>
+    <message>
+        <source>zTELOS is currently disabled due to maintenance.</source>
+        <translation>zTELOS ist aktuell deaktiviert aufgrund von Wartungsarbeiten.</translation>
+    </message>
+    <message>
+        <source>zTELOS is currently undergoing maintenance.</source>
+        <translation>zTELOS unterliegt momentan Wartungsarbeiten.</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt; 10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt; 50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. with value &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. mit Wert &lt;b&gt;5000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>AutoMint Status:</source>
+        <translation>AutoMint-Status:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;10&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;10&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;50&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;50&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;100&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;100&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;500&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;500&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;1000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;1000&lt;/b&gt;:</translation>
+    </message>
+    <message>
+        <source>Denom. &lt;b&gt;5000&lt;/b&gt;:</source>
+        <translation>Denom. &lt;b&gt;5000&lt;/b&gt;:</translation>
     </message>
     <message>
         <source>Duration: </source>
@@ -2425,8 +2716,8 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>Keine "Pay To"-Adresse zur Verfügung. Erstelle lokale Zahlung</translation>
     </message>
     <message>
-        <source>Invalid Transcendence Address</source>
-        <translation>Ungültige Transcendence-Adresse </translation>
+        <source>Invalid Pivx Address</source>
+        <translation>Ungültige TELOS-Adresse </translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -2445,32 +2736,20 @@ Bitte haben Sie etwas Geduld...</translation>
         <translation>an Adresse</translation>
     </message>
     <message>
-        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
-        <translation>zu einer neu erzeugten (unbenutzten und damit anonymen) lokalen Adresse &lt;br /&gt;</translation>
-    </message>
-    <message>
-        <source>with Security Level </source>
-        <translation>mit Sicherheitsstufe</translation>
+        <source> to a newly generated (unused and therefore anonymous) local address &lt;br /&gt;</source>
+        <translation>an eine neu generierte (unbenutzte und daher anonyme) lokale Adresse&lt;br /&gt;</translation>
     </message>
     <message>
         <source>Confirm send coins</source>
         <translation>Sende Coins bestätigen</translation>
     </message>
     <message>
-        <source>Spending Zerocoin.
-Computationally expensive, might need several minutes depending on the selected Security Level and your hardware.
-Please be patient...</source>
-        <translation>Zerocoin ausgeben.
-Rechnerisch aufwändig. Kann je nach ausgewähltem Sicherheitsstufe und Ihrer Hardware mehrere Minuten benötigen
-Bitte haben Sie Geduld...</translation>
+        <source>Failed to fetch mint associated with serial hash</source>
+        <translation>Mit Hash verbundene Prägung konnte nicht abgerufen werden</translation>
     </message>
     <message>
         <source>Spend Zerocoin failed with status = </source>
         <translation>Ausgeben Zerocoin fehlgeschlagen mit Status =</translation>
-    </message>
-    <message>
-        <source>zPhr Spend #: </source>
-        <translation>zTELOS Ausgeben #:</translation>
     </message>
     <message>
         <source>denomination: </source>
@@ -2493,10 +2772,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>Adresse:</translation>
     </message>
     <message>
-        <source>zPhr Mint</source>
-        <translation>zPhr Prägen</translation>
-    </message>
-    <message>
         <source>Sending successful, return code: </source>
         <translation>Senden erfolgreich, Rückgabecode:</translation>
     </message>
@@ -2510,14 +2785,17 @@ Bitte haben Sie Geduld...</translation>
     </message>
 </context>
 <context>
+    <name>ProposalFrame</name>
+    </context>
+<context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Betrag</translation>
     </message>
     <message>
-        <source>Enter a Transcendence address (e.g. %1)</source>
-        <translation>Transcendence-Adresse eingeben (z.B. %1)</translation>
+        <source>Enter a TELOS address (e.g. %1)</source>
+        <translation>TELOS-Adresse eingeben (z.B. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2559,7 +2837,11 @@ Bitte haben Sie Geduld...</translation>
         <source>%1 ms</source>
         <translation>%1 Ms</translation>
     </message>
-</context>
+    <message>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
+    </message>
+    </context>
 <context>
     <name>QRImageWidget</name>
     <message>
@@ -2611,7 +2893,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>&amp;Open</source>
-        <translation>&amp;Offen</translation>
+        <translation>&amp;Öffnen</translation>
     </message>
     <message>
         <source>Startup time</source>
@@ -2651,11 +2933,11 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Block chain</source>
-        <translation>Block chain</translation>
+        <translation>Blockchain</translation>
     </message>
     <message>
-        <source>Open the Transcendence debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öffne Transcendence-Debug-Protokolldatei aus dem aktuellen Datenverzeichnis. Dies kann bei großen Protokolldateien einige Sekunden dauern.</translation>
+        <source>Open the TELOS debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öffne TELOS-Debug-Protokolldatei aus dem aktuellen Datenverzeichnis. Dies kann bei großen Protokolldateien einige Sekunden dauern.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -2694,8 +2976,16 @@ Bitte haben Sie Geduld...</translation>
         <translation>&amp;Peers</translation>
     </message>
     <message>
+        <source>Banned peers</source>
+        <translation>Gebannte Peers</translation>
+    </message>
+    <message>
         <source>Select a peer to view detailed information.</source>
         <translation>Wähle ein Peer, um detaillierte Informationen zu sehen.</translation>
+    </message>
+    <message>
+        <source>Whitelisted</source>
+        <translation>Whitelisted</translation>
     </message>
     <message>
         <source>Direction</source>
@@ -2712,14 +3002,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Services</source>
         <translation>Dienstleistung</translation>
-    </message>
-    <message>
-        <source>Starting Height</source>
-        <translation>Starthöhe </translation>
-    </message>
-    <message>
-        <source>Sync Height</source>
-        <translation>Sync Höhe</translation>
     </message>
     <message>
         <source>Ban Score</source>
@@ -2754,8 +3036,48 @@ Bitte haben Sie Geduld...</translation>
         <translation>&amp;Wallet reparieren </translation>
     </message>
     <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>Lokalen Blockchain-Ordner löschen.</translation>
+    </message>
+    <message>
         <source>Wallet In Use:</source>
         <translation>Wallet In Benutzung:</translation>
+    </message>
+    <message>
+        <source>Starting Block</source>
+        <translation>Startblock</translation>
+    </message>
+    <message>
+        <source>Synced Headers</source>
+        <translation>Synchronisierte Header</translation>
+    </message>
+    <message>
+        <source>Synced Blocks</source>
+        <translation>Synchronisierte Blöcke</translation>
+    </message>
+    <message>
+        <source>The duration of a currently outstanding ping.</source>
+        <translation>Die Dauer eines derzeit ausstehenden Pings.</translation>
+    </message>
+    <message>
+        <source>Ping Wait</source>
+        <translation>Ping warten</translation>
+    </message>
+    <message>
+        <source>Time Offset</source>
+        <translation>Zeitverschiebung</translation>
+    </message>
+    <message>
+        <source>Custom Backup Path:</source>
+        <translation>Benutzerdefinierter Sicherungspfad:</translation>
+    </message>
+    <message>
+        <source>Custom zTELOS Backup Path:</source>
+        <translation>Benutzerdefinierter zTELOS Sicherungspfad:</translation>
+    </message>
+    <message>
+        <source>Custom Backups Threshold:</source>
+        <translation>Benutzerdefinierter Sicherungs-Schwellwert:</translation>
     </message>
     <message>
         <source>Salvage wallet</source>
@@ -2798,6 +3120,14 @@ Bitte haben Sie Geduld...</translation>
         <translation>Blockchain Index aus der aktuellen blk000??.dat Datei neu aufbauen.</translation>
     </message>
     <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>Löscht alle lokalen Blockchain-Ordner damit das Wallet sich von Grund auf synchronisiert.</translation>
+    </message>
+    <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
         <translation>Die unten aufgeführten Schaltflächen starten die Wallet mit Befehlszeilenoptionen, um die Wallet zu reparieren. Probleme mit beschädigten Blockchain-Dateien oder fehlenden/veralteten Transaktionen werden behoben.</translation>
     </message>
@@ -2822,12 +3152,56 @@ Bitte haben Sie Geduld...</translation>
         <translation>Out:</translation>
     </message>
     <message>
-        <source>Welcome to the Transcendence RPC console.</source>
-        <translation>Willkommen in der Transcendence RPC-Konsole.</translation>
+        <source>Welcome to the TELOS RPC console.</source>
+        <translation>Willkommen in der TELOS RPC-Konsole.</translation>
     </message>
     <message>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Nutze Pfeiltasten hoch und runter um ehemals genutze Konsolenbefehle durch zu scrollen, und &lt;b&gt;Ctrl-L&lt;/b&gt; um das Konsolenfenster zu leeren.</translation>
+        <source>&amp;Disconnect Node</source>
+        <translation>&amp;Disconnect Node</translation>
+    </message>
+    <message>
+        <source>Ban Node for</source>
+        <translation>Ban Knoten für</translation>
+    </message>
+    <message>
+        <source>1 &amp;hour</source>
+        <translation>1 &amp;hour</translation>
+    </message>
+    <message>
+        <source>1 &amp;day</source>
+        <translation>1 &amp;day</translation>
+    </message>
+    <message>
+        <source>1 &amp;week</source>
+        <translation>1 &amp;week</translation>
+    </message>
+    <message>
+        <source>1 &amp;year</source>
+        <translation>1 &amp;year</translation>
+    </message>
+    <message>
+        <source>&amp;Unban Node</source>
+        <translation>&amp;Unban Node</translation>
+    </message>
+    <message>
+        <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Dieser Vorgang wird Ihren lokalen Blockchain-Ordner löschen und das Wallet wird von Grund auf neu Synchronisieren.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>This needs quite some time and downloads a lot of data.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Dieser Vorgang wird einige Zeit in Anspruch nehmen und eine menge Daten herunterladen.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Your transactions and funds will be visible again after the download has completed.&lt;br /&gt;&lt;br /&gt;</source>
+        <translation>Deine Transaktionen und Guthaben werden wieder sichtbar sein nachdem der Download-Prozess abgeschlossen ist.&lt;br /&gt;&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>Möchten Sie fortfahren?&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>Synchronisation der Blockchain bestätigen</translation>
     </message>
     <message>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
@@ -2850,6 +3224,10 @@ Bitte haben Sie Geduld...</translation>
         <translation>%1 GB</translation>
     </message>
     <message>
+        <source>(node id: %1)</source>
+        <translation>(node id: %1)</translation>
+    </message>
+    <message>
         <source>via %1</source>
         <translation>via %1</translation>
     </message>
@@ -2866,12 +3244,16 @@ Bitte haben Sie Geduld...</translation>
         <translation>Ausgehend</translation>
     </message>
     <message>
-        <source>Unknown</source>
-        <translation>Unbekannt</translation>
+        <source>Yes</source>
+        <translation>Ja</translation>
     </message>
     <message>
-        <source>Fetching...</source>
-        <translation>Holen...</translation>
+        <source>No</source>
+        <translation>Nein</translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation>Unbekannt</translation>
     </message>
 </context>
 <context>
@@ -2893,12 +3275,20 @@ Bitte haben Sie Geduld...</translation>
         <translation>Ein optionales Etikett, das mit der neuen Empfangsadresse verknüpft werden soll.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Transcendence network.</source>
-        <translation>Eine optionale Nachricht an die Zahlungsaufforderung anhängen, die bei der Eröffnung der Anforderung angezeigt wird. Hinweis: Die Nachricht wird nicht mit der Zahlung über das Transcendence-Netzwerk gesendet.</translation>
+        <source>A&amp;mount:</source>
+        <translation>Betra&amp;g:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Transcendence network.</source>
-        <translation>Eine optionale Nachricht an die Zahlungsaufforderung anhängen, die bei der Eröffnung der Anforderung angezeigt wird.&lt;br&gt;Hinweis: Die Nachricht wird nicht mit der Zahlung über das Transcendence-Netzwerk gesendet.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the TELOS network.</source>
+        <translation>Eine optionale Nachricht an die Zahlungsaufforderung anhängen, die bei der Eröffnung der Anforderung angezeigt wird. Hinweis: Die Nachricht wird nicht mit der Zahlung über das TELOS-Netzwerk gesendet.</translation>
+    </message>
+    <message>
+        <source>RECEIVE</source>
+        <translation>EMPFANGEN</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the TELOS network.</source>
+        <translation>Eine optionale Nachricht an die Zahlungsaufforderung anhängen, die bei der Eröffnung der Anforderung angezeigt wird.&lt;br&gt;Hinweis: Die Nachricht wird nicht mit der Zahlung über das TELOS-Netzwerk gesendet.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -2911,10 +3301,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
         <translation>Einen optionalen Betrag anfordern. Lassen Sie diesen leer oder Null, um einen unbestimmten Betrag anzufordern.</translation>
-    </message>
-    <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;Betrag:</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
@@ -2959,6 +3345,10 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Copy amount</source>
         <translation>Betrag kopieren</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Adresse kopieren</translation>
     </message>
 </context>
 <context>
@@ -3031,6 +3421,10 @@ Bitte haben Sie Geduld...</translation>
         <translation>Nachricht</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>Adresse</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Betrag</translation>
     </message>
@@ -3051,7 +3445,11 @@ Bitte haben Sie Geduld...</translation>
     <name>SendCoinsDialog</name>
     <message>
         <source>Send Coins</source>
-        <translation>TRANSCENDENCEs überweisen</translation>
+        <translation>PIVs überweisen</translation>
+    </message>
+    <message>
+        <source>SEND</source>
+        <translation>SENDEN</translation>
     </message>
     <message>
         <source>Coin Control Features</source>
@@ -3122,8 +3520,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>UTXO Größe:</translation>
     </message>
     <message>
-        <source>0 TRANSCENDENCE</source>
-        <translation>0 TRANSCENDENCE</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3162,6 +3560,10 @@ Bitte haben Sie Geduld...</translation>
         <translation>("Intelligente" Gebühren sind noch nicht berechnet. Dies dauert normalerweise ein paar Blöcke...)</translation>
     </message>
     <message>
+        <source>SwiftX</source>
+        <translation>Swift Transaktion</translation>
+    </message>
+    <message>
         <source>Confirmation time:</source>
         <translation>Bestätigungszeit:</translation>
     </message>
@@ -3174,16 +3576,16 @@ Bitte haben Sie Geduld...</translation>
         <translation>Coins automatisch ausgewählt</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTRANSCENDENCEs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTRANSCENDENCEs in fee,&lt;br /&gt;while "at least" pays 1000 uTRANSCENDENCEs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTRANSCENDENCEs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTRANSCENDENCEs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uTRANSCENDENCEs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSs an Gebühren,&lt;br /&gt;während man "mindestens" 1000 uTELOSs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
-        <source>If the custom fee is set to 1000 uTRANSCENDENCEs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTRANSCENDENCEs in fee,&lt;br /&gt;while "total at least" pays 1000 uTRANSCENDENCEs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
-        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTRANSCENDENCEs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTRANSCENDENCEs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uTRANSCENDENCEs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
+        <source>If the custom fee is set to 1000 uTELOSs and the transaction is only 250 bytes, then "per kilobyte" only pays 250 uTELOSs in fee,&lt;br /&gt;while "total at least" pays 1000 uTELOSs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <translation>Wenn die kundenspezifische Gebühr auf 1000 uTELOSs eingestellt ist und die Transaktion nur 250 Bytes beträgt, dann zahlt man "pro Kilobyte" nur 250 uTELOSs an Gebühren,&lt;br /&gt;während man "insgesamt mindestens" 1000 uTELOSs bezahlt. Für Transaktionen, die größer sind als ein Kilobyte, bezahlen sie per Kilobyte.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Transcendence transactions than the network can process.</source>
-        <translation>Nur die minimale Gebühr zu zahlen ist nur gut, solange es weniger Transaktionsvolumen als Platz in den Blocken gibt.&lt;br /&gt;Aber seien Sie sich bewusst, dass dies in einer niemals bestätigende Transaktion enden kann, sobald die Nachfrage nach Transcendence-Transaktionen höher ist, als was das Netzwerk verarbeiten kann.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for TELOS transactions than the network can process.</source>
+        <translation>Nur die minimale Gebühr zu zahlen ist nur gut, solange es weniger Transaktionsvolumen als Platz in den Blocken gibt.&lt;br /&gt;Aber seien Sie sich bewusst, dass dies in einer niemals bestätigende Transaktion enden kann, sobald die Nachfrage nach TELOS-Transaktionen höher ist, als was das Netzwerk verarbeiten kann.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -3230,12 +3632,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Empfänge&amp;r hinzufügen</translation>
     </message>
     <message>
-        <source>Anonymized TRANSCENDENCE</source>
-        <translation>Anonymisierte TRANSCENDENCE</translation>
-    </message>
-    <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
+        <source>Anonymized TELOS</source>
+        <translation>Anonymisierte TELOS</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -3282,24 +3680,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Das Split-Block-Tool funktioniert nicht mit mehreren Adressen. Versuchen Sie es erneut.</translation>
     </message>
     <message>
-        <source>using</source>
-        <translation>benutze</translation>
-    </message>
-    <message>
-        <source>anonymous funds</source>
-        <translation>anonyme Mittel</translation>
-    </message>
-    <message>
-        <source>Warning: Invalid Transcendence address</source>
-        <translation>Warnung: Ungültige Transcendence-Adresse</translation>
-    </message>
-    <message>
-        <source>any available funds (not recommended)</source>
-        <translation>alle verfügbaren Mittel (nicht empfohlen)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>und SwiftTX</translation>
+        <source>Warning: Invalid TELOS address</source>
+        <translation>Warnung: Ungültige TELOS-Adresse</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3325,13 +3707,13 @@ Bitte haben Sie Geduld...</translation>
         <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
         <translation>Eine Gebühr %1 mal höher als %2 pro kB gilt als wahnsinnig hohe Gebühr.</translation>
     </message>
-    <message numerus="yes">
-        <source>Estimated to begin confirmation within %n block(s).</source>
-        <translation><numerusform>Geschätzt beginnt die Betätigung in %n Blöcken.</numerusform><numerusform>Voraussichtlich beginnt die Betätigung in %n Blöcken.</numerusform></translation>
-    </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
         <translation>Die Adresse des Empfängers ist nicht gültig, bitte erneut prüfen.</translation>
+    </message>
+    <message>
+        <source>using SwiftX</source>
+        <translation>mit SwiftX</translation>
     </message>
     <message>
         <source> split into %1 outputs using the UTXO splitter.</source>
@@ -3397,8 +3779,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>E&amp;mpfänger:</translation>
     </message>
     <message>
-        <source>The Transcendence address to send the payment to</source>
-        <translation>Transcendence-Adresse, an die überwiesen werden soll</translation>
+        <source>The TELOS address to send the payment to</source>
+        <translation>TELOS-Adresse, an die überwiesen werden soll</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3437,8 +3819,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Nachricht:</translation>
     </message>
     <message>
-        <source>A message that was attached to the Transcendence: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Transcendence network.</source>
-        <translation>Eine an die Transcendence-URI angefügte Nachricht, die zusammen mit der Transaktion gespeichert wird. Hinweis: Diese Nachricht wird nicht über das Transcendence-Netzwerk gesendet.</translation>
+        <source>A message that was attached to the TELOS: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the TELOS network.</source>
+        <translation>Eine an die TELOS-URI angefügte Nachricht, die zusammen mit der Transaktion gespeichert wird. Hinweis: Diese Nachricht wird nicht über das TELOS-Netzwerk gesendet.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -3464,8 +3846,8 @@ Bitte haben Sie Geduld...</translation>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Transcendence Core is shutting down...</source>
-        <translation>Transcendence Core wird beendet...</translation>
+        <source>TELOS Core is shutting down...</source>
+        <translation>TELOS Core wird beendet...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -3487,8 +3869,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Sie können Nachrichten mit Ihren Adressen signieren, um zu beweisen, dass Sie diese besitzen. Seien Sie vorsichtig nichts fragwürdiges zu unterschreiben, da Phishing-Angriffe versuchen können, Sie dazu zu bringen, Ihre Identität zu überschreiben. Unterschreiben Sie nur ganz detaillierte Aussagen, denen Sie zustimmen.</translation>
     </message>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Transcendence Adresse mit welcher die Nachricht signiert werden soll</translation>
+        <source>The TELOS address to sign the message with</source>
+        <translation>TELOS Adresse mit welcher die Nachricht signiert werden soll</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3508,7 +3890,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Enter the message you want to sign here</source>
-        <translation>Gehen Sie hier die Nachricht ein, die Sie digital unterschreiben möchten</translation>
+        <translation>Geben Sie hier die Nachricht ein, die Sie digital unterschreiben möchten</translation>
     </message>
     <message>
         <source>Signature</source>
@@ -3519,16 +3901,16 @@ Bitte haben Sie Geduld...</translation>
         <translation>Kopiert die aktuelle Signatur in die Zwischenablage</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Signiere die Nachricht um zu Beweisen, dass du diese Transcendence Adresse besitzt</translation>
+        <source>Sign the message to prove you own this TELOS address</source>
+        <translation>Signiere die Nachricht um zu Beweisen, dass du diese TELOS Adresse besitzt</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Die Transcendence Adresse mit welcher die Nachricht signiert wurde.</translation>
+        <source>The TELOS address the message was signed with</source>
+        <translation>Die TELOS Adresse mit welcher die Nachricht signiert wurde.</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Überprüfen Sie die Nachricht, um sicherzustellen, dass sie mit der angegebenen Transcendence-Adresse signiert wurde.</translation>
+        <source>Verify the message to ensure it was signed with the specified TELOS address</source>
+        <translation>Überprüfen Sie die Nachricht, um sicherzustellen, dass sie mit der angegebenen TELOS-Adresse signiert wurde.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3572,11 +3954,11 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>The entered address does not refer to a key.</source>
-        <translation>Die eingegebene Adresse passt nicht zu einem Schlüssel</translation>
+        <translation>Die eingegebene Adresse passt zu keinem Schlüssel</translation>
     </message>
     <message>
         <source>Wallet unlock was cancelled.</source>
-        <translation>Wallet-Entsperrung wurde abgebrochen.</translation>
+        <translation>Entsperrung der Wallet wurde abgebrochen.</translation>
     </message>
     <message>
         <source>Private key for the entered address is not available.</source>
@@ -3614,8 +3996,8 @@ Bitte haben Sie Geduld...</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Core</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3630,8 +4012,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Die Dash Core Entwickler</translation>
     </message>
     <message>
-        <source>The Transcendence Core developers</source>
-        <translation>Die Transcendence Core Entwickler</translation>
+        <source>The TELOS Core developers</source>
+        <translation>Die TELOS Core Entwickler</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -3647,10 +4029,6 @@ Bitte haben Sie Geduld...</translation>
 </context>
 <context>
     <name>TransactionDesc</name>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Offen für %n weitere Block</numerusform><numerusform>Offen für %n weitere Blocks</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Offen bis %1</translation>
@@ -3658,18 +4036,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>conflicted</source>
         <translation>in Konflikt stehend</translation>
-    </message>
-    <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/offline (Überprüft durch SwiftTX)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/bestätigt (Überprüft durch SwiftTX)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 Bestätigungen (Überprüft durch SwiftTX)</translation>
     </message>
     <message>
         <source>%1/offline</source>
@@ -3684,24 +4050,36 @@ Bitte haben Sie Geduld...</translation>
         <translation>%1 Bestätigungen</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1/offline (Überprüfung durch SwiftTX - %2 von %3 Signaturen)</translation>
+        <source>%1/offline (verified via SwiftX)</source>
+        <translation>%1/offline (verifiziert via Swift Transaktion)</translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/bestätigt (Überprüfung durch SwiftTX - %2 von %3 Signaturen)</translation>
+        <source>%1/confirmed (verified via SwiftX)</source>
+        <translation>%1/bestätigt (verifiziert via Swift Transaktion)</translation>
     </message>
     <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 Bestätigungen (Überprüfung durch SwiftTX - %2 von %3 Signaturen)</translation>
+        <source>%1 confirmations (verified via SwiftX)</source>
+        <translation>%1 Bestätigungen (verifiziert via Swift Transaktion)</translation>
     </message>
     <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/offline (Überprüfung durch SwiftTX fehlgeschlagen)</translation>
+        <source>%1/offline (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1/offline (Swift Transaktion wird verifiziert - %2 aus %3 Signaturen)</translation>
     </message>
     <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/bestätigt (Überprüfung durch SwiftTX fehlgeschlagen)</translation>
+        <source>%1/confirmed (SwiftX verification in progress - %2 of %3 signatures )</source>
+        <translation>%1/bestätigt (Swift Transaktion wird verifiziert - %2 von %3 Signaturen)</translation>
+    </message>
+    <message>
+        <source>%1 confirmations (SwiftX verification in progress - %2 of %3 signatures)</source>
+        <translation>%1 Bestätigungen (Swift Transaktion wird verifiziert - %2 von %3 Signaturen)</translation>
+    </message>
+    <message>
+        <source>%1/offline (SwiftX verification failed)</source>
+        <translation>%1/offline (Swift Transaktion konnte nicht verifiziert werden)</translation>
+    </message>
+    <message>
+        <source>%1/confirmed (SwiftX verification failed)</source>
+        <translation>%1/bestätigt (Swift Transaktion konnte nicht verifiziert werden)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3710,10 +4088,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>, has not been successfully broadcast yet</source>
         <translation>, wurde noch nicht erfolgreich übertragen</translation>
-    </message>
-    <message numerus="yes">
-        <source>, broadcast through %n node(s)</source>
-        <translation><numerusform>, Broadcast durch %n Node</numerusform><numerusform>, Broadcast durch %n Nodes</numerusform></translation>
     </message>
     <message>
         <source>Date</source>
@@ -3754,10 +4128,6 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Credit</source>
         <translation>Gutschrift</translation>
-    </message>
-    <message numerus="yes">
-        <source>matures in %n more block(s)</source>
-        <translation><numerusform>gereift in %n weiteren Block</numerusform><numerusform>gereift in %n weiteren Blocks</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -3805,7 +4175,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Generated coins must mature %1 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to "not accepted" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.</source>
-        <translation>Erzeugte TRANSCENDENCEs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine TRANSCENDENCEs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
+        <translation>Erzeugte PIVs müssen %1 Blöcke lang reifen, bevor sie ausgegeben werden können. Als Sie diesen Block erzeugten, wurde er an das Netzwerk übertragen, um ihn der Blockkette hinzuzufügen. Falls dies fehlschlägt wird der Status in "nicht angenommen" geändert und Sie werden keine PIVs gutgeschrieben bekommen. Das kann gelegentlich passieren, wenn ein anderer Knoten einen Block fast zeitgleich erzeugt.</translation>
     </message>
     <message>
         <source>Debug information</source>
@@ -3857,10 +4227,6 @@ Bitte haben Sie Geduld...</translation>
         <source>Address</source>
         <translation>Adresse</translation>
     </message>
-    <message numerus="yes">
-        <source>Open for %n more block(s)</source>
-        <translation><numerusform>Offen für %n weitere Block</numerusform><numerusform>Offen für %n weitere Blocks</numerusform></translation>
-    </message>
     <message>
         <source>Open until %1</source>
         <translation>Offen bis %1</translation>
@@ -3910,6 +4276,14 @@ Bitte haben Sie Geduld...</translation>
         <translation>über/durch Verschleierung empfangen</translation>
     </message>
     <message>
+        <source>TELOS Stake</source>
+        <translation>TELOS Stake</translation>
+    </message>
+    <message>
+        <source>zTELOS Stake</source>
+        <translation>zTELOS Stake</translation>
+    </message>
+    <message>
         <source>Obfuscation Denominate</source>
         <translation>Stückelung der Verschleierung</translation>
     </message>
@@ -3926,6 +4300,34 @@ Bitte haben Sie Geduld...</translation>
         <translation>Verschleierung Erzeugung der Stückelung</translation>
     </message>
     <message>
+        <source>Converted TELOS to zTELOS</source>
+        <translation>Umgewandeltes TELOS zu zTELOS</translation>
+    </message>
+    <message>
+        <source>Spent zTELOS</source>
+        <translation>Ausgegebene zTELOS</translation>
+    </message>
+    <message>
+        <source>Received TELOS from zTELOS</source>
+        <translation>Empfangene TELOS von zTELOS</translation>
+    </message>
+    <message>
+        <source>Minted Change as zTELOS from zTELOS Spend</source>
+        <translation>Geprägtes zTELOS Wechselgeld aus zTELOS Überweisung</translation>
+    </message>
+    <message>
+        <source>Converted zTELOS to TELOS</source>
+        <translation>Umgewandeltes zTELOS zu TELOS</translation>
+    </message>
+    <message>
+        <source>Anonymous (zTELOS Transaction)</source>
+        <translation>Anonym (zTELOS Transaktion)</translation>
+    </message>
+    <message>
+        <source>Anonymous (zTELOS Stake)</source>
+        <translation>Anonym (zTELOS Stake)</translation>
+    </message>
+    <message>
         <source>Sent to</source>
         <translation>Überwiesen an</translation>
     </message>
@@ -3938,10 +4340,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>Eigenüberweisung</translation>
     </message>
     <message>
-        <source>Minted</source>
-        <translation>Erzeugt</translation>
-    </message>
-    <message>
         <source>Mined</source>
         <translation>Erarbeitet</translation>
     </message>
@@ -3950,32 +4348,8 @@ Bitte haben Sie Geduld...</translation>
         <translation>Verschleiert</translation>
     </message>
     <message>
-        <source>Converted Phr to zPhr</source>
-        <translation>Umgewandeltes TRANSCENDENCE zu zTELOS</translation>
-    </message>
-    <message>
-        <source>Spent zPhr</source>
-        <translation>Ausgeben zTELOS</translation>
-    </message>
-    <message>
-        <source>Received Phr from zPhr</source>
-        <translation>Empfangene TRANSCENDENCE von zTELOS</translation>
-    </message>
-    <message>
-        <source>Minted Change as zPhr from zPhr Spend</source>
-        <translation>Geprägtes Wechselgeld als zTELOS von zTELOS Ausgabe</translation>
-    </message>
-    <message>
-        <source>Converted zPhr to Phr</source>
-        <translation>Umgewandeltes zTELOS zu TRANSCENDENCE</translation>
-    </message>
-    <message>
         <source>watch-only</source>
         <translation>nur beobachtet</translation>
-    </message>
-    <message>
-        <source>zPhr Accumulator</source>
-        <translation>zTELOS Speicher</translation>
     </message>
     <message>
         <source>(n/a)</source>
@@ -4049,26 +4423,6 @@ Bitte haben Sie Geduld...</translation>
         <translation>Überwiesen an</translation>
     </message>
     <message>
-        <source>Obfuscated</source>
-        <translation>Verschleiert</translation>
-    </message>
-    <message>
-        <source>Obfuscation Make Collateral Inputs</source>
-        <translation>Verschleierung Erzeugung des Sicherheitspfand</translation>
-    </message>
-    <message>
-        <source>Obfuscation Create Denominations</source>
-        <translation>Verschleierung Erzeugung der Stückelung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Denominate</source>
-        <translation>Stückelung der Verschleierung</translation>
-    </message>
-    <message>
-        <source>Obfuscation Collateral Payment</source>
-        <translation>Sicherheitspfandzahlung für Verschleierung</translation>
-    </message>
-    <message>
         <source>To yourself</source>
         <translation>Eigenüberweisung</translation>
     </message>
@@ -4085,20 +4439,12 @@ Bitte haben Sie Geduld...</translation>
         <translation>Masternode Vergütung</translation>
     </message>
     <message>
-        <source>Received Phr from zPhr</source>
-        <translation>Empfangene TRANSCENDENCE von zTELOS</translation>
-    </message>
-    <message>
         <source>Zerocoin Mint</source>
         <translation>Zerocoin Prägung</translation>
     </message>
     <message>
         <source>Zerocoin Spend</source>
         <translation>Zerocoin Ausgabe</translation>
-    </message>
-    <message>
-        <source>Zerocoin Spend, Change in zPhr</source>
-        <translation>Zerocoin Ausgabe, Wechselgeld in zTELOS</translation>
     </message>
     <message>
         <source>Zerocoin Spend to Self</source>
@@ -4146,7 +4492,7 @@ Bitte haben Sie Geduld...</translation>
     </message>
     <message>
         <source>Comma separated file (*.csv)</source>
-        <translation>Kommagetrennte-Datei (*.csv)</translation>
+        <translation>Kommagetrennte Datei (*.csv)</translation>
     </message>
     <message>
         <source>Confirmed</source>
@@ -4189,6 +4535,14 @@ Bitte haben Sie Geduld...</translation>
         <translation>Exportieren erfolgreich</translation>
     </message>
     <message>
+        <source>Received TELOS from zTELOS</source>
+        <translation>Empfangene TELOS von zTELOS</translation>
+    </message>
+    <message>
+        <source>Zerocoin Spend, Change in zTELOS</source>
+        <translation>Zerocoin Überweisung, Wechselgeld in zTELOS</translation>
+    </message>
+    <message>
         <source>The transaction history was successfully saved to %1.</source>
         <translation>Speichern des Transaktionsverlaufs nach %1 war erfolgreich.</translation>
     </message>
@@ -4219,22 +4573,26 @@ Bitte haben Sie Geduld...</translation>
     <name>WalletModel</name>
     <message>
         <source>Send Coins</source>
-        <translation>TRANSCENDENCEs überweisen</translation>
+        <translation>PIVs überweisen</translation>
     </message>
     <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 TRANSCENDENCE.</source>
-        <translation>SwiftTX unterstützt das Versenden von Beträgen dieser Höhe noch nicht. Transaktionen sind zur Zeit auf maximal %1 TRANSCENDENCE begrenzt.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.</source>
+        <translation>Swift Transaktionen unterstützen das senden solch hoher Beträge noch nicht. Transaktionen sind momentan auf %1 TELOS begrenzt.</translation>
     </message>
 </context>
 <context>
     <name>WalletView</name>
+    <message>
+        <source>HISTORY</source>
+        <translation>VERLAUF</translation>
+    </message>
     <message>
         <source>&amp;Export</source>
         <translation>&amp;Exportieren</translation>
     </message>
     <message>
         <source>Export the data in the current tab to a file</source>
-        <translation>Daten der aktuellen Ansicht in eine Datei exportieren</translation>
+        <translation>Daten aus der aktuellen Ansicht in eine Datei exportieren</translation>
     </message>
     <message>
         <source>Selected amount:</source>
@@ -4248,28 +4606,12 @@ Bitte haben Sie Geduld...</translation>
         <source>Wallet Data (*.dat)</source>
         <translation>Wallet-Daten (*.dat)</translation>
     </message>
-    <message>
-        <source>Backup Failed</source>
-        <translation>Sicherung fehlgeschlagen</translation>
-    </message>
-    <message>
-        <source>There was an error trying to save the wallet data to %1.</source>
-        <translation>Beim Speichern der Wallet-Daten nach %1 ist ein Fehler aufgetreten.</translation>
-    </message>
-    <message>
-        <source>Backup Successful</source>
-        <translation>Sicherung erfolgreich</translation>
-    </message>
-    <message>
-        <source>The wallet data was successfully saved to %1.</source>
-        <translation>Speichern der Wallet-Daten nach %1 war erfolgreich.</translation>
-    </message>
 </context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
     <message>
-        <source>Select zPhr to Spend</source>
-        <translation>Auswahl zTELOS als Ausgabe</translation>
+        <source>Select zTELOS to Spend</source>
+        <translation>Wählen Sie die zTELOS aus, die Sie ausgeben möchten</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4280,18 +4622,14 @@ Bitte haben Sie Geduld...</translation>
         <translation>0</translation>
     </message>
     <message>
-        <source>zPhr</source>
+        <source>zTELOS</source>
         <translation>zTELOS</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
         <translation>Alle Aus-/Abwählen</translation>
     </message>
-    <message>
-        <source>Is Spendable</source>
-        <translation>ist aufwendbar</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>transcendence-core</name>
     <message>
@@ -4303,16 +4641,32 @@ Bitte haben Sie Geduld...</translation>
         <translation>Erlaubt JSON-RPC Verbindungen von der angegebenen Quelle. Valide für &lt;ip&gt; ist eine einzelne IP (z.B. 1.2.3.4), ein Netzwerk/Netzwerkmaske (z.B. 1.2.3.4/255.255.255.0) oder ein Netzwerk/CIDR (z.B. 1.2.3.4/24). Diese Option kann mehrfach angegeben werden</translation>
     </message>
     <message>
-        <source>An error occurred while setting up the RPC address %s port %u for listening: %s</source>
-        <translation>Fehler aufgetreten beim Einrichten der RPC-Adresse %s Port %u für horchen: %s</translation>
+        <source>Bind to given address and always listen on it. Use [host]:port notation for IPv6</source>
+        <translation>Binde an die angegebene Adresse und höre immer auf ihr. Benutze [host]:port Notation für IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address and whitelist peers connecting to it. Use [host]:port notation for IPv6</source>
+        <translation>Binde an die angegebene Adresse und setze Verbindungen zu ihr auf die Whitelist. Benutze [host]:port Notation für IPv6</translation>
+    </message>
+    <message>
+        <source>Bind to given address to listen for JSON-RPC connections. Use [host]:port notation for IPv6. This option can be specified multiple times (default: bind to all interfaces)</source>
+        <translation>Binde an die angegebene Adresse und höre auf JSON-RPC verbindungen. Benutze [host]:port Notation für IPv6. Diese Option kann mehrere Male aufgerufen werden (Standard: Binde an alle Schnittstellen)</translation>
     </message>
     <message>
         <source>Calculated accumulator checkpoint is not what is recorded by block index</source>
         <translation>Der berechnete Akkumulator-Checkpoint stimmt nicht mit dem vom Blockindex aufgezeichneten überein</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. Transcendence Core is probably already running.</source>
-        <translation>Kann keine Sperre für das Datenverzeichnis %s erhalten. Transcendence Core läuft wahrscheinlich bereits.</translation>
+        <source>Cannot obtain a lock on data directory %s. TELOS Core is probably already running.</source>
+        <translation>Kann keine Sperre für das Datenverzeichnis %s erhalten. TELOS Core läuft wahrscheinlich bereits.</translation>
+    </message>
+    <message>
+        <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
+        <translation>Ändere das automatische, finale Budget Stimmverhalten. Modus=auto: Stimme nur für exakt finale Budgets, welche meinem generierten Budget entsprechen. (string, Standard:auto)</translation>
+    </message>
+    <message>
+        <source>Continuously rate-limit free transactions to &lt;n&gt;*1000 bytes per minute (default:%u)</source>
+        <translation>Begrenze freie Transaktionen Permanent auf &lt;n&gt;*1000 Bytes pro Minute (Standard:%u)</translation>
     </message>
     <message>
         <source>Create new files with system default permissions, instead of umask 077 (only effective with disabled wallet functionality)</source>
@@ -4323,20 +4677,28 @@ Bitte haben Sie Geduld...</translation>
         <translation>Lösche alle Wallet-Transaktionen und stelle nur diese Teile der Blockchain  beim Start durch -neuscan wieder her</translation>
     </message>
     <message>
-        <source>Disable all Transcendence specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Deaktiviere alle Transcendence-spezifischen Funktionen (Masternodes, Verschleierung, SwiftTX, Budgetplanung) (0-1, default: %u)</translation>
+        <source>Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)</source>
+        <translation>Lösche alle Zerocoin Überweisungen und Prägungen die in der Blockchain-Datenbank gespeichert wurden und reindiziere diese (0-1, Standard: %u)</translation>
     </message>
     <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>Veröffentlicht unter der MIT-Software-Lizenz, siehe die beigelegte Datei COPYING oder &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable spork administration functionality with the appropriate private key.</source>
-        <translation>Aktiviere die Funktionalität der Spork-Administration mit dem entsprechenden privaten Schlüssel.</translation>
+        <source>Enable automatic wallet backups triggered after each zTELOS minting (0-1, default: %u)</source>
+        <translation>Aktiviere nach jeder zTELOS-Prägung ausgelöste automatische Wallet-Backups (0-1, Standard: %u)</translation>
     </message>
     <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>SwiftTx aktivieren, Bestätigungen für gesperrte Transaktionen anzeigen (bool, default: %s)</translation>
+        <source>Enable or disable staking functionality for TELOS inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für TELOS Eingänge (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable or disable staking functionality for zTELOS inputs (0-1, default: %u)</source>
+        <translation>Aktiviere oder deaktiviere Staking-Funktionalität für zTELOS Eingänge (0-1, default: %u)</translation>
+    </message>
+    <message>
+        <source>Enable spork administration functionality with the appropriate private key.</source>
+        <translation>Aktiviere die Funktionalität der Spork-Administration mit dem entsprechenden privaten Schlüssel.</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -4345,6 +4707,10 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>Error: Listening for incoming connections failed (listen returned error %s)</source>
         <translation>Fehler: Überwachung von eingehenden Verbindungen fehlgeschlagen (listen return error %s)</translation>
+    </message>
+    <message>
+        <source>Error: The transaction is larger than the maximum allowed transaction size!</source>
+        <translation>Fehler: Die Transaktion ist größer als die maximal zulässige Transaktionsgröße!</translation>
     </message>
     <message>
         <source>Error: Unsupported argument -socks found. Setting SOCKS version isn't possible anymore, only SOCKS5 proxies are supported.</source>
@@ -4363,20 +4729,16 @@ Bitte haben Sie Geduld...</translation>
         <translation>Befehl ausführen, wenn sich der beste Block ändert (%s in cmd wird durch Blockhash ersetzt)</translation>
     </message>
     <message>
-        <source>Fees (in TRANSCENDENCE/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Gebühren (in TRANSCENDENCE/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Gebühren (in TELOS/kB) kleiner als diese gelten für die Weiterleitung als Null-Gebühr  (default: %s)</translation>
     </message>
     <message>
-        <source>Fees (in TRANSCENDENCE/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Gebühren (in TRANSCENDENCE/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
+        <source>Fees (in TELOS/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Gebühren (in TELOS/kB) kleiner als diese werden als Null-Gebühr für die Transaktionserstellung betrachtet (default: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
         <translation>Flusht die Datenbankaktivität vom Speicherpool auf das Festplattenprotokoll alle &lt;n&gt; Megabytes (default: %u)</translation>
-    </message>
-    <message>
-        <source>Found unconfirmed denominated outputs, will wait till they confirm to continue.</source>
-        <translation>Gefundene unbestätigte benannte Outputs. Warte auf Bestätigung um fortzufahren.</translation>
     </message>
     <message>
         <source>If paytxfee is not set, include enough fee so transactions begin confirmation on average within n blocks (default: %u)</source>
@@ -4385,6 +4747,10 @@ Bitte haben Sie Geduld...</translation>
     <message>
         <source>In this mode -genproclimit controls how many blocks are generated immediately.</source>
         <translation>In diesem Modus -genproclimit steuern, wie viele Blöcke sofort erzeugt werden.</translation>
+    </message>
+    <message>
+        <source>Insufficient or insufficient confirmed funds, you might need to wait a few minutes and try again.</source>
+        <translation>Unzureichend oder unzureichend bestätigtes Guthaben, warten Sie ein paar Minuten und probieren es dann nochmal.</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s' (must be at least the minrelay fee of %s to prevent stuck transactions)</source>
@@ -4451,44 +4817,32 @@ Bitte haben Sie Geduld...</translation>
         <translation>Wenn aktiviert, kann die Anzahl der CPU-Threads für die Coin-Erzeugung festgelegt werden (-1 = alle Kerne, Standard: %d)</translation>
     </message>
     <message>
-        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
-        <translation>Unterstütze Filtern von Blöcken und Transaktionen mittels Bloom-Filtern (Standard: %u)</translation>
+        <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
+        <translation>Zeige N Bestätigungen für eine erfolgreich gesperrte Transaktion (0-9999, Standard: %u)</translation>
     </message>
     <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX benötigt mindestens 6 confirmations, Sie sollten ggf. einige Minuten abwarten und dann erneut probieren.</translation>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>Unterstütze Filtern von Blöcken und Transaktionen mittels Bloom-Filtern (Standard: %u)</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
         <translation>Dieses Produkt beinhaltet Software, die vom OpenSSL Projekt für die Nutzung im OpenSSL Toolkit &lt;https://www.openssl.org/&gt; entwickelt wurde. Desweiteren kryptografische Software , die von Eric Young, und UPnP Software, die von Thomas Bernard, geschrieben wurde.</translation>
     </message>
     <message>
-        <source>To use transcendenced, or the -server option to transcendence-qt, you must set an rpcpassword in the configuration file:
-%s
-It is recommended you use the following random password:
-rpcuser=transcendencerpc
-rpcpassword=%s
-(you do not need to remember this password)
-The username and password MUST NOT be the same.
-If the file does not exist, create it with owner-readable-only file permissions.
-It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
-</source>
-        <translation>Um transcendenced oder die -server option in transcendence-qt zu nutzen, muss ein RPC-Passwort mittels rpcpassword in der Konfigurationsdatei gestzt werden:
-%s
-Es wird empfohlen das folgende zufällige Passwort zu nutzen:
-rpcuser=transcendencerpc
-rpcpassword=%s
-(Sie müssen sich das Passwort nicht merken)
-User-Name und Passwort MÜSSEN NICHT die oben genannten sein.
-Falls die Datei bisher nicht existiert, erstellen Sie diese mit der eingeschränkten Berechtigung das nur der Besitzer diese lesen darf.
-Des weiteren wird empfohlen das Argument alertnotify zu setzen, damit Sie bei ggf. auftretenden Problemen benachrichtigt werden.
-Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
-</translation>
+        <source>Unable to bind to %s on this computer. TELOS Core is probably already running.</source>
+        <translation>Fehler: Port %s ist bereits belegt! Läuft bereits eine andere TELOS Core Wallet ?</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
         <translation>Nicht genügend gestückeltes, verschleiertes Guthaben für diese Transaktion gefunden.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Nicht genügend verschleiertes, nicht gestückeltes Guthaben für diese Transaktion gefunden, die nicht gleich 10000 TELOS entsprechen.</translation>
+    </message>
+    <message>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 TELOS.</source>
+        <translation>Nicht genügend Guthaben für diese Transaktion gefunden, die nicht gleich 10000 TELOS entsprechen.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -4503,8 +4857,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Warnung: -paytxfee ist sehr hoch eingestellt! Diese Transaktionsgebühr werden Ihnen abgebucht, falls Sie die Transaktion überweisen.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Transcendence Core will not work properly.</source>
-        <translation>Warnung: Bitte stellen Sie sicher, das vom Computer verwendete Zeit und Datumangaben korrekt sind! Wenn ihr System falsche Zeitangaben nutzt, wird Transcendence Core nicht korrekt funktionieren.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong TELOS Core will not work properly.</source>
+        <translation>Warnung: Bitte stellen Sie sicher, das vom Computer verwendete Zeit und Datumangaben korrekt sind! Wenn ihr System falsche Zeitangaben nutzt, wird TELOS Core nicht korrekt funktionieren.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -4523,12 +4877,20 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Warnung: wallet.dat fehlerhaft, Daten wurden gerettet! Die originale wallet.dat wurde als wallet.{Zeitstempel}.bak in %s gesichert; falls ihr Kontostand oder ihre Transaktionen fehlerhaft sind, sollten Sie ein Backup zur Wiederherstellung nutzen.</translation>
     </message>
     <message>
+        <source>Whitelist peers connecting from the given netmask or IP address. Can be specified multiple times.</source>
+        <translation>Setze Verbindungen aus der folgenden Subnetzmaske oder IP-Adresse. Dies kann mehrere male spezifiziert werden.</translation>
+    </message>
+    <message>
+        <source>Whitelisted peers cannot be DoS banned and their transactions are always relayed, even if they are already in the mempool, useful e.g. for a gateway</source>
+        <translation>Whitelist-Peers können nicht verboten werden und ihre Transaktionen werden immer weitergeleitet, auch wenn sie bereits im Mempool sind, nützlich z. für ein Gateway</translation>
+    </message>
+    <message>
         <source>You must specify a masternodeprivkey in the configuration. Please see documentation for help.</source>
         <translation>Sie müssen einen privaten Masternode-Schlüssel in der Konfiguration festlegen. Bitte nutzen Sie die Dokumentation zwecks Hilfe.</translation>
     </message>
     <message>
-        <source>(22123 could be used only on mainnet)</source>
-        <translation>(22123 kann nur im Mainnet verwendet werden)</translation>
+        <source>(51472 could be used only on mainnet)</source>
+        <translation>(51472 kann nur im Mainnet verwendet werden)</translation>
     </message>
     <message>
         <source>(default: %s)</source>
@@ -4539,8 +4901,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>(default: 1)</translation>
     </message>
     <message>
-        <source>(must be 22123 for mainnet)</source>
-        <translation>(muss im Mainnet 22123 sein)</translation>
+        <source>(must be 51472 for mainnet)</source>
+        <translation>(muss im Mainnet 51472 sein)</translation>
     </message>
     <message>
         <source>Accept command line and JSON-RPC commands</source>
@@ -4563,10 +4925,6 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Erlaube DNS lookups für -addnode, -seednode und -connect</translation>
     </message>
     <message>
-        <source>Already have that input.</source>
-        <translation>Eingabe bereits erhalten.</translation>
-    </message>
-    <message>
         <source>Always query for peer addresses via DNS lookup (default: %u)</source>
         <translation>Gegenstellen-Adressen immer per DNS lookup anfragen (Standard: %u)</translation>
     </message>
@@ -4583,12 +4941,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Block-Erzeugungs-Optionen:</translation>
     </message>
     <message>
-        <source>Can't find random Masternode.</source>
-        <translation>Kann zufällige Masternode nicht finden.</translation>
-    </message>
-    <message>
-        <source>Can't mix while sync in progress.</source>
-        <translation>Mixen während der Synchronisierung nicht möglich.</translation>
+        <source>Calculating missing accumulators...</source>
+        <translation>Fehlende Akkus berechnen ...</translation>
     </message>
     <message>
         <source>Cannot downgrade wallet</source>
@@ -4609,10 +4963,6 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>Cannot write default address</source>
         <translation>Standardadresse kann nicht geschrieben werden</translation>
-    </message>
-    <message>
-        <source>Collateral not valid.</source>
-        <translation>Pfand ungültig.</translation>
     </message>
     <message>
         <source>Connect only to the specified node(s)</source>
@@ -4639,16 +4989,12 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Copyright (C) 2014-%i The Dash Core Developers</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Transcendence Core Developers</source>
-        <translation>Copyright (C) 2015-%i The Transcendence Core Developers</translation>
+        <source>Copyright (C) 2015-%i The TELOS Core Developers</source>
+        <translation>Copyright (C) 2015-%i The TELOS Core Developers</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
         <translation>Beschädigte Block-Datenbank gefunden</translation>
-    </message>
-    <message>
-        <source>Could not parse -rpcbind value %s as network address</source>
-        <translation>Kann -rpcbind Wert %s nicht als Netzwerkadresse parsen </translation>
     </message>
     <message>
         <source>Could not parse masternode.conf</source>
@@ -4659,8 +5005,20 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Debugging-  / Testoptionen</translation>
     </message>
     <message>
+        <source>Delete blockchain folders and resync from scratch</source>
+        <translation>Löschen Sie Blockchain-Ordner und resync von Grund auf neu</translation>
+    </message>
+    <message>
         <source>Disable OS notifications for incoming transactions (default: %u)</source>
         <translation>Benachrichtigungen über eingehende Transaktionen im Betriebsystem ausschalten (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Disable safemode, override a real safe mode event (default: %u)</source>
+        <translation>Deaktivieren Sie den Safemodus, überschreiben Sie ein echtes Safe-Mode-Ereignis (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Discover own IP address (default: 1 when listening and no -externalip)</source>
+        <translation>Eigene IP-Adresse erkennen (Standard: 1 beim Hören und keine -Ausnahme)</translation>
     </message>
     <message>
         <source>Do not load the wallet and disable wallet RPC calls</source>
@@ -4679,12 +5037,16 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Automatische Zerocoin-Prägung ermöglichen (0-1, Standard: %u)</translation>
     </message>
     <message>
-        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
-        <translation>Ermögliche dem Client als Masternode zu fungieren (0-1, Standard: %u)</translation>
+        <source>Enable publish hash transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Aktivieren Sie die Veröffentlichung der Hash-Transaktion (gesperrt über SwiftX) in &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Error connecting to Masternode.</source>
-        <translation>Fehler beim Verbinden zur Masternode.</translation>
+        <source>Enable publish raw transaction (locked via SwiftX) in &lt;address&gt;</source>
+        <translation>Aktivieren Sie die Publish-Raw-Transaktion (gesperrt über SwiftX) in&lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable the client to act as a masternode (0-1, default: %u)</source>
+        <translation>Ermögliche dem Client als Masternode zu fungieren (0-1, Standard: %u)</translation>
     </message>
     <message>
         <source>Error initializing block database</source>
@@ -4707,8 +5069,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Fehler beim Laden von wallet.dat : Wallet beschädigt</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Transcendence Core</source>
-        <translation>Fehler beim Laden der wallet.dat: Neuere Transcendence Core Version benötigt</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of TELOS Core</source>
+        <translation>Fehler beim Laden der wallet.dat: Neuere TELOS Core Version benötigt</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -4721,6 +5083,10 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>Error recovering public key.</source>
         <translation>Fehler bei der Wiederherstellung des öffentlichen Schlüssels.</translation>
+    </message>
+    <message>
+        <source>Error writing zerocoinDB to disk</source>
+        <translation>Fehler beim Schreiben von zerocoinDB auf die Festplatte</translation>
     </message>
     <message>
         <source>Error</source>
@@ -4743,36 +5109,28 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Fehler: Wallet verschlossen, Transaktion konnte nicht erstellt werden!</translation>
     </message>
     <message>
-        <source>Error: You already have pending entries in the Obfuscation pool</source>
-        <translation>Fehler: Sie haben bereits ausstehende Einträge im Obfuscation-Pool</translation>
+        <source>Failed to calculate accumulator checkpoint</source>
+        <translation>Fehler beim Berechnen des Akku-Checkpoints</translation>
     </message>
     <message>
         <source>Failed to listen on any port. Use -listen=0 if you want this.</source>
         <translation>Abhören jeglicher Ports fehlgeschlagen. Nutzen Sie -listen=0 falls dies erwünscht ist.</translation>
     </message>
     <message>
+        <source>Failed to parse host:port string</source>
+        <translation>Fehler beim Analysieren von host: port string</translation>
+    </message>
+    <message>
         <source>Failed to read block</source>
         <translation>Block konnte nicht gelesen werden</translation>
     </message>
     <message>
-        <source>Fee (in TRANSCENDENCE/kB) to add to transactions you send (default: %s)</source>
-        <translation>Gebühr (in TRANSCENDENCE/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
-    </message>
-    <message>
-        <source>Finalizing transaction.</source>
-        <translation>Schließe Transaktion ab.</translation>
+        <source>Fee (in TELOS/kB) to add to transactions you send (default: %s)</source>
+        <translation>Gebühr (in TELOS/kB) die den Transaktionen, die Sie überweisen, hinzugefügt wird (Standard: %s)</translation>
     </message>
     <message>
         <source>Force safe mode (default: %u)</source>
         <translation>Erzwinge Safe-Mode (Standard: %u)</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ( waiting %s )</source>
-        <translation>Genügend Benutzer gefunden, signiere (warte %s)</translation>
-    </message>
-    <message>
-        <source>Found enough users, signing ...</source>
-        <translation>Genügend Benutzer gefunden, signiere...</translation>
     </message>
     <message>
         <source>Generate coins (default: %u)</source>
@@ -4781,6 +5139,10 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>How many blocks to check at startup (default: %u, 0 = all)</source>
         <translation>Zu überprüfende Blöcke beim Start (default: %u, 0 = all)</translation>
+    </message>
+    <message>
+        <source>If &lt;category&gt; is not supplied, output all debugging information.</source>
+        <translation>Wenn &lt;category&gt; nicht angegeben wurde, gebe alle Debuginformationen aus. </translation>
     </message>
     <message>
         <source>Importing...</source>
@@ -4795,14 +5157,6 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Ip-Adresse in Debug-Ausgabe einbeziehen (Standard: %u)</translation>
     </message>
     <message>
-        <source>Incompatible mode.</source>
-        <translation>Inkompatibler Modus.</translation>
-    </message>
-    <message>
-        <source>Incompatible version.</source>
-        <translation>Inkompatible Version.</translation>
-    </message>
-    <message>
         <source>Incorrect or no genesis block found. Wrong datadir for network?</source>
         <translation>Falscher oder kein Genesis-Block gefunden. Falsches Datenverzeichnis für das Netzwerk?</translation>
     </message>
@@ -4811,12 +5165,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Hinweis</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. Transcendence Core is shutting down.</source>
-        <translation>Initialisierung Sanity-Check fehlgeschlagen. Transcendence Core schaltet ab.</translation>
-    </message>
-    <message>
-        <source>Input is not valid.</source>
-        <translation>Input ist nicht gültig.</translation>
+        <source>Initialization sanity check failed. TELOS Core is shutting down.</source>
+        <translation>Initialisierung Sanity-Check fehlgeschlagen. TELOS Core schaltet ab.</translation>
     </message>
     <message>
         <source>Insufficient funds</source>
@@ -4829,10 +5179,6 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>Invalid -onion address or hostname: '%s'</source>
         <translation>Ungültige -onion Adresse oder Hostname: '%s'</translation>
-    </message>
-    <message>
-        <source>Invalid -proxy address or hostname: '%s'</source>
-        <translation>Ungültige Proxy-Adresse oder Hostname: '%s'</translation>
     </message>
     <message>
         <source>Invalid amount for -maxtxfee=&lt;amount&gt;: '%s'</source>
@@ -4879,8 +5225,28 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Ungültiger privater Schlüssel.</translation>
     </message>
     <message>
-        <source>Invalid script detected.</source>
-        <translation>Ungültiges Skript entdeckt.</translation>
+        <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
+        <translation>Prozent automatisch geprägter Zerocoins (1-100, Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the TELOS and zTELOS money supply statistics</source>
+        <translation>Die Geldmengenstatistik TELOS und zTELOS neu indizieren</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin database...</source>
+        <translation>Reindiziere Zerocoin Datenbank...</translation>
+    </message>
+    <message>
+        <source>Reindexing zerocoin failed</source>
+        <translation>Zerocoin Reindizierung fehlgeschlagen</translation>
+    </message>
+    <message>
+        <source>Selected coins value is less than payment target</source>
+        <translation>Ausgewählter Coinwert ist geringer als der Zielbetrag</translation>
+    </message>
+    <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX Optionen:</translation>
     </message>
     <message>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
@@ -4889,7 +5255,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source> mints deleted
 </source>
-        <translation>Prägungen gelöscht
+        <translation>Prägungen gelöscht 
 </translation>
     </message>
     <message>
@@ -4901,6 +5267,14 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
 </source>
         <translation>unbestätigte Transaktionen entfernt
 </translation>
+    </message>
+    <message>
+        <source>Disable all TELOS specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Deaktivieren Sie alle TELOS-spezifischen Funktionen (Masternodes, Zerocoin, SwiftX, Budgetierung) (0-1, Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
+        <translation>Swifttx aktivieren, Bestätigungen für gesperrte Transaktionen anzeigen (bool, default: %s)</translation>
     </message>
     <message>
         <source>Error: The transaction was rejected! This might happen if some of the coins in your wallet were already spent, such as if you used a copy of wallet.dat and coins were spent in the copy but not marked as spent here.</source>
@@ -4915,8 +5289,32 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Fehler: Nicht unterstütztes Argument -checklevel entdeckt. Checklevel muss Level 4 sein.</translation>
     </message>
     <message>
+        <source>Execute command when the best block changes and its size is over (%s in cmd is replaced by block hash, %d with the block size)</source>
+        <translation>Befehl ausführen, wenn sich der beste Block ändert und seine Größe überschritten ist (%s in cmd wird durch Blockhash ersetzt, %d durch die Blockgröße)</translation>
+    </message>
+    <message>
+        <source>Failed to find coin set amongst held coins with less than maxNumber of Spends</source>
+        <translation>Fehler beim Finden der Münzen unter den gehaltenen Münzen mit weniger als maxNaval of Spends</translation>
+    </message>
+    <message>
+        <source>In rare cases, a spend with 7 coins exceeds our maximum allowable transaction size, please retry spend using 6 or less coins</source>
+        <translation>In seltenen Fällen überschreiten Ausgaben mit 7 Münzen die maximal zulässige Transaktionsgröße. Bitte versuchen Sie erneut, mit 6 oder weniger Münzen auszugeben</translation>
+    </message>
+    <message>
         <source>Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)</source>
         <translation>Bervorzugte Stückelung für automatisch geprägte Zerocoins (1/5/10/50/100/500/1000/5000), 0 falls keine bestimmte Stückelung präferiert wird. Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any automatic zTELOS backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen automatischen zTELOS-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben. Wenn der Sicherungspfad auch festgelegt ist, werden 4 Sicherungen erstellt.</translation>
+    </message>
+    <message>
+        <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
+        <translation>Benutzerdefinierten Sicherungspfad festlegen, in den Kopien von allen Wallet-Sicherungen abgelegt werden. Wenn ein Verzeichnis ausgewählt ist, wird jede Sicherung als Datei mit Zeitstempel erstellt. Wenn eine Datei ausgewählt ist, wird diese Datei bei jeder Sicherung überschrieben.</translation>
+    </message>
+    <message>
+        <source>SwiftX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
+        <translation>SwiftTX benötigt mindestens 6 confirmations, Sie sollten ggf. einige Minuten abwarten und dann erneut probieren.</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -4927,24 +5325,68 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Versuche die Wiederherstellung der fehlerhaften Blockchain zu forcieren</translation>
     </message>
     <message>
+        <source>CoinSpend: Accumulator witness does not verify</source>
+        <translation>CoinSpend: Akkumulator-Zeuge verifiziert nicht</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>Zeigen Sie die Berechnungen des Pfahlmodifikators in der Datei debug.log an.</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>Zeigen Sie in der Datei "debug.log" ausführliche Meldungen zum Pfahlstatus an.</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>Aktivieren Sie den Veröffentlichungs-Hash-Block in&lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>Aktivieren Sie die Veröffentlichung der Hash-Transaktion in&lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>Aktivieren Sie den Veröffentlichungsrohblock in&lt;address&gt;</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>Aktivieren Sie die Veröffentlichung der Rohtransaktion in&lt;address&gt;</translation>
+    </message>
+    <message>
         <source>Enable staking functionality (0-1, default: %u)</source>
         <translation>Aktiviere Staking-Funktionalität (0-1, default: %u)</translation>
     </message>
     <message>
+        <source>Error: A fatal internal error occurred, see debug.log for details</source>
+        <translation>Fehler: Ein schwerwiegender Fehler ist aufgetreten, schauen Sie für detailiertere Infos ins debug.log </translation>
+    </message>
+    <message>
+        <source>Error: No valid utxo!</source>
+        <translation>Error: No valid utxo!</translation>
+    </message>
+    <message>
+        <source>Failed to create mint</source>
+        <translation>Fehler beim Erstellen von Minze</translation>
+    </message>
+    <message>
+        <source>Failed to find Zerocoins in wallet.dat</source>
+        <translation>Zerocoins in wallet.dat nicht gefunden</translation>
+    </message>
+    <message>
+        <source>Failed to select a zerocoin</source>
+        <translation>Fehler beim Auswählen einer Nullstelle</translation>
+    </message>
+    <message>
+        <source>Failed to wipe zerocoinDB</source>
+        <translation>Zerocoin Datenbank konnte nicht gelöscht werden</translation>
+    </message>
+    <message>
+        <source>Failed to write coin serial number into wallet</source>
+        <translation>Fehler beim Schreiben der Seriennummer der Münze in die Brieftasche</translation>
+    </message>
+    <message>
         <source>Keep at most &lt;n&gt; unconnectable transactions in memory (default: %u)</source>
         <translation>Halte höchstens &lt;n&gt; unverbindbare Transaktionen im Speicher (Standard: %u)</translation>
-    </message>
-    <message>
-        <source>Last Obfuscation was too recent.</source>
-        <translation>Nicht genügend Zeit seit der letzten Verschleierung vergangen.</translation>
-    </message>
-    <message>
-        <source>Last successful Obfuscation action was too recent.</source>
-        <translation>Nicht genügend Zeit seit der letzten erfolgreichen Verschleierung vergangen.</translation>
-    </message>
-    <message>
-        <source>Less than 3 mints added, unable to create spend</source>
-        <translation>Weniger als 3 Prägungen hinzugefügt, Überweisung konnte nicht erstellt werden</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -4995,16 +5437,24 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Lade Wallet...</translation>
     </message>
     <message>
+        <source>Location of the auth cookie (default: data dir)</source>
+        <translation>Location of the auth cookie (default: data dir)</translation>
+    </message>
+    <message>
+        <source>Lock masternodes from masternode configuration file (default: %u)</source>
+        <translation>Masternodes aus der masternode-Konfigurationsdatei sperren (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Lookup(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>Lookup(): Invalid -proxy address or hostname: '%s'</translation>
+    </message>
+    <message>
+        <source>Maintain at most &lt;n&gt; connections to peers (default: %u)</source>
+        <translation>Pflegen Sie höchstens&lt;n&gt; Verbindungen zu Peers (Standard: %u)</translation>
+    </message>
+    <message>
         <source>Masternode options:</source>
         <translation>Masternode-Optionen:</translation>
-    </message>
-    <message>
-        <source>Masternode queue is full.</source>
-        <translation>Masternode-Schlange ist voll.</translation>
-    </message>
-    <message>
-        <source>Masternode:</source>
-        <translation>Masternode:</translation>
     </message>
     <message>
         <source>Maximum per-connection receive buffer, &lt;n&gt;*1000 bytes (default: %u)</source>
@@ -5015,64 +5465,32 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Maximaler Sendepuffer pro Verbindung &lt;n&gt;*1000 bytes (Standard: %u)</translation>
     </message>
     <message>
-        <source>Missing input transaction information.</source>
-        <translation>Fehlende Information in der Transaktionseingabe.</translation>
+        <source>Mint did not make it into blockchain</source>
+        <translation>Mint schaffte es nicht in Blockchain</translation>
     </message>
     <message>
-        <source>Mixing in progress...</source>
-        <translation>Mixing im Gange...</translation>
+        <source>Need address because change is not exact</source>
+        <translation>Brauche eine Adresse, weil die Änderung nicht exakt ist</translation>
     </message>
     <message>
         <source>Need to specify a port with -whitebind: '%s'</source>
         <translation>Sie müssen einen Port mittels -whitebind festlegen: '%s'</translation>
     </message>
     <message>
-        <source>No Masternodes detected.</source>
-        <translation>Keine Masternodes gefunden.</translation>
-    </message>
-    <message>
-        <source>No compatible Masternode found.</source>
-        <translation>Keine kompatible Masternode gefunden.</translation>
-    </message>
-    <message>
-        <source>No funds detected in need of denominating.</source>
-        <translation>Kein Guthaben entdeckt das gestückelt werden müsste.</translation>
-    </message>
-    <message>
-        <source>No matching denominations found for mixing.</source>
-        <translation>Keine passende Stückelung für den Mixing-Prozess gefunden.</translation>
-    </message>
-    <message>
-        <source>Non-standard public key detected.</source>
-        <translation>Nicht Standard-konformer öffentlicher Schlüssel entdeckt.</translation>
-    </message>
-    <message>
-        <source>Not compatible with existing transactions.</source>
-        <translation>Nicht kompatibel mit existierenden Transaktionen.</translation>
+        <source>Node relay options:</source>
+        <translation>Optionen für Knotenrelais:</translation>
     </message>
     <message>
         <source>Not enough file descriptors available.</source>
         <translation>Nicht genügend Datei-Deskriptoren verfügbar.</translation>
     </message>
     <message>
-        <source>Not in the Masternode list.</source>
-        <translation>Nicht in der Masternode-Liste.</translation>
-    </message>
-    <message>
         <source>Number of automatic wallet backups (default: 10)</source>
         <translation>Anzahl automatischer Wallet-Backups (Standard: 10)</translation>
     </message>
     <message>
-        <source>Obfuscation is idle.</source>
-        <translation>Verschleierung im Leerlauf</translation>
-    </message>
-    <message>
-        <source>Obfuscation request complete:</source>
-        <translation>Verschleierungsanfrage komplett</translation>
-    </message>
-    <message>
-        <source>Obfuscation request incomplete:</source>
-        <translation>Verschleierungsanfrage unvollständig</translation>
+        <source>Number of custom location backups to retain (default: %d)</source>
+        <translation>Anzahl an benutzerdefinierter Backups die aufbewahrt werden (Standard: %d)</translation>
     </message>
     <message>
         <source>Only accept block chain matching built-in checkpoints (default: %u)</source>
@@ -5091,8 +5509,12 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Passwort für JSON-RPC Verbindungen</translation>
     </message>
     <message>
-        <source>Percentage of automatically minted Zerocoin  (10-100, default: %u)</source>
-        <translation>Prozent automatisch geprägter Zerocoins (10-100, Standard: %u)</translation>
+        <source>isValid(): Invalid -proxy address or hostname: '%s'</source>
+        <translation>isValid(): Invalid -proxy address or hostname: '%s'</translation>
+    </message>
+    <message>
+        <source>Preparing for resync...</source>
+        <translation>Vorbereitung für die Resynchronisierung ...</translation>
     </message>
     <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
@@ -5103,16 +5525,16 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Version drucken und Programm beenden</translation>
     </message>
     <message>
-        <source>RPC SSL options: (see the Bitcoin Wiki for SSL setup instructions)</source>
-        <translation>RPC SSL Optionen: (Schauen Sie sich die Anleitungen für SSL Setup im Bitcoin Wiki an)</translation>
-    </message>
-    <message>
         <source>RPC server options:</source>
         <translation>RPC Serveroptionen:</translation>
     </message>
     <message>
-        <source>RPC support for HTTP persistent connections (default: %d)</source>
-        <translation>RPC-Unterstützung für persistente HTTP Verbindungen (Standard: %d)</translation>
+        <source>Randomly drop 1 of every &lt;n&gt; network messages</source>
+        <translation>Nach dem Zufallsprinzip 1 von jedem fallen lassen&lt;n&gt; Netzwerknachrichten</translation>
+    </message>
+    <message>
+        <source>Randomly fuzz 1 of every &lt;n&gt; network messages</source>
+        <translation>Zufällig fuzz 1 von jedem&lt;n&gt; Netzwerknachrichten</translation>
     </message>
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
@@ -5121,6 +5543,18 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>Receive and display P2P network alerts (default: %u)</source>
         <translation>Empfange P2P-Netzwerk-Warnsignale und zeige diese an (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Reindex the accumulator database</source>
+        <translation>Reinde die Akkumulator-Datenbank neu</translation>
+    </message>
+    <message>
+        <source>Relay and mine data carrier transactions (default: %u)</source>
+        <translation>Relay und meine Datenträgertransaktionen (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Relay non-P2SH multisig (default: %u)</source>
+        <translation>Relais nicht-P2SH multisig (Standard: %u)</translation>
     </message>
     <message>
         <source>Rescan the block chain for missing wallet transactions</source>
@@ -5139,24 +5573,16 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>ResetSpentZerocoin abgeschlossen: </translation>
     </message>
     <message>
+        <source>Run a thread to flush wallet periodically (default: %u)</source>
+        <translation>Führen Sie einen Thread aus, um die Brieftasche regelmäßig zu leeren (Standard: %u)</translation>
+    </message>
+    <message>
         <source>Run in the background as a daemon and accept commands</source>
         <translation>Als Hintergrundprozess ausführen und Eingaben akzeptieren</translation>
     </message>
     <message>
         <source>Send transactions as zero-fee transactions if possible (default: %u)</source>
         <translation>Sende die Transaktion als gebührenfreie Transaktion, falls möglich (Standard: %u)</translation>
-    </message>
-    <message>
-        <source>Server certificate file (default: %s)</source>
-        <translation>Server Zertifikat-Datei (Standard: %s)</translation>
-    </message>
-    <message>
-        <source>Server private key (default: %s)</source>
-        <translation>Privater Server Schlüssel (Standard: %s)</translation>
-    </message>
-    <message>
-        <source>Session not complete!</source>
-        <translation>Sitzung unvollständig!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
@@ -5179,12 +5605,24 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Maximale Blockgröße in Bytes festlegen (Standard: %d)</translation>
     </message>
     <message>
+        <source>Set minimum block size in bytes (default: %u)</source>
+        <translation>Minimale Blockgröße in Bytes festlegen (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Set the Maximum reorg depth (default: %u)</source>
+        <translation>Legen Sie die maximale Reorganisationstiefe fest (Standard: %u)</translation>
+    </message>
+    <message>
         <source>Set the masternode private key</source>
         <translation>Privaten Masternode-Schlüssel festlegen</translation>
     </message>
     <message>
         <source>Set the number of threads to service RPC calls (default: %d)</source>
         <translation>Anzahl der Threads festlegen, die genutzt werden um RPC Anfragen zu bearbeiten (Standard: %d)</translation>
+    </message>
+    <message>
+        <source>Sets the DB_PRIVATE flag in the wallet db environment (default: %u)</source>
+        <translation>Setzt das DB_PRIVATE-Flag in der Wallet-Datenbankumgebung (Standard: %u)</translation>
     </message>
     <message>
         <source>Show all debugging options (usage: --help -help-debug)</source>
@@ -5216,7 +5654,7 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     </message>
     <message>
         <source>Specify data directory</source>
-        <translation>Bezeichne Datenverzeichnis</translation>
+        <translation>Datenverzeichnis festlegen</translation>
     </message>
     <message>
         <source>Specify masternode configuration file (default: %s)</source>
@@ -5235,28 +5673,20 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Bezeichnen Sie ihre eigene öffentliche Adresse</translation>
     </message>
     <message>
+        <source>Spend Valid</source>
+        <translation>Spend Valid</translation>
+    </message>
+    <message>
+        <source>Spend unconfirmed change when sending transactions (default: %u)</source>
+        <translation>Unbestätigte Änderung beim Senden von Transaktionen ausgeben (Standard: %u)</translation>
+    </message>
+    <message>
         <source>Staking options:</source>
         <translation>Staking-Optionen:</translation>
     </message>
     <message>
         <source>Stop running after importing blocks from disk (default: %u)</source>
         <translation>Stoppt den Lauf nach dem Importieren von Blöcken von der Festplatte (default: %u)</translation>
-    </message>
-    <message>
-        <source>Submitted following entries to masternode: %u / %d</source>
-        <translation>Folgende Einträge werden beim Masternode eingereicht: %u / %d</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting for more entries ( %u / %d ) %s</source>
-        <translation>Beim Masternode eingereicht, wartet auf mehr Einträge ( %u / %d ) %s</translation>
-    </message>
-    <message>
-        <source>Submitted to masternode, waiting in queue %s</source>
-        <translation>Beim Masternode eingereicht, befindet sich in der Warteschlange %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>SwiftTX Optionen:</translation>
     </message>
     <message>
         <source>Synchronization failed</source>
@@ -5287,11 +5717,23 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Synchronisiere Sporks....</translation>
     </message>
     <message>
+        <source>Syncing zTELOS wallet...</source>
+        <translation>Synchronisiere zTELOS Wallet... </translation>
+    </message>
+    <message>
+        <source>The coin spend has been used</source>
+        <translation>Die Münzausgabe wurde verwendet</translation>
+    </message>
+    <message>
+        <source>The transaction did not verify</source>
+        <translation>Die Transaktion wurde nicht verifiziert</translation>
+    </message>
+    <message>
         <source>This help message</source>
         <translation>Dieser Hilfetext</translation>
     </message>
     <message>
-        <source></source>
+        <source>This is experimental software.</source>
         <translation>Dies ist experimentelle Software.</translation>
     </message>
     <message>
@@ -5299,12 +5741,12 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Dies ist für Regressionstest-Tools und Anwendungsentwicklung gedacht.</translation>
     </message>
     <message>
-        <source>This is not a Masternode.</source>
-        <translation>Dies ist keine Masternode.</translation>
-    </message>
-    <message>
         <source>Threshold for disconnecting misbehaving peers (default: %u)</source>
         <translation>Schwellenwert zum Trennen von sich falsch verhaltenden Gegenstellen (Standard: %u)</translation>
+    </message>
+    <message>
+        <source>Too many spends needed</source>
+        <translation>Zu viele Ausgaben benötigt</translation>
     </message>
     <message>
         <source>Tor control port password (default: empty)</source>
@@ -5315,24 +5757,20 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Zu verwendender Tor Kontroll-Port, falls onion Überwachung aktiviert ist (Standard %s)</translation>
     </message>
     <message>
+        <source>Transaction Created</source>
+        <translation>Transaktion erstellt</translation>
+    </message>
+    <message>
+        <source>Transaction Mint Started</source>
+        <translation>Transaktion Mint gestartet</translation>
+    </message>
+    <message>
         <source>Transaction amount too small</source>
         <translation>Transaktionsbetrag zu niedrig</translation>
     </message>
     <message>
         <source>Transaction amounts must be positive</source>
         <translation>Transaktionsbeträge müssen positiv sein</translation>
-    </message>
-    <message>
-        <source>Transaction created successfully.</source>
-        <translation>Transaktion erfolgreich erstellt.</translation>
-    </message>
-    <message>
-        <source>Transaction fees are too high.</source>
-        <translation>Transaktionsgebühren sind zu hoch.</translation>
-    </message>
-    <message>
-        <source>Transaction not valid.</source>
-        <translation>Transaktion ungültig.</translation>
     </message>
     <message>
         <source>Transaction too large for fee policy</source>
@@ -5343,8 +5781,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Transaktion zu groß</translation>
     </message>
     <message>
-        <source>Transmitting final transaction.</source>
-        <translation>Übertrage fertige Transaktion.</translation>
+        <source>Trying to spend an already spent serial #, try again.</source>
+        <translation>Versuchen Sie, eine bereits ausgegebene Seriennummer auszugeben, versuchen Sie es erneut.</translation>
     </message>
     <message>
         <source>Unable to bind to %s on this computer (bind returned error %s)</source>
@@ -5355,20 +5793,16 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Die Spork-Nachricht konnte nicht signiert werden. Falscher Key?</translation>
     </message>
     <message>
+        <source>Unable to start HTTP server. See debug log for details.</source>
+        <translation>Der HTTP-Server konnte nicht gestartet werden. Details finden Sie im Debug-Protokoll.</translation>
+    </message>
+    <message>
         <source>Unknown network specified in -onlynet: '%s'</source>
         <translation>Unbekannter Netztyp in -onlynet angegeben: '%s'</translation>
     </message>
     <message>
-        <source>Unknown state: id = %u</source>
-        <translation>Unbekannter Status: id = %u</translation>
-    </message>
-    <message>
         <source>Upgrade wallet to latest format</source>
         <translation>Wallet auf das neueste Format aktualisieren</translation>
-    </message>
-    <message>
-        <source>Use OpenSSL (https) for JSON-RPC connections</source>
-        <translation>OpenSSL (https) für JSON-RPC-Verbindungen verwenden</translation>
     </message>
     <message>
         <source>Use UPnP to map the listening port (default: %u)</source>
@@ -5379,6 +5813,10 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>UPnP verwenden, um eine Portweiterleitung einzurichten (Standard: 1, wenn abgehört wird)</translation>
     </message>
     <message>
+        <source>Use a custom max chain reorganization depth (default: %u)</source>
+        <translation>Verwenden Sie eine benutzerdefinierte Max-Reorganisation der Kette (Standard: %u)</translation>
+    </message>
+    <message>
         <source>Use the test network</source>
         <translation>Das Testnetzwerk verwenden</translation>
     </message>
@@ -5387,8 +5825,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Benutzername für JSON-RPC-Verbindungen</translation>
     </message>
     <message>
-        <source>Value more than Obfuscation pool maximum allows.</source>
-        <translation>Wert höher als der vom Verschleierungspool maximal erlaubte.</translation>
+        <source>Value is below the smallest available denomination (= 1) of zTELOS</source>
+        <translation>Der Betrag ist unterhalb des kleinsten Wertes (=1) an zTELOS</translation>
     </message>
     <message>
         <source>Verifying blocks...</source>
@@ -5403,12 +5841,8 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Wallet %s liegt außerhalb des Datenverzeichnisses %s</translation>
     </message>
     <message>
-        <source>Wallet is locked.</source>
-        <translation>Wallet gesperrt.</translation>
-    </message>
-    <message>
-        <source>Wallet needed to be rewritten: restart Transcendence Core to complete</source>
-        <translation>Wallet musste neu geschrieben werden: Bitte Transcendence Core neu starten</translation>
+        <source>Wallet needed to be rewritten: restart TELOS Core to complete</source>
+        <translation>Wallet musste neu geschrieben werden: Bitte TELOS Core neu starten</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -5435,16 +5869,12 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
         <translation>Warnung: Nicht unterstütztes Argument -debugnet wurde ignoriert, nutze stattdessen -debug=net.</translation>
     </message>
     <message>
-        <source>Will retry...</source>
-        <translation>Wird wiederholt...</translation>
+        <source>You don't have enough Zerocoins in your wallet</source>
+        <translation>Du hast nicht genug Zerocoins in deiner Brieftasche</translation>
     </message>
     <message>
-        <source>Your entries added successfully.</source>
-        <translation>Ihre Eingaben wurden erfolgreich hinzugefügt.</translation>
-    </message>
-    <message>
-        <source>Your transaction was accepted into the pool!</source>
-        <translation>Ihre Transaktion wurde in den Pool aufgenommen!</translation>
+        <source>You need to rebuild the database using -reindex to change -txindex</source>
+        <translation>Sie müssen die Datenbank mithilfe von -reindex neu erstellen, um -txindex zu ändern</translation>
     </message>
     <message>
         <source>Zapping all transactions from wallet...</source>
@@ -5457,10 +5887,6 @@ Beispiel: alertnotify=echo %%s | mail -s "Transcendence Alert" admin@foo.com
     <message>
         <source>Zerocoin options:</source>
         <translation>Zerocoin Optionen:</translation>
-    </message>
-    <message>
-        <source>failed to validate zerocoin</source>
-        <translation>fehlgeschlagen beim Zerocoin validieren</translation>
     </message>
     <message>
         <source>on startup</source>

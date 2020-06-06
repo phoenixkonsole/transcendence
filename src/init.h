@@ -19,10 +19,13 @@ extern CWallet* pwalletMain;
 
 void StartShutdown();
 bool ShutdownRequested();
+/** Interrupt threads */
+void Interrupt();
 void Shutdown();
 void PrepareShutdown();
-bool AppInit2(boost::thread_group& threadGroup);
+bool AppInit2();
 
+static const bool DEFAULT_AUTOCONVERTADDRESS = true;
 /** The help message mode determines what help message to show */
 enum HelpMessageMode {
     HMM_BITCOIND,

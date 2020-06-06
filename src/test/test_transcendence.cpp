@@ -7,11 +7,11 @@
 #include "main.h"
 #include "random.h"
 #include "txdb.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include "util.h"
 #ifdef ENABLE_WALLET
-#include "db.h"
-#include "wallet.h"
+#include "wallet/db.h"
+#include "wallet/wallet.h"
 #endif
 
 #include <boost/filesystem.hpp>
@@ -28,8 +28,11 @@ struct TestingSetup {
     CCoinsViewDB *pcoinsdbview;
     boost::filesystem::path pathTemp;
     boost::thread_group threadGroup;
+    ECCVerifyHandle globalVerifyHandle;
 
     TestingSetup() {
+        ECC_Start();
+
         SetupEnvironment();
         fPrintToDebugLog = false; // don't want to write to debug.log file
         fCheckBlockIndex = true;
@@ -58,6 +61,7 @@ struct TestingSetup {
     }
     ~TestingSetup()
     {
+        ECC_Stop();
         threadGroup.interrupt_all();
         threadGroup.join_all();
         UnregisterNodeSignals(GetNodeSignals());

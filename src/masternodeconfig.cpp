@@ -7,16 +7,28 @@
 #include "net.h"
 #include "masternodeconfig.h"
 #include "util.h"
-#include "ui_interface.h"
+#include "guiinterface.h"
 #include <base58.h>
 // clang-format on
 
 CMasternodeConfig masternodeConfig;
 
-void CMasternodeConfig::add(std::string alias, std::string ip, std::string privKey, std::string txHash, std::string outputIndex)
+CMasternodeConfig::CMasternodeEntry* CMasternodeConfig::add(std::string alias, std::string ip, std::string privKey, std::string txHash, std::string outputIndex)
 {
     CMasternodeEntry cme(alias, ip, privKey, txHash, outputIndex);
     entries.push_back(cme);
+    return &(entries[entries.size()-1]);
+}
+void CMasternodeConfig::remove(std::string alias) {
+    int pos = -1;
+    for (int i = 0; i < ((int) entries.size()); ++i) {
+        CMasternodeEntry e = entries[i];
+        if (e.getAlias() == alias) {
+            pos = i;
+            break;
+        }
+    }
+    entries.erase(entries.begin() + pos);
 }
 
 bool CMasternodeConfig::read(std::string& strErr)
@@ -60,15 +72,33 @@ bool CMasternodeConfig::read(std::string& strErr)
             }
         }
 
+        int port = 0;
+        std::string hostname = "";
+        SplitHostPort(ip, port, hostname);
+        if(port == 0 || hostname == "") {
+            strErr = _("Failed to parse host:port string") + "\n"+
+                     strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"";
+            streamConfig.close();
+            return false;
+        }
+
+        if (!IsIpv4(ip)) {
+            strErr = _("Invalid ip detected in masternode.conf") + "\n" +
+                    strprintf(_("Line: %d"), linenumber) + +"\n\""  + strprintf(_("Ip: %d"), ip)  +"\n\"" + line + "\"" + "\n" +
+                    _("(only ipv4 supported)");
+            streamConfig.close();
+            return false;
+        }
+
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (CService(ip).GetPort() != 8051) {
+            if (port != 8051) {
                 strErr = _("Invalid port detected in masternode.conf") + "\n" +
-                         strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
+                         strprintf(_("Line: %d"), linenumber) + +"\n\""  + strprintf(_("Port detected: %d"), port)  +"\n\"" + line + "\"" + "\n" +
                          _("(must be 8051 for mainnet)");
                 streamConfig.close();
                 return false;
             }
-        } else if (CService(ip).GetPort() == 8051) {
+        } else if (port == 8051) {
             strErr = _("Invalid port detected in masternode.conf") + "\n" +
                      strprintf(_("Line: %d"), linenumber) + "\n\"" + line + "\"" + "\n" +
                      _("(8051 could be used only on mainnet)");

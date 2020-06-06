@@ -62,12 +62,12 @@
         <translation>Vastaanottavat osoitteet</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Nämä ovat sinun Transcendence osoitteesi maksujen lähetystä varten. Tarkista aina määrä ja vastaanottava osoite ennen kolikoiden lähettämistä.</translation>
+        <source>These are your TELOS addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Nämä ovat sinun TELOS osoitteesi maksujen lähetystä varten. Tarkista aina määrä ja vastaanottava osoite ennen kolikoiden lähettämistä.</translation>
     </message>
     <message>
-        <source>These are your Transcendence addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Nämä ovat sinun Transcendence osoitteesi maksujen vastaanottamista varten. On suositeltavaa käyttää uutta vastaanottavaa osoitetta jokaiselle uudelle rahansiirrolle.</translation>
+        <source>These are your TELOS addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Nämä ovat sinun TELOS osoitteesi maksujen vastaanottamista varten. On suositeltavaa käyttää uutta vastaanottavaa osoitetta jokaiselle uudelle rahansiirrolle.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -93,7 +93,11 @@
         <source>Exporting Failed</source>
         <translation>Vienti epäonnistui</translation>
     </message>
-    </context>
+    <message>
+        <source>There was an error trying to save the address list to %1. Please try again.</source>
+        <translation>Tapahtui virhe osoitelistan tallennuksessa %1. Yritä uudestaan.</translation>
+    </message>
+</context>
 <context>
     <name>AddressTableModel</name>
     <message>
@@ -132,10 +136,6 @@
         <translation>Ottaa pois käytöstä tavallisen sendmoneyn kun käyttöjärjestelmä on kompromisoitu. Ei tarjoa todellista turvaa.</translation>
     </message>
     <message>
-        <source>For anonymization and staking only</source>
-        <translation>Vain anonymisointiin ja panostukseen</translation>
-    </message>
-    <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;ten or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
         <translation>Syötä uusi salausavain lompakkoon &lt;br/&gt; Käytä salausavaimena &lt;b&gt;yli kymmentä satunnaista merkkiä&lt;/b&gt;, tai &lt;b&gt; kahdeksaa tai useampaa sanaa&lt;/b&gt;.</translation>
     </message>
@@ -172,16 +172,16 @@
         <translation>Vahvista lompakon salaus</translation>
     </message>
     <message>
-        <source>Transcendence will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TRANSCENDENCEs from being stolen by malware infecting your computer.</source>
-        <translation>Transcendence sulkeutuu salausprosessin ajaksi. Muista, että lompakon salaus ei voi täysin suojella TRANSCENDENCEien varkaudelta, jos tietokoneesi sisältää haittaohjelmia.</translation>
+        <source>TELOS will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your TELOS from being stolen by malware infecting your computer.</source>
+        <translation>TELOS sulkeutuu salausprosessin ajaksi. Muista, että lompakon salaus ei voi täysin suojella PIVien varkaudelta, jos tietokoneesi sisältää haittaohjelmia.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Oletko varma että tahdot salata lompakkosi?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TRANSCENDENCE&lt;/b&gt;!</source>
-        <translation>Varoitus: Jos salaat lompakkosi ja unohdat salausavaimesi, &lt;b&gt;menetät kaikki TRANSCENDENCEisi&lt;/b&gt;</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR TELOS&lt;/b&gt;!</source>
+        <translation>Varoitus: Jos salaat lompakkosi ja unohdat salausavaimesi, &lt;b&gt;menetät kaikki PIVisi&lt;/b&gt;</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -225,6 +225,9 @@
     </message>
 </context>
 <context>
+    <name>BanTableModel</name>
+    </context>
+<context>
     <name>Bip38ToolDialog</name>
     <message>
         <source>BIP 38 Tool</source>
@@ -235,17 +238,8 @@
         <translation>&amp;BIP 38 Salaus</translation>
     </message>
     <message>
-        <source>Enter a Transcendence Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Syötä Transcendence osoite, jonnka tahtoisit salata käyttäen BIP 38.
-Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityisavaimen.</translation>
-    </message>
-    <message>
         <source>Address:</source>
         <translation>Osoite:</translation>
-    </message>
-    <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Transcendence osoite, jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -276,16 +270,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Kopioi nykyinen allekirjoitus järjestelmän leikepöydälle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän Transcendence osoitteen</translation>
-    </message>
-    <message>
         <source>Encrypt &amp;Key</source>
         <translation>Salaus &amp;Avain</translation>
-    </message>
-    <message>
-        <source>Reset all sign message fields</source>
-        <translation>Tyhjennä kaikki allekirjoita viesti kentät</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -300,20 +286,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Syötä BIP 38 salattu yksityisavain. Syötä salausavain laatikkoon. Paina Avaa Salaus tuottaaksesi yksityisavaimen. Kun avain on dekryptattu, painamalla "Import osoite" lisää tämän yksityisavaimen lompakkoon.</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Transcendence osoite, jolla viesti allekirjoitettiin</translation>
-    </message>
-    <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla Transcendence osoitteella.</translation>
-    </message>
-    <message>
         <source>Decrypt &amp;Key</source>
         <translation>Salauksen avaus &amp;Avain</translation>
-    </message>
-    <message>
-        <source>Reset all verify message fields</source>
-        <translation>Tyhjennä kaikki vahvista viesti kentät</translation>
     </message>
     <message>
         <source>Decrypted Key:</source>
@@ -591,12 +565,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>&amp;Apua</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Ydin</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Ydin</translation>
     </message>
     <message>
-        <source>Send coins to a Transcendence address</source>
-        <translation>Lähetä kolikkoja Transcendence osoitteeseen</translation>
+        <source>Send coins to a TELOS address</source>
+        <translation>Lähetä kolikkoja TELOS osoitteeseen</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and transcendence: URIs)</source>
@@ -611,24 +585,24 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Selaa masternodeja</translation>
     </message>
     <message>
-        <source>&amp;About Transcendence Core</source>
-        <translation>Transcendence Core &amp;ytimestä</translation>
+        <source>&amp;About TELOS Core</source>
+        <translation>TELOS Core &amp;ytimestä</translation>
     </message>
     <message>
-        <source>Show information about Transcendence Core</source>
-        <translation>Näytä tietoja Transcendence Ytimestä</translation>
+        <source>Show information about TELOS Core</source>
+        <translation>Näytä tietoja TELOS Ytimestä</translation>
     </message>
     <message>
-        <source>Modify configuration options for Transcendence</source>
-        <translation>Muokkaa konfiguraatio vaihtoehtoja Transcendence:lle</translation>
+        <source>Modify configuration options for TELOS</source>
+        <translation>Muokkaa konfiguraatio vaihtoehtoja TELOS:lle</translation>
     </message>
     <message>
-        <source>Sign messages with your Transcendence addresses to prove you own them</source>
+        <source>Sign messages with your TELOS addresses to prove you own them</source>
         <translation>Allekirjoita viestejä todistaaksesi, että omistat ne.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified Transcendence addresses</source>
-        <translation>Vahvista viestit varmistaaksesi, että ne allekirjoitettiin tietyllä Transcendence osoiteella.</translation>
+        <source>Verify messages to ensure they were signed with specified TELOS addresses</source>
+        <translation>Vahvista viestit varmistaaksesi, että ne allekirjoitettiin tietyllä TELOS osoiteella.</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -659,8 +633,8 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Avaa Masternode konfiguraatiotiedosto</translation>
     </message>
     <message>
-        <source>Open a Transcendence: URI or payment request</source>
-        <translation>Avaa Transcendence: URI tai pyydä maksua</translation>
+        <source>Open a TELOS: URI or payment request</source>
+        <translation>Avaa TELOS: URI tai pyydä maksua</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -671,12 +645,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Lohkon tutkija näkymä</translation>
     </message>
     <message>
-        <source>Show the Transcendence Core help message to get a list with possible Transcendence command-line options</source>
-        <translation>Näytä Transcendence Ydin apuviesti saadaksesi lista mahdollisista Transcendence komentolinja komennoista.</translation>
+        <source>Show the TELOS Core help message to get a list with possible TELOS command-line options</source>
+        <translation>Näytä TELOS Ydin apuviesti saadaksesi lista mahdollisista TELOS komentolinja komennoista.</translation>
     </message>
     <message>
-        <source>Transcendence Core client</source>
-        <translation>Transcendence Ydin asiakasohjelma</translation>
+        <source>TELOS Core client</source>
+        <translation>TELOS Ydin asiakasohjelma</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -701,10 +675,6 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
     <message>
         <source>%1 and %2</source>
         <translation>%1 ja %2</translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 takana</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -811,6 +781,10 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
     <message>
         <source>Amount</source>
         <translation>Määrä</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tyyppi</translation>
     </message>
     <message>
         <source>Date</source>
@@ -932,10 +906,21 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
     </message>
     </context>
 <context>
+    <name>GovernancePage</name>
+    <message>
+        <source>Form</source>
+        <translation>Lomake</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    </context>
+<context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Ydin</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Ydin</translation>
     </message>
     <message>
         <source>Usage:</source>
@@ -953,12 +938,12 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Tervetuloa</translation>
     </message>
     <message>
-        <source>Welcome to Transcendence Core.</source>
-        <translation>Tervetuloa Transcendence Ytimeen.</translation>
+        <source>Welcome to TELOS Core.</source>
+        <translation>Tervetuloa TELOS Ytimeen.</translation>
     </message>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Ydin</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Ydin</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1079,92 +1064,27 @@ Syötä salausavain laatikon keskelle. Paina salaa tuottaaksesi salatun yksityis
         <translation>Lähetä Masternode palkkioihin</translation>
     </message>
     <message>
-        <source>The entered address:
-</source>
-        <translation>Syötetty osoite:</translation>
-    </message>
-    <message>
-        <source> is invalid.
-Please check the address and try again.</source>
-        <translation>on invalidi. Ole hyvä ja tarkista osoite.</translation>
-    </message>
-    <message>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
-        <translation>MultiSend vektorisi kokonaismäärä on yli 100% panoksesi lohkopalkkiosta.</translation>
+        <source>(no label)</source>
+        <translation>(ei nimikettä)</translation>
     </message>
     <message>
         <source>Please Enter 1 - 100 for percent.</source>
         <translation>Syötä 1 - 100 prosenttia</translation>
     </message>
-    <message>
-        <source>MultiSend Vector
-</source>
-        <translation>MultiSend vektori</translation>
-    </message>
-    <message>
-        <source>Removed </source>
-        <translation>Poistettu</translation>
-    </message>
-    <message>
-        <source>Could not locate address
-</source>
-        <translation>Osoitetta ei löytynyt</translation>
-    </message>
 </context>
 <context>
-    <name>ObfuscationConfig</name>
+    <name>MultisigDialog</name>
     <message>
-        <source>Configure Obfuscation</source>
-        <translation>Konfiguroi Hämäys</translation>
+        <source>Status:</source>
+        <translation>Tila:</translation>
     </message>
     <message>
-        <source>Basic Privacy</source>
-        <translation>Perus Yksityisyys</translation>
+        <source>0</source>
+        <translation>0</translation>
     </message>
     <message>
-        <source>High Privacy</source>
-        <translation>Korkea Yksityisyys</translation>
-    </message>
-    <message>
-        <source>Maximum Privacy</source>
-        <translation>Maksimi Yksityisyys</translation>
-    </message>
-    <message>
-        <source>Please select a privacy level.</source>
-        <translation>Valitse yksityisyyden taso.</translation>
-    </message>
-    <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
-        <translation>Käytä 2 erillistä masternodea sekoittaaksesi enintään 10000 Transcendence</translation>
-    </message>
-    <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 TRANSCENDENCE</source>
-        <translation>Käytä 8 erillistä masternodea sekoittaaksesi enintään 10000 Transcendence</translation>
-    </message>
-    <message>
-        <source>Use 16 separate masternodes</source>
-        <translation>Käytä 16 erillistä masternodea</translation>
-    </message>
-    <message>
-        <source>This option is the quickest and will cost about ~0.025 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
-        <translation>Tämä vaihtoehto on nopein ja maksaa noin ~0.025 TRANSCENDENCE anonymoidaksesi 10000 Transcendence</translation>
-    </message>
-    <message>
-        <source>This option is moderately fast and will cost about 0.05 TRANSCENDENCE to anonymize 10000 TRANSCENDENCE</source>
-        <translation>Tämä vaihtoehto on suhteellisen nopea ja maksaa 0.05 Transcendence anonymoidaksesi 10000 Transcendence</translation>
-    </message>
-    <message>
-        <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
-        <translation>Tämä on hitain ja turvallisin vaihtoehto. Täydesti anonymisoiminen ei maksa mitään.</translation>
-    </message>
-    <message>
-        <source>0.1 TRANSCENDENCE per 10000 TRANSCENDENCE you anonymize.</source>
-        <translation>0.1 per 10000 Transcendence, jotka anonymisoit.</translation>
-    </message>
-    <message>
-        <source>Obfuscation Configuration</source>
-        <translation>Hämäys konfiguraatio</translation>
+        <source>Amount:</source>
+        <translation>Määrä:</translation>
     </message>
     </context>
 <context>
@@ -1209,12 +1129,12 @@ Please check the address and try again.</source>
         <translation>Ekspertti</translation>
     </message>
     <message>
-        <source>Automatically start Transcendence after logging in to the system.</source>
-        <translation>Automaattisesti käynnistä Transcendence kun kirjaudut sisään.</translation>
+        <source>Automatically start TELOS after logging in to the system.</source>
+        <translation>Automaattisesti käynnistä TELOS kun kirjaudut sisään.</translation>
     </message>
     <message>
-        <source>&amp;Start Transcendence on system login</source>
-        <translation>&amp;Aloita Transcendence järjestelmän kirjautumisessa</translation>
+        <source>&amp;Start TELOS on system login</source>
+        <translation>&amp;Aloita TELOS järjestelmän kirjautumisessa</translation>
     </message>
     <message>
         <source>Enable coin &amp;control features</source>
@@ -1233,12 +1153,12 @@ Please check the address and try again.</source>
         <translation>&amp;Verkko</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Transcendence.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting TELOS.</source>
         <translation>Käyttöliittymän kielen voi säätää täällä. Tämä asetus tulee voimaan uudelleenkäynnistettyäsi lompakon.</translation>
     </message>
     <message>
-        <source>Connect to the Transcendence network through a SOCKS5 proxy.</source>
-        <translation>Yhdistä Transcendence verkkoon SOCKS5 proxyn kautta</translation>
+        <source>Connect to the TELOS network through a SOCKS5 proxy.</source>
+        <translation>Yhdistä TELOS verkkoon SOCKS5 proxyn kautta</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1289,10 +1209,6 @@ Please check the address and try again.</source>
         <translation>Käyttöliittymän teema:</translation>
     </message>
     <message>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Yksikkö jossa määrä näytetään:</translation>
-    </message>
-    <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
         <translation>Käytä oletus vähennysyksikköä käyttöliittymässä ja kolikoita lähettäessä.</translation>
     </message>
@@ -1340,7 +1256,7 @@ Please check the address and try again.</source>
         <source>The supplied proxy address is invalid.</source>
         <translation>Tarjottu proxy osoite on virheellinen.</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>OverviewPage</name>
     <message>
@@ -1376,10 +1292,6 @@ Please check the address and try again.</source>
         <translation>Määrä:</translation>
     </message>
     <message>
-        <source>Your current total balance</source>
-        <translation>Sinun nykyinen kokonaissaldo</translation>
-    </message>
-    <message>
         <source>Spendable:</source>
         <translation>Käytettävää:</translation>
     </message>
@@ -1403,14 +1315,6 @@ Please check the address and try again.</source>
     <message>
         <source>0</source>
         <translation>0</translation>
-    </message>
-    <message>
-        <source>Quantity:</source>
-        <translation>Määrä:</translation>
-    </message>
-    <message>
-        <source>Amount:</source>
-        <translation>Määrä:</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1445,6 +1349,10 @@ Please check the address and try again.</source>
         <translation>Tärkeys:</translation>
     </message>
     <message>
+        <source>TextLabel</source>
+        <translation>TekstiNimike</translation>
+    </message>
+    <message>
         <source>Fee:</source>
         <translation>Taksa:</translation>
     </message>
@@ -1469,23 +1377,22 @@ Please check the address and try again.</source>
         <translation>Muutos:</translation>
     </message>
     <message>
-        <source>Copy quantity</source>
-        <translation>Kopioi määrä</translation>
-    </message>
-    <message>
-        <source>Copy amount</source>
-        <translation>Kopioi määrä</translation>
-    </message>
-    <message>
         <source>Confirm send coins</source>
         <translation>Vahvista kolikoiden lähetys</translation>
     </message>
+    </context>
+<context>
+    <name>ProposalFrame</name>
     </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Amount</source>
         <translation>Määrä</translation>
+    </message>
+    <message>
+        <source>TELOS Core</source>
+        <translation>TELOS Ydin</translation>
     </message>
     </context>
 <context>
@@ -1542,8 +1449,8 @@ Please check the address and try again.</source>
         <translation>Lohko ketju</translation>
     </message>
     <message>
-        <source>Open the Transcendence debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Avaa Transcendence debug loki nykyisestä sijainnista. Tämä voi kestää muutaman sekunnin suurille lokeille</translation>
+        <source>Open the TELOS debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Avaa TELOS debug loki nykyisestä sijainnista. Tämä voi kestää muutaman sekunnin suurille lokeille</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -1654,8 +1561,8 @@ Please check the address and try again.</source>
         <translation>Ulos:</translation>
     </message>
     <message>
-        <source>Welcome to the Transcendence RPC console.</source>
-        <translation>Tervetuloa Transcendence RPC konsoliin.</translation>
+        <source>Welcome to the TELOS RPC console.</source>
+        <translation>Tervetuloa TELOS RPC konsoliin.</translation>
     </message>
     <message>
         <source>never</source>
@@ -1672,10 +1579,6 @@ Please check the address and try again.</source>
     <message>
         <source>Unknown</source>
         <translation>Tuntematon</translation>
-    </message>
-    <message>
-        <source>Fetching...</source>
-        <translation>Haetaan...</translation>
     </message>
 </context>
 <context>
@@ -1697,12 +1600,16 @@ Please check the address and try again.</source>
         <translation>Vaihtoehtoinen nimike uudelle vastaanottavalle osoitteelle</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Transcendence network.</source>
-        <translation>Vaihtoehtoinen viesti joka liitetään maksupyyntöön, joka näytetään kun pyyntö avataan. Huomio: Viestiä ei lähetetä maksun mukana Transcendence verkolle.</translation>
+        <source>A&amp;mount:</source>
+        <translation>M&amp;äärä:</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Transcendence network.</source>
-        <translation>Vaihtoehtoinen viesti, joka liitetään maksupyyntöö, joka näytetään kun pyyntö avataan. &lt;br&gt; Huomio: Tätä viestiä ei lähetetä maksun mukana Transcendence  verkolle.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the TELOS network.</source>
+        <translation>Vaihtoehtoinen viesti joka liitetään maksupyyntöön, joka näytetään kun pyyntö avataan. Huomio: Viestiä ei lähetetä maksun mukana TELOS verkolle.</translation>
+    </message>
+    <message>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the TELOS network.</source>
+        <translation>Vaihtoehtoinen viesti, joka liitetään maksupyyntöö, joka näytetään kun pyyntö avataan. &lt;br&gt; Huomio: Tätä viestiä ei lähetetä maksun mukana TELOS  verkolle.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -1715,10 +1622,6 @@ Please check the address and try again.</source>
     <message>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
         <translation>Pyydä vaihtoehtoinen määrä. Jätä tämä tyhjäksi tai 0, jos haluat pyytää ennaltamääräämättömän summan</translation>
-    </message>
-    <message>
-        <source>&amp;Amount:</source>
-        <translation>&amp;Määrä:</translation>
     </message>
     <message>
         <source>&amp;Request payment</source>
@@ -1763,6 +1666,10 @@ Please check the address and try again.</source>
     <message>
         <source>Copy amount</source>
         <translation>Kopioi määrä</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopioi osoite</translation>
     </message>
 </context>
 <context>
@@ -1835,6 +1742,10 @@ Please check the address and try again.</source>
         <translation>Viesti</translation>
     </message>
     <message>
+        <source>Address</source>
+        <translation>Osoite</translation>
+    </message>
+    <message>
         <source>Amount</source>
         <translation>Määrä</translation>
     </message>
@@ -1898,8 +1809,8 @@ Please check the address and try again.</source>
         <translation>Muutos:</translation>
     </message>
     <message>
-        <source>0 TRANSCENDENCE</source>
-        <translation>0 TRANSCENDENCE</translation>
+        <source>0 TELOS</source>
+        <translation>0 TELOS</translation>
     </message>
     <message>
         <source>Choose...</source>
@@ -1958,10 +1869,6 @@ Please check the address and try again.</source>
         <translation>Lisää &amp;Vastaanottaja</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
-    </message>
-    <message>
         <source>Balance:</source>
         <translation>Saldo:</translation>
     </message>
@@ -1978,12 +1885,8 @@ Please check the address and try again.</source>
         <translation>Kopioi taksa</translation>
     </message>
     <message>
-        <source>using</source>
-        <translation>käyttää</translation>
-    </message>
-    <message>
-        <source>Warning: Invalid Transcendence address</source>
-        <translation>Varoitus: Virheellinen Transcendence osoite</translation>
+        <source>Warning: Invalid TELOS address</source>
+        <translation>Varoitus: Virheellinen TELOS osoite</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -2018,6 +1921,10 @@ Please check the address and try again.</source>
         <translation>Virhe: Lompakko avattiin vain kolikoiden anonymisointiin. Avaus peruutettu.</translation>
     </message>
     <message>
+        <source>Pay only the minimum fee of %1</source>
+        <translation>Maksa vain %1 minimi taksa</translation>
+    </message>
+    <message>
         <source>(no label)</source>
         <translation>(ei nimikettä)</translation>
     </message>
@@ -2029,8 +1936,8 @@ Please check the address and try again.</source>
         <translation>Tämä on normaali maksu.</translation>
     </message>
     <message>
-        <source>The Transcendence address to send the payment to</source>
-        <translation>Transcendence osoite johon maksu lähetetään</translation>
+        <source>The TELOS address to send the payment to</source>
+        <translation>TELOS osoite johon maksu lähetetään</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2072,8 +1979,8 @@ Please check the address and try again.</source>
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>Transcendence Core is shutting down...</source>
-        <translation>Transcendence core sammuu...</translation>
+        <source>TELOS Core is shutting down...</source>
+        <translation>TELOS core sammuu...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -2091,8 +1998,8 @@ Please check the address and try again.</source>
         <translation>Voit allekirjoittaa viestejä osoitteillasi todistaaksesi, että omistat ne. Ole varovainen ettet allekirjoita mitään kummallista, sillä kalasteluyritykset saattavat yrittää huijata sinut luovuttamaan tietoja. Allekirjoita vain täysin yksityiskohtaisia sanomia, jotka hyväksyt.</translation>
     </message>
     <message>
-        <source>The Transcendence address to sign the message with</source>
-        <translation>Transcendence osoite, jolla viesti allekirjoitetaan</translation>
+        <source>The TELOS address to sign the message with</source>
+        <translation>TELOS osoite, jolla viesti allekirjoitetaan</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2123,16 +2030,16 @@ Please check the address and try again.</source>
         <translation>Kopioi nykyinen allekirjoitus järjestelmän leikepöydälle</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this Transcendence address</source>
-        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän Transcendence osoitteen</translation>
+        <source>Sign the message to prove you own this TELOS address</source>
+        <translation>Allekirjoita viesti todistaaksesi, että omistat tämän TELOS osoitteen</translation>
     </message>
     <message>
-        <source>The Transcendence address the message was signed with</source>
-        <translation>Transcendence osoite, jolla viesti allekirjoitettiin</translation>
+        <source>The TELOS address the message was signed with</source>
+        <translation>TELOS osoite, jolla viesti allekirjoitettiin</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified Transcendence address</source>
-        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla Transcendence osoitteella.</translation>
+        <source>Verify the message to ensure it was signed with the specified TELOS address</source>
+        <translation>Vahvista että viesti on allekirjoitettu kyseessä olevalla TELOS osoitteella.</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2214,8 +2121,8 @@ Please check the address and try again.</source>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>Transcendence Core</source>
-        <translation>Transcendence Ydin</translation>
+        <source>TELOS Core</source>
+        <translation>TELOS Ydin</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -2230,8 +2137,8 @@ Please check the address and try again.</source>
         <translation>Dash Core kehittäjät</translation>
     </message>
     <message>
-        <source>The Transcendence Core developers</source>
-        <translation>Transcendence core kehittäjät</translation>
+        <source>The TELOS Core developers</source>
+        <translation>TELOS core kehittäjät</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -2336,10 +2243,6 @@ Please check the address and try again.</source>
     <message>
         <source>Payment to yourself</source>
         <translation>Maksut itsellesi</translation>
-    </message>
-    <message>
-        <source>Minted</source>
-        <translation>Luotu</translation>
     </message>
     <message>
         <source>Mined</source>
@@ -2480,6 +2383,10 @@ Please check the address and try again.</source>
         <source>Exporting Successful</source>
         <translation>Vienti onnistui</translation>
     </message>
+    <message>
+        <source>The transaction history was successfully saved to %1.</source>
+        <translation>Rahansiirto historia onnistuneesti tallennettu %1</translation>
+    </message>
     </context>
 <context>
     <name>UnitDisplayStatusBarControl</name>
@@ -2524,17 +2431,9 @@ Please check the address and try again.</source>
         <source>Wallet Data (*.dat)</source>
         <translation>Lompakko Data (*.dat)</translation>
     </message>
-    <message>
-        <source>Backup Failed</source>
-        <translation>Varmuuskopiointi epäonnistui</translation>
-    </message>
-    <message>
-        <source>Backup Successful</source>
-        <translation>Varmuuskopiointi onnistui</translation>
-    </message>
-    </context>
+</context>
 <context>
-    <name>ZPhrControlDialog</name>
+    <name>ZTelosControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
@@ -2571,10 +2470,6 @@ Please check the address and try again.</source>
         <translation>Lataus valmis</translation>
     </message>
     <message>
-        <source>Error connecting to Masternode.</source>
-        <translation>Virhe Masternodeen yhdistyksessä</translation>
-    </message>
-    <message>
         <source>Error initializing block database</source>
         <translation>Virhe aloittaessa lohko tietokantaa</translation>
     </message>
@@ -2591,8 +2486,8 @@ Please check the address and try again.</source>
         <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko korruptoitunut</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of Transcendence Core</source>
-        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version Transcendence Coresta</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of TELOS Core</source>
+        <translation>Virhe ladattaessa wallet.dat tiedostoa: Lompakko vaatii uudemman version TELOS Coresta</translation>
     </message>
     <message>
         <source>Error reading from database, shutting down.</source>
@@ -2611,20 +2506,8 @@ Please check the address and try again.</source>
         <translation>Virhe: Lompakko lukittu, ei voida luoda rahansiirtoa!</translation>
     </message>
     <message>
-        <source>Finalizing transaction.</source>
-        <translation>Viimeistellään rahansiirto.</translation>
-    </message>
-    <message>
         <source>Importing...</source>
         <translation>Tuodaan...</translation>
-    </message>
-    <message>
-        <source>Incompatible mode.</source>
-        <translation>Yhteensopimaton tila.</translation>
-    </message>
-    <message>
-        <source>Incompatible version.</source>
-        <translation>Yhteensopimaton versio.</translation>
     </message>
     <message>
         <source>Information</source>
@@ -2637,10 +2520,6 @@ Please check the address and try again.</source>
     <message>
         <source>Invalid private key.</source>
         <translation>Virheellinen yksityisavain.</translation>
-    </message>
-    <message>
-        <source>Invalid script detected.</source>
-        <translation>Virheellinen skripti havaittu.</translation>
     </message>
     <message>
         <source>&lt;category&gt; can be:</source>
@@ -2659,20 +2538,12 @@ Please check the address and try again.</source>
         <translation>Lataa lompakkoa...</translation>
     </message>
     <message>
-        <source>Lock is already in place.</source>
-        <translation>Lukitus on jo käytössä.</translation>
-    </message>
-    <message>
         <source>Options:</source>
         <translation>Vaihtoehdot:</translation>
     </message>
     <message>
         <source>Rescanning...</source>
         <translation>Skannaa uudelleen...</translation>
-    </message>
-    <message>
-        <source>Session not complete!</source>
-        <translation>Sessio ei valmis!</translation>
     </message>
     <message>
         <source>Session timed out.</source>
@@ -2707,7 +2578,7 @@ Please check the address and try again.</source>
         <translation>Synkronisointi valmis</translation>
     </message>
     <message>
-        <source></source>
+        <source>This is experimental software.</source>
         <translation>Tämä on kokeellista ohjelmistoa.</translation>
     </message>
     <message>
@@ -2719,28 +2590,12 @@ Please check the address and try again.</source>
         <translation>Rahansiirtojen tulee olla positiivisia</translation>
     </message>
     <message>
-        <source>Transaction created successfully.</source>
-        <translation>Rahansiirto luotu onnistuneesti.</translation>
-    </message>
-    <message>
-        <source>Transaction fees are too high.</source>
-        <translation>Rahansiirron taksat ovat liian korkeat.</translation>
-    </message>
-    <message>
-        <source>Transaction not valid.</source>
-        <translation>Rahansiirto ei onnistu</translation>
-    </message>
-    <message>
         <source>Transaction too large for fee policy</source>
         <translation>Rahansiirto liian iso taksaan nähden</translation>
     </message>
     <message>
         <source>Transaction too large</source>
         <translation>Rahansiirto liian suuri</translation>
-    </message>
-    <message>
-        <source>Transmitting final transaction.</source>
-        <translation>Lähetetään viimeinen rahansiirto.</translation>
     </message>
     <message>
         <source>Upgrade wallet to latest format</source>
@@ -2759,10 +2614,6 @@ Please check the address and try again.</source>
         <translation>Tarkistaa lompakkoa...</translation>
     </message>
     <message>
-        <source>Wallet is locked.</source>
-        <translation>Lompakko on lukittu.</translation>
-    </message>
-    <message>
         <source>Wallet options:</source>
         <translation>Lompakon vaihtoehdot:</translation>
     </message>
@@ -2773,10 +2624,6 @@ Please check the address and try again.</source>
     <message>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation>Varoitus: Tämä versio on vanha, päivitys vaadittu!</translation>
-    </message>
-    <message>
-        <source>Will retry...</source>
-        <translation>Yrittää uudelleen...</translation>
     </message>
     <message>
         <source>on startup</source>

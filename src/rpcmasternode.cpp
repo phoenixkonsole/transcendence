@@ -275,16 +275,19 @@ UniValue masternode(const UniValue& params, bool fHelp)
 UniValue listmasternodes(const UniValue& params, bool fHelp)
 {
     std::string strFilter = "";
+    bool returnNetworkAddress = false;
 
-    if (params.size() == 1) strFilter = params[0].get_str();
+    if (params.size() >= 1) strFilter = params[0].get_str();
+    if (params.size() == 2) returnNetworkAddress = (params[1].get_str() == "true" ? true : false);
 
-    if (fHelp || (params.size() > 1))
+    if (fHelp || (params.size() > 2))
         throw runtime_error(
-            "listmasternodes ( \"filter\" )\n"
+            "listmasternodes ( \"filter\" network )\n"
             "\nGet a ranked list of masternodes\n"
 
             "\nArguments:\n"
             "1. \"filter\"    (string, optional) Filter search text. Partial match by txhash, status, or addr.\n"
+            "2. network     (boolean, optional, default=false) Return the network address of masternodes.\n"
 
             "\nResult:\n"
             "[\n"
@@ -337,6 +340,7 @@ UniValue listmasternodes(const UniValue& params, bool fHelp)
 
             obj.push_back(Pair("rank", (strStatus == "ENABLED" ? s.first : 0)));
             obj.push_back(Pair("network", strNetwork));
+            if (returnNetworkAddress) obj.push_back(Pair("networkaddr", mn->addr.ToString()));
             obj.push_back(Pair("txhash", strTxHash));
             obj.push_back(Pair("outidx", (uint64_t)oIdx));
             obj.push_back(Pair("tier", (uint64_t)mn->tier));

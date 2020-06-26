@@ -221,6 +221,7 @@ signals:
     void requestedShutdown();
     void stopThread();
     void splashFinished(QWidget* window);
+    void windowStartup();
 
 private:
     QThread* coreThread;
@@ -362,6 +363,8 @@ void BitcoinApplication::createWindow(const NetworkStyle* networkStyle)
     pollShutdownTimer = new QTimer(window);
     connect(pollShutdownTimer, SIGNAL(timeout()), window, SLOT(detectShutdown()));
     pollShutdownTimer->start(200);
+
+    connect(this, SIGNAL(windowStartup()), window, SLOT(onStartup()));
 }
 
 void BitcoinApplication::createSplashScreen(const NetworkStyle* networkStyle)
@@ -489,6 +492,7 @@ void BitcoinApplication::initializeResult(int retval)
         connect(paymentServer, SIGNAL(message(QString, QString, unsigned int)),
             window, SLOT(message(QString, QString, unsigned int)));
         QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
+        emit windowStartup();
 #endif
     } else {
         quit(); // Exit main loop
@@ -654,7 +658,7 @@ int main(int argc, char* argv[])
     bool ret = true;
 #ifdef ENABLE_WALLET
     // Check if the wallet exists or need to be created
-    std::string strWalletFile = GetArg("-wallet", "wallet.dat");
+    std::string strWalletFile = GetArg("-wallet", "telos.wlt.file"); // Do not use wallet.dat as it is targeted by malware
     std::string strDataDir = GetDataDir().string();
     // Wallet file must be a plain filename without a directory
     if (strWalletFile != boost::filesystem::basename(strWalletFile) + boost::filesystem::extension(strWalletFile)){
@@ -663,8 +667,15 @@ int main(int argc, char* argv[])
 
     boost::filesystem::path pathBootstrap = GetDataDir() / strWalletFile;
     if (!boost::filesystem::exists(pathBootstrap)) {
-        // wallet doesn't exist, popup tutorial screen.
-        ret = app.createTutorialScreen();
+        // new wallet doesn't exist, check for old wallet
+        boost::filesystem::path oldWallet = GetDataDir() / "wallet.dat"
+        if (boost::filesystem::exists(pathBootstrap)) {
+            // rename to new wallet
+            boost::filesystem::rename(oldWallet, pathBootstrap)
+        } else {
+            // wallet doesn't exist, popup tutorial screen.
+            ret = app.createTutorialScreen();
+        }
     }
 #endif
     if(!ret){

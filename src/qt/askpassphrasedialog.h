@@ -76,6 +76,7 @@ private slots:
     void onWatchClicked();
     void textChanged();
     void warningMessage();
+    void backupPassword();
     void errorEncryptingWallet();
     bool openStandardDialog(QString title = "", QString body = "", QString okBtn = "OK", QString cancelBtn = "");
 

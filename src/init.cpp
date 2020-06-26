@@ -50,6 +50,7 @@
 #include <fstream>
 #include <stdint.h>
 #include <stdio.h>
+#include <curses.h>
 
 #ifndef WIN32
 #include <signal.h>
@@ -959,7 +960,7 @@ bool AppInit2()
     fSendFreeTransactions = GetBoolArg("-sendfreetransactions", false);
     fEnableAutoConvert = GetBoolArg("-enableautoconvertaddress", DEFAULT_AUTOCONVERTADDRESS);
 
-    std::string strWalletFile = GetArg("-wallet", "wallet.dat");
+    std::string strWalletFile = GetArg("-wallet", "telos.wlt.file");
 #endif // ENABLE_WALLET
 
     fIsBareMultisigStd = GetBoolArg("-permitbaremultisig", true) != 0;
@@ -1617,6 +1618,25 @@ bool AppInit2()
             }
 
             pwalletMain->SetBestChain(chainActive.GetLocator());
+        }
+        if (!pwalletMain->IsCrypted() || !GetBoolArg("-ignoreunencrypted", false))
+        {
+            printw("Wallet is not encrypted. Enter wallet password:");
+            noecho();
+            char buff1[100];
+            getnstr(buff1, sizeof(buff1));
+            echo();
+            printw("Repeat the password:");
+            noecho();
+            char buff2[100];
+            getnstr(buff2, sizeof(buff2));
+            echo();
+            if (buff1 != buff2) 
+            {
+                throw std::runtime_error("Encryption passwords do not match.");
+            }
+            SecureString strWalletPass(buff1);
+            pwalletMain->EncryptWallet(strWalletPass);
         }
 
         LogPrintf("%s", strErrors.str());

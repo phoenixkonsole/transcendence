@@ -61,6 +61,7 @@ signals:
     void windowResizeEvent(QResizeEvent* event);
 public slots:
     void changeTheme(bool isLightTheme);
+    void onStartup();
     void goToDashboard();
     void goToSend();
     void goToReceive();

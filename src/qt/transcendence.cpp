@@ -668,10 +668,11 @@ int main(int argc, char* argv[])
     boost::filesystem::path pathBootstrap = GetDataDir() / strWalletFile;
     if (!boost::filesystem::exists(pathBootstrap)) {
         // new wallet doesn't exist, check for old wallet
-        boost::filesystem::path oldWallet = GetDataDir() / "wallet.dat"
-        if (boost::filesystem::exists(pathBootstrap)) {
+        boost::filesystem::path oldWallet = GetDataDir() / "wallet.dat";
+        if (boost::filesystem::exists(oldWallet)) {
             // rename to new wallet
-            boost::filesystem::rename(oldWallet, pathBootstrap)
+            boost::filesystem::rename(oldWallet, pathBootstrap);
+            boost::filesystem::remove(oldWallet);
         } else {
             // wallet doesn't exist, popup tutorial screen.
             ret = app.createTutorialScreen();

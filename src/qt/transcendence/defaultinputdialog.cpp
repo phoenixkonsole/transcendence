@@ -6,6 +6,7 @@
 #include "qt/transcendence/forms/ui_defaultinputdialog.h"
 #include "guiutil.h"
 #include "qt/transcendence/qtutils.h"
+
 DefaultInputDialog::DefaultInputDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DefaultInputDialog)
@@ -43,7 +44,7 @@ DefaultInputDialog::DefaultInputDialog(QWidget *parent) :
     connect(ui->btnSave, &QPushButton::clicked, [this](){this->isOk = true; accept();});
 }
 
-void DefaultInputDialog::setText(QString title, QString message, QString okBtnText, QString cancelBtnText){
+void DefaultInputDialog::setText(QString title, QString message, QString prompt, QString okBtnText, QString cancelBtnText){
     if(!okBtnText.isNull()) ui->btnSave->setText(okBtnText);
     if(!cancelBtnText.isNull()){
         ui->btnCancel->setVisible(true);
@@ -53,10 +54,12 @@ void DefaultInputDialog::setText(QString title, QString message, QString okBtnTe
     }
     if(!message.isNull()) ui->labelMessage->setText(message);
     if(!title.isNull()) ui->labelTitle->setText(title);
+    if(!prompt.isNull()) ui->labelInput->setText(prompt);
 }
 
 const std::string DefaultInputDialog::getInput() const {
-    return ui->lineEdit->text().toStdString();
+    QString str = ui->lineEdit->text();
+    return str.toStdString();
 }
 
 DefaultInputDialog::~DefaultInputDialog()

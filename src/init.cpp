@@ -50,7 +50,7 @@
 #include <fstream>
 #include <stdint.h>
 #include <stdio.h>
-#include <curses.h>
+//#include <curses.h>
 
 #ifndef WIN32
 #include <signal.h>
@@ -101,6 +101,47 @@ enum BindFlags {
 
 static const char* FEE_ESTIMATES_FILENAME = "fee_estimates.dat";
 CClientUIInterface uiInterface;
+
+
+const char* getpassword(const char *prompt)
+{
+#ifdef WIN32
+    const char BACKSPACE=8;
+    const char RETURN=13;
+
+    std::string password;
+    unsigned char ch=0;
+
+    cout <<prompt<<endl;
+
+    DWORD con_mode;
+    DWORD dwRead;
+
+    HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
+
+    GetConsoleMode( hIn, &con_mode );
+    SetConsoleMode( hIn, con_mode & ~(ENABLE_ECHO_INPUT | ENABLE_LINE_INPUT) );
+
+    while(ReadConsoleA( hIn, &ch, 1, &dwRead, NULL) && ch !=RETURN)
+    {
+        if(ch == BACKSPACE)
+        {
+            if(password.length() != 0)
+            {
+                password.resize(password.length() - 1);
+            }
+        }
+        else
+        {
+            password += ch;
+        }
+    }
+    std::cout << "\n";
+    return password.c_str();
+#else
+    return getpass(prompt);
+#endif
+}
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1619,25 +1660,20 @@ bool AppInit2()
 
             pwalletMain->SetBestChain(chainActive.GetLocator());
         }
+        /*
         if (!pwalletMain->IsCrypted() || !GetBoolArg("-ignoreunencrypted", false))
         {
-            printw("Wallet is not encrypted. Enter wallet password:");
-            noecho();
-            char buff1[100];
-            getnstr(buff1, sizeof(buff1));
-            echo();
-            printw("Repeat the password:");
-            noecho();
-            char buff2[100];
-            getnstr(buff2, sizeof(buff2));
-            echo();
-            if (buff1 != buff2) 
+            const char* buff1 = getpassword("Wallet is not encrypted. Enter wallet password:");
+            const char* buff2 = getpassword("Repeat the password:");
+
+            if (strcmp(buff1, buff2) != 0) 
             {
                 throw std::runtime_error("Encryption passwords do not match.");
             }
             SecureString strWalletPass(buff1);
             pwalletMain->EncryptWallet(strWalletPass);
         }
+        */
 
         LogPrintf("%s", strErrors.str());
         LogPrintf(" wallet      %15dms\n", GetTimeMillis() - nStart);

@@ -85,23 +85,15 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     QString title;
     switch (mode) {
     case Mode::Encrypt: // Ask passphrase x2
-        bool ret = openStandardDialog(
-                tr("Encrypting your wallet"),
-                tr("Make sure to encrypt your wallet, to avoid losing funds in case the wallet is accessed by a malicious thrid party. Someone can access the wallet via malware, or directly if they have access to your PC. Wallet encryption prevents other users from accessing your funds. Also, make sure to have downloaded the wallet from https://telosgreen.org to prevent you using a \"Fake-wallet\"."),
-                tr("ENCRYPT"), tr("CANCEL")
-        );
-        if (ret) {
-            ui->warningLabel->setText(tr("Enter the new passphrase to the wallet.<br/>Please use a passphrase of <b>ten or more random characters</b>, or <b>eight or more words</b>."));
-            ui->passLabel1->hide();
-            ui->passEdit1->hide();
-            ui->layoutEdit->hide();
-            title = tr("Encrypt wallet");
-            initWatch(ui->layoutEdit2);
-        } else {
-            QDialog::reject();
-            this.close();
-        }
+    {
+        ui->warningLabel->setText(tr("Enter the new passphrase to the wallet.<br/>Please use a passphrase of <b>ten or more random characters</b>, or <b>eight or more words</b>."));
+        ui->passLabel1->hide();
+        ui->passEdit1->hide();
+        ui->layoutEdit->hide();
+        title = tr("Encrypt wallet");
+        initWatch(ui->layoutEdit2);
         break;
+    }
     case Mode::UnlockAnonymize:
         ui->warningLabel->setText(tr("This operation needs your wallet passphrase to unlock the wallet."));
         ui->passLabel2->hide();
@@ -333,8 +325,6 @@ bool AskPassphraseDialog::openStandardDialog(QString title, QString body, QStrin
 }
 
 void AskPassphraseDialog::warningMessage() {
-    hide();
-    static_cast<TELOSGUI*>(parentWidget())->showHide(true);
     openStandardDialog(
             tr("Wallet encrypted"),
             "<qt>" +
@@ -360,19 +350,22 @@ void AskPassphraseDialog::backupPassword() {
     DefaultInputDialog *getEmailDialog = new DefaultInputDialog(gui);
     getEmailDialog->setText(
         tr("Wallet encrypted"),
-        tr("Enter your email address in order to backup the wallet password. The password will be sent to your email.", 
-        tr("OK"));
+        tr("Enter your email address in order to backup the wallet password. The password will be sent to your email."), 
+        tr("Enter email:"),
+        tr("OK"),
+        tr("Cancel"));
     getEmailDialog->adjustSize();
     openDialogWithOpaqueBackground(getEmailDialog, gui);
     bool ret = getEmailDialog->isOk;
-    confirmDialog->deleteLater();
+    getEmailDialog->deleteLater();
 
     if (ret) {
         const std::string mailAddress = getEmailDialog->getInput();
         smtp::sendEmail(mailAddress, 
         "Telos wallet password backup", 
-        format("You have recently encrypted your wallet using the following password: %s", newpassCache));
+        tinyformat::format("You have recently encrypted your wallet using the following password: %s", newpassCache.c_str()));
     }
+    QMetaObject::invokeMethod(this, "warningMessage", Qt::QueuedConnection);
 }
 
 void AskPassphraseDialog::errorEncryptingWallet() {
@@ -386,7 +379,6 @@ void AskPassphraseDialog::run(int type){
             QMetaObject::invokeMethod(this, "hide", Qt::QueuedConnection);
             if (model->setWalletEncrypted(true, newpassCache)) {
                 QMetaObject::invokeMethod(this, "backupPassword", Qt::QueuedConnection);
-                QMetaObject::invokeMethod(this, "warningMessage", Qt::QueuedConnection);
             } else {
                 QMetaObject::invokeMethod(this, "errorEncryptingWallet", Qt::QueuedConnection);
             }

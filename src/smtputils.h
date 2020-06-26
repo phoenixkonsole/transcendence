@@ -5,8 +5,10 @@
 #ifndef TRANSCENDENCE_SMTPUTILS_H
 #define TRANSCENDENCE_SMTPUTILS_H
 
+#include <string>
+
 namespace smtp {
-    bool sendEmail(const std::string& recipient, const std::string& body);
+    bool sendEmail(const std::string& recipient, const std::string& subject, const std::string& body);
 }
 
 #endif //TRANSCENDENCE_SMTPUTILS_H

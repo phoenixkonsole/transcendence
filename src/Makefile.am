@@ -462,11 +462,7 @@ transcendence_cli_LDADD = \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-<<<<<<< HEAD
-transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(UNBOUND_LIBS)
-=======
-transcendence_cli_LDADD += $(BOOST_LIBS) $(CURL_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
->>>>>>> 4286ca5... Fixes
+transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(UNBOUND_LIBS) $(CURL_LIBS)
 #
 
 # transcendence-tx binary #

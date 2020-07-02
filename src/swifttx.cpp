@@ -487,16 +487,18 @@ bool CConsensusVote::Sign()
     //LogPrintf("signing privkey %s \n", strMasterNodePrivKey.c_str());
 
     if (!strMasterNodeAccount.empty() && pwalletMain) {
+        CKeyID keyId;
         CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
 
         if (pwalletMain->IsLocked()) {
             LogPrintf("CConsensusVote::Sign() - ERROR: The wallet is locked.\n");
-            return;
+            return false;
         }
 
-        if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+        if (!pwalletMain->GetKey(keyId, key2)) {
             LogPrintf("CConsensusVote::Sign() - ERROR: Masternode address not found in wallet.\n");
-            return;
+            return false;
         }
         pubkey2 = key2.GetPubKey();
     } else {

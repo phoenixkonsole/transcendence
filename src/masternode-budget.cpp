@@ -2042,14 +2042,16 @@ void CFinalizedBudget::SubmitVote()
     std::string errorMessage;
 
     if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
         CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
 
         if (pwalletMain->IsLocked()) {
             LogPrint("masternode","CFinalizedBudget::SubmitVote - The wallet is locked.\n");
             return;
         }
 
-        if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+        if (!pwalletMain->GetKey(keyId, keyMasternode)) {
             LogPrint("masternode","CFinalizedBudget::SubmitVote - Masternode address not found in wallet\n");
             return;
         }

@@ -610,14 +610,16 @@ void CObfuscationPool::CheckFinalTransaction()
         CPubKey pubkey2;
 
         if (!strMasterNodeAccount.empty()) {
+            CKeyID keyId;
             CBitcoinAddress address(strMasterNodeAccount);
+            address.GetKeyID(keyId);
 
             if (pwalletMain->IsLocked()) {
                 LogPrintf("CObfuscationPool::Check() - ERROR: The wallet is locked.\n");
                 return;
             }
 
-            if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+            if (!pwalletMain->GetKey(keyId, key2)) {
                 LogPrintf("CObfuscationPool::Check() - ERROR: Masternode address not found in wallet.\n");
                 return;
             }
@@ -2207,14 +2209,16 @@ bool CObfuscationQueue::Sign()
     std::string errorMessage = "";
 
     if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
         CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
 
         if (pwalletMain->IsLocked()) {
             LogPrintf("CObfuscationQueue():Relay - ERROR: The wallet is locked.\n");
-            return;
+            return false;
         }
 
-        if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+        if (!pwalletMain->GetKey(keyId, key2)) {
             LogPrintf("CObfuscationQueue():Relay - ERROR: Masternode address not found in wallet.\n");
             return false;
         }

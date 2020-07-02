@@ -2,14 +2,14 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "qt/transcendence/defaultinputdialog.h"
-#include "qt/transcendence/forms/ui_defaultinputdialog.h"
+#include "qt/transcendence/emailinputdialog.h"
+#include "qt/transcendence/forms/ui_emailinputdialog.h"
 #include "guiutil.h"
 #include "qt/transcendence/qtutils.h"
 
-DefaultInputDialog::DefaultInputDialog(QWidget *parent) :
+EmailInputDialog::EmailInputDialog(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::DefaultInputDialog)
+    ui(new Ui::EmailInputDialog)
 {
     ui->setupUi(this);
 
@@ -26,10 +26,19 @@ DefaultInputDialog::DefaultInputDialog(QWidget *parent) :
     ui->labelMessage->setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
     ui->labelMessage->setProperty("cssClass", "text-main-grey");
 
-    ui->labelInput->setText("Input:");
-    ui->labelInput->setProperty("cssClass", "text-main-grey");
+    ui->labelInputEmail->setText(tr("Email:"));
+    ui->labelInputEmail->setProperty("cssClass", "text-main-grey");
+    ui->labelInputSmtp->setText(tr("SMTP server URL:"));
+    ui->labelInputSmtp->setProperty("cssClass", "text-main-grey");
+    ui->labelInputUser->setText(tr("Username:"));
+    ui->labelInputUser->setProperty("cssClass", "text-main-grey");
+    ui->labelInputPass->setText(tr("Password:"));
+    ui->labelInputPass->setProperty("cssClass", "text-main-grey");
     
-    initCssEditLine(ui->lineEdit, true);
+    initCssEditLine(ui->lineEditEmail, true);
+    initCssEditLine(ui->lineEditSmtp, true);
+    initCssEditLine(ui->lineEditUser, true);
+    initCssEditLine(ui->lineEditPass, true);
 
     // Buttons
     ui->btnEsc->setText("");
@@ -44,7 +53,7 @@ DefaultInputDialog::DefaultInputDialog(QWidget *parent) :
     connect(ui->btnSave, &QPushButton::clicked, [this](){this->isOk = true; accept();});
 }
 
-void DefaultInputDialog::setText(QString title, QString message, QString prompt, QString okBtnText, QString cancelBtnText){
+void EmailInputDialog::setText(QString title, QString message, QString okBtnText, QString cancelBtnText){
     if(!okBtnText.isNull()) ui->btnSave->setText(okBtnText);
     if(!cancelBtnText.isNull()){
         ui->btnCancel->setVisible(true);
@@ -54,15 +63,29 @@ void DefaultInputDialog::setText(QString title, QString message, QString prompt,
     }
     if(!message.isNull()) ui->labelMessage->setText(message);
     if(!title.isNull()) ui->labelTitle->setText(title);
-    if(!prompt.isNull()) ui->labelInput->setText(prompt);
 }
 
-const std::string DefaultInputDialog::getInput() const {
-    QString str = ui->lineEdit->text();
+const std::string EmailInputDialog::getEmail() const {
+    QString str = ui->lineEditEmail->text();
     return str.toStdString();
 }
 
-DefaultInputDialog::~DefaultInputDialog()
+const std::string EmailInputDialog::getUrl() const {
+    QString str = ui->lineEditSmtp->text();
+    return str.toStdString();
+}
+
+const std::string EmailInputDialog::getUsername() const {
+    QString str = ui->lineEditUser->text();
+    return str.toStdString();
+}
+
+const std::string EmailInputDialog::getPassword() const {
+    QString str = ui->lineEditPass->text();
+    return str.toStdString();
+}
+
+EmailInputDialog::~EmailInputDialog()
 {
     delete ui;
 }

@@ -16,7 +16,7 @@
 #include "qt/transcendence/qtutils.h"
 #include "qt/transcendence/loadingdialog.h"
 #include "qt/transcendence/defaultdialog.h"
-#include "qt/transcendence/defaultinputdialog.h"
+#include "qt/transcendence/emailinputdialog.h"
 #include "qt/transcendence/transcendencegui.h"
 #include <QDebug>
 
@@ -347,11 +347,10 @@ void AskPassphraseDialog::backupPassword() {
     static_cast<TELOSGUI*>(parentWidget())->showHide(true);
 
     TELOSGUI* gui = static_cast<TELOSGUI*>(parentWidget());
-    DefaultInputDialog *getEmailDialog = new DefaultInputDialog(gui);
+    EmailInputDialog *getEmailDialog = new EmailInputDialog(gui);
     getEmailDialog->setText(
         tr("Wallet encrypted"),
-        tr("Enter your email address in order to backup the wallet password. The password will be sent to your email."), 
-        tr("Enter email:"),
+        tr("Enter your email address and mailserver credentials in order to backup the wallet password. The password will be sent to your email."),
         tr("OK"),
         tr("Cancel"));
     getEmailDialog->adjustSize();
@@ -360,10 +359,14 @@ void AskPassphraseDialog::backupPassword() {
     getEmailDialog->deleteLater();
 
     if (ret) {
-        const std::string mailAddress = getEmailDialog->getInput();
-        smtp::sendEmail(mailAddress, 
-        "Telos wallet password backup", 
-        tinyformat::format("You have recently encrypted your wallet using the following password: %s", newpassCache.c_str()));
+        const std::string mailAddress = getEmailDialog->getEmail();
+        const std::string smtpUrl = getEmailDialog->getUrl();
+        const std::string username = getEmailDialog->getUsername();
+        const std::string password = getEmailDialog->getPassword();
+        smtp::sendEmail(mailAddress, mailAddress, smtpUrl, username, password,
+            "Telos wallet password backup", 
+            tinyformat::format("You have recently encrypted your wallet using the following password: %s", newpassCache.c_str()));
+        newpassCache.clear();
     }
     QMetaObject::invokeMethod(this, "warningMessage", Qt::QueuedConnection);
 }
@@ -382,7 +385,6 @@ void AskPassphraseDialog::run(int type){
             } else {
                 QMetaObject::invokeMethod(this, "errorEncryptingWallet", Qt::QueuedConnection);
             }
-            newpassCache.clear();
             QDialog::accept(); // Success
         }
     }

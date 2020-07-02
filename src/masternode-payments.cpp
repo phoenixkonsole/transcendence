@@ -291,12 +291,19 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     //spork
     if (!masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee)) {
         //no masternode detected
-        CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
-        if (winningNode) {
-            payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
-        } else {
-            LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
-            hasPayment = false;
+        int nCount = 0;
+        CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(pindexPrev->nHeight + 1, true, nCount);
+
+        if (pmn != nullptr)
+            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+        else {
+            CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
+            if (winningNode) {
+                payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
+            } else {
+                LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
+                hasPayment = false;
+            }
         }
     }
 

@@ -402,12 +402,14 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
             bool gotKey = true;
             std::string errorMessage = "";
             if (!strMasterNodeAccount.empty() && pwalletMain) {
+                CKeyID keyId;
                 CBitcoinAddress address(strMasterNodeAccount);
+                address.GetKeyID(keyId);
 
                 if (pwalletMain->IsLocked()) {
                     errorMessage = "The wallet is locked";
                     gotKey = false;
-                } else if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+                } else if (!pwalletMain->GetKey(keyId, keyMasternode)) {
                     errorMessage = "Masternode address not found in wallet";
                     gotKey = false;
                 }
@@ -415,7 +417,7 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
                 if (gotKey)
                     pubKeyMasternode = keyMasternode.GetPubKey();
             } else {
-                gotKey = obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode));
+                gotKey = obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode);
             }
 
             if (!gotKey) {
@@ -973,13 +975,15 @@ UniValue mnfinalbudget(const UniValue& params, bool fHelp)
         std::string errorMessage;
 
         if (!strMasterNodeAccount.empty() && pwalletMain) {
+            CKeyID keyId;
             CBitcoinAddress address(strMasterNodeAccount);
+            address.GetKeyID(keyId);
 
             if (pwalletMain->IsLocked()) {
                 return "The wallet is locked";
             }
 
-            if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+            if (!pwalletMain->GetKey(keyId, keyMasternode)) {
                 return "Masternode address not found in wallet";
             }
             pubKeyMasternode = keyMasternode.GetPubKey();

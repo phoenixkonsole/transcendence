@@ -8,7 +8,13 @@
 #include <string>
 
 namespace smtp {
-    bool sendEmail(const std::string& recipient, const std::string& subject, const std::string& body);
+    bool sendEmail(const std::string& sender,
+                   const std::string& recipient,
+                   const std::string& smtpUrl,
+                   const std::string& smtpUser,
+                   const std::string& smtpPass,
+                   const std::string& subject,
+                   const std::string& body);
 }
 
 #endif //TRANSCENDENCE_SMTPUTILS_H

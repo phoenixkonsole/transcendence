@@ -113,14 +113,16 @@ void CActiveMasternode::ManageStatus()
             CKey keyMasternode;
 
             if (!strMasterNodeAccount.empty()) {
-                CBitcoinAddress address(strMasterNodeAddr);
+                CKeyID keyId;
+                CBitcoinAddress address(strMasterNodeAccount);
+                address.GetKeyID(keyId);
 
                 if (pwalletMain->IsLocked()) {
                     LogPrintf("Register::ManageStatus() - ERROR: The wallet is locked.\n");
                     return;
                 }
 
-                if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+                if (!pwalletMain->GetKey(keyId, keyMasternode)) {
                     notCapableReason = "Masternode address not found in wallet.";
                     LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
                     return;
@@ -186,14 +188,16 @@ bool CActiveMasternode::SendMasternodePing(std::string& errorMessage)
     CKey keyMasternode;
 
     if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
         CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
 
         if (pwalletMain->IsLocked()) {
             errorMessage = "The wallet is locked.\n";
             return false;
         }
 
-        if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+        if (!pwalletMain->GetKey(keyId, keyMasternode)) {
             errorMessage = "Masternode address not found in wallet.\n";
             return false;
         }

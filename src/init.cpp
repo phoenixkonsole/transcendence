@@ -1830,11 +1830,14 @@ bool AppInit2()
         strMasterNodePrivKey = GetArg("-masternodeprivkey", "");
         if (pwalletMain != nullptr && !strMasterNodeAccount.empty()) {
             CKey key;
+            CKeyID keyId;
             CBitcoinAddress address(strMasterNodeAccount);
-            if (!pwalletMain->Unlock(GetArg("-masternodewalletpass", ""))) {
+            address.GetKeyID(keyId);
+
+            if (!pwalletMain->Unlock(GetArg("-masternodewalletpass", "").c_str())) {
                 return InitError(_("Invalid wallet password for masternode keys."));
             }
-            if (!pwalletMain->GetKey(address.GetKeyID(), key)) {
+            if (!pwalletMain->GetKey(keyId, key)) {
                 return InitError(_("Masternode address not found in the wallet."));
             }
             activeMasternode.pubKeyMasternode = key.GetPubKey();

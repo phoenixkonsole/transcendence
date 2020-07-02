@@ -742,14 +742,16 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     CKey keyMasternode;
 
     if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
         CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
 
         if (pwalletMain->IsLocked()) {
             LogPrint("masternode","CMasternodePayments::ProcessBlock() - The wallet is locked.\n");
-            return;
+            return false;
         }
 
-        if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+        if (!pwalletMain->GetKey(keyId, keyMasternode)) {
             LogPrint("masternode","CMasternodePayments::ProcessBlock() - Masternode address not found in wallet.\n");
             return false;
         }
@@ -780,11 +782,12 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
     int nCount = 0;
     CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
 
-    if (pmn != nullptr) 
+    if (pmn != nullptr) {
         CAmount nReward = GetBlockValue(nBlockHeight);
         CAmount masternodePayment = GetMasternodePayment(nBlockHeight, nReward, nCount);
         return mnPaymentOut.scriptPubKey == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID()) 
             && mnPaymentOut.nValue == masternodePayment;
+    }
     return true;
 }
 

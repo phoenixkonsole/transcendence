@@ -486,9 +486,24 @@ bool CConsensusVote::Sign()
     //LogPrintf("signing strMessage %s \n", strMessage.c_str());
     //LogPrintf("signing privkey %s \n", strMasterNodePrivKey.c_str());
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key2, pubkey2)) {
-        LogPrintf("CConsensusVote::Sign() - ERROR: Invalid masternodeprivkey: '%s'\n", errorMessage.c_str());
-        return false;
+    if (!strMasterNodeAccount.empty() && pwalletMain) {
+        CBitcoinAddress address(strMasterNodeAccount);
+
+        if (pwalletMain->IsLocked()) {
+            LogPrintf("CConsensusVote::Sign() - ERROR: The wallet is locked.\n");
+            return;
+        }
+
+        if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+            LogPrintf("CConsensusVote::Sign() - ERROR: Masternode address not found in wallet.\n");
+            return;
+        }
+        pubkey2 = key2.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key2, pubkey2)) {
+            LogPrintf("CConsensusVote::Sign() - ERROR: Invalid masternodeprivkey: '%s'\n", errorMessage.c_str());
+            return false;
+        }
     }
 
     if (!obfuScationSigner.SignMessage(strMessage, errorMessage, vchMasterNodeSignature, key2)) {

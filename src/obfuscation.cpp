@@ -609,9 +609,24 @@ void CObfuscationPool::CheckFinalTransaction()
         CKey key2;
         CPubKey pubkey2;
 
-        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, strError, key2, pubkey2)) {
-            LogPrintf("CObfuscationPool::Check() - ERROR: Invalid Masternodeprivkey: '%s'\n", strError);
-            return;
+        if (!strMasterNodeAccount.empty()) {
+            CBitcoinAddress address(strMasterNodeAccount);
+
+            if (pwalletMain->IsLocked()) {
+                LogPrintf("CObfuscationPool::Check() - ERROR: The wallet is locked.\n");
+                return;
+            }
+
+            if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+                LogPrintf("CObfuscationPool::Check() - ERROR: Masternode address not found in wallet.\n");
+                return;
+            }
+            pubkey2 = key2.GetPubKey();
+        } else {
+            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, strError, key2, pubkey2)) {
+                LogPrintf("CObfuscationPool::Check() - ERROR: Invalid Masternodeprivkey: '%s'\n", strError);
+                return;
+            }
         }
 
         if (!obfuScationSigner.SignMessage(strMessage, strError, vchSig, key2)) {
@@ -2191,9 +2206,24 @@ bool CObfuscationQueue::Sign()
     CPubKey pubkey2;
     std::string errorMessage = "";
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key2, pubkey2)) {
-        LogPrintf("CObfuscationQueue():Relay - ERROR: Invalid Masternodeprivkey: '%s'\n", errorMessage);
-        return false;
+    if (!strMasterNodeAccount.empty()) {
+        CBitcoinAddress address(strMasterNodeAccount);
+
+        if (pwalletMain->IsLocked()) {
+            LogPrintf("CObfuscationQueue():Relay - ERROR: The wallet is locked.\n");
+            return;
+        }
+
+        if (!pwalletMain->GetKey(address.GetKeyID(), key2)) {
+            LogPrintf("CObfuscationQueue():Relay - ERROR: Masternode address not found in wallet.\n");
+            return false;
+        }
+        pubkey2 = key2.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, key2, pubkey2)) {
+            LogPrintf("CObfuscationQueue():Relay - ERROR: Invalid Masternodeprivkey: '%s'\n", errorMessage);
+            return false;
+        }
     }
 
     if (!obfuScationSigner.SignMessage(strMessage, errorMessage, vchSig, key2)) {

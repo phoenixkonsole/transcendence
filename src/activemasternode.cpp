@@ -112,10 +112,26 @@ void CActiveMasternode::ManageStatus()
             CPubKey pubKeyMasternode;
             CKey keyMasternode;
 
-            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
-                notCapableReason = "Error upon calling SetKey: " + errorMessage;
-                LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
-                return;
+            if (!strMasterNodeAccount.empty()) {
+                CBitcoinAddress address(strMasterNodeAddr);
+
+                if (pwalletMain->IsLocked()) {
+                    LogPrintf("Register::ManageStatus() - ERROR: The wallet is locked.\n");
+                    return;
+                }
+
+                if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+                    notCapableReason = "Masternode address not found in wallet.";
+                    LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
+                    return;
+                }
+                pubKeyMasternode = keyMasternode.GetPubKey();
+            } else {
+                if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+                    notCapableReason = "Error upon calling SetKey: " + errorMessage;
+                    LogPrintf("Register::ManageStatus() - %s\n", notCapableReason);
+                    return;
+                }
             }
 
             if (!Register(vin, tier, service, keyCollateralAddress, pubKeyCollateralAddress, keyMasternode, pubKeyMasternode, errorMessage)) {
@@ -169,9 +185,24 @@ bool CActiveMasternode::SendMasternodePing(std::string& errorMessage)
     CPubKey pubKeyMasternode;
     CKey keyMasternode;
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
-        errorMessage = strprintf("Error upon calling SetKey: %s\n", errorMessage);
-        return false;
+    if (!strMasterNodeAccount.empty()) {
+        CBitcoinAddress address(strMasterNodeAccount);
+
+        if (pwalletMain->IsLocked()) {
+            errorMessage = "The wallet is locked.\n";
+            return false;
+        }
+
+        if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+            errorMessage = "Masternode address not found in wallet.\n";
+            return false;
+        }
+        pubKeyMasternode = keyMasternode.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            errorMessage = strprintf("Error upon calling SetKey: %s\n", errorMessage);
+            return false;
+        }
     }
 
     LogPrintf("CActiveMasternode::SendMasternodePing() - Relay Masternode Ping vin = %s\n", vin.ToString());

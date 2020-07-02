@@ -399,7 +399,26 @@ UniValue mnbudgetvote(const UniValue& params, bool fHelp)
         UniValue statusObj(UniValue::VOBJ);
 
         while (true) {
-            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            bool gotKey = true;
+            std::string errorMessage = "";
+            if (!strMasterNodeAccount.empty() && pwalletMain) {
+                CBitcoinAddress address(strMasterNodeAccount);
+
+                if (pwalletMain->IsLocked()) {
+                    errorMessage = "The wallet is locked";
+                    gotKey = false;
+                } else if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+                    errorMessage = "Masternode address not found in wallet";
+                    gotKey = false;
+                }
+
+                if (gotKey)
+                    pubKeyMasternode = keyMasternode.GetPubKey();
+            } else {
+                gotKey = obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode));
+            }
+
+            if (!gotKey) {
                 failed++;
                 statusObj.push_back(Pair("node", "local"));
                 statusObj.push_back(Pair("result", "failed"));
@@ -953,8 +972,21 @@ UniValue mnfinalbudget(const UniValue& params, bool fHelp)
         CKey keyMasternode;
         std::string errorMessage;
 
-        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode))
-            return "Error upon calling SetKey";
+        if (!strMasterNodeAccount.empty() && pwalletMain) {
+            CBitcoinAddress address(strMasterNodeAccount);
+
+            if (pwalletMain->IsLocked()) {
+                return "The wallet is locked";
+            }
+
+            if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+                return "Masternode address not found in wallet";
+            }
+            pubKeyMasternode = keyMasternode.GetPubKey();
+        } else {
+            if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode))
+                return "Error upon calling SetKey";
+        }
 
         CMasternode* pmn = mnodeman.Find(activeMasternode.vin);
         if (pmn == NULL) {

@@ -570,6 +570,8 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-mnconf=<file>", strprintf(_("Specify masternode configuration file (default: %s)"), "masternode.conf"));
     strUsage += HelpMessageOpt("-mnconflock=<n>", strprintf(_("Lock masternodes from masternode configuration file (default: %u)"), 1));
     strUsage += HelpMessageOpt("-masternodeprivkey=<n>", _("Set the masternode private key"));
+    strUsage += HelpMessageOpt("-masternodeaccount=<n>", _("Set the masternode account (instead of the private key)"));
+    strUsage += HelpMessageOpt("-masternodewalletpass=<n>", _("Use password to unlock wallet keys for masternode (when masternodeaccount is used instead of masternodeprivkey)"));
     strUsage += HelpMessageOpt("-masternodeaddr=<n>", strprintf(_("Set external address:port to get to this masternode. Only ipv4 is supported (example: %s)"), "128.127.106.235:8051"));
     strUsage += HelpMessageOpt("-budgetvotemode=<mode>", _("Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)"));
 
@@ -1821,8 +1823,19 @@ bool AppInit2()
             }
         }
 
+        strMasterNodeAccount = GetArg("-masternodeaccount", "");
         strMasterNodePrivKey = GetArg("-masternodeprivkey", "");
-        if (!strMasterNodePrivKey.empty()) {
+        if (pwalletMain != nullptr && !strMasterNodeAccount.empty()) {
+            CKey key;
+            CBitcoinAddress address(strMasterNodeAccount);
+            if (!pwalletMain->Unlock(GetArg("-masternodewalletpass", ""))) {
+                return InitError(_("Invalid wallet password for masternode keys."));
+            }
+            if (!pwalletMain->GetKey(address.GetKeyID(), key)) {
+                return InitError(_("Masternode address not found in the wallet."));
+            }
+            activeMasternode.pubKeyMasternode = key.GetPubKey();
+        } else if (!strMasterNodePrivKey.empty()) {
             std::string errorMessage;
 
             CKey key;
@@ -1835,7 +1848,7 @@ bool AppInit2()
             activeMasternode.pubKeyMasternode = pubkey;
 
         } else {
-            return InitError(_("You must specify a masternodeprivkey in the configuration. Please see documentation for help."));
+            return InitError(_("You must specify a masternodeprivkey or masternodeaccount in the configuration. Please see documentation for help."));
         }
     }
 

@@ -479,6 +479,7 @@ bool CMasternodeBroadcast::Create(CTxIn txin, unsigned int nTier, CService servi
         return false;
     }
 
+    pwalletMain->LockCoin(txin.prevout);
     return true;
 }
 

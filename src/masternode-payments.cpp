@@ -734,9 +734,24 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     CPubKey pubKeyMasternode;
     CKey keyMasternode;
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
-        LogPrint("masternode","CMasternodePayments::ProcessBlock() - Error upon calling SetKey: %s\n", errorMessage.c_str());
-        return false;
+    if (!strMasterNodeAccount.empty()) {
+        CBitcoinAddress address(strMasterNodeAccount);
+
+        if (pwalletMain->IsLocked()) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - The wallet is locked.\n");
+            return;
+        }
+
+        if (!pwalletMain->GetKey(address.GetKeyID(), keyMasternode)) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - Masternode address not found in wallet.\n");
+            return false;
+        }
+        pubKeyMasternode = keyMasternode.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - Error upon calling SetKey: %s\n", errorMessage.c_str());
+            return false;
+        }
     }
 
     LogPrint("masternode","CMasternodePayments::ProcessBlock() - Signing Winner\n");
@@ -753,14 +768,16 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     return false;
 }
 
-bool CMasternodePayments::ValidateMasternodeWinner(const CScript& payee, int nBlockHeight)
+bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, int nBlockHeight)
 {
     int nCount = 0;
     CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
 
     if (pmn != nullptr) 
-        return payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
-
+        CAmount nReward = GetBlockValue(nBlockHeight);
+        CAmount masternodePayment = GetMasternodePayment(nBlockHeight, nReward, nCount);
+        return mnPaymentOut.scriptPubKey == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID()) 
+            && mnPaymentOut.nValue == masternodePayment;
     return true;
 }
 

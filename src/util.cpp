@@ -108,6 +108,7 @@ using namespace std;
 // Transcendence only features
 // Masternode
 bool fMasterNode = false;
+string strMasterNodeAccount = "";
 string strMasterNodePrivKey = "";
 string strMasterNodeAddr = "";
 bool fLiteMode = false;

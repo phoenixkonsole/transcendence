@@ -50,7 +50,6 @@
 #include <fstream>
 #include <stdint.h>
 #include <stdio.h>
-//#include <curses.h>
 
 #ifndef WIN32
 #include <signal.h>
@@ -1665,20 +1664,6 @@ bool AppInit2()
 
             pwalletMain->SetBestChain(chainActive.GetLocator());
         }
-        /*
-        if (!pwalletMain->IsCrypted() || !GetBoolArg("-ignoreunencrypted", false))
-        {
-            const char* buff1 = getpassword("Wallet is not encrypted. Enter wallet password:");
-            const char* buff2 = getpassword("Repeat the password:");
-
-            if (strcmp(buff1, buff2) != 0) 
-            {
-                throw std::runtime_error("Encryption passwords do not match.");
-            }
-            SecureString strWalletPass(buff1);
-            pwalletMain->EncryptWallet(strWalletPass);
-        }
-        */
 
         LogPrintf("%s", strErrors.str());
         LogPrintf(" wallet      %15dms\n", GetTimeMillis() - nStart);

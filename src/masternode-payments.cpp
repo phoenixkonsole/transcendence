@@ -779,6 +779,11 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
 
 bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, int nBlockHeight)
 {
+    if (!masternodeSync.IsSynced ()) {
+        LogPrint ("mnpayments", "Client not synced, skipping block payee checks\n");
+        return true;
+    }
+    
     int nCount = 0;
     CScript payee;
     if (!masternodePayments.GetBlockPayee(nBlockHeight, payee)) {

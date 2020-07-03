@@ -1239,7 +1239,7 @@ bool AppInit2()
 
     RegisterNodeSignals(GetNodeSignals());
     if (mapArgs.count("-onlynet") == 0) {
-        SoftSetArg("-onlynet", "ipv4")
+        SoftSetArg("-onlynet", "ipv4");
     }
 
     if (mapArgs.count("-onlynet")) {

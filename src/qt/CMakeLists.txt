@@ -163,6 +163,7 @@ SET(QT_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/tooltipmenu.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/addresseswidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/defaultdialog.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/defaultinputdialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/denomgenerationdialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/privacywidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/transcendence/settings/settingsbackupwallet.cpp

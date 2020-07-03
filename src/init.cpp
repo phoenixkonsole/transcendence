@@ -101,6 +101,47 @@ enum BindFlags {
 static const char* FEE_ESTIMATES_FILENAME = "fee_estimates.dat";
 CClientUIInterface uiInterface;
 
+
+const char* getpassword(const char *prompt)
+{
+#ifdef WIN32
+    const char BACKSPACE=8;
+    const char RETURN=13;
+
+    std::string password;
+    unsigned char ch=0;
+
+    cout <<prompt<<endl;
+
+    DWORD con_mode;
+    DWORD dwRead;
+
+    HANDLE hIn = GetStdHandle(STD_INPUT_HANDLE);
+
+    GetConsoleMode( hIn, &con_mode );
+    SetConsoleMode( hIn, con_mode & ~(ENABLE_ECHO_INPUT | ENABLE_LINE_INPUT) );
+
+    while(ReadConsoleA( hIn, &ch, 1, &dwRead, NULL) && ch !=RETURN)
+    {
+        if(ch == BACKSPACE)
+        {
+            if(password.length() != 0)
+            {
+                password.resize(password.length() - 1);
+            }
+        }
+        else
+        {
+            password += ch;
+        }
+    }
+    std::cout << "\n";
+    return password.c_str();
+#else
+    return getpass(prompt);
+#endif
+}
+
 //////////////////////////////////////////////////////////////////////////////
 //
 // Shutdown
@@ -408,7 +449,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-maxreceivebuffer=<n>", strprintf(_("Maximum per-connection receive buffer, <n>*1000 bytes (default: %u)"), 5000));
     strUsage += HelpMessageOpt("-maxsendbuffer=<n>", strprintf(_("Maximum per-connection send buffer, <n>*1000 bytes (default: %u)"), 1000));
     strUsage += HelpMessageOpt("-onion=<ip:port>", strprintf(_("Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)"), "-proxy"));
-    strUsage += HelpMessageOpt("-onlynet=<net>", _("Only connect to nodes in network <net> (ipv4, ipv6 or onion)"));
+    strUsage += HelpMessageOpt("-onlynet=<net>", _("Only connect to nodes in network <net> (ipv4, ipv6 or onion) (default: \"ipv4\")"));
     strUsage += HelpMessageOpt("-permitbaremultisig", strprintf(_("Relay non-P2SH multisig (default: %u)"), 1));
     strUsage += HelpMessageOpt("-peerbloomfilters", strprintf(_("Support filtering of blocks and transaction with bloom filters (default: %u)"), DEFAULT_PEERBLOOMFILTERS));
     strUsage += HelpMessageOpt("-port=<port>", strprintf(_("Listen for connections on <port> (default: %u or testnet: %u)"), 8051, 5520));
@@ -528,6 +569,8 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-mnconf=<file>", strprintf(_("Specify masternode configuration file (default: %s)"), "masternode.conf"));
     strUsage += HelpMessageOpt("-mnconflock=<n>", strprintf(_("Lock masternodes from masternode configuration file (default: %u)"), 1));
     strUsage += HelpMessageOpt("-masternodeprivkey=<n>", _("Set the masternode private key"));
+    strUsage += HelpMessageOpt("-masternodeaccount=<n>", _("Set the masternode account (instead of the private key)"));
+    strUsage += HelpMessageOpt("-masternodewalletpass=<n>", _("Use password to unlock wallet keys for masternode (when masternodeaccount is used instead of masternodeprivkey)"));
     strUsage += HelpMessageOpt("-masternodeaddr=<n>", strprintf(_("Set external address:port to get to this masternode. Only ipv4 is supported (example: %s)"), "128.127.106.235:8051"));
     strUsage += HelpMessageOpt("-budgetvotemode=<mode>", _("Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)"));
 
@@ -959,7 +1002,7 @@ bool AppInit2()
     fSendFreeTransactions = GetBoolArg("-sendfreetransactions", false);
     fEnableAutoConvert = GetBoolArg("-enableautoconvertaddress", DEFAULT_AUTOCONVERTADDRESS);
 
-    std::string strWalletFile = GetArg("-wallet", "wallet.dat");
+    std::string strWalletFile = GetArg("-wallet", "telos.wlt.file");
 #endif // ENABLE_WALLET
 
     fIsBareMultisigStd = GetBoolArg("-permitbaremultisig", true) != 0;
@@ -1194,6 +1237,9 @@ bool AppInit2()
     // ********************************************************* Step 6: network initialization
 
     RegisterNodeSignals(GetNodeSignals());
+    if (mapArgs.count("-onlynet") == 0) {
+        SoftSetArg("-onlynet", "ipv4");
+    }
 
     if (mapArgs.count("-onlynet")) {
         std::set<enum Network> nets;
@@ -1765,8 +1811,22 @@ bool AppInit2()
             }
         }
 
+        strMasterNodeAccount = GetArg("-masternodeaccount", "");
         strMasterNodePrivKey = GetArg("-masternodeprivkey", "");
-        if (!strMasterNodePrivKey.empty()) {
+        if (pwalletMain != nullptr && !strMasterNodeAccount.empty()) {
+            CKey key;
+            CKeyID keyId;
+            CBitcoinAddress address(strMasterNodeAccount);
+            address.GetKeyID(keyId);
+
+            if (!pwalletMain->Unlock(GetArg("-masternodewalletpass", "").c_str())) {
+                return InitError(_("Invalid wallet password for masternode keys."));
+            }
+            if (!pwalletMain->GetKey(keyId, key)) {
+                return InitError(_("Masternode address not found in the wallet."));
+            }
+            activeMasternode.pubKeyMasternode = key.GetPubKey();
+        } else if (!strMasterNodePrivKey.empty()) {
             std::string errorMessage;
 
             CKey key;
@@ -1779,7 +1839,7 @@ bool AppInit2()
             activeMasternode.pubKeyMasternode = pubkey;
 
         } else {
-            return InitError(_("You must specify a masternodeprivkey in the configuration. Please see documentation for help."));
+            return InitError(_("You must specify a masternodeprivkey or masternodeaccount in the configuration. Please see documentation for help."));
         }
     }
 

@@ -8,6 +8,7 @@
 #include "qt/transcendence/lockunlock.h"
 #include "qt/transcendence/qtutils.h"
 #include "qt/transcendence/receivedialog.h"
+#include "qt/transcendence/defaultdialog.h"
 #include "askpassphrasedialog.h"
 
 #include "bitcoinunits.h"
@@ -176,13 +177,31 @@ void TopBar::encryptWallet() {
         return;
 
     showHideOp(true);
-    AskPassphraseDialog *dlg = new AskPassphraseDialog(AskPassphraseDialog::Mode::Encrypt, window,
-                            walletModel, AskPassphraseDialog::Context::Encrypt);
-    dlg->adjustSize();
-    openDialogWithOpaqueBackgroundY(dlg, window);
 
-    refreshStatus();
-    dlg->deleteLater();
+    DefaultDialog *confirmDialog = new DefaultDialog(window);
+    confirmDialog->setText(
+        tr("Encrypting your wallet"),
+        tr("Make sure to encrypt your wallet, to avoid losing funds in case the wallet is accessed by a malicious thrid party. Someone can access the wallet via malware, or directly if they have access to your PC. Wallet encryption prevents other users from accessing your funds. Also, make sure to have downloaded the wallet from https://telosgreen.org to prevent you using a \"Fake-wallet\"."), 
+        tr("OK"));
+    confirmDialog->adjustSize();
+    openDialogWithOpaqueBackground(confirmDialog, window);
+    bool ret = confirmDialog->isOk;
+    confirmDialog->deleteLater();
+    
+    if (ret) {
+        AskPassphraseDialog *dlg = new AskPassphraseDialog(AskPassphraseDialog::Mode::Encrypt, window,
+                                walletModel, AskPassphraseDialog::Context::Encrypt);
+        dlg->adjustSize();
+        openDialogWithOpaqueBackgroundY(dlg, window);
+
+        refreshStatus();
+        dlg->deleteLater();
+    }
+}
+
+
+WalletModel::EncryptionStatus TopBar::getEncryptionStatus() {
+    return walletModel->getEncryptionStatus();
 }
 
 static bool isExecuting = false;

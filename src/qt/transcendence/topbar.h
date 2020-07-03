@@ -35,6 +35,7 @@ public:
     void loadClientModel() override;
 
     void encryptWallet();
+    WalletModel::EncryptionStatus getEncryptionStatus();
 public slots:
     void updateBalances(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance,
                         const CAmount& zerocoinBalance, const CAmount& unconfirmedZerocoinBalance, const CAmount& immatureZerocoinBalance,

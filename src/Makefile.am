@@ -146,6 +146,7 @@ BITCOIN_CORE_H = \
   script/standard.h \
   script/script_error.h \
   serialize.h \
+  smtputils.h \
   spork.h \
   sporkdb.h \
   streams.h \
@@ -235,6 +236,7 @@ libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_wallet_a_SOURCES = \
   activemasternode.cpp \
   bip38.cpp \
+  smtputils.cpp \
   denomination_functions.cpp \
   obfuscation.cpp \
   obfuscation-relay.cpp \
@@ -442,7 +444,7 @@ transcendenced_LDADD = \
   $(LIBMEMENV) \
   $(LIBSECP256K1)
 
-transcendenced_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(UNBOUND_LIBS)
+transcendenced_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS) $(ZMQ_LIBS) $(UNBOUND_LIBS) $(CURL_LIBS) 
 
 # transcendence-cli binary #
 transcendence_cli_SOURCES = transcendence-cli.cpp
@@ -460,7 +462,7 @@ transcendence_cli_LDADD = \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO)
 
-transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(UNBOUND_LIBS)
+transcendence_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS) $(UNBOUND_LIBS) $(CURL_LIBS)
 #
 
 # transcendence-tx binary #

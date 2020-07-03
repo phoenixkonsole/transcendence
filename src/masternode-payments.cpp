@@ -288,15 +288,22 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
     bool hasPayment = true;
     CScript payee;
 
-    //spork
     if (!masternodePayments.GetBlockPayee(pindexPrev->nHeight + 1, payee)) {
         //no masternode detected
-        CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
-        if (winningNode) {
-            payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
-        } else {
-            LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
-            hasPayment = false;
+
+        int nCount = 0;
+        CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(pindexPrev->nHeight + 1, true, nCount);
+        if (pmn != nullptr) {
+            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+        }
+        else {
+            CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
+            if (winningNode) {
+                payee = GetScriptForDestination(winningNode->pubKeyCollateralAddress.GetID());
+            } else {
+                LogPrint("masternode","CreateNewBlock: Failed to detect masternode to pay\n");
+                hasPayment = false;
+            }
         }
     }
 
@@ -734,9 +741,26 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     CPubKey pubKeyMasternode;
     CKey keyMasternode;
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
-        LogPrint("masternode","CMasternodePayments::ProcessBlock() - Error upon calling SetKey: %s\n", errorMessage.c_str());
-        return false;
+    if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
+        CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
+
+        if (pwalletMain->IsLocked()) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - The wallet is locked.\n");
+            return false;
+        }
+
+        if (!pwalletMain->GetKey(keyId, keyMasternode)) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - Masternode address not found in wallet.\n");
+            return false;
+        }
+        pubKeyMasternode = keyMasternode.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            LogPrint("masternode","CMasternodePayments::ProcessBlock() - Error upon calling SetKey: %s\n", errorMessage.c_str());
+            return false;
+        }
     }
 
     LogPrint("masternode","CMasternodePayments::ProcessBlock() - Signing Winner\n");
@@ -753,15 +777,26 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     return false;
 }
 
-bool CMasternodePayments::ValidateMasternodeWinner(const CScript& payee, int nBlockHeight)
+bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, int nBlockHeight)
 {
     int nCount = 0;
-    CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
+    CScript payee;
+    if (!masternodePayments.GetBlockPayee(nBlockHeight, payee)) {
+        //no masternode detected
 
-    if (pmn != nullptr) 
-        return payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+        CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
+        if (pmn != nullptr) {
+            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+        }
+    }
 
-    return true;
+    CAmount nReward = GetBlockValue(nBlockHeight);
+    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, nReward, nCount);
+    if (mnPaymentOut.scriptPubKey != payee)
+        LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - script pubkey did not match\n");
+    if (mnPaymentOut.nValue < masternodePayment)
+        LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - masternodePayment did not match\n");
+    return mnPaymentOut.nValue >= masternodePayment; // TODO: check mnpaymentOut.scriptPubKey == payee
 }
 
 void CMasternodePaymentWinner::Relay()

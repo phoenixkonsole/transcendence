@@ -2041,10 +2041,28 @@ void CFinalizedBudget::SubmitVote()
     CKey keyMasternode;
     std::string errorMessage;
 
-    if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
-        LogPrint("masternode","CFinalizedBudget::SubmitVote - Error upon calling SetKey\n");
-        return;
+    if (!strMasterNodeAccount.empty()) {
+        CKeyID keyId;
+        CBitcoinAddress address(strMasterNodeAccount);
+        address.GetKeyID(keyId);
+
+        if (pwalletMain->IsLocked()) {
+            LogPrint("masternode","CFinalizedBudget::SubmitVote - The wallet is locked.\n");
+            return;
+        }
+
+        if (!pwalletMain->GetKey(keyId, keyMasternode)) {
+            LogPrint("masternode","CFinalizedBudget::SubmitVote - Masternode address not found in wallet\n");
+            return;
+        }
+        pubKeyMasternode = keyMasternode.GetPubKey();
+    } else {
+        if (!obfuScationSigner.SetKey(strMasterNodePrivKey, errorMessage, keyMasternode, pubKeyMasternode)) {
+            LogPrint("masternode","CFinalizedBudget::SubmitVote - Error upon calling SetKey\n");
+            return;
+        }
     }
+
 
     CFinalizedBudgetVote vote(activeMasternode.vin, GetHash());
     if (!vote.Sign(keyMasternode, pubKeyMasternode)) {

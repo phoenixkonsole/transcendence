@@ -2185,8 +2185,10 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	// 90% for Masternodes from block 1000
 	if (nHeight <= 100) {
 	      ret = blockValue  / 100 * 0;               // %0
-	} else if (nHeight > 100 ) {
+	} else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
 		  ret = blockValue  / 100 * 90;               // %90
+	} else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
+		  ret = blockValue  / 100 * 80;               // %80
 	}
 
     return ret;
@@ -4008,7 +4010,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         const unsigned int outs = tx.vout.size();
         if (outs < 3)
             return state.DoS(100, error("CheckBlock() : no payment for masternode found"));
-        if (!masternodePayments.ValidateMasternodeWinner(tx.vout[outs-1].scriptPubKey, nHeight))
+        if (!masternodePayments.ValidateMasternodeWinner(tx.vout[outs-1], nHeight))
             return state.DoS(100, error("CheckBlock() : wrong masternode address"));
     }
 

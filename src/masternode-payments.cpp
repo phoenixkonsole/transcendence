@@ -294,7 +294,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction& txNew, int64_t nFe
         int nCount = 0;
         CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(pindexPrev->nHeight + 1, true, nCount);
         if (pmn != nullptr) {
-            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+            payee = GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
         }
         else {
             CMasternode* winningNode = mnodeman.GetCurrentMasterNode(1);
@@ -786,7 +786,7 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
 
         CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
         if (pmn != nullptr) {
-            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+            payee = GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
         }
     }
 

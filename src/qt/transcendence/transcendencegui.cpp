@@ -445,6 +445,15 @@ void TELOSGUI::detectShutdown() {
     }
 }
 
+void TELOSGUI::onStartup() 
+{
+    if (topBar != nullptr &&
+        topBar->getEncryptionStatus() == WalletModel::EncryptionStatus::Unencrypted)
+    {
+        topBar->encryptWallet();
+    }
+}
+
 void TELOSGUI::goToDashboard(){
     if(stackedContainer->currentWidget() != dashboard){
         stackedContainer->setCurrentWidget(dashboard);

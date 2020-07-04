@@ -53,6 +53,7 @@ extern CObfuscationPool obfuScationPool;
 extern CObfuScationSigner obfuScationSigner;
 extern std::vector<CObfuscationQueue> vecObfuscationQueue;
 extern std::string strMasterNodePrivKey;
+extern std::string strMasterNodeAccount;
 extern map<uint256, CObfuscationBroadcastTx> mapObfuscationBroadcastTxes;
 extern CActiveMasternode activeMasternode;
 

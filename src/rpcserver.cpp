@@ -118,8 +118,6 @@ CAmount AmountFromValue(const UniValue& value)
         throw JSONRPCError(RPC_TYPE_ERROR, "Amount is not a number");
 
     double dAmount = value.get_real();
-    if (dAmount <= 0.0 || dAmount > 21000000.0)
-        throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");
     CAmount nAmount = roundint64(dAmount * COIN);
     if (!MoneyRange(nAmount))
         throw JSONRPCError(RPC_TYPE_ERROR, "Invalid amount");

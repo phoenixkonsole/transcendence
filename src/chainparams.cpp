@@ -168,12 +168,12 @@ public:
 	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
 	//vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
 	vSeeds.push_back(CDNSSeedData("176.9.74.62", "176.9.74.62"));
-      // vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
+      	//vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
 	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));
        vSeeds.push_back(CDNSSeedData("159.69.33.171", "159.69.33.171"));
        vSeeds.push_back(CDNSSeedData("159.69.33.172", "159.69.33.172"));
-	vSeeds.push_back(CDNSSeedData("149.28.207.67", "149.28.207.67"));
+ 	//vSeeds.push_back(CDNSSeedData("149.28.207.67", "149.28.207.67"));
 	vSeeds.push_back(CDNSSeedData("94.130.206.190", "94.130.206.190"));
        vSeeds.push_back(CDNSSeedData("159.69.51.40", "159.69.51.40"));
        vSeeds.push_back(CDNSSeedData("95.216.152.134", "95.216.152.134"));

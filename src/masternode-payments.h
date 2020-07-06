@@ -257,8 +257,6 @@ public:
     bool AddWinningMasternode(CMasternodePaymentWinner& winner);
     bool ProcessBlock(int nBlockHeight);
 
-    bool ValidateMasternodeWinner(const CTxOut& mnPaymentOut, int nBlockHeight);
-
     void Sync(CNode* node, int nCountNeeded);
     void CleanPaymentList();
     int LastPayment(CMasternode& mn);

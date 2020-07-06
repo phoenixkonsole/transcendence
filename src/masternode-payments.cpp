@@ -251,7 +251,8 @@ bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
         return true;
     LogPrint("masternode","Invalid mn payment detected %s\n", txNew.ToString().c_str());
 
-    if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT))
+    if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT) ||
+        (nHeight > GetSporkValue(SPORK_17_MASTERNODE_PAYMENT_CHECK))
         return false;
     LogPrint("masternode","Masternode payment enforcement is disabled, accepting block\n");
 
@@ -775,28 +776,6 @@ bool CMasternodePayments::ProcessBlock(int nBlockHeight)
     }
 
     return false;
-}
-
-bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, int nBlockHeight)
-{
-    int nCount = 0;
-    CScript payee;
-    if (!masternodePayments.GetBlockPayee(nBlockHeight, payee)) {
-        //no masternode detected
-
-        CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
-        if (pmn != nullptr) {
-            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
-        }
-    }
-
-    CAmount nReward = GetBlockValue(nBlockHeight);
-    CAmount masternodePayment = GetMasternodePayment(nBlockHeight, nReward, nCount);
-    if (mnPaymentOut.scriptPubKey != payee)
-        LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - script pubkey did not match\n");
-    if (mnPaymentOut.nValue < masternodePayment)
-        LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - masternodePayment did not match\n");
-    return mnPaymentOut.nValue >= masternodePayment; // TODO: check mnpaymentOut.scriptPubKey == payee
 }
 
 void CMasternodePaymentWinner::Relay()

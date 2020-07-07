@@ -51,11 +51,11 @@ MasterNodeWizardDialog::MasterNodeWizardDialog(WalletModel *model, QWidget *pare
     ui->lineEditName->setValidator(new QRegExpValidator(QRegExp("^[A-Za-z0-9]+"), ui->lineEditName));
     initComboBox(ui->comboTierSelect);
     ui->comboTierSelect->setEditable(false);
-    ui->comboTierSelect->addItem(tr("1,000"));
-    ui->comboTierSelect->addItem(tr("3,000"));
-    ui->comboTierSelect->addItem(tr("10,000"));
-    ui->comboTierSelect->addItem(tr("30,000"));
     ui->comboTierSelect->addItem(tr("100,000"));
+    ui->comboTierSelect->addItem(tr("300,000"));
+    ui->comboTierSelect->addItem(tr("1,000,000"));
+    ui->comboTierSelect->addItem(tr("3,000,000"));
+    ui->comboTierSelect->addItem(tr("10,000,000"));
     setCssComboBox(ui->comboTierSelect, true, true);
 
 
@@ -102,23 +102,23 @@ int getSelectedTierAmount(QComboBox *combo){
     int currentindex = combo->currentIndex();
     switch (currentindex){
        case 0:{
-       return 1000;
+       return 100000;
        break; 
        }
        case 1:{
-       return 3000;
+       return 300000;
        break; 
        }
        case 2:{
-       return 10000;
+       return 1000000;
        break; 
        }
        case 3:{
-       return 30000;
+       return 3000000;
        break; 
        }
        case 4:{
-       return 100000;
+       return 10000000;
        break; 
        }
     }

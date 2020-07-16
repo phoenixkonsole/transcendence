@@ -85,7 +85,6 @@ DashboardWidget::DashboardWidget(TELOSGUI* parent) :
     setCssProperty(ui->pushButtonChartArrow, "btn-chart-arrow");
     setCssProperty(ui->pushButtonChartRight, "btn-chart-arrow-right");
 
-
     connect(ui->comboBoxYears, SIGNAL(currentIndexChanged(const QString&)), this,SLOT(onChartYearChanged(const QString&)));
 
     // Sort Transactions
@@ -228,6 +227,7 @@ void DashboardWidget::loadWalletModel(){
         stakesFilter->setOnlyStakes(true);
         stakesFilter->setSourceModel(txModel);
         stakesFilter->sort(TransactionTableModel::Date, Qt::AscendingOrder);
+        hasStakes = stakesFilter->rowCount() > 0;
         loadChart();
 #endif
     }
@@ -333,12 +333,17 @@ void DashboardWidget::changeTheme(bool isLightTheme, QString& theme){
 #ifdef USE_QTCHARTS
 
 void DashboardWidget::tryChartRefresh() {
-    if (hasStakes()) {
+    if (hasStakes) {
+    // First check that everything was loaded properly.
+    if (!chart) {
+        loadChart();
+    } else {
         // Check for min update time to not reload the UI so often if the node is syncing.
         int64_t now = GetTime();
         if (lastRefreshTime + CHART_LOAD_MIN_TIME_INTERVAL < now) {
             lastRefreshTime = now;
             refreshChart();
+            }
         }
     }
 }
@@ -356,21 +361,21 @@ void DashboardWidget::setChartShow(ChartShowType type) {
 const QStringList monthsNames = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
 void DashboardWidget::loadChart(){
-    if (hasStakes()) {
-        if (!chart) {
-            showHideEmptyChart(false, false);
-            initChart();
-            QDate currentDate = QDate::currentDate();
-            monthFilter = currentDate.month();
-            yearFilter = currentDate.year();
-            for (int i = 1; i < 13; ++i) ui->comboBoxMonths->addItem(QString(monthsNames[i-1]), QVariant(i));
-            ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
-            connect(ui->comboBoxMonths, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(onChartMonthChanged(const QString&)));
-            connect(ui->pushButtonChartArrow, &QPushButton::clicked, [this](){ onChartArrowClicked(true); });
-            connect(ui->pushButtonChartRight, &QPushButton::clicked, [this](){ onChartArrowClicked(false); });
-        }
-        refreshChart();
-        changeChartColors();
+    if (hasStakes) {
+    if (!chart) {
+        showHideEmptyChart(false, false);
+        initChart();
+        QDate currentDate = QDate::currentDate();
+        monthFilter = currentDate.month();
+        yearFilter = currentDate.year();
+        for (int i = 1; i < 13; ++i) ui->comboBoxMonths->addItem(QString(monthsNames[i-1]), QVariant(i));
+        ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
+        connect(ui->comboBoxMonths, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(onChartMonthChanged(const QString&)));
+        connect(ui->pushButtonChartArrow, &QPushButton::clicked, [this](){ onChartArrowClicked(true); });
+        connect(ui->pushButtonChartRight, &QPushButton::clicked, [this](){ onChartArrowClicked(false); });
+    }
+    refreshChart();
+    changeChartColors();
     } else {
         showHideEmptyChart(true, false);
     }
@@ -537,9 +542,14 @@ void DashboardWidget::loadChartData(bool withMonthNames) {
     }
 
     chartData = new ChartData();
-
     chartData->amountsByCache = getAmountBy(); // pair TELOS, zTELOS
+
     std::pair<int,int> range = getChartRange(chartData->amountsByCache);
+    if (range.first == 0 && range.second == 0) {
+        // Problem loading the chart.
+        return false;
+    }
+    
     bool isOrderedByMonth = chartShow == MONTH;
     int daysInMonth = QDate(yearFilter, monthFilter, 1).daysInMonth();
 
@@ -565,6 +575,8 @@ void DashboardWidget::loadChartData(bool withMonthNames) {
             chartData->maxValue = max;
         }
     }
+    
+    return true;
 }
 
 void DashboardWidget::onChartYearChanged(const QString& yearStr) {
@@ -702,18 +714,23 @@ void DashboardWidget::onChartRefreshed() {
 
 std::pair<int, int> DashboardWidget::getChartRange(QMap<int, std::pair<qint64, qint64>> amountsBy) {
     switch (chartShow) {
-        case YEAR:
-            return std::make_pair(1, 13);
-        case ALL: {
-            QList<int> keys = amountsBy.uniqueKeys();
-            qSort(keys);
-            return std::make_pair(keys.first(), keys.last() + 1);
-        }
-        case MONTH:
-            return std::make_pair(dayStart, dayStart + 9);
-        default:
-            inform(tr("Error loading chart, invalid show option"));
+    case YEAR:
+        return std::make_pair(1, 13);
+    case ALL: {
+        QList<int> keys = amountsBy.uniqueKeys();
+        if (keys.isEmpty()) {
+            // This should never happen, ALL means from the beginning of time and if this is called then it must have at least one stake..
+            inform(tr("Error loading chart, invalid data"));
             return std::make_pair(0, 0);
+        }
+        qSort(keys);
+        return std::make_pair(keys.first(), keys.last() + 1);
+    }
+    case MONTH:
+        return std::make_pair(dayStart, dayStart + 9);
+    default:
+        inform(tr("Error loading chart, invalid show option"));
+        return std::make_pair(0, 0);
     }
 }
 
@@ -730,53 +747,39 @@ void DashboardWidget::updateAxisX(const QStringList* args) {
 }
 
 void DashboardWidget::onChartArrowClicked(bool goLeft) {
-    QDate currentDate = QDate::currentDate();
-    //get chart range
-    std::pair<int,int> range = getChartRange(chartData->amountsByCache);
-    //Check if lastday in data incremented by 1 is the current date
-    bool fEndDayisCurrent = range.second + 1 == currentDate.day() && monthFilter == currentDate.month();
-    ui->pushButtonChartRight->setEnabled(!fEndDayisCurrent);
-    if (goLeft) {
-        --dayStart;
-        if (dayStart == 0) {
-            monthFilter = (monthFilter - 1 <= 0) ? 1 : monthFilter - 1;
-            dayStart = QDate(yearFilter, monthFilter, 1).daysInMonth();
-        }
+if (goLeft) {
+    dayStart--;
+    if (dayStart == 0) {
+        dayStart = QDate(yearFilter, monthFilter, 1).daysInMonth();
     }
-    else {
-        ++dayStart;
-    }
-    int daysInMonth = QDate(yearFilter, monthFilter, dayStart).daysInMonth();
-    //check if daystart is greater than days in the current month
-    if (dayStart > daysInMonth) {
+} else {
+    int dayInMonth = QDate(yearFilter, monthFilter, dayStart).daysInMonth();
+    dayStart++;
+    if (dayStart > dayInMonth) {
         dayStart = 1;
-        if(!goLeft)
-          ++monthFilter;
     }
-    //Update Month Text in ComboBox
-    ui->comboBoxMonths->setCurrentIndex(monthFilter - 1);
-    //refresh chart
+}
     refreshChart();
 }
 
 void DashboardWidget::windowResizeEvent(QResizeEvent *event){
-    if (hasStakes() > 0 && axisX) {
-        if (width() > 1300) {
-            if (isChartMin) {
-                isChartMin = false;
-                switch (chartShow) {
-                    case YEAR: {
-                        updateAxisX(&monthsNames);
-                        break;
-                    }
-                    case ALL: break;
-                    case MONTH: {
-                        updateAxisX();
-                        break;
-                    }
-                    default:
-                        inform(tr("Error loading chart, invalid show option"));
-                        return;
+if (hasStakes && axisX) {
+    if (width() > 1300) {
+        if (isChartMin) {
+            isChartMin = false;
+            switch (chartShow) {
+                case YEAR: {
+                    updateAxisX(&monthsNames);
+                    break;
+                }
+                case ALL: break;
+                case MONTH: {
+                    updateAxisX();
+                    break;
+                }
+                default:
+                    inform(tr("Error loading chart, invalid show option"));
+                    return;
                 }
                 chartView->repaint();
             }
@@ -789,18 +792,14 @@ void DashboardWidget::windowResizeEvent(QResizeEvent *event){
     }
 }
 
-bool DashboardWidget::hasStakes() {
-    return stakesFilter->rowCount() > 0;
-}
-
 #endif
 
 void DashboardWidget::run(int type) {
 #ifdef USE_QTCHARTS
     if (type == REQUEST_LOAD_TASK) {
         bool withMonthNames = !isChartMin && (chartShow == YEAR);
-        loadChartData(withMonthNames);
-        QMetaObject::invokeMethod(this, "onChartRefreshed", Qt::QueuedConnection);
+        if (loadChartData(withMonthNames))
+            QMetaObject::invokeMethod(this, "onChartRefreshed", Qt::QueuedConnection);
     }
 #endif
 }

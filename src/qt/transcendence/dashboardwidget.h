@@ -121,7 +121,7 @@ private slots:
     void onSortTypeChanged(const QString& value);
     void updateDisplayUnit();
     void showList();
-    void onTxArrived(const QString& hash);
+    void onTxArrived(const QString& hash, const bool& isCoinStake);
 
 #ifdef USE_QTCHARTS
     void windowResizeEvent(QResizeEvent *event);

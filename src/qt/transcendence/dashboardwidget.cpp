@@ -235,11 +235,15 @@ void DashboardWidget::loadWalletModel(){
     updateDisplayUnit();
 }
 
-void DashboardWidget::onTxArrived(const QString& hash) {
+void DashboardWidget::onTxArrived(const QString& hash, const bool& isCoinStake) {
     showList();
 #ifdef USE_QTCHARTS
-    if (walletModel->isCoinStakeMine(hash))
+     if (isCoinStake) {
+        // Update value if this is our first stake
+        if (!hasStakes)
+            hasStakes = stakesFilter->rowCount() > 0;
         tryChartRefresh();
+    }
 #endif
 }
 

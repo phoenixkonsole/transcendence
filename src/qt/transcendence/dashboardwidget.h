@@ -12,6 +12,7 @@
 #include "qt/transcendence/txviewholder.h"
 #include "transactionfilterproxy.h"
 
+#include <atomic>
 #include <cstdlib>
 #include <QWidget>
 #include <QLineEdit>

@@ -534,7 +534,7 @@ QMap<int, std::pair<qint64, qint64>> DashboardWidget::getAmountBy() {
     return amountBy;
 }
 
-void DashboardWidget::loadChartData(bool withMonthNames) {
+bool DashboardWidget::loadChartData(bool withMonthNames) {
 
     if (chartData) {
         delete chartData;

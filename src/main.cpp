@@ -4004,16 +4004,6 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         }
     }
         
-    // Check masternode payments
-    if (nHeight > GetSporkValue(SPORK_17_MASTERNODE_PAYMENT_CHECK) && block.IsProofOfStake()) {
-        const CTransaction& tx = block.vtx[1];
-        const unsigned int outs = tx.vout.size();
-        if (outs < 3)
-            return state.DoS(100, error("CheckBlock() : no payment for masternode found"));
-        if (!masternodePayments.ValidateMasternodeWinner(tx.vout[outs-1], nHeight))
-            return state.DoS(100, error("CheckBlock() : wrong masternode address"));
-    }
-
     // Check transactions
     bool fZerocoinActive = true;
     vector<CBigNum> vBlockSerials;

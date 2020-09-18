@@ -25,6 +25,7 @@ extern CMasternodePayments masternodePayments;
 
 #define MNPAYMENTS_SIGNATURES_REQUIRED 6
 #define MNPAYMENTS_SIGNATURES_TOTAL 10
+#define MNPAYMENTS_FIX_WINNER_CHECK 1132000 // 1127100 can be used for testing
 
 void ProcessMessageMasternodePayments(CNode* pfrom, std::string& strCommand, CDataStream& vRecv);
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight);

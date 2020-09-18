@@ -4010,8 +4010,13 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         const unsigned int outs = tx.vout.size();
         if (outs < 3)
             return state.DoS(100, error("CheckBlock() : no payment for masternode found"));
-        if (!masternodePayments.ValidateMasternodeWinner(tx.vout[outs-1], nHeight))
-            return state.DoS(100, error("CheckBlock() : wrong masternode address"));
+
+        if (masternodeSync.IsSynced()) { //there is no budget data to use to check anything -- find the longest chain
+            if (!masternodePayments.ValidateMasternodeWinner(tx.vout[outs-1], nHeight))
+                return state.DoS(100, error("CheckBlock() : wrong masternode address"));
+        } else {
+            LogPrintf("CheckBlock() : Client not synced, skipping block payee checks\n");
+        }
     }
 
     // Check transactions

@@ -783,10 +783,9 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
     CScript payee;
     if (!masternodePayments.GetBlockPayee(nBlockHeight, payee)) {
         //no masternode detected
-
         CMasternode* pmn = mnodeman.GetNextMasternodeInQueueForPayment(nBlockHeight, true, nCount);
         if (pmn != nullptr) {
-            payee == GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
+            payee = GetScriptForDestination(pmn->pubKeyCollateralAddress.GetID());
         }
     }
 
@@ -796,7 +795,9 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
         LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - script pubkey did not match\n");
     if (mnPaymentOut.nValue < masternodePayment)
         LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - masternodePayment did not match\n");
-    return mnPaymentOut.nValue >= masternodePayment; // TODO: check mnpaymentOut.scriptPubKey == payee
+    if (nBlockHeight > MNPAYMENTS_FIX_WINNER_CHECK)
+        return mnPaymentOut.nValue >= masternodePayment && mnPaymentOut.scriptPubKey == payee;
+    return mnPaymentOut.nValue >= masternodePayment && mnPaymentOut.scriptPubKey == payee;
 }
 
 void CMasternodePaymentWinner::Relay()

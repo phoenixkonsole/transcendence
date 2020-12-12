@@ -2119,7 +2119,6 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex)
     return true;
 }
 
-
 double ConvertBitsToDouble(unsigned int nBits)
 {
     int nShift = (nBits >> 24) & 0xff;
@@ -2168,14 +2167,27 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 200 * COIN;
     } else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight > TIER_BLOCK_HEIGHT) {
         nSubsidy = 100 * COIN;
-    } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT) {
+    } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight < SPORK_19_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = 50 * COIN;
+    } else if (nHeight >= SPORK_19_REWARD_HALVING_START_DEFAULT) {
+        nSubsidy = GetHalvingReward(nHeight) * COIN;
     } else {
         nSubsidy = 0.1 * COIN;
     }
 
     return nSubsidy;
+}
 
+double GetHalvingReward(int nHeight)
+{
+    double reward = 25;
+
+    const int period = (nHeight - SPORK_19_REWARD_HALVING_START_DEFAULT) / SPORK_19_REWARD_HALVING_PERIOD_DEFAULT;
+    if (period > 0) {
+        reward /= period + 1;
+    }
+
+    return reward;
 }
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
@@ -2187,9 +2199,11 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	      ret = blockValue  / 100 * 0;               // %0
 	} else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
 		  ret = blockValue  / 100 * 90;               // %90
-	} else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
+	} else if (nHeight < SPORK_18_LOWERED_MASTERNODE_PAYMENT_DEFAULT ) {
 		  ret = blockValue  / 100 * 80;               // %80
-	}
+	} else {
+		  ret = blockValue  / 100 * 70;               // %70
+    }
 
     return ret;
 }

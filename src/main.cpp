@@ -2167,9 +2167,9 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 200 * COIN;
     } else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight > TIER_BLOCK_HEIGHT) {
         nSubsidy = 100 * COIN;
-    } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight < SPORK_19_REWARD_HALVING_START_DEFAULT) {
+    } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight < SPORK_20_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = 50 * COIN;
-    } else if (nHeight >= SPORK_19_REWARD_HALVING_START_DEFAULT) {
+    } else if (nHeight >= SPORK_20_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = GetHalvingReward(nHeight) * COIN;
     } else {
         nSubsidy = 0.1 * COIN;
@@ -2182,7 +2182,7 @@ double GetHalvingReward(int nHeight)
 {
     double reward = 25;
 
-    const int period = (nHeight - SPORK_19_REWARD_HALVING_START_DEFAULT) / SPORK_19_REWARD_HALVING_PERIOD_DEFAULT;
+    const int period = (nHeight - SPORK_20_REWARD_HALVING_START_DEFAULT) / SPORK_20_REWARD_HALVING_PERIOD_DEFAULT;
     if (period > 0) {
         reward /= period + 1;
     }
@@ -2199,7 +2199,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	      ret = blockValue  / 100 * 0;               // %0
 	} else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
 		  ret = blockValue  / 100 * 90;               // %90
-	} else if (nHeight < SPORK_18_LOWERED_MASTERNODE_PAYMENT_DEFAULT ) {
+	} else if (nHeight < SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT ) {
 		  ret = blockValue  / 100 * 80;               // %80
 	} else {
 		  ret = blockValue  / 100 * 70;               // %70
@@ -6368,9 +6368,16 @@ int ActiveProtocol()
     // SPORK_15 is used for 70911. Nodes < 70911 don't see it and still get their protocol version via SPORK_14 and their
     // own ModifierUpgradeBlock()
 
+/*
     if (IsSporkActive(SPORK_15_NEW_PROTOCOL_ENFORCEMENT_2))
             return MIN_PEER_PROTO_VERSION_AFTER_ENFORCEMENT;
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
+*/
+
+    if (!IsSporkActive(SPORK_18_NEW_PROTOCOL_FORK))
+            return MIN_PEER_PROTO_VERSION_BEFORE_FORK;
+
+    return PROTOCOL_VERSION;
 }
 
 // requires LOCK(cs_vRecvMsg)

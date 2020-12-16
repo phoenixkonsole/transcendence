@@ -167,7 +167,7 @@ public:
 	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed1.transcendence.cloud"));
 	//vSeeds.push_back(CDNSSeedData("transcendence.cloud", "dnsseed2.transcendence.cloud"));
 	//vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
-	vSeeds.push_back(CDNSSeedData("176.9.74.62", "176.9.74.62"));
+	vSeeds.push_back(CDNSSeedData("108.61.23.17", "108.61.23.17"));
       	//vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
 	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));

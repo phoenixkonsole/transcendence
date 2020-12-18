@@ -797,7 +797,7 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
         LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - masternodePayment did not match\n");
     if (nBlockHeight > MNPAYMENTS_FIX_WINNER_CHECK)
         return mnPaymentOut.nValue >= masternodePayment && mnPaymentOut.scriptPubKey == payee;
-    return mnPaymentOut.nValue >= masternodePayment && mnPaymentOut.scriptPubKey == payee;
+    return mnPaymentOut.nValue >= masternodePayment;
 }
 
 void CMasternodePaymentWinner::Relay()

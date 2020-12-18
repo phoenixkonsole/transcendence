@@ -6374,9 +6374,11 @@ int ActiveProtocol()
     return MIN_PEER_PROTO_VERSION_BEFORE_ENFORCEMENT;
 */
 
+/*  
     if (!IsSporkActive(SPORK_18_NEW_PROTOCOL_FORK))
             return MIN_PEER_PROTO_VERSION_BEFORE_FORK;
-
+*/
+    // Accept only current protocol
     return PROTOCOL_VERSION;
 }
 

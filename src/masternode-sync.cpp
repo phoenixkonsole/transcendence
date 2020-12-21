@@ -57,7 +57,7 @@ bool CMasternodeSync::IsBlockchainSynced()
     if (pindex == NULL) return false;
 
     // allow long disconnects
-    if (pindex->nTime + 60 * 60 * 48 < GetTime())
+    if (pindex->nTime + 60 * 60 * 96 < GetTime())
         return false;
 
     fBlockchainSynced = true;

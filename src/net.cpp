@@ -854,6 +854,7 @@ void ThreadSocketHandler()
                     (pnode->GetRefCount() <= 0 && pnode->vRecvMsg.empty() && pnode->nSendSize == 0 && pnode->ssSend.empty())) {
                     // remove from vNodes
                     vNodes.erase(remove(vNodes.begin(), vNodes.end(), pnode), vNodes.end());
+                    LogPrintf("Node disconnected\n");
 
                     // release outbound grant (if any)
                     pnode->grantOutbound.Release();
@@ -1471,6 +1472,7 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant* grantOu
     //
     // Initiate outbound network connection
     //
+    LogPrintf("Trying to open new network connection %s\n", pszDest ? pszDest : addrConnect.ToString());
     boost::this_thread::interruption_point();
     if (!pszDest) {
         if (IsLocal(addrConnect) ||
@@ -1481,6 +1483,7 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant* grantOu
         return false;
 
     CNode* pnode = ConnectNode(addrConnect, pszDest);
+    LogPrintf("Node %s added. Ref count: %d\n", pszDest ? pszDest : addrConnect.ToString(), pnode->GetRefCount());
     boost::this_thread::interruption_point();
 
     if (!pnode)

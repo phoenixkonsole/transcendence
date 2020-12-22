@@ -13,7 +13,7 @@ else
     exit 1
 fi
 
-DESC="3.0"
+DESC="3.0.2"
 SUFFIX=""
 LAST_COMMIT_DATE="Thu Jul 17 15:46:48 2019 +0200"
 if [ -e "$(which git 2>/dev/null)" -a "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]; then

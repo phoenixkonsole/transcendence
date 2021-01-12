@@ -796,8 +796,8 @@ bool CMasternodePayments::ValidateMasternodeWinner(const CTxOut& mnPaymentOut, i
         LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - script pubkey did not match\n");
     if (mnPaymentOut.nValue < masternodePayment)
         LogPrintf("CMasternodePayments::ValidateMasternodeWinner() - masternodePayment did not match\n");
-    if (nBlockHeight > MNPAYMENTS_FIX_WINNER_CHECK)
-        return mnPaymentOut.nValue >= masternodePayment && isMasternodePayeeCorrect;
+   // if (nBlockHeight > MNPAYMENTS_FIX_WINNER_CHECK)
+   //     return mnPaymentOut.nValue >= masternodePayment && isMasternodePayeeCorrect;
     return mnPaymentOut.nValue >= masternodePayment;
 }
 

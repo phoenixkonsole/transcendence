@@ -659,6 +659,7 @@ bool static ConnectSocketDirectly(const CService& addrConnect, SOCKET& hSocketRe
         }
     }
 
+    LogPrintf("connect() to %s successful\n", addrConnect.ToString());
     hSocketRet = hSocket;
     return true;
 }

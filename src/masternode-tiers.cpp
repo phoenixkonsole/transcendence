@@ -16,12 +16,12 @@ unsigned int GetMasternodeTierFromOutput(CAmount nValue, int blockHeight)
     unsigned int tierRet = MasternodeTiers::TIER_NONE;
 
     if (blockHeight < TIER_BLOCK_HEIGHT) {
-        if (nValue == MASTERNODE_TIER_COINS[MasternodeTiers::TIER_1K] * COIN) {
-            tierRet = MasternodeTiers::TIER_1K;
+        if (nValue == MASTERNODE_TIER_COINS[MasternodeTiers::TIER_10K] * COIN) {
+            tierRet = MasternodeTiers::TIER_10K;
         }
     }
     else if (blockHeight < SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT) {
-        for (unsigned int tier = MasternodeTiers::TIER_1K; tier <= MasternodeTiers::TIER_100K; ++tier) {
+        for (unsigned int tier = MasternodeTiers::TIER_10K; tier <= MasternodeTiers::TIER_100K; ++tier) {
             if (nValue == MASTERNODE_TIER_COINS[tier] * COIN) {
                 tierRet = tier;
                 break;
@@ -41,7 +41,7 @@ unsigned int GetMasternodeTierFromOutput(CAmount nValue, int blockHeight)
 
 unsigned int GetMastenodeTierCoins(unsigned int nTier)
 {
-    if (nTier >= MasternodeTiers::TIER_NONE || nTier < MasternodeTiers::TIER_1K) {
+    if (nTier >= MasternodeTiers::TIER_NONE || nTier < MasternodeTiers::TIER_10K) {
         return 0;
     }
     else {
@@ -51,7 +51,7 @@ unsigned int GetMastenodeTierCoins(unsigned int nTier)
 
 double GetObfuscationValueForTier(unsigned int nTier)
 {
-    if (nTier >= MasternodeTiers::TIER_NONE || nTier < MasternodeTiers::TIER_1K) {
+    if (nTier >= MasternodeTiers::TIER_NONE || nTier < MasternodeTiers::TIER_10K) {
         return 0;
     }
     else {
@@ -105,7 +105,7 @@ static unsigned int TierByHash(std::vector<std::pair<size_t, unsigned int>>& wei
 
 unsigned int CalculateWinningTier(const std::vector<size_t>& vecTierSizes, uint256 blockHash)
 {
-    const unsigned int distribution[MasternodeTiers::TIER_NONE] = {1, 3, 10, 30, 100, 300, 1000, 3000, 10000};
+    const unsigned int distribution[MasternodeTiers::TIER_NONE] = {10, 30, 100, 300, 1000};
     double nDenominator = 0; // Summ( distribution[i]*count[i] )
     unsigned int nMod = 0; // modulus = Summ( distribution[i] )
 

@@ -432,12 +432,6 @@ void CMasternodeMan::CountTiers(int protocolVersion, int& tier1, int& tier2, int
             case MasternodeTiers::TIER_1KK :
                 tier3++;
                 break;
-            case MasternodeTiers::TIER_3KK :
-                tier4++;
-                break;
-            case MasternodeTiers::TIER_10KK :
-                tier5++;
-                break;
         }
     }
 }

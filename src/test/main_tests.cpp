@@ -86,22 +86,22 @@ BOOST_AUTO_TEST_CASE(subsidy_limit_test)
         nSum += nSubsidy;
     }
 
-    for (int nHeight = 1578902; nHeight <= 1578902 + 100; nHeight += 1) {
+    for (int nHeight = 1598399; nHeight <= 1598399 + 43200 * 12; nHeight += 43200) {
         /* Masternode tiers system implemented */
         CAmount nSubsidy = GetBlockValue(nHeight);
-        BOOST_CHECK(nSubsidy == 25 * COIN);
+        BOOST_CHECK(nSubsidy == 300000 * COIN);
         nSum += nSubsidy;
     }
 }
 
 BOOST_AUTO_TEST_CASE(halving_test)
 {
-    double standartReward = 25;
+    double standartReward = 300000;
 
     BOOST_CHECK(GetHalvingReward(0) == standartReward);
-    BOOST_CHECK(GetHalvingReward(1578902) == standartReward);
-    BOOST_CHECK(GetHalvingReward(1578902 + 525600) == (standartReward / 2));
-    BOOST_CHECK(GetHalvingReward(1578902 + 525600 + 525600 + 525600 + 525600) == (standartReward / 5));
+    BOOST_CHECK(GetHalvingReward(1598400) == standartReward);
+    BOOST_CHECK(GetHalvingReward(1578902 + 525600 + 12298) == (standartReward / 2));
+    BOOST_CHECK(GetHalvingReward(1578902 + 525600 + 525600 + 525600 + 525600 + 33898) == (standartReward / 5));
 }
 
 BOOST_AUTO_TEST_SUITE_END()

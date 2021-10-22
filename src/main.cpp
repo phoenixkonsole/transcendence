@@ -2169,9 +2169,11 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 100 * COIN;
     } else if (nHeight > SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT && nHeight < SPORK_20_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = 50 * COIN;
-    } else if (nHeight >= SPORK_20_REWARD_HALVING_START_DEFAULT) {
+    } else if (nHeight >= SPORK_20_REWARD_HALVING_START_DEFAULT && (nHeight + 1) % SPORK_40_SUPERBLOCK_APPEARANCE_PERIOD == 0) {
         nSubsidy = GetHalvingReward(nHeight) * COIN;
-    } else {
+    } else if ((nHeight + 1) % SPORK_40_SUPERBLOCK_APPEARANCE_PERIOD == 0) {
+        nSubsidy = 300000 * COIN;
+    }else {
         nSubsidy = 0.1 * COIN;
     }
 
@@ -2180,7 +2182,7 @@ int64_t GetBlockValue(int nHeight)
 
 double GetHalvingReward(int nHeight)
 {
-    double reward = 25;
+    double reward = 300000;
 
     const int period = (nHeight - SPORK_20_REWARD_HALVING_START_DEFAULT) / SPORK_20_REWARD_HALVING_PERIOD_DEFAULT;
     if (period > 0) {

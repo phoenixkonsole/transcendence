@@ -415,7 +415,7 @@ void CMasternodeMan::CountNetworks(int protocolVersion, int& ipv4, int& ipv6, in
         }
     }
 }
-void CMasternodeMan::CountTiers(int protocolVersion, int& tier1, int& tier2, int& tier3,int& tier4,int& tier5)
+void CMasternodeMan::CountTiers(int protocolVersion, int& tier1, int& tier2, int& tier3)
 {
     protocolVersion = protocolVersion == -1 ? masternodePayments.GetMinMasternodePaymentsProto() : protocolVersion;
 

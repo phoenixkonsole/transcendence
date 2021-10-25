@@ -402,13 +402,13 @@ UniValue getmasternodecount (const UniValue& params, bool fHelp)
     UniValue obj(UniValue::VOBJ);
     int nCount = 0;
     int ipv4 = 0, ipv6 = 0, onion = 0;
-    int tier1 = 0,tier2 = 0,tier3 = 0,tier4 = 0,tier5 = 0; 
+    int tier1 = 0,tier2 = 0,tier3 = 0; 
 
     if (chainActive.Tip())
         mnodeman.GetNextMasternodeInQueueForPayment(chainActive.Tip()->nHeight, true, nCount);
 
     mnodeman.CountNetworks(ActiveProtocol(), ipv4, ipv6, onion);
-    mnodeman.CountTiers(ActiveProtocol(), tier1, tier2, tier3,tier4,tier5);
+    mnodeman.CountTiers(ActiveProtocol(), tier1, tier2, tier3);
 
     obj.push_back(Pair("total", mnodeman.size()));
     obj.push_back(Pair("stable", mnodeman.stable_size()));
@@ -418,8 +418,6 @@ UniValue getmasternodecount (const UniValue& params, bool fHelp)
     obj.push_back(Pair("tier1", tier1));
     obj.push_back(Pair("tier2", tier2));
     obj.push_back(Pair("tier3", tier3));
-    obj.push_back(Pair("tier4", tier4));
-    obj.push_back(Pair("tier5", tier5));
     obj.push_back(Pair("ipv4", ipv4));
     obj.push_back(Pair("ipv6", ipv6));
     obj.push_back(Pair("onion", onion));

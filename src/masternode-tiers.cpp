@@ -28,8 +28,9 @@ unsigned int GetMasternodeTierFromOutput(CAmount nValue, int blockHeight)
             }
         }
     }
-    else if (blockHeight < SPORK_21_SUPERBLOCK_START_DEFAULT) {
-        for (unsigned int tier = MasternodeTiers::TIER_10K; tier <= MasternodeTiers::TIER_1KK; ++tier) {
+    else if (blockHeight < SPORK_21_SUPERBLOCK_START_DEFAULT) 
+    {
+        for (unsigned int tier = MasternodeTiers::TIER_100K; tier < MasternodeTiers::TIER_NONE; ++tier) {
             if (nValue == MASTERNODE_TIER_COINS[tier] * COIN) {
                 tierRet = tier;
                 break;
@@ -37,7 +38,7 @@ unsigned int GetMasternodeTierFromOutput(CAmount nValue, int blockHeight)
         }
     }
     else {
-        for (unsigned int tier = MasternodeTiers::TIER_100K; tier < MasternodeTiers::TIER_NONE; ++tier) {
+        for (unsigned int tier = MasternodeTiers::TIER_10K; tier <= MasternodeTiers::TIER_1KK; ++tier) {
             if (nValue == MASTERNODE_TIER_COINS[tier] * COIN) {
                 tierRet = tier;
                 break;

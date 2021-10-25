@@ -28,7 +28,7 @@ unsigned int GetMasternodeTierFromOutput(CAmount nValue, int blockHeight)
             }
         }
     }
-    else if (blockHeight >= SPORK_40_SUPERBLOCK_START_DEFAULT) {
+    else if (blockHeight < SPORK_21_SUPERBLOCK_START_DEFAULT) {
         for (unsigned int tier = MasternodeTiers::TIER_10K; tier <= MasternodeTiers::TIER_1KK; ++tier) {
             if (nValue == MASTERNODE_TIER_COINS[tier] * COIN) {
                 tierRet = tier;

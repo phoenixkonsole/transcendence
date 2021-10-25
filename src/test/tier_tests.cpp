@@ -64,9 +64,9 @@ BOOST_AUTO_TEST_CASE(test_tier_from_outputs_truncated_tiers)
     unsigned int tiers[MasternodeTiers::TIER_NONE] = {MasternodeTiers::TIER_1K,
                                                       MasternodeTiers::TIER_3K, MasternodeTiers::TIER_10K, MasternodeTiers::TIER_30K,
                                                       MasternodeTiers::TIER_100K, MasternodeTiers::TIER_300K, MasternodeTiers::TIER_1KK,
-                                                      MasternodeTiers::TIER_3K, MasternodeTiers::TIER_10KK};
+                                                      MasternodeTiers::TIER_3KK, MasternodeTiers::TIER_10KK};
     bool isMastermodeOutput[MasternodeTiers::TIER_NONE] = {false, false, true, true, true, true, true, false, false};
-    TierFromOutputTest(tiers, isMastermodeOutput, SPORK_40_SUPERBLOCK_START_DEFAULT);
+    TierFromOutputTest(tiers, isMastermodeOutput, SPORK_21_SUPERBLOCK_START_DEFAULT);
 }
 
 BOOST_AUTO_TEST_CASE(test_masternode_coins)
@@ -202,5 +202,6 @@ BOOST_AUTO_TEST_CASE(test_winning_tier_truncated_tiers)
                                            MasternodeTiers::TIER_1KK};
     WinningTierTest(vecTierSizes, vecBlockNumbers, vecTiers);
 }
+
 
 BOOST_AUTO_TEST_SUITE_END()

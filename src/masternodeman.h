@@ -112,7 +112,7 @@ public:
     int CountEnabled(int protocolVersion = -1);
 
     void CountNetworks(int protocolVersion, int& ipv4, int& ipv6, int& onion);
-    void CountTiers(int protocolVersion, int& tier1, int& tier2, int& tier3,int& tier4,int& tier5);
+    void CountTiers(int protocolVersion, int& tier1, int& tier2, int& tier3);
     void DsegUpdate(CNode* pnode);
 
     /// Find an entry

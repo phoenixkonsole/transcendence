@@ -2213,7 +2213,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 
 	// 90% for Masternodes from block 1000
 	if (nHeight <= 100) {
-	      ret = blockValue  / 100 * 0;               // %0
+	      ret = 0;               // %0
 	} else if (nHeight <= SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT ) {
 		  ret = blockValue  / 100 * 90;               // %90
 	} else if (nHeight < SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT ) {
@@ -2221,7 +2221,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 	} else if (nHeight < SPORK_21_SUPERBLOCK_START_DEFAULT){
 		  ret = blockValue  / 100 * 70;               // %70
     } else {
-          ret = blockValue  / 100 * 0; 
+          ret = 0; 
     }
 
     return ret;

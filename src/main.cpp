@@ -2218,8 +2218,10 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 		  ret = blockValue  / 100 * 90;               // %90
 	} else if (nHeight < SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT ) {
 		  ret = blockValue  / 100 * 80;               // %80
-	} else {
+	} else if (nHeight < SPORK_21_SUPERBLOCK_START_DEFAULT){
 		  ret = blockValue  / 100 * 70;               // %70
+    } else {
+          ret = blockValue  / 100 * 0; 
     }
 
     return ret;

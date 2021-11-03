@@ -1,5 +1,4 @@
 package=libunbound
-
 $(package)_version=1.10.0
 $(package)_download_path=https://github.com/NLnetLabs/unbound/archive/refs/tags/
 $(package)_file_name=release-$($(package)_version).tar.gz

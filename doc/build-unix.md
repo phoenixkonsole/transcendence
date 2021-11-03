@@ -58,8 +58,16 @@ Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
 Build requirements:
 
-	sudo apt install build-essential libtool autotools-dev autoconf pkg-config libssl-dev
+	sudo apt install build-essential libtool autotools-dev autoconf pkg-config libssl1.0-dev libcurl4-gnutls-dev
 
+If you have problems with libssl1.0-dev:
+
+        sudo apt-get install software-properties-common
+        sudo apt-add-repository -y ppa:rael-gc/rvm
+        sudo apt-get update
+        sudo apt-get install rvm
+        sudo apt install libssl1.0-dev
+ 
 For Ubuntu 12.04 and later or Debian 7 and later libboost-all-dev has to be installed:
 
 	sudo apt install libboost-all-dev
@@ -91,7 +99,7 @@ To build without GUI pass `--without-gui`.
 
 For Qt 5 you need the following:
 
-    sudo apt install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler
+    sudo apt install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev-tools libprotobuf-dev protobuf-compiler libqt5svg5-dev
 
 libqrencode (optional) can be installed with:
 

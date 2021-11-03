@@ -1,6 +1,6 @@
 package=libunbound
 $(package)_version=1.10.0
-$(package)_download_path=https://github.com/NLnetLabs/unbound/archive/
+$(package)_download_path=https://github.com/NLnetLabs/unbound/archive/refs/tags/release-1.10.0.tar.gz
 $(package)_file_name=release-$($(package)_version).tar.gz
 $(package)_sha256_hash=F6107A5019EC920F827603AD51550D7024FD03B8274582945ADDAB4A95A90579
 $(package)_dependencies=expat zlib openssl

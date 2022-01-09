@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_CORE_NEW_GUI_TELOSGUI_H
-#define PIVX_CORE_NEW_GUI_TELOSGUI_H
+#ifndef PIVX_CORE_NEW_GUI_TBPGUI_H
+#define PIVX_CORE_NEW_GUI_TBPGUI_H
 
 #if defined(HAVE_CONFIG_H)
 #include "config/transcendence-config.h"
@@ -37,15 +37,15 @@ class WalletModel;
   PIVX GUI main class. This class represents the main window of the PIVX UI. It communicates with both the client and
   wallet models to give the user an up-to-date view of the current core state.
 */
-class TELOSGUI : public QMainWindow
+class TBPGUI : public QMainWindow
 {
     Q_OBJECT
 
 public:
     static const QString DEFAULT_WALLET;
 
-    explicit TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent = 0);
-    ~TELOSGUI();
+    explicit TBPGUI(const NetworkStyle* networkStyle, QWidget* parent = 0);
+    ~TBPGUI();
 
     /** Set the client model.
         The client model represents the part of the core that communicates with the P2P network, and is wallet-agnostic.
@@ -184,4 +184,4 @@ signals:
 };
 
 
-#endif //PIVX_CORE_NEW_GUI_TELOSGUI_H
+#endif //PIVX_CORE_NEW_GUI_TBPGUI_H

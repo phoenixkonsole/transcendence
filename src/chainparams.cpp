@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017-2019 The Transcendence developers
+// Copyright (c) 2018-2023 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -263,9 +263,9 @@ public:
         vSeeds.clear();
      
      
-     	vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed1.TBPcoin.org"));
+     	//vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed1.TBPcoin.org"));
      	vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
-		vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed2.TBPcoin.org"));
+		//vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed2.TBPcoin.org"));
 		vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
       	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        	vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));

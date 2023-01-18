@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017-2018 The Transcendence developers
+// Copyright (c) 2018-2023 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -2171,6 +2171,8 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 50 * COIN;
     } else if (nHeight >= SPORK_20_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = GetHalvingReward(nHeight) * COIN;
+	} else if (nHeight >= SPORK_21_REWARD_INCREASE_START) {
+        nSubsidy = GetHalvingReward2(nHeight) * COIN;
     } else {
         nSubsidy = 0.1 * COIN;
     }
@@ -2189,6 +2191,22 @@ double GetHalvingReward(int nHeight)
 
     return reward;
 }
+
+// Testing Reward Increase
+}
+
+double GetHalvingReward2(int nHeight)
+{
+    double reward = 250;
+
+    const int period = (nHeight - SPORK_21_REWARD_INCREASE_START) / SPORK_21_REWARD_INCREASE_START;
+    if (period > 0) {
+        reward /= period + 1;
+    }
+
+    return reward;
+}
+//
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {

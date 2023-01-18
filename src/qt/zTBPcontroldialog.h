@@ -2,8 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZTELOSCONTROLDIALOG_H
-#define ZTELOSCONTROLDIALOG_H
+#ifndef ZtelosCONTROLDIALOG_H
+#define ZtelosCONTROLDIALOG_H
 
 #include <QDialog>
 #include <QTreeWidgetItem>
@@ -14,26 +14,26 @@ class CZerocoinMint;
 class WalletModel;
 
 namespace Ui {
-class ZTelosControlDialog;
+class ZtelosControlDialog;
 }
 
-class CZTelosControlWidgetItem : public QTreeWidgetItem
+class CZtelosControlWidgetItem : public QTreeWidgetItem
 {
 public:
-    explicit CZTelosControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
-    explicit CZTelosControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
-    explicit CZTelosControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+    explicit CZtelosControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+    explicit CZtelosControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
+    explicit CZtelosControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
 
     bool operator<(const QTreeWidgetItem &other) const;
 };
 
-class ZTelosControlDialog : public QDialog
+class ZtelosControlDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ZTelosControlDialog(QWidget *parent);
-    ~ZTelosControlDialog();
+    explicit ZtelosControlDialog(QWidget *parent);
+    ~ZtelosControlDialog();
 
     void setModel(WalletModel* model);
 
@@ -42,7 +42,7 @@ public:
     static std::vector<CMintMeta> GetSelectedMints();
 
 private:
-    Ui::ZTelosControlDialog *ui;
+    Ui::ZtelosControlDialog *ui;
     WalletModel* model;
 
     void updateList();
@@ -57,11 +57,11 @@ private:
         COLUMN_CONFIRMATIONS,
         COLUMN_ISSPENDABLE
     };
-    friend class CZTelosControlWidgetItem;
+    friend class CZtelosControlWidgetItem;
 
 private slots:
     void updateSelection(QTreeWidgetItem* item, int column);
     void ButtonAllClicked();
 };
 
-#endif // ZTELOSCONTROLDIALOG_H
+#endif // ZtelosCONTROLDIALOG_H

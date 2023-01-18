@@ -357,7 +357,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
 
 
         if (recipients[0].useSwiftTX && total > GetSporkValue(SPORK_5_MAX_VALUE) * COIN) {
-            emit message(tr("Send Coins"), tr("SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.").arg(GetSporkValue(SPORK_5_MAX_VALUE)),
+            emit message(tr("Send Coins"), tr("SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 telos.").arg(GetSporkValue(SPORK_5_MAX_VALUE)),
                 CClientUIInterface::MSG_ERROR);
             return TransactionCreationFailed;
         }
@@ -366,7 +366,7 @@ WalletModel::SendCoinsReturn WalletModel::prepareTransaction(WalletModelTransact
         transaction.setTransactionFee(nFeeRequired);
 
         if (recipients[0].useSwiftTX && newTx->GetValueOut() > GetSporkValue(SPORK_5_MAX_VALUE) * COIN) {
-            emit message(tr("Send Coins"), tr("SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 TELOS.").arg(GetSporkValue(SPORK_5_MAX_VALUE)),
+            emit message(tr("Send Coins"), tr("SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 telos.").arg(GetSporkValue(SPORK_5_MAX_VALUE)),
                 CClientUIInterface::MSG_ERROR);
             return TransactionCreationFailed;
         }
@@ -461,7 +461,7 @@ bool WalletModel::mintCoins(CAmount value, CCoinControl* coinControl ,std::strin
 }
 
 
-bool WalletModel::createZTelosSpend(
+bool WalletModel::createZtelosSpend(
         CWalletTx &wtxNew,
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
@@ -504,7 +504,7 @@ bool WalletModel::createZTelosSpend(
     return CheckTransaction(wtxNew, true, true, state, true);
 }
 
-bool WalletModel::sendZTelos(
+bool WalletModel::sendZtelos(
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
         bool fMinimizeChange,
@@ -533,7 +533,7 @@ bool WalletModel::sendZTelos(
 
 }
 
-bool WalletModel::convertBackZTelos(
+bool WalletModel::convertBackZtelos(
         CAmount value,
         std::vector<CZerocoinMint> &vMintsSelected,
         bool fMintChange,
@@ -544,7 +544,7 @@ bool WalletModel::convertBackZTelos(
 
     // address to must be from us.
     if(!isMine(addressTo)){
-        receipt.SetStatus(_("To convert zTELOS back to TELOS the return address must be from your wallet"), 1);
+        receipt.SetStatus(_("To convert ztelos back to telos the return address must be from your wallet"), 1);
         return false;
     }
 
@@ -717,9 +717,9 @@ static void NotifyZerocoinChanged(WalletModel* walletmodel, CWallet* wallet, con
                               Q_ARG(int, status));
 }
 
-static void NotifyzTELOSReset(WalletModel* walletmodel)
+static void NotifyztelosReset(WalletModel* walletmodel)
 {
-    qDebug() << "NotifyzTELOSReset";
+    qDebug() << "NotifyztelosReset";
     QMetaObject::invokeMethod(walletmodel, "checkBalanceChanged", Qt::QueuedConnection);
 }
 
@@ -757,7 +757,7 @@ void WalletModel::subscribeToCoreSignals()
     wallet->NotifyWatchonlyChanged.connect(boost::bind(NotifyWatchonlyChanged, this, _1));
     wallet->NotifyMultiSigChanged.connect(boost::bind(NotifyMultiSigChanged, this, _1));
     wallet->NotifyZerocoinChanged.connect(boost::bind(NotifyZerocoinChanged, this, _1, _2, _3, _4));
-    wallet->NotifyzTELOSReset.connect(boost::bind(NotifyzTELOSReset, this));
+    wallet->NotifyztelosReset.connect(boost::bind(NotifyztelosReset, this));
     wallet->NotifyWalletBacked.connect(boost::bind(NotifyWalletBacked, this, _1, _2));
 }
 
@@ -771,7 +771,7 @@ void WalletModel::unsubscribeFromCoreSignals()
     wallet->NotifyWatchonlyChanged.disconnect(boost::bind(NotifyWatchonlyChanged, this, _1));
     wallet->NotifyMultiSigChanged.disconnect(boost::bind(NotifyMultiSigChanged, this, _1));
     wallet->NotifyZerocoinChanged.disconnect(boost::bind(NotifyZerocoinChanged, this, _1, _2, _3, _4));
-    wallet->NotifyzTELOSReset.disconnect(boost::bind(NotifyzTELOSReset, this));
+    wallet->NotifyztelosReset.disconnect(boost::bind(NotifyztelosReset, this));
     wallet->NotifyWalletBacked.disconnect(boost::bind(NotifyWalletBacked, this, _1, _2));
 }
 

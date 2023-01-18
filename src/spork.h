@@ -1,5 +1,6 @@
 // Copyright (c) 2014-2016 The Dash developers
 // Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2018-2023 The too good for this world guys aka Transcendence Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,6 +47,7 @@ using namespace boost;
 #define SPORK_18_NEW_PROTOCOL_FORK 10017
 #define SPORK_19_LOWERED_MASTERNODE_PAYMENT 10018
 #define SPORK_20_REWARD_HALVING_START 10019
+#define SPORK_21_REWARD_INCREASE_START 10020
 
 #define SPORK_2_SWIFTTX_DEFAULT 978307200                         //2001-1-1
 #define SPORK_3_SWIFTTX_BLOCK_FILTERING_DEFAULT 1424217600        //2015-2-18
@@ -64,6 +66,7 @@ using namespace boost;
 #define SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT 1276502       //block height
 #define SPORK_20_REWARD_HALVING_START_DEFAULT 1578902             //block height
 #define SPORK_20_REWARD_HALVING_PERIOD_DEFAULT 525600             //blocks count
+#define SPORK_21_REWARD_INCREASE_START 2479999            //block height
 
 class CSporkMessage;
 class CSporkManager;

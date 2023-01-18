@@ -2,7 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
-// Copyright (c) 2017-2018 The Transcendence developers
+// Copyright (c) 2018-2023 The Transcendence developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1627,7 +1627,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             //Check that txid is not already in the chain
             int nHeightTx = 0;
             if (IsTransactionInChain(tx.GetHash(), nHeightTx))
-                return state.Invalid(error("AcceptToMemoryPool : zTELOS spend tx %s already in block %d", tx.GetHash().GetHex(), nHeightTx),
+                return state.Invalid(error("AcceptToMemoryPool : ztelos spend tx %s already in block %d", tx.GetHash().GetHex(), nHeightTx),
                                      REJECT_DUPLICATE, "bad-txns-inputs-spent");
 
             //Check for double spending of serial #'s
@@ -1637,12 +1637,12 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 CoinSpend spend = TxInToZerocoinSpend(txIn);
                 int nHeightTx = 0;
                 if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx))
-                    return state.Invalid(error("%s : zTELOS spend with serial %s is already in block %d\n",
+                    return state.Invalid(error("%s : ztelos spend with serial %s is already in block %d\n",
                                                 __func__, spend.getCoinSerialNumber().GetHex(), nHeightTx));
 
                 //Is serial in the acceptable range
                 if (!spend.HasValidSerial(Params().Zerocoin_Params()))
-                    return state.Invalid(error("%s : zTELOS spend with serial %s from tx %s is not in valid range\n",
+                    return state.Invalid(error("%s : ztelos spend with serial %s from tx %s is not in valid range\n",
                                                __func__, spend.getCoinSerialNumber().GetHex(), tx.GetHash().GetHex()));
             }
         } else {
@@ -2171,6 +2171,8 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 50 * COIN;
     } else if (nHeight >= SPORK_20_REWARD_HALVING_START_DEFAULT) {
         nSubsidy = GetHalvingReward(nHeight) * COIN;
+	} else if (nHeight >= SPORK_21_REWARD_INCREASE_START) {
+        nSubsidy = GetHalvingReward2(nHeight) * COIN;
     } else {
         nSubsidy = 0.1 * COIN;
     }
@@ -2189,6 +2191,22 @@ double GetHalvingReward(int nHeight)
 
     return reward;
 }
+
+// Testing Reward Increase
+}
+
+double GetHalvingReward2(int nHeight)
+{
+    double reward = 250;
+
+    const int period = (nHeight - SPORK_21_REWARD_INCREASE_START) / SPORK_21_REWARD_INCREASE_START;
+    if (period > 0) {
+        reward /= period + 1;
+    }
+
+    return reward;
+}
+//
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount)
 {
@@ -2682,7 +2700,7 @@ void RecalculateZTRANSCENDENCESpent()
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
 
-        //Rewrite zTELOS supply
+        //Rewrite ztelos supply
         CBlock block;
         assert(ReadBlockFromDisk(block, pindex));
 
@@ -2691,13 +2709,13 @@ void RecalculateZTRANSCENDENCESpent()
         //Reset the supply to previous block
         pindex->mapZerocoinSupply = pindex->pprev->mapZerocoinSupply;
 
-        //Add mints to zTELOS supply
+        //Add mints to ztelos supply
         for (auto denom : libzerocoin::zerocoinDenomList) {
             long nDenomAdded = count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), denom);
             pindex->mapZerocoinSupply.at(denom) += nDenomAdded;
         }
 
-        //Remove spends from zTELOS supply
+        //Remove spends from ztelos supply
         for (auto denom : listDenomsSpent)
             pindex->mapZerocoinSupply.at(denom)--;
 
@@ -2899,7 +2917,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
                 if (zerocoinDB->ReadCoinSpend(spend.getCoinSerialNumber(), hashTxFromDB)) {
                     if(IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTxSpend)) {
                         if(!fVerifyingBlocks || (fVerifyingBlocks && pindex->nHeight > nHeightTxSpend))
-                            return state.DoS(100, error("%s : zTELOS with serial %s is already in the block %d\n",
+                            return state.DoS(100, error("%s : ztelos with serial %s is already in the block %d\n",
                                                         __func__, spend.getCoinSerialNumber().GetHex(), nHeightTxSpend));
                     }
                 }
@@ -2990,7 +3008,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     pindex->nMoneySupply = nMoneySupplyPrev + nValueOut - nValueIn;
     pindex->nMint = pindex->nMoneySupply - nMoneySupplyPrev + nFees;
 
-//    LogPrintf("XX69----------> ConnectBlock(): nValueOut: %s, nValueIn: %s, nFees: %s, nMint: %s zTELOSSpent: %s\n",
+//    LogPrintf("XX69----------> ConnectBlock(): nValueOut: %s, nValueIn: %s, nFees: %s, nMint: %s ztelosSpent: %s\n",
 //              FormatMoney(nValueOut), FormatMoney(nValueIn),
 //              FormatMoney(nFees), FormatMoney(pindex->nMint), FormatMoney(nAmountZerocoinSpent));
 
@@ -3173,7 +3191,7 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    // If turned on AutoZeromint will automatically convert TRANSCENDENCE to zTELOS
+    // If turned on AutoZeromint will automatically convert TRANSCENDENCE to ztelos
     if (pwalletMain->isZeromintEnabled ())
         pwalletMain->AutoZeromint ();
 
@@ -4040,13 +4058,13 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         if (!CheckTransaction(tx, fZerocoinActive, chainActive.Height() + 1 >= Params().Zerocoin_StartHeight(), state))
             return error("CheckBlock() : CheckTransaction failed");
 
-        // double check that there are no double spent zTELOS spends in this block
+        // double check that there are no double spent ztelos spends in this block
         if (tx.IsZerocoinSpend()) {
             for (const CTxIn txIn : tx.vin) {
                 if (txIn.scriptSig.IsZerocoinSpend()) {
                     libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txIn);
                     if (count(vBlockSerials.begin(), vBlockSerials.end(), spend.getCoinSerialNumber()))
-                        return state.DoS(100, error("%s : Double spending of zTELOS serial %s in block\n Block: %s",
+                        return state.DoS(100, error("%s : Double spending of ztelos serial %s in block\n Block: %s",
                                                     __func__, spend.getCoinSerialNumber().GetHex(), block.ToString()));
                     vBlockSerials.emplace_back(spend.getCoinSerialNumber());
                 }
@@ -4418,7 +4436,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         }
     }
     if (nMints || nSpends)
-        LogPrintf("%s : block contains %d zTELOS mints and %d zTELOS spends\n", __func__, nMints, nSpends);
+        LogPrintf("%s : block contains %d ztelos mints and %d ztelos spends\n", __func__, nMints, nSpends);
 
     // ppcoin: check proof-of-stake
     // Limited duplicity on stake: prevents block flood attack

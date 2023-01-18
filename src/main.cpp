@@ -2193,11 +2193,11 @@ double GetHalvingReward(int nHeight)
 }
 
 // Testing Reward Increase
- }
+ 
 
  double GetHalvingReward2(int nHeight)
  {
-     double reward = 250;
+     double reward = 500;
 
      const int period = (nHeight - SPORK_21_REWARD_INCREASE_START) / SPORK_21_REWARD_INCREASE_START;
      if (period > 0) {

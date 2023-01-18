@@ -19,7 +19,7 @@
 #include "masternode-tiers.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "zTBP/zerocoin.h"
+#include "ztelos/zerocoin.h"
 #include "guiinterface.h"
 #include "util.h"
 #include "validationinterface.h"
@@ -88,7 +88,7 @@ enum AvailableCoinsType {
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
-// Possible states for zTBP send
+// Possible states for ztelos send
 enum ZerocoinSpendStatus {
     ZTRANSCENDENCE_SPEND_OKAY = 0,                            // No error
     ZTRANSCENDENCE_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
@@ -654,7 +654,7 @@ public:
     /** MultiSig address added */
     boost::signals2::signal<void(bool fHaveMultiSig)> NotifyMultiSigChanged;
     /** zdogec reset */
-    boost::signals2::signal<void()> NotifyzTBPReset;
+    boost::signals2::signal<void()> NotifyztelosReset;
      /** notify wallet file backed up */
     boost::signals2::signal<void (const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;
 };

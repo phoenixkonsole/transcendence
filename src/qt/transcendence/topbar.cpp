@@ -23,7 +23,7 @@
 #include "guiinterface.h"
 
 
-TopBar::TopBar(TBPGUI* _mainWindow, QWidget *parent) :
+TopBar::TopBar(telosGUI* _mainWindow, QWidget *parent) :
     PWidget(_mainWindow, parent),
     ui(new Ui::TopBar)
 {
@@ -44,9 +44,9 @@ TopBar::TopBar(TBPGUI* _mainWindow, QWidget *parent) :
 
     // Amount information top
     ui->widgetTopAmount->setVisible(false);
-    setCssProperty({ui->labelAmountTopPiv, ui->labelAmountTopzTBP}, "amount-small-topbar");
-    setCssProperty({ui->labelAmountPiv, ui->labelAmountzTBP}, "amount-topbar");
-    setCssProperty({ui->labelPendingPiv, ui->labelAmountPivLocked, ui->labelPendingzTBP, ui->labelImmaturePiv, ui->labelImmaturezTBP}, "amount-small-topbar");
+    setCssProperty({ui->labelAmountTopPiv, ui->labelAmountTopztelos}, "amount-small-topbar");
+    setCssProperty({ui->labelAmountPiv, ui->labelAmountztelos}, "amount-topbar");
+    setCssProperty({ui->labelPendingPiv, ui->labelAmountPivLocked, ui->labelPendingztelos, ui->labelImmaturePiv, ui->labelImmatureztelos}, "amount-small-topbar");
 
     // Progress Sync
     progressBar = new QProgressBar(ui->layoutSync);
@@ -181,7 +181,7 @@ void TopBar::encryptWallet() {
     DefaultDialog *confirmDialog = new DefaultDialog(window);
     confirmDialog->setText(
         tr("Encrypting your wallet"),
-        tr("Make sure to encrypt your wallet, to avoid losing funds in case the wallet is accessed by a malicious thrid party. Someone can access the wallet via malware, or directly if they have access to your PC. Wallet encryption prevents other users from accessing your funds. Also, make sure to have downloaded the wallet from https://TBPgreen.org to prevent you using a \"Fake-wallet\"."), 
+        tr("Make sure to encrypt your wallet, to avoid losing funds in case the wallet is accessed by a malicious thrid party. Someone can access the wallet via malware, or directly if they have access to your PC. Wallet encryption prevents other users from accessing your funds. Also, make sure to have downloaded the wallet from https://telosgreen.org to prevent you using a \"Fake-wallet\"."), 
         tr("OK"));
     confirmDialog->adjustSize();
     openDialogWithOpaqueBackground(confirmDialog, window);
@@ -511,31 +511,31 @@ void TopBar::updateBalances(const CAmount& balance, const CAmount& unconfirmedBa
     
     ui->labelTitle1->setText(nLockedBalance > 0 ? tr("Available (Locked included)") : tr("Available"));
 
-    // TBP Balance
+    // telos Balance
     //CAmount nTotalBalance = balance + unconfirmedBalance;
     CAmount pivAvailableBalance = balance - immatureBalance;
 
-    // zTBP Balance
+    // ztelos Balance
     CAmount matureZerocoinBalance = zerocoinBalance - unconfirmedZerocoinBalance - immatureZerocoinBalance;
 
     // Set
     QString totalPiv = GUIUtil::formatBalance(pivAvailableBalance, nDisplayUnit);
-    QString totalzTBP = GUIUtil::formatBalance(matureZerocoinBalance, nDisplayUnit, true);
+    QString totalztelos = GUIUtil::formatBalance(matureZerocoinBalance, nDisplayUnit, true);
     // Top
     ui->labelAmountTopPiv->setText(totalPiv);
-    ui->labelAmountTopzTBP->setText(totalzTBP);
+    ui->labelAmountTopztelos->setText(totalztelos);
 
     // Expanded
     ui->labelAmountPiv->setText(GUIUtil::formatBalance(pivAvailableBalance - nLockedBalance, nDisplayUnit));
-    ui->labelAmountzTBP->setText(totalzTBP);
+    ui->labelAmountztelos->setText(totalztelos);
     
     ui->labelAmountPivLocked->setText(GUIUtil::formatBalance(nLockedBalance, nDisplayUnit));
 
     ui->labelPendingPiv->setText(GUIUtil::formatBalance(unconfirmedBalance, nDisplayUnit));
-    ui->labelPendingzTBP->setText(GUIUtil::formatBalance(unconfirmedZerocoinBalance, nDisplayUnit, true));
+    ui->labelPendingztelos->setText(GUIUtil::formatBalance(unconfirmedZerocoinBalance, nDisplayUnit, true));
 
     ui->labelImmaturePiv->setText(GUIUtil::formatBalance(immatureBalance, nDisplayUnit));
-    ui->labelImmaturezTBP->setText(GUIUtil::formatBalance(immatureZerocoinBalance, nDisplayUnit, true));
+    ui->labelImmatureztelos->setText(GUIUtil::formatBalance(immatureZerocoinBalance, nDisplayUnit, true));
 }
 
 void TopBar::resizeEvent(QResizeEvent *event){

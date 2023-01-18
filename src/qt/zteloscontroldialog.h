@@ -2,38 +2,38 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZTBPCONTROLDIALOG_H
-#define ZTBPCONTROLDIALOG_H
+#ifndef ZTELOSCONTROLDIALOG_H
+#define ZTELOSCONTROLDIALOG_H
 
 #include <QDialog>
 #include <QTreeWidgetItem>
-#include "zTBP/zerocoin.h"
+#include "ztelos/zerocoin.h"
 #include "privacydialog.h"
 
 class CZerocoinMint;
 class WalletModel;
 
 namespace Ui {
-class ZTBPControlDialog;
+class ZTelosControlDialog;
 }
 
-class CZTBPControlWidgetItem : public QTreeWidgetItem
+class CZTelosControlWidgetItem : public QTreeWidgetItem
 {
 public:
-    explicit CZTBPControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
-    explicit CZTBPControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
-    explicit CZTBPControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+    explicit CZTelosControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
+    explicit CZTelosControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
+    explicit CZTelosControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
 
     bool operator<(const QTreeWidgetItem &other) const;
 };
 
-class ZTBPControlDialog : public QDialog
+class ZTelosControlDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ZTBPControlDialog(QWidget *parent);
-    ~ZTBPControlDialog();
+    explicit ZTelosControlDialog(QWidget *parent);
+    ~ZTelosControlDialog();
 
     void setModel(WalletModel* model);
 
@@ -42,7 +42,7 @@ public:
     static std::vector<CMintMeta> GetSelectedMints();
 
 private:
-    Ui::ZTBPControlDialog *ui;
+    Ui::ZTelosControlDialog *ui;
     WalletModel* model;
 
     void updateList();
@@ -57,11 +57,11 @@ private:
         COLUMN_CONFIRMATIONS,
         COLUMN_ISSPENDABLE
     };
-    friend class CZTBPControlWidgetItem;
+    friend class CZTelosControlWidgetItem;
 
 private slots:
     void updateSelection(QTreeWidgetItem* item, int column);
     void ButtonAllClicked();
 };
 
-#endif // ZTBPCONTROLDIALOG_H
+#endif // ZTELOSCONTROLDIALOG_H

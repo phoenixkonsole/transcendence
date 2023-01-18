@@ -174,10 +174,10 @@ public:
 
     // Send coins to a list of recipients
     SendCoinsReturn sendCoins(WalletModelTransaction& transaction);
-    // Mint zTBP
+    // Mint zTELOS
     bool mintCoins(CAmount value, CCoinControl* coinControl, std::string &strError);
 
-    bool createZTBPSpend(
+    bool createZTelosSpend(
             CWalletTx &wtxNew,
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,
@@ -187,7 +187,7 @@ public:
             std::string changeAddress = ""
     );
 
-    bool sendZTBP(
+    bool sendZTelos(
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,
             bool fMinimizeChange,
@@ -196,7 +196,7 @@ public:
             std::string changeAddress = ""
     );
 
-    bool convertBackZTBP(
+    bool convertBackZTelos(
             CAmount value,
             std::vector<CZerocoinMint> &vMintsSelected,
             bool fMintChange,

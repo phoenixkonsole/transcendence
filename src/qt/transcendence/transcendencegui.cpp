@@ -28,9 +28,9 @@
 #include "util.h"
 
 
-const QString TBPGUI::DEFAULT_WALLET = "~Default";
+const QString TELOSGUI::DEFAULT_WALLET = "~Default";
 
-TBPGUI::TBPGUI(const NetworkStyle* networkStyle, QWidget* parent) :
+TELOSGUI::TELOSGUI(const NetworkStyle* networkStyle, QWidget* parent) :
         QMainWindow(parent),
         clientModel(0){
 
@@ -156,7 +156,7 @@ TBPGUI::TBPGUI(const NetworkStyle* networkStyle, QWidget* parent) :
 
 }
 
-void TBPGUI::createActions(const NetworkStyle* networkStyle){
+void TELOSGUI::createActions(const NetworkStyle* networkStyle){
     toggleHideAction = new QAction(networkStyle->getAppIcon(), tr("&Show / Hide"), this);
     toggleHideAction->setStatusTip(tr("Show or hide the main Window"));
 
@@ -172,7 +172,7 @@ void TBPGUI::createActions(const NetworkStyle* networkStyle){
 /**
  * Here add every event connection
  */
-void TBPGUI::connectActions() {
+void TELOSGUI::connectActions() {
     QShortcut *consoleShort = new QShortcut(this);
     consoleShort->setKey(QKeySequence(SHORT_KEY + Qt::Key_C));
     connect(consoleShort, &QShortcut::activated, [this](){
@@ -180,19 +180,19 @@ void TBPGUI::connectActions() {
         settingsWidget->showDebugConsole();
         goToSettings();
     });
-    connect(topBar, &TopBar::showHide, this, &TBPGUI::showHide);
-    connect(topBar, &TopBar::themeChanged, this, &TBPGUI::changeTheme);
-    connect(settingsWidget, &SettingsWidget::showHide, this, &TBPGUI::showHide);
-    connect(sendWidget, &SendWidget::showHide, this, &TBPGUI::showHide);
-    connect(receiveWidget, &ReceiveWidget::showHide, this, &TBPGUI::showHide);
-    connect(addressesWidget, &AddressesWidget::showHide, this, &TBPGUI::showHide);
-    connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TBPGUI::showHide);
-    connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TBPGUI::execDialog);
-    connect(settingsWidget, &SettingsWidget::execDialog, this, &TBPGUI::execDialog);
+    connect(topBar, &TopBar::showHide, this, &TELOSGUI::showHide);
+    connect(topBar, &TopBar::themeChanged, this, &TELOSGUI::changeTheme);
+    connect(settingsWidget, &SettingsWidget::showHide, this, &TELOSGUI::showHide);
+    connect(sendWidget, &SendWidget::showHide, this, &TELOSGUI::showHide);
+    connect(receiveWidget, &ReceiveWidget::showHide, this, &TELOSGUI::showHide);
+    connect(addressesWidget, &AddressesWidget::showHide, this, &TELOSGUI::showHide);
+    connect(masterNodesWidget, &MasterNodesWidget::showHide, this, &TELOSGUI::showHide);
+    connect(masterNodesWidget, &MasterNodesWidget::execDialog, this, &TELOSGUI::execDialog);
+    connect(settingsWidget, &SettingsWidget::execDialog, this, &TELOSGUI::execDialog);
 }
 
 
-void TBPGUI::createTrayIcon(const NetworkStyle* networkStyle) {
+void TELOSGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
     QString toolTip = tr("Transcendence Core client") + " " + networkStyle->getTitleAddText();
@@ -204,7 +204,7 @@ void TBPGUI::createTrayIcon(const NetworkStyle* networkStyle) {
 }
 
 //
-TBPGUI::~TBPGUI() {
+TELOSGUI::~TELOSGUI() {
     // Unsubscribe from notifications from core
     unsubscribeFromCoreSignals();
 
@@ -218,13 +218,13 @@ TBPGUI::~TBPGUI() {
 
 
 /** Get restart command-line parameters and request restart */
-void TBPGUI::handleRestart(QStringList args){
+void TELOSGUI::handleRestart(QStringList args){
     if (!ShutdownRequested())
         emit requestedRestart(args);
 }
 
 
-void TBPGUI::setClientModel(ClientModel* clientModel) {
+void TELOSGUI::setClientModel(ClientModel* clientModel) {
     this->clientModel = clientModel;
     if(this->clientModel) {
 
@@ -261,7 +261,7 @@ void TBPGUI::setClientModel(ClientModel* clientModel) {
     }
 }
 
-void TBPGUI::createTrayIconMenu() {
+void TELOSGUI::createTrayIconMenu() {
 #ifndef Q_OS_MAC
     // return if trayIcon is unset (only on non-Mac OSes)
     if (!trayIcon)
@@ -290,7 +290,7 @@ void TBPGUI::createTrayIconMenu() {
 }
 
 #ifndef Q_OS_MAC
-void TBPGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
+void TELOSGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 {
     if (reason == QSystemTrayIcon::Trigger) {
         // Click on system tray icon triggers show/hide of the main window
@@ -299,7 +299,7 @@ void TBPGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
 }
 #endif
 
-void TBPGUI::changeEvent(QEvent* e)
+void TELOSGUI::changeEvent(QEvent* e)
 {
     QMainWindow::changeEvent(e);
 #ifndef Q_OS_MAC // Ignored on Mac
@@ -315,7 +315,7 @@ void TBPGUI::changeEvent(QEvent* e)
 #endif
 }
 
-void TBPGUI::closeEvent(QCloseEvent* event)
+void TELOSGUI::closeEvent(QCloseEvent* event)
 {
 #ifndef Q_OS_MAC // Ignored on Mac
     if (clientModel && clientModel->getOptionsModel()) {
@@ -328,7 +328,7 @@ void TBPGUI::closeEvent(QCloseEvent* event)
 }
 
 
-void TBPGUI::messageInfo(const QString& text){
+void TELOSGUI::messageInfo(const QString& text){
     if(!this->snackBar) this->snackBar = new SnackBar(this, this);
     this->snackBar->setText(text);
     this->snackBar->resize(this->width(), snackBar->height());
@@ -336,7 +336,7 @@ void TBPGUI::messageInfo(const QString& text){
 }
 
 
-void TBPGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
+void TELOSGUI::message(const QString& title, const QString& message, unsigned int style, bool* ret) {
     QString strTitle =  tr("Transcendence Core"); // default title
     // Default to information icon
     int nNotifyIcon = Notificator::Information;
@@ -394,7 +394,7 @@ void TBPGUI::message(const QString& title, const QString& message, unsigned int 
     }
 }
 
-bool TBPGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn){
+bool TELOSGUI::openStandardDialog(QString title, QString body, QString okBtn, QString cancelBtn){
     DefaultDialog *dialog;
     if (isVisible()) {
         showHide(true);
@@ -416,7 +416,7 @@ bool TBPGUI::openStandardDialog(QString title, QString body, QString okBtn, QStr
 }
 
 
-void TBPGUI::showNormalIfMinimized(bool fToggleHidden) {
+void TELOSGUI::showNormalIfMinimized(bool fToggleHidden) {
     if (!clientModel)
         return;
     // activateWindow() (sometimes) helps with keyboard focus on Windows
@@ -433,11 +433,11 @@ void TBPGUI::showNormalIfMinimized(bool fToggleHidden) {
         hide();
 }
 
-void TBPGUI::toggleHidden() {
+void TELOSGUI::toggleHidden() {
     showNormalIfMinimized(true);
 }
 
-void TBPGUI::detectShutdown() {
+void TELOSGUI::detectShutdown() {
     if (ShutdownRequested()) {
         if (rpcConsole)
             rpcConsole->hide();
@@ -445,7 +445,7 @@ void TBPGUI::detectShutdown() {
     }
 }
 
-void TBPGUI::onStartup() 
+void TELOSGUI::onStartup() 
 {
     if (topBar != nullptr &&
         topBar->getEncryptionStatus() == WalletModel::EncryptionStatus::Unencrypted)
@@ -454,45 +454,45 @@ void TBPGUI::onStartup()
     }
 }
 
-void TBPGUI::goToDashboard(){
+void TELOSGUI::goToDashboard(){
     if(stackedContainer->currentWidget() != dashboard){
         stackedContainer->setCurrentWidget(dashboard);
         topBar->showBottom();
     }
 }
 
-void TBPGUI::goToSend(){
+void TELOSGUI::goToSend(){
     showTop(sendWidget);
 }
 
-void TBPGUI::goToAddresses(){
+void TELOSGUI::goToAddresses(){
     showTop(addressesWidget);
 }
 
-void TBPGUI::goToLinks(){
+void TELOSGUI::goToLinks(){
     showTop(linksWidget);
 }
 
-void TBPGUI::goToMasterNodes(){
+void TELOSGUI::goToMasterNodes(){
     showTop(masterNodesWidget);
 }
 
-void TBPGUI::goToSettings(){
+void TELOSGUI::goToSettings(){
     showTop(settingsWidget);
 }
 
-void TBPGUI::goToReceive(){
+void TELOSGUI::goToReceive(){
     showTop(receiveWidget);
 }
 
-void TBPGUI::showTop(QWidget* view){
+void TELOSGUI::showTop(QWidget* view){
     if(stackedContainer->currentWidget() != view){
         stackedContainer->setCurrentWidget(view);
         topBar->showTop();
     }
 }
 
-void TBPGUI::changeTheme(bool isLightTheme){
+void TELOSGUI::changeTheme(bool isLightTheme){
 
     QString css = GUIUtil::loadStyleSheet();
     this->setStyleSheet(css);
@@ -504,7 +504,7 @@ void TBPGUI::changeTheme(bool isLightTheme){
     updateStyle(this);
 }
 
-void TBPGUI::resizeEvent(QResizeEvent* event){
+void TELOSGUI::resizeEvent(QResizeEvent* event){
     // Parent..
     QMainWindow::resizeEvent(event);
     // background
@@ -513,11 +513,11 @@ void TBPGUI::resizeEvent(QResizeEvent* event){
     emit windowResizeEvent(event);
 }
 
-bool TBPGUI::execDialog(QDialog *dialog, int xDiv, int yDiv){
+bool TELOSGUI::execDialog(QDialog *dialog, int xDiv, int yDiv){
     return openDialogWithOpaqueBackgroundY(dialog, this);
 }
 
-void TBPGUI::showHide(bool show){
+void TELOSGUI::showHide(bool show){
     if(!op) op = new QLabel(this);
     if(!show){
         op->setVisible(false);
@@ -544,11 +544,11 @@ void TBPGUI::showHide(bool show){
     }
 }
 
-int TBPGUI::getNavWidth(){
+int TELOSGUI::getNavWidth(){
     return this->navMenu->width();
 }
 
-void TBPGUI::openFAQ(int section){
+void TELOSGUI::openFAQ(int section){
     showHide(true);
     SettingsFaqWidget* dialog = new SettingsFaqWidget(this);
     if (section > 0) dialog->setSection(section);
@@ -558,7 +558,7 @@ void TBPGUI::openFAQ(int section){
 
 
 #ifdef ENABLE_WALLET
-bool TBPGUI::addWallet(const QString& name, WalletModel* walletModel)
+bool TELOSGUI::addWallet(const QString& name, WalletModel* walletModel)
 {
     // Single wallet supported for now..
     if(!stackedContainer || !clientModel || !walletModel)
@@ -578,12 +578,12 @@ bool TBPGUI::addWallet(const QString& name, WalletModel* walletModel)
     settingsWidget->setWalletModel(walletModel);
 
     // Connect actions..
-    connect(masterNodesWidget, &MasterNodesWidget::message, this, &TBPGUI::message);
-    connect(topBar, &TopBar::message, this, &TBPGUI::message);
-    connect(sendWidget, &SendWidget::message,this, &TBPGUI::message);
-    connect(receiveWidget, &ReceiveWidget::message,this, &TBPGUI::message);
-    connect(addressesWidget, &AddressesWidget::message,this, &TBPGUI::message);
-    connect(settingsWidget, &SettingsWidget::message, this, &TBPGUI::message);
+    connect(masterNodesWidget, &MasterNodesWidget::message, this, &TELOSGUI::message);
+    connect(topBar, &TopBar::message, this, &TELOSGUI::message);
+    connect(sendWidget, &SendWidget::message,this, &TELOSGUI::message);
+    connect(receiveWidget, &ReceiveWidget::message,this, &TELOSGUI::message);
+    connect(addressesWidget, &AddressesWidget::message,this, &TELOSGUI::message);
+    connect(settingsWidget, &SettingsWidget::message, this, &TELOSGUI::message);
 
     // Pass through transaction notifications
     connect(dashboard, SIGNAL(incomingTransaction(QString, int, CAmount, QString, QString)), this, SLOT(incomingTransaction(QString, int, CAmount, QString, QString)));
@@ -591,16 +591,16 @@ bool TBPGUI::addWallet(const QString& name, WalletModel* walletModel)
     return true;
 }
 
-bool TBPGUI::setCurrentWallet(const QString& name) {
+bool TELOSGUI::setCurrentWallet(const QString& name) {
     // Single wallet supported.
     return true;
 }
 
-void TBPGUI::removeAllWallets() {
+void TELOSGUI::removeAllWallets() {
     // Single wallet supported.
 }
 
-void TBPGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address) {
+void TELOSGUI::incomingTransaction(const QString& date, int unit, const CAmount& amount, const QString& type, const QString& address) {
     // Only send notifications when not disabled
     if(!bdisableSystemnotifications){
         // On new transaction, make an info balloon
@@ -622,7 +622,7 @@ void TBPGUI::incomingTransaction(const QString& date, int unit, const CAmount& a
 #endif // ENABLE_WALLET
 
 
-static bool ThreadSafeMessageBox(TBPGUI* gui, const std::string& message, const std::string& caption, unsigned int style)
+static bool ThreadSafeMessageBox(TELOSGUI* gui, const std::string& message, const std::string& caption, unsigned int style)
 {
     bool modal = (style & CClientUIInterface::MODAL);
     // The SECURE flag has no effect in the Qt GUI.
@@ -641,13 +641,13 @@ static bool ThreadSafeMessageBox(TBPGUI* gui, const std::string& message, const 
 }
 
 
-void TBPGUI::subscribeToCoreSignals()
+void TELOSGUI::subscribeToCoreSignals()
 {
     // Connect signals to client
     uiInterface.ThreadSafeMessageBox.connect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));
 }
 
-void TBPGUI::unsubscribeFromCoreSignals()
+void TELOSGUI::unsubscribeFromCoreSignals()
 {
     // Disconnect signals from client
     uiInterface.ThreadSafeMessageBox.disconnect(boost::bind(ThreadSafeMessageBox, this, _1, _2, _3));

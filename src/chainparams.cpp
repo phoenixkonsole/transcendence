@@ -263,9 +263,9 @@ public:
         vSeeds.clear();
      
      
-     	vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed1.TBPcoin.org"));
+     	vSeeds.push_back(CDNSSeedData("teloscoin.org", "dnsseed1.teloscoin.org"));
      	vSeeds.push_back(CDNSSeedData("88.198.37.154", "88.198.37.154"));
-		vSeeds.push_back(CDNSSeedData("TBPcoin.org", "dnsseed2.TBPcoin.org"));
+		vSeeds.push_back(CDNSSeedData("teloscoin.org", "dnsseed2.teloscoin.org"));
 		vSeeds.push_back(CDNSSeedData("85.214.205.217", "85.214.205.217"));
       	vSeeds.push_back(CDNSSeedData("159.69.33.146", "159.69.33.146"));
        	vSeeds.push_back(CDNSSeedData("159.69.33.156", "159.69.33.156"));

@@ -23,7 +23,7 @@
 #include "wallet/wallet.h"
 #endif
 #include "masternode-payments.h"
-#include "zTBP/accumulators.h"
+#include "ztelos/accumulators.h"
 #include "spork.h"
 
 #include <boost/thread.hpp>
@@ -313,7 +313,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (!view.HaveInputs(tx))
                 continue;
 
-            // double check that there are no double spent zTBP spends in this block or tx
+            // double check that there are no double spent zTELOS spends in this block or tx
             if (tx.IsZerocoinSpend()) {
                 int nHeightTx = 0;
                 if (IsTransactionInChain(tx.GetHash(), nHeightTx))
@@ -334,7 +334,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                         vTxSerials.emplace_back(spend.getCoinSerialNumber());
                     }
                 }
-                //This zTBP serial has already been included in the block, do not add this tx.
+                //This zTELOS serial has already been included in the block, do not add this tx.
                 if (fDoubleSerial)
                     continue;
             }

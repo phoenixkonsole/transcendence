@@ -7,7 +7,7 @@
 
 #include "primitives/transaction.h"
 #include "main.h"
-
+#include "spork.h"
 #include <boost/test/unit_test.hpp>
 
 BOOST_AUTO_TEST_SUITE(main_tests)
@@ -92,6 +92,14 @@ BOOST_AUTO_TEST_CASE(subsidy_limit_test)
         BOOST_CHECK(nSubsidy == 25 * COIN);
         nSum += nSubsidy;
     }
+
+    long int startHeight = (SPORK_21_SUPERBLOCK_START_DEFAULT / SPORK_21_SUPERBLOCK_PERIOD_DEFAULT + 1) * SPORK_21_SUPERBLOCK_PERIOD_DEFAULT;
+    for (int nHeight = startHeight; nHeight <= startHeight + SPORK_21_SUPERBLOCK_PERIOD_DEFAULT*10; nHeight += SPORK_21_SUPERBLOCK_PERIOD_DEFAULT) {
+        /* Masternode tiers system implemented */
+        CAmount nSubsidy = GetBlockValue(nHeight);
+        BOOST_CHECK(nSubsidy == 300000 * COIN);
+        nSum += nSubsidy;
+    }
 }
 
 BOOST_AUTO_TEST_CASE(halving_test)
@@ -102,6 +110,27 @@ BOOST_AUTO_TEST_CASE(halving_test)
     BOOST_CHECK(GetHalvingReward(1578902) == standartReward);
     BOOST_CHECK(GetHalvingReward(1578902 + 525600) == (standartReward / 2));
     BOOST_CHECK(GetHalvingReward(1578902 + 525600 + 525600 + 525600 + 525600) == (standartReward / 5));
+}
+
+BOOST_AUTO_TEST_CASE(superblock_halving_test)
+{
+    double standartReward = 300000;
+
+    BOOST_CHECK(GetSuperblockHalvingReward(0) == standartReward);
+    BOOST_CHECK(GetSuperblockHalvingReward( (SPORK_21_SUPERBLOCK_START_DEFAULT / SPORK_21_SUPERBLOCK_PERIOD_DEFAULT + 1) * SPORK_21_SUPERBLOCK_PERIOD_DEFAULT) == standartReward);
+    BOOST_CHECK(GetSuperblockHalvingReward(((SPORK_21_SUPERBLOCK_START_DEFAULT + 525600) / SPORK_21_SUPERBLOCK_PERIOD_DEFAULT + 1) * SPORK_21_SUPERBLOCK_PERIOD_DEFAULT) == (standartReward / 2));
+    BOOST_CHECK(GetSuperblockHalvingReward(((SPORK_21_SUPERBLOCK_START_DEFAULT + 525600 * 4) / SPORK_21_SUPERBLOCK_PERIOD_DEFAULT + 1) * SPORK_21_SUPERBLOCK_PERIOD_DEFAULT) == (standartReward / 5));
+}
+
+BOOST_AUTO_TEST_CASE(masternode_payment_test)
+{
+    const int nMasternodeCount = 5
+    int64_t blockValue = 200
+    BOOST_CHECK(GetMasternodePayment(100, blockValue, nMasternodeCount) == 0);
+    BOOST_CHECK(GetMasternodePayment(SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT, blockValue, nMasternodeCount) == blockValue / 100 * 90);
+    BOOST_CHECK(GetMasternodePayment(SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT - 1, blockValue, nMasternodeCount) == blockValue / 100 * 80);
+    BOOST_CHECK(GetMasternodePayment(SPORK_21_SUPERBLOCK_START_DEFAULT - 1, blockValue, nMasternodeCount) == blockValue / 100 * 70);
+    BOOST_CHECK(GetMasternodePayment(SPORK_21_SUPERBLOCK_START_DEFAULT, blockValue, nMasternodeCount) == 0);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

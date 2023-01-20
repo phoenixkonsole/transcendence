@@ -59,6 +59,16 @@ BOOST_AUTO_TEST_CASE(test_tier_from_outputs_new_tiers)
     TierFromOutputTest(tiers, isMastermodeOutput, SPORK_17_MASTERNODE_PAYMENT_CHECK_DEFAULT);
 }
 
+BOOST_AUTO_TEST_CASE(test_tier_from_outputs_truncated_tiers)
+{
+    unsigned int tiers[MasternodeTiers::TIER_NONE] = {MasternodeTiers::TIER_1K,
+                                                      MasternodeTiers::TIER_3K, MasternodeTiers::TIER_10K, MasternodeTiers::TIER_30K,
+                                                      MasternodeTiers::TIER_100K, MasternodeTiers::TIER_300K, MasternodeTiers::TIER_1KK,
+                                                      MasternodeTiers::TIER_3KK, MasternodeTiers::TIER_10KK};
+    bool isMastermodeOutput[MasternodeTiers::TIER_NONE] = {false, false, true, true, true, true, true, false, false};
+    TierFromOutputTest(tiers, isMastermodeOutput, SPORK_21_SUPERBLOCK_START_DEFAULT);
+}
+
 BOOST_AUTO_TEST_CASE(test_masternode_coins)
 {
     BOOST_CHECK_EQUAL(GetMastenodeTierCoins(MasternodeTiers::TIER_1K), 1000);
@@ -179,6 +189,17 @@ BOOST_AUTO_TEST_CASE(test_winning_tier_new_tiers)
                                            MasternodeTiers::TIER_300K, MasternodeTiers::TIER_1KK, MasternodeTiers::TIER_1KK,
                                            MasternodeTiers::TIER_3KK, MasternodeTiers::TIER_3KK, MasternodeTiers::TIER_10KK,
                                            MasternodeTiers::TIER_10KK};
+    WinningTierTest(vecTierSizes, vecBlockNumbers, vecTiers);
+}
+
+BOOST_AUTO_TEST_CASE(test_winning_tier_truncated_tiers)
+{
+    std::vector<size_t> vecTierSizes = {0, 0, 100, 40, 20, 10, 5, 0, 0}; 
+    std::vector<int> vecBlockNumbers = {115, 116, 256, 257, 491, 492, 845, 846, 1437, 1438};
+    std::vector<unsigned int> vecTiers = {MasternodeTiers::TIER_10K, MasternodeTiers::TIER_10K,  MasternodeTiers::TIER_30K,
+                                           MasternodeTiers::TIER_30K, MasternodeTiers::TIER_100K, MasternodeTiers::TIER_100K,
+                                           MasternodeTiers::TIER_300K, MasternodeTiers::TIER_300K, MasternodeTiers::TIER_1KK,
+                                           MasternodeTiers::TIER_1KK};
     WinningTierTest(vecTierSizes, vecBlockNumbers, vecTiers);
 }
 

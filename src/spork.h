@@ -65,7 +65,7 @@ using namespace boost;
 #define SPORK_19_LOWERED_MASTERNODE_PAYMENT_DEFAULT 1276502       //block height
 #define SPORK_20_REWARD_HALVING_START_DEFAULT 1578902             //block height
 #define SPORK_20_REWARD_HALVING_PERIOD_DEFAULT 525600             //blocks count
-#define SPORK_21_REWARD_INCREASE_START_DEFAULT 2505950            //block height
+#define SPORK_21_REWARD_INCREASE_START_DEFAULT 2506950            //block height
 
 class CSporkMessage;
 class CSporkManager;
